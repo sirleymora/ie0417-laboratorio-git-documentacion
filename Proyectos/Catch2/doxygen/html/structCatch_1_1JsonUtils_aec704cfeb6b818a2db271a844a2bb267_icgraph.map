@@ -1,0 +1,9 @@
+<map id="Catch::JsonUtils::appendCommaNewline" name="Catch::JsonUtils::appendCommaNewline">
+<area shape="rect" id="Node000001" title=" " alt="" coords="229,69,409,109"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1JsonObjectWriter.html#a8d01f3ce1de7ee663e033b039484c6e3" title=" " alt="" coords="5,5,181,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,68,164,48,165,43,235,63"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1JsonArrayWriter.html#a1ba9c807ddfef9827c08573f8fb74b0f" title=" " alt="" coords="9,69,178,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,92,178,92,178,87,216,87"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1JsonArrayWriter.html#a18541b938a5d8886424778ab2ef070dd" title=" " alt="" coords="9,133,178,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="235,116,165,136,164,131,234,111"/>
+</map>

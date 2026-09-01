@@ -1,0 +1,108 @@
+\doxysection{Catch\+::Test\+Case\+Tracking\+::Name\+And\+Location\+Ref Struct Reference}
+\hypertarget{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef}{}\label{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef}\index{Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}}
+
+
+{\ttfamily \#include $<$catch\+\_\+test\+\_\+case\+\_\+tracker.\+hpp$>$}
+
+
+
+Collaboration diagram for Catch\+::Test\+Case\+Tracking\+::Name\+And\+Location\+Ref\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a63037f4c4593abd6d3b9d13a97241654}{Name\+And\+Location\+Ref}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} name\+\_\+ \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} location\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a0eff9c1e9a5a9e6cb4af208a43eea8ce}{name}}
+\item 
+\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_ad97e59d4edef3b93b7fb814c2cdc61a4}{location}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a2a4d6d1e3bca246e09a041e6cbdb07e3}{operator==}} (\mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocation}{Name\+And\+Location}} const \&lhs, \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef}{Name\+And\+Location\+Ref}} const \&rhs)
+\item 
+bool \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a4eb22daa55be90acd3be31b782617040}{operator==}} (\mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef}{Name\+And\+Location\+Ref}} const \&lhs, \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocation}{Name\+And\+Location}} const \&rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a variant of {\ttfamily \doxylink{structCatch_1_1TestCaseTracking_1_1NameAndLocation}{Name\+And\+Location}} that does not own the name string
+
+This avoids extra allocations when trying to locate a tracker by its name and location, as long as we make sure that trackers only keep around the owning variant. 
+
+Definition at line \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{catch__test__case__tracker_8hpp_source}{catch\+\_\+test\+\_\+case\+\_\+tracker.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a63037f4c4593abd6d3b9d13a97241654}\label{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a63037f4c4593abd6d3b9d13a97241654} 
+\index{Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}!NameAndLocationRef@{NameAndLocationRef}}
+\index{NameAndLocationRef@{NameAndLocationRef}!Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}}
+\doxysubsubsection{\texorpdfstring{NameAndLocationRef()}{NameAndLocationRef()}}
+{\footnotesize\ttfamily constexpr Catch\+::\+Test\+Case\+Tracking\+::\+Name\+And\+Location\+Ref\+::\+Name\+And\+Location\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} name\+\_\+}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}}}]{location\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{catch__test__case__tracker_8hpp_source}{catch\+\_\+test\+\_\+case\+\_\+tracker.\+hpp}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a2a4d6d1e3bca246e09a041e6cbdb07e3}\label{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a2a4d6d1e3bca246e09a041e6cbdb07e3} 
+\index{Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}!operator==@{operator==}}
+\index{operator==@{operator==}!Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocation}{Name\+And\+Location}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef}{Name\+And\+Location\+Ref}} const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{catch__test__case__tracker_8hpp_source}{catch\+\_\+test\+\_\+case\+\_\+tracker.\+hpp}}.
+
+\Hypertarget{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a4eb22daa55be90acd3be31b782617040}\label{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a4eb22daa55be90acd3be31b782617040} 
+\index{Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}!operator==@{operator==}}
+\index{operator==@{operator==}!Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef}{Name\+And\+Location\+Ref}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocation}{Name\+And\+Location}} const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00070}{70}} of file \mbox{\hyperlink{catch__test__case__tracker_8hpp_source}{catch\+\_\+test\+\_\+case\+\_\+tracker.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_ad97e59d4edef3b93b7fb814c2cdc61a4}\label{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_ad97e59d4edef3b93b7fb814c2cdc61a4} 
+\index{Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}!location@{location}}
+\index{location@{location}!Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}}
+\doxysubsubsection{\texorpdfstring{location}{location}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} Catch\+::\+Test\+Case\+Tracking\+::\+Name\+And\+Location\+Ref\+::location}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{catch__test__case__tracker_8hpp_source}{catch\+\_\+test\+\_\+case\+\_\+tracker.\+hpp}}.
+
+\Hypertarget{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a0eff9c1e9a5a9e6cb4af208a43eea8ce}\label{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef_a0eff9c1e9a5a9e6cb4af208a43eea8ce} 
+\index{Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}!name@{name}}
+\index{name@{name}!Catch::TestCaseTracking::NameAndLocationRef@{Catch::TestCaseTracking::NameAndLocationRef}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} Catch\+::\+Test\+Case\+Tracking\+::\+Name\+And\+Location\+Ref\+::name}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{catch__test__case__tracker_8hpp_source}{catch\+\_\+test\+\_\+case\+\_\+tracker.\+hpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__test__case__tracker_8hpp}{catch\+\_\+test\+\_\+case\+\_\+tracker.\+hpp}}\end{DoxyCompactItemize}

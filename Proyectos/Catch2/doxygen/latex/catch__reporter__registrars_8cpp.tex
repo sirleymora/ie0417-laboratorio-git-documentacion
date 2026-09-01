@@ -1,0 +1,27 @@
+\doxysection{src/catch2/reporters/catch\+\_\+reporter\+\_\+registrars.cpp File Reference}
+\hypertarget{catch__reporter__registrars_8cpp}{}\label{catch__reporter__registrars_8cpp}\index{src/catch2/reporters/catch\_reporter\_registrars.cpp@{src/catch2/reporters/catch\_reporter\_registrars.cpp}}
+{\ttfamily \#include $<$catch2/reporters/catch\+\_\+reporter\+\_\+registrars.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+registry\+\_\+hub.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compiler\+\_\+capabilities.\+hpp$>$}\newline
+Include dependency graph for catch\+\_\+reporter\+\_\+registrars.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__reporter__registrars_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_af8703a4eaf12133aa02a50dee831f2bc}{Catch\+::\+Detail\+::register\+Reporter\+Impl}} (std\+::string const \&name, \mbox{\hyperlink{namespaceCatch_ae3dfb69314dff5b79fcb517a9cb8803e}{IReporter\+Factory\+Ptr}} reporter\+Ptr)
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_aae9b0608769b42ff7bbd07687348c7e5}{Catch\+::\+Detail\+::register\+Listener\+Impl}} (\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1EventListenerFactory}{Event\+Listener\+Factory}} $>$ listener\+Factory)
+\begin{DoxyCompactList}\small\item\em Actually registers the factory, independent on listener\textquotesingle{}s concrete type. \end{DoxyCompactList}\end{DoxyCompactItemize}

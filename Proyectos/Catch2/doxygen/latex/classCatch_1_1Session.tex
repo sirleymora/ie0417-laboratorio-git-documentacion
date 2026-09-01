@@ -1,0 +1,373 @@
+\doxysection{Catch\+::Session Class Reference}
+\hypertarget{classCatch_1_1Session}{}\label{classCatch_1_1Session}\index{Catch::Session@{Catch::Session}}
+
+
+{\ttfamily \#include $<$catch\+\_\+session.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::Session\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classCatch_1_1Session__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Catch\+::Session\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classCatch_1_1Session__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Session_a4564992e2b028770e38a1dcc6fff8b34}{Session}} ()
+\item 
+\mbox{\hyperlink{classCatch_1_1Session_a48797df68b243a74f42797146cfbd6f3}{\texorpdfstring{$\sim$}{\string~}\+Session}} ()
+\item 
+void \mbox{\hyperlink{classCatch_1_1Session_a4286263c17b16c3ea9d0632bd4f8eaee}{show\+Help}} () const
+\item 
+void \mbox{\hyperlink{classCatch_1_1Session_ac28e293014007bbd9f6383c2d5daa1e4}{lib\+Identify}} ()
+\item 
+int \mbox{\hyperlink{classCatch_1_1Session_af890db02c69e36356ac9f8be4084c464}{apply\+Command\+Line}} (int argc, char const \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}argv)
+\item 
+void \mbox{\hyperlink{classCatch_1_1Session_a122417ed44bfa29a229941b1e12b91a3}{use\+Config\+Data}} (\mbox{\hyperlink{structCatch_1_1ConfigData}{Config\+Data}} const \&\mbox{\hyperlink{classCatch_1_1Session_aadb20e3b2955209aaab3126c0c3da7a6}{config\+Data}})
+\item 
+{\footnotesize template$<$typename CharT $>$ }\\int \mbox{\hyperlink{classCatch_1_1Session_a8c82b89613ebd99f1ba1a3f7b634e571}{run}} (int argc, CharT const \texorpdfstring{$\ast$}{*}const argv\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{classCatch_1_1Session_a0232a6c37ad5b5064a2462eedf13a9be}{run}} ()
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Parser}{Clara\+::\+Parser}} const \& \mbox{\hyperlink{classCatch_1_1Session_ac66d86b564a1d807b6a13fd13b2c50ee}{cli}} () const
+\item 
+void \mbox{\hyperlink{classCatch_1_1Session_abaa730f046f2e35a512b796b65758acc}{cli}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Parser}{Clara\+::\+Parser}} const \&new\+Parser)
+\item 
+\mbox{\hyperlink{structCatch_1_1ConfigData}{Config\+Data}} \& \mbox{\hyperlink{classCatch_1_1Session_aadb20e3b2955209aaab3126c0c3da7a6}{config\+Data}} ()
+\item 
+\mbox{\hyperlink{classCatch_1_1Config}{Config}} \& \mbox{\hyperlink{classCatch_1_1Session_afac375cd0ef4715b09924575d88fdc13}{config}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__session_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{catch__session_8hpp_source}{catch\+\_\+session.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1Session_a4564992e2b028770e38a1dcc6fff8b34}\label{classCatch_1_1Session_a4564992e2b028770e38a1dcc6fff8b34} 
+\index{Catch::Session@{Catch::Session}!Session@{Session}}
+\index{Session@{Session}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{Session()}{Session()}}
+{\footnotesize\ttfamily Catch\+::\+Session\+::\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00192}{192}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00458}{CATCH\+\_\+\+CATCH\+\_\+\+ALL}}, \mbox{\hyperlink{catch__enforce_8hpp_source_l00041}{CATCH\+\_\+\+INTERNAL\+\_\+\+ERROR}}, \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00457}{CATCH\+\_\+\+TRY}}, \mbox{\hyperlink{catch__session_8cpp_source_l00325}{config()}}, \mbox{\hyperlink{catch__context_8cpp_source_l00015}{Catch\+::get\+Current\+Mutable\+Context()}}, \mbox{\hyperlink{catch__startup__exception__registry_8cpp_source_l00024}{Catch\+::\+Startup\+Exception\+Registry\+::get\+Exceptions()}}, \mbox{\hyperlink{catch__registry__hub_8cpp_source_l00093}{Catch\+::get\+Mutable\+Registry\+Hub()}}, \mbox{\hyperlink{catch__registry__hub_8cpp_source_l00090}{Catch\+::get\+Registry\+Hub()}}, \mbox{\hyperlink{classCatch_1_1IRegistryHub_a6a1810bb78ba99c3be091958bcc12f29}{Catch\+::\+IRegistry\+Hub\+::get\+Startup\+Exception\+Registry()}}, \mbox{\hyperlink{catch__textflow_8hpp_source_l00216}{Catch\+::\+Text\+Flow\+::\+Column\+::indent()}}, \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, \mbox{\hyperlink{catch__istream_8cpp_source_l00134}{Catch\+::make\+Stream()}}, \mbox{\hyperlink{namespaceCatch_a91308e87521e370e591065a22b010025a896ac0b4a6597d34fee67269b1d50a7f}{Catch\+::\+Platform\+Default}}, \mbox{\hyperlink{catch__console__colour_8hpp_source_l00026}{Catch\+::\+Colour\+::\+Red}}, \mbox{\hyperlink{classCatch_1_1IMutableRegistryHub_a72a7d5386851ac3200f8da794a009c86}{Catch\+::\+IMutable\+Registry\+Hub\+::register\+Startup\+Exception()}}, and \mbox{\hyperlink{catch__context_8hpp_source_l00034}{Catch\+::\+Context\+::set\+Config()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_a4564992e2b028770e38a1dcc6fff8b34_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Session_a48797df68b243a74f42797146cfbd6f3}\label{classCatch_1_1Session_a48797df68b243a74f42797146cfbd6f3} 
+\index{Catch::Session@{Catch::Session}!````~Session@{\texorpdfstring{$\sim$}{\string~}Session}}
+\index{````~Session@{\texorpdfstring{$\sim$}{\string~}Session}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Session()}{\string~Session()}}
+{\footnotesize\ttfamily Catch\+::\+Session\+::\texorpdfstring{$\sim$}{\string~}\+Session (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00226}{226}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__registry__hub_8cpp_source_l00096}{Catch\+::clean\+Up()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_a48797df68b243a74f42797146cfbd6f3_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1Session_af890db02c69e36356ac9f8be4084c464}\label{classCatch_1_1Session_af890db02c69e36356ac9f8be4084c464} 
+\index{Catch::Session@{Catch::Session}!applyCommandLine@{applyCommandLine}}
+\index{applyCommandLine@{applyCommandLine}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{applyCommandLine()}{applyCommandLine()}}
+{\footnotesize\ttfamily int Catch\+::\+Session\+::apply\+Command\+Line (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00244}{244}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__session_8cpp_source_l00325}{config()}}, \mbox{\hyperlink{catch__context_8cpp_source_l00015}{Catch\+::get\+Current\+Mutable\+Context()}}, \mbox{\hyperlink{catch__textflow_8hpp_source_l00216}{Catch\+::\+Text\+Flow\+::\+Column\+::indent()}}, \mbox{\hyperlink{catch__config_8hpp_source_l00061}{Catch\+::\+Config\+Data\+::lib\+Identify}}, \mbox{\hyperlink{catch__session_8cpp_source_l00236}{lib\+Identify()}}, \mbox{\hyperlink{catch__istream_8cpp_source_l00134}{Catch\+::make\+Stream()}}, \mbox{\hyperlink{catch__clara_8cpp_source_l00395}{Catch\+::\+Clara\+::\+Parser\+::parse()}}, \mbox{\hyperlink{namespaceCatch_a91308e87521e370e591065a22b010025a896ac0b4a6597d34fee67269b1d50a7f}{Catch\+::\+Platform\+Default}}, \mbox{\hyperlink{catch__console__colour_8hpp_source_l00026}{Catch\+::\+Colour\+::\+Red}}, \mbox{\hyperlink{catch__context_8hpp_source_l00034}{Catch\+::\+Context\+::set\+Config()}}, \mbox{\hyperlink{catch__config_8hpp_source_l00058}{Catch\+::\+Config\+Data\+::show\+Help}}, \mbox{\hyperlink{catch__session_8cpp_source_l00230}{show\+Help()}}, and \mbox{\hyperlink{catch__session_8hpp_source_l00020}{Catch\+::\+Unspecified\+Error\+Exit\+Code}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__session_8hpp_source_l00044}{run()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_af890db02c69e36356ac9f8be4084c464_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_af890db02c69e36356ac9f8be4084c464_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Session_ac66d86b564a1d807b6a13fd13b2c50ee}\label{classCatch_1_1Session_ac66d86b564a1d807b6a13fd13b2c50ee} 
+\index{Catch::Session@{Catch::Session}!cli@{cli}}
+\index{cli@{cli}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{cli()}{cli()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Clara_1_1Parser}{Clara\+::\+Parser}} const  \& Catch\+::\+Session\+::cli (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00316}{316}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+\Hypertarget{classCatch_1_1Session_abaa730f046f2e35a512b796b65758acc}\label{classCatch_1_1Session_abaa730f046f2e35a512b796b65758acc} 
+\index{Catch::Session@{Catch::Session}!cli@{cli}}
+\index{cli@{cli}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{cli()}{cli()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Catch\+::\+Session\+::cli (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Clara_1_1Parser}{Clara\+::\+Parser}} const \&}]{new\+Parser }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00319}{319}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+\Hypertarget{classCatch_1_1Session_afac375cd0ef4715b09924575d88fdc13}\label{classCatch_1_1Session_afac375cd0ef4715b09924575d88fdc13} 
+\index{Catch::Session@{Catch::Session}!config@{config}}
+\index{config@{config}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{config()}{config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Config}{Config}} \& Catch\+::\+Session\+::config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00325}{325}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__session_8cpp_source_l00244}{apply\+Command\+Line()}}, and \mbox{\hyperlink{catch__session_8cpp_source_l00192}{Session()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_afac375cd0ef4715b09924575d88fdc13_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Session_aadb20e3b2955209aaab3126c0c3da7a6}\label{classCatch_1_1Session_aadb20e3b2955209aaab3126c0c3da7a6} 
+\index{Catch::Session@{Catch::Session}!configData@{configData}}
+\index{configData@{configData}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{configData()}{configData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1ConfigData}{Config\+Data}} \& Catch\+::\+Session\+::config\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00322}{322}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__session_8cpp_source_l00297}{use\+Config\+Data()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_aadb20e3b2955209aaab3126c0c3da7a6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Session_ac28e293014007bbd9f6383c2d5daa1e4}\label{classCatch_1_1Session_ac28e293014007bbd9f6383c2d5daa1e4} 
+\index{Catch::Session@{Catch::Session}!libIdentify@{libIdentify}}
+\index{libIdentify@{libIdentify}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{libIdentify()}{libIdentify()}}
+{\footnotesize\ttfamily void Catch\+::\+Session\+::lib\+Identify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00236}{236}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__stdstreams_8cpp_source_l00019}{Catch\+::cout()}}, and \mbox{\hyperlink{catch__version_8cpp_source_l00038}{Catch\+::library\+Version()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__session_8cpp_source_l00244}{apply\+Command\+Line()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_ac28e293014007bbd9f6383c2d5daa1e4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_ac28e293014007bbd9f6383c2d5daa1e4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Session_a0232a6c37ad5b5064a2462eedf13a9be}\label{classCatch_1_1Session_a0232a6c37ad5b5064a2462eedf13a9be} 
+\index{Catch::Session@{Catch::Session}!run@{run}}
+\index{run@{run}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Catch\+::\+Session\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00302}{302}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__interfaces__config_8hpp_source_l00059}{Catch\+::\+Wait\+For\+Keypress\+::\+Before\+Exit}}, \mbox{\hyperlink{catch__interfaces__config_8hpp_source_l00058}{Catch\+::\+Wait\+For\+Keypress\+::\+Before\+Start}}, \mbox{\hyperlink{catch__stdstreams_8cpp_source_l00019}{Catch\+::cout()}}, and \mbox{\hyperlink{catch__config_8hpp_source_l00084}{Catch\+::\+Config\+Data\+::wait\+For\+Keypress}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__session_8hpp_source_l00044}{run()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{classCatch_1_1Session_a0232a6c37ad5b5064a2462eedf13a9be_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_a0232a6c37ad5b5064a2462eedf13a9be_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Session_a8c82b89613ebd99f1ba1a3f7b634e571}\label{classCatch_1_1Session_a8c82b89613ebd99f1ba1a3f7b634e571} 
+\index{Catch::Session@{Catch::Session}!run@{run}}
+\index{run@{run}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename CharT $>$ \\
+int Catch\+::\+Session\+::run (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{CharT const \texorpdfstring{$\ast$}{*}const}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{catch__session_8hpp_source}{catch\+\_\+session.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__session_8cpp_source_l00244}{apply\+Command\+Line()}}, and \mbox{\hyperlink{catch__session_8cpp_source_l00302}{run()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__main_8cpp_source_l00029}{main()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_a8c82b89613ebd99f1ba1a3f7b634e571_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{classCatch_1_1Session_a8c82b89613ebd99f1ba1a3f7b634e571_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Session_a4286263c17b16c3ea9d0632bd4f8eaee}\label{classCatch_1_1Session_a4286263c17b16c3ea9d0632bd4f8eaee} 
+\index{Catch::Session@{Catch::Session}!showHelp@{showHelp}}
+\index{showHelp@{showHelp}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{showHelp()}{showHelp()}}
+{\footnotesize\ttfamily void Catch\+::\+Session\+::show\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00230}{230}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__stdstreams_8cpp_source_l00019}{Catch\+::cout()}}, and \mbox{\hyperlink{catch__version_8cpp_source_l00038}{Catch\+::library\+Version()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__session_8cpp_source_l00244}{apply\+Command\+Line()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_a4286263c17b16c3ea9d0632bd4f8eaee_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_a4286263c17b16c3ea9d0632bd4f8eaee_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Session_a122417ed44bfa29a229941b1e12b91a3}\label{classCatch_1_1Session_a122417ed44bfa29a229941b1e12b91a3} 
+\index{Catch::Session@{Catch::Session}!useConfigData@{useConfigData}}
+\index{useConfigData@{useConfigData}!Catch::Session@{Catch::Session}}
+\doxysubsubsection{\texorpdfstring{useConfigData()}{useConfigData()}}
+{\footnotesize\ttfamily void Catch\+::\+Session\+::use\+Config\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1ConfigData}{Config\+Data}} const \&}]{config\+Data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__session_8cpp_source_l00297}{297}} of file \mbox{\hyperlink{catch__session_8cpp_source}{catch\+\_\+session.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__session_8cpp_source_l00322}{config\+Data()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Session_a122417ed44bfa29a229941b1e12b91a3_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/\mbox{\hyperlink{catch__session_8hpp}{catch\+\_\+session.\+hpp}}\item 
+src/catch2/\mbox{\hyperlink{catch__session_8cpp}{catch\+\_\+session.\+cpp}}\end{DoxyCompactItemize}

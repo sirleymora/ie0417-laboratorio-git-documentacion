@@ -1,0 +1,97 @@
+\doxysection{catch\+\_\+reporter\+\_\+registry.\+cpp}
+\hypertarget{catch__reporter__registry_8cpp_source}{}\label{catch__reporter__registry_8cpp_source}\index{src/catch2/internal/catch\_reporter\_registry.cpp@{src/catch2/internal/catch\_reporter\_registry.cpp}}
+\mbox{\hyperlink{catch__reporter__registry_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__reporter__factory_8hpp}{catch2/interfaces/catch\_interfaces\_reporter\_factory.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__enforce_8hpp}{catch2/internal/catch\_enforce.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__move__and__forward_8hpp}{catch2/internal/catch\_move\_and\_forward.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__registry_8hpp}{catch2/internal/catch\_reporter\_registry.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__automake_8hpp}{catch2/reporters/catch\_reporter\_automake.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__compact_8hpp}{catch2/reporters/catch\_reporter\_compact.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__console_8hpp}{catch2/reporters/catch\_reporter\_console.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__json_8hpp}{catch2/reporters/catch\_reporter\_json.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__junit_8hpp}{catch2/reporters/catch\_reporter\_junit.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__registrars_8hpp}{catch2/reporters/catch\_reporter\_registrars.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__sonarqube_8hpp}{catch2/reporters/catch\_reporter\_sonarqube.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__tap_8hpp}{catch2/reporters/catch\_reporter\_tap.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__teamcity_8hpp}{catch2/reporters/catch\_reporter\_teamcity.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__xml_8hpp}{catch2/reporters/catch\_reporter\_xml.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00024}00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00025}\mbox{\hyperlink{structCatch_1_1ReporterRegistry_1_1ReporterRegistryImpl}{00025}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCatch_1_1ReporterRegistry_1_1ReporterRegistryImpl}{ReporterRegistry::ReporterRegistryImpl}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00026}\mbox{\hyperlink{structCatch_1_1ReporterRegistry_1_1ReporterRegistryImpl_ad2f2ba467a050b84a11ce657280ea35c}{00026}}\ \ \ \ \ \ \ \ \ std::vector<Detail::unique\_ptr<EventListenerFactory>>\ \mbox{\hyperlink{structCatch_1_1ReporterRegistry_1_1ReporterRegistryImpl_ad2f2ba467a050b84a11ce657280ea35c}{listeners}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ std::map<std::string,\ IReporterFactoryPtr,\ Detail::CaseInsensitiveLess>}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00028}\mbox{\hyperlink{structCatch_1_1ReporterRegistry_1_1ReporterRegistryImpl_ae200d7213c95d056fad5ca997401d293}{00028}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ReporterRegistry_1_1ReporterRegistryImpl_ae200d7213c95d056fad5ca997401d293}{factories}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00029}00029\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00031}\mbox{\hyperlink{classCatch_1_1ReporterRegistry_aaa6ef352d1a38c1079c63929519e2d2c}{00031}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReporterRegistry_aaa6ef352d1a38c1079c63929519e2d2c}{ReporterRegistry::ReporterRegistry}}():}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ m\_impl(\ Detail::make\_unique<\mbox{\hyperlink{structCatch_1_1ReporterRegistry_1_1ReporterRegistryImpl}{ReporterRegistryImpl}}>()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Because\ it\ is\ impossible\ to\ move\ out\ of\ initializer\ list,}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ have\ to\ add\ the\ elements\ manually}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ m\_impl-\/>factories[\textcolor{stringliteral}{"{}Automake"{}}]\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::make\_unique<ReporterFactory<AutomakeReporter>>();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ m\_impl-\/>factories[\textcolor{stringliteral}{"{}compact"{}}]\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::make\_unique<ReporterFactory<CompactReporter>>();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ m\_impl-\/>factories[\textcolor{stringliteral}{"{}console"{}}]\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::make\_unique<ReporterFactory<ConsoleReporter>>();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ m\_impl-\/>factories[\textcolor{stringliteral}{"{}JUnit"{}}]\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::make\_unique<ReporterFactory<JunitReporter>>();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ m\_impl-\/>factories[\textcolor{stringliteral}{"{}SonarQube"{}}]\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::make\_unique<ReporterFactory<SonarQubeReporter>>();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ m\_impl-\/>factories[\textcolor{stringliteral}{"{}TAP"{}}]\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::make\_unique<ReporterFactory<TAPReporter>>();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ m\_impl-\/>factories[\textcolor{stringliteral}{"{}TeamCity"{}}]\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::make\_unique<ReporterFactory<TeamCityReporter>>();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ m\_impl-\/>factories[\textcolor{stringliteral}{"{}XML"{}}]\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::make\_unique<ReporterFactory<XmlReporter>>();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ m\_impl-\/>factories[\textcolor{stringliteral}{"{}JSON"{}}]\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::make\_unique<ReporterFactory<JsonReporter>>();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReporterRegistry_a65492e229e86f757592f3a69b0630d18}{ReporterRegistry::\string~ReporterRegistry}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{IEventListenerPtr}}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00058}\mbox{\hyperlink{classCatch_1_1ReporterRegistry_ad6e4313f82dc83b608449731391bb7f2}{00058}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReporterRegistry_ad6e4313f82dc83b608449731391bb7f2}{ReporterRegistry::create}}(\ std::string\ \textcolor{keyword}{const}\&\ name,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ReporterConfig}{ReporterConfig}}\&\&\ config\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ m\_impl-\/>factories.find(\ name\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ it\ ==\ m\_impl-\/>factories.end()\ )\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it-\/>second-\/>create(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ config\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00065}\mbox{\hyperlink{classCatch_1_1ReporterRegistry_aab7c9862106fd2d3dd5d3dc8d72338c6}{00065}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1ReporterRegistry_aab7c9862106fd2d3dd5d3dc8d72338c6}{ReporterRegistry::registerReporter}}(\ std::string\ \textcolor{keyword}{const}\&\ name,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{IReporterFactoryPtr}}\ factory\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\_ENFORCE}}(\ name.find(\ \textcolor{stringliteral}{"{}::"{}}\ )\ ==\ name.npos,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}'::'\ is\ not\ allowed\ in\ reporter\ name:\ '"{}}\ +\ name\ +}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'\(\backslash\)''}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ret\ =\ m\_impl-\/>factories.emplace(\ name,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ factory\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\_ENFORCE}}(\ ret.second,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}reporter\ using\ '"{}}\ +\ name\ +}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}'\ as\ name\ was\ already\ registered"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00075}\mbox{\hyperlink{classCatch_1_1ReporterRegistry_a6752c283bd4ecf0ced502f73382ea8ef}{00075}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1ReporterRegistry_a6752c283bd4ecf0ced502f73382ea8ef}{ReporterRegistry::registerListener}}(}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail::unique\_ptr<EventListenerFactory>}}\ factory\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ m\_impl-\/>listeners.push\_back(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ factory\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00080}00080\ \ \ \ \ std::map<std::string,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_ae3dfb69314dff5b79fcb517a9cb8803e}{IReporterFactoryPtr}},}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Detail_1_1CaseInsensitiveLess}{Detail::CaseInsensitiveLess}}>\ \textcolor{keyword}{const}\&}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00083}\mbox{\hyperlink{classCatch_1_1ReporterRegistry_a4d2e80a3a3ed404006d28df69bac4239}{00083}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReporterRegistry_a4d2e80a3a3ed404006d28df69bac4239}{ReporterRegistry::getFactories}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_impl-\/>factories;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00087}00087\ \ \ \ \ std::vector<Detail::unique\_ptr<EventListenerFactory>>\ \textcolor{keyword}{const}\&}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00088}\mbox{\hyperlink{classCatch_1_1ReporterRegistry_a032d92b84a5d1aa1528bacf17737ec94}{00088}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReporterRegistry_a032d92b84a5d1aa1528bacf17737ec94}{ReporterRegistry::getListeners}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_impl-\/>listeners;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__registry_8cpp_source_l00091}00091\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+
+\end{DoxyCode}

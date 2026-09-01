@@ -1,0 +1,11 @@
+<map id="Catch::JunitReporter::testRunEndedCumulative" name="Catch::JunitReporter::testRunEndedCumulative">
+<area shape="rect" id="Node000001" title="Customization point: called after last test finishes (testRunEnded has been handled)" alt="" coords="5,27,200,67"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlWriter.html#a548009dad62cd446371e0b76775ce657" title=" " alt="" coords="248,5,467,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,33,234,29,235,35,201,39"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Timer.html#a065e37e3c9eb16bd4dcf41971d8deedc" title=" " alt="" coords="265,55,450,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,55,251,61,251,66,200,61"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1Timer.html#a545de17a61a6fee1dbe3de5b0723e5fa" title=" " alt="" coords="515,55,700,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="450,73,501,73,501,78,450,78"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1Timer.html#a57be5d17ca868a2d6fb1eea84de665cf" title=" " alt="" coords="748,55,933,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="700,73,734,73,734,78,700,78"/>
+</map>

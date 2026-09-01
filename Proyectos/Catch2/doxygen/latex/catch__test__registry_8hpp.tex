@@ -1,0 +1,228 @@
+\doxysection{src/catch2/internal/catch\+\_\+test\+\_\+registry.hpp File Reference}
+\hypertarget{catch__test__registry_8hpp}{}\label{catch__test__registry_8hpp}\index{src/catch2/internal/catch\_test\_registry.hpp@{src/catch2/internal/catch\_test\_registry.hpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+config\+\_\+static\+\_\+analysis\+\_\+support.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+source\+\_\+line\+\_\+info.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+noncopyable.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+test\+\_\+invoker.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+stringref.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+unique\+\_\+ptr.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+unique\+\_\+name.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+preprocessor\+\_\+remove\+\_\+parens.\+hpp$>$}\newline
+Include dependency graph for catch\+\_\+test\+\_\+registry.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__test__registry_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__test__registry_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1TestInvokerAsMethod}{Catch\+::\+Test\+Invoker\+As\+Method$<$ C $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1TestInvokerFixture}{Catch\+::\+Test\+Invoker\+Fixture$<$ C $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1NameAndTags}{Catch\+::\+Name\+And\+Tags}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1AutoReg}{Catch\+::\+Auto\+Reg}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__test__registry_8hpp_a33905c95a4d545efcf34abfbf790ad9c}{INTERNAL\+\_\+\+CATCH\+\_\+\+TESTCASE2}}(Test\+Name, ...)
+\item 
+\#define \mbox{\hyperlink{catch__test__registry_8hpp_a83f221452b6494c1eb0ae9bab79faa3c}{INTERNAL\+\_\+\+CATCH\+\_\+\+TESTCASE}}(...)~        \mbox{\hyperlink{catch__test__registry_8hpp_a33905c95a4d545efcf34abfbf790ad9c}{INTERNAL\+\_\+\+CATCH\+\_\+\+TESTCASE2}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( CATCH2\+\_\+\+INTERNAL\+\_\+\+TEST\+\_\+ ), \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )
+\item 
+\#define \mbox{\hyperlink{catch__test__registry_8hpp_a60e66c178de977271dd864ade805a250}{INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+METHOD2}}(Test\+Name,  Class\+Name, ...)
+\item 
+\#define \mbox{\hyperlink{catch__test__registry_8hpp_a4755a44f041605a731180e1e19e72bee}{INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+METHOD}}(Class\+Name, ...)~        \mbox{\hyperlink{catch__test__registry_8hpp_a60e66c178de977271dd864ade805a250}{INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+METHOD2}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( CATCH2\+\_\+\+INTERNAL\+\_\+\+TEST\+\_\+ ), Class\+Name, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )
+\item 
+\#define \mbox{\hyperlink{catch__test__registry_8hpp_ac5ffe8c3a508f1657a9ef2acd80589c5}{INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+PERSISTENT\+\_\+\+FIXTURE2}}(Test\+Name,  Class\+Name, ...)
+\item 
+\#define \mbox{\hyperlink{catch__test__registry_8hpp_a5bf69c57e9699d6349a85647d4d06bd2}{INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+PERSISTENT\+\_\+\+FIXTURE}}(Class\+Name, ...)~        \mbox{\hyperlink{catch__test__registry_8hpp_ac5ffe8c3a508f1657a9ef2acd80589c5}{INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+PERSISTENT\+\_\+\+FIXTURE2}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( CATCH2\+\_\+\+INTERNAL\+\_\+\+TEST\+\_\+ ), Class\+Name, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )
+\item 
+\#define \mbox{\hyperlink{catch__test__registry_8hpp_af5bedfdbfc32cddf5287a77cf860f242}{INTERNAL\+\_\+\+CATCH\+\_\+\+METHOD\+\_\+\+AS\+\_\+\+TEST\+\_\+\+CASE}}(Qualified\+Method, ...)
+\item 
+\#define \mbox{\hyperlink{catch__test__registry_8hpp_ad7fc9293cc800a6f2fde7a0a211533c8}{INTERNAL\+\_\+\+CATCH\+\_\+\+REGISTER\+\_\+\+TESTCASE}}(Function, ...)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1ITestInvoker}{ITest\+Invoker}} $>$ \mbox{\hyperlink{namespaceCatch_a4036958fd61b3ba0b3d2467e7f4f6fd7}{Catch\+::make\+Test\+Invoker}} (void(\texorpdfstring{$\ast$}{*}test\+As\+Function)())
+\item 
+{\footnotesize template$<$typename C $>$ }\\\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1ITestInvoker}{ITest\+Invoker}} $>$ \mbox{\hyperlink{namespaceCatch_a78ce8525c5901986486609d6c5b26a5f}{Catch\+::make\+Test\+Invoker}} (void(C\+::\texorpdfstring{$\ast$}{*}test\+As\+Method)())
+\item 
+{\footnotesize template$<$typename C $>$ }\\\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1ITestInvoker}{ITest\+Invoker}} $>$ \mbox{\hyperlink{namespaceCatch_a277e030bde8011793e9903108bb07a18}{Catch\+::make\+Test\+Invoker\+Fixture}} (void(C\+::\texorpdfstring{$\ast$}{*}test\+As\+Method)() const)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__test__registry_8hpp_af5bedfdbfc32cddf5287a77cf860f242}\label{catch__test__registry_8hpp_af5bedfdbfc32cddf5287a77cf860f242} 
+\index{catch\_test\_registry.hpp@{catch\_test\_registry.hpp}!INTERNAL\_CATCH\_METHOD\_AS\_TEST\_CASE@{INTERNAL\_CATCH\_METHOD\_AS\_TEST\_CASE}}
+\index{INTERNAL\_CATCH\_METHOD\_AS\_TEST\_CASE@{INTERNAL\_CATCH\_METHOD\_AS\_TEST\_CASE}!catch\_test\_registry.hpp@{catch\_test\_registry.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_METHOD\_AS\_TEST\_CASE}{INTERNAL\_CATCH\_METHOD\_AS\_TEST\_CASE}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+METHOD\+\_\+\+AS\+\_\+\+TEST\+\_\+\+CASE(\begin{DoxyParamCaption}\item[{}]{Qualified\+Method,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ namespace\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCatch_1_1AutoReg}{Catch::AutoReg}}\ \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\_CATCH\_UNIQUE\_NAME}}(\ autoRegistrar\ )(\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Catch::makeTestInvoker(\ \&QualifiedMethod\ ),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\_INTERNAL\_LINEINFO}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\&"{}}\ \#QualifiedMethod\#\#\_catch\_sr,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1NameAndTags}{Catch::NameAndTags}}\{\ \_\_VA\_ARGS\_\_\ \}\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{comment}{/*\ NOLINT\ */}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_ad9594e9891b032f0dd0279960dc861a5}{CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__test__registry_8hpp_source_l00197}{197}} of file \mbox{\hyperlink{catch__test__registry_8hpp_source}{catch\+\_\+test\+\_\+registry.\+hpp}}.
+
+\Hypertarget{catch__test__registry_8hpp_ad7fc9293cc800a6f2fde7a0a211533c8}\label{catch__test__registry_8hpp_ad7fc9293cc800a6f2fde7a0a211533c8} 
+\index{catch\_test\_registry.hpp@{catch\_test\_registry.hpp}!INTERNAL\_CATCH\_REGISTER\_TESTCASE@{INTERNAL\_CATCH\_REGISTER\_TESTCASE}}
+\index{INTERNAL\_CATCH\_REGISTER\_TESTCASE@{INTERNAL\_CATCH\_REGISTER\_TESTCASE}!catch\_test\_registry.hpp@{catch\_test\_registry.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_REGISTER\_TESTCASE}{INTERNAL\_CATCH\_REGISTER\_TESTCASE}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+REGISTER\+\_\+\+TESTCASE(\begin{DoxyParamCaption}\item[{}]{Function,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Catch::AutoReg\ \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\_CATCH\_UNIQUE\_NAME}}(\ autoRegistrar\ )(\ \mbox{\hyperlink{namespaceCatch_a4036958fd61b3ba0b3d2467e7f4f6fd7}{Catch::makeTestInvoker}}(\ Function\ ),\ \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\_INTERNAL\_LINEINFO}},\ \mbox{\hyperlink{classCatch_1_1StringRef}{Catch::StringRef}}(),\ \mbox{\hyperlink{structCatch_1_1NameAndTags}{Catch::NameAndTags}}\{\ \_\_VA\_ARGS\_\_\ \}\ );\ \textcolor{comment}{/*\ NOLINT\ */}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_ad9594e9891b032f0dd0279960dc861a5}{CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(\textcolor{keyword}{false})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__test__registry_8hpp_source_l00212}{212}} of file \mbox{\hyperlink{catch__test__registry_8hpp_source}{catch\+\_\+test\+\_\+registry.\+hpp}}.
+
+\Hypertarget{catch__test__registry_8hpp_a4755a44f041605a731180e1e19e72bee}\label{catch__test__registry_8hpp_a4755a44f041605a731180e1e19e72bee} 
+\index{catch\_test\_registry.hpp@{catch\_test\_registry.hpp}!INTERNAL\_CATCH\_TEST\_CASE\_METHOD@{INTERNAL\_CATCH\_TEST\_CASE\_METHOD}}
+\index{INTERNAL\_CATCH\_TEST\_CASE\_METHOD@{INTERNAL\_CATCH\_TEST\_CASE\_METHOD}!catch\_test\_registry.hpp@{catch\_test\_registry.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_TEST\_CASE\_METHOD}{INTERNAL\_CATCH\_TEST\_CASE\_METHOD}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+METHOD(\begin{DoxyParamCaption}\item[{}]{Class\+Name,  }\item[{}]{... }\end{DoxyParamCaption})~        \mbox{\hyperlink{catch__test__registry_8hpp_a60e66c178de977271dd864ade805a250}{INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+METHOD2}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( CATCH2\+\_\+\+INTERNAL\+\_\+\+TEST\+\_\+ ), Class\+Name, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__registry_8hpp_source_l00172}{172}} of file \mbox{\hyperlink{catch__test__registry_8hpp_source}{catch\+\_\+test\+\_\+registry.\+hpp}}.
+
+\Hypertarget{catch__test__registry_8hpp_a60e66c178de977271dd864ade805a250}\label{catch__test__registry_8hpp_a60e66c178de977271dd864ade805a250} 
+\index{catch\_test\_registry.hpp@{catch\_test\_registry.hpp}!INTERNAL\_CATCH\_TEST\_CASE\_METHOD2@{INTERNAL\_CATCH\_TEST\_CASE\_METHOD2}}
+\index{INTERNAL\_CATCH\_TEST\_CASE\_METHOD2@{INTERNAL\_CATCH\_TEST\_CASE\_METHOD2}!catch\_test\_registry.hpp@{catch\_test\_registry.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_TEST\_CASE\_METHOD2}{INTERNAL\_CATCH\_TEST\_CASE\_METHOD2}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+METHOD2(\begin{DoxyParamCaption}\item[{}]{Test\+Name,  }\item[{}]{Class\+Name,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ namespace\{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TestName\ :\ \mbox{\hyperlink{catch__preprocessor__remove__parens_8hpp_adf5ede19321b27ce635d01688551e782}{INTERNAL\_CATCH\_REMOVE\_PARENS}}(ClassName)\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ test();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \};\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCatch_1_1AutoReg}{Catch::AutoReg}}\ \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\_CATCH\_UNIQUE\_NAME}}(\ autoRegistrar\ )(\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Catch::makeTestInvoker(\ \&TestName::test\ ),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\_INTERNAL\_LINEINFO}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#ClassName\#\#\_catch\_sr,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ Catch::NameAndTags\{\ \_\_VA\_ARGS\_\_\ \}\ );\ }\textcolor{comment}{/*\ NOLINT\ */}\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}\ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ void\ TestName::test()}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__test__registry_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{catch__test__registry_8hpp_source}{catch\+\_\+test\+\_\+registry.\+hpp}}.
+
+\Hypertarget{catch__test__registry_8hpp_a5bf69c57e9699d6349a85647d4d06bd2}\label{catch__test__registry_8hpp_a5bf69c57e9699d6349a85647d4d06bd2} 
+\index{catch\_test\_registry.hpp@{catch\_test\_registry.hpp}!INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE@{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE}}
+\index{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE@{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE}!catch\_test\_registry.hpp@{catch\_test\_registry.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE}{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+PERSISTENT\+\_\+\+FIXTURE(\begin{DoxyParamCaption}\item[{}]{Class\+Name,  }\item[{}]{... }\end{DoxyParamCaption})~        \mbox{\hyperlink{catch__test__registry_8hpp_ac5ffe8c3a508f1657a9ef2acd80589c5}{INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+PERSISTENT\+\_\+\+FIXTURE2}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( CATCH2\+\_\+\+INTERNAL\+\_\+\+TEST\+\_\+ ), Class\+Name, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__registry_8hpp_source_l00192}{192}} of file \mbox{\hyperlink{catch__test__registry_8hpp_source}{catch\+\_\+test\+\_\+registry.\+hpp}}.
+
+\Hypertarget{catch__test__registry_8hpp_ac5ffe8c3a508f1657a9ef2acd80589c5}\label{catch__test__registry_8hpp_ac5ffe8c3a508f1657a9ef2acd80589c5} 
+\index{catch\_test\_registry.hpp@{catch\_test\_registry.hpp}!INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE2@{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE2}}
+\index{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE2@{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE2}!catch\_test\_registry.hpp@{catch\_test\_registry.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE2}{INTERNAL\_CATCH\_TEST\_CASE\_PERSISTENT\_FIXTURE2}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+TEST\+\_\+\+CASE\+\_\+\+PERSISTENT\+\_\+\+FIXTURE2(\begin{DoxyParamCaption}\item[{}]{Test\+Name,  }\item[{}]{Class\+Name,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ namespace\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TestName\ :\ \mbox{\hyperlink{catch__preprocessor__remove__parens_8hpp_adf5ede19321b27ce635d01688551e782}{INTERNAL\_CATCH\_REMOVE\_PARENS}}(\ ClassName\ )\ \{\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ test()\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCatch_1_1AutoReg}{Catch::AutoReg}}\ \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\_CATCH\_UNIQUE\_NAME}}(\ autoRegistrar\ )(\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Catch::makeTestInvokerFixture(\ \&TestName::test\ ),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\_INTERNAL\_LINEINFO}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#ClassName\#\#\_catch\_sr,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Catch::NameAndTags\{\ \_\_VA\_ARGS\_\_\ \}\ );\ }\textcolor{comment}{/*\ NOLINT\ */}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ void\ TestName::test()\ const}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__test__registry_8hpp_source_l00176}{176}} of file \mbox{\hyperlink{catch__test__registry_8hpp_source}{catch\+\_\+test\+\_\+registry.\+hpp}}.
+
+\Hypertarget{catch__test__registry_8hpp_a83f221452b6494c1eb0ae9bab79faa3c}\label{catch__test__registry_8hpp_a83f221452b6494c1eb0ae9bab79faa3c} 
+\index{catch\_test\_registry.hpp@{catch\_test\_registry.hpp}!INTERNAL\_CATCH\_TESTCASE@{INTERNAL\_CATCH\_TESTCASE}}
+\index{INTERNAL\_CATCH\_TESTCASE@{INTERNAL\_CATCH\_TESTCASE}!catch\_test\_registry.hpp@{catch\_test\_registry.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_TESTCASE}{INTERNAL\_CATCH\_TESTCASE}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+TESTCASE(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~        \mbox{\hyperlink{catch__test__registry_8hpp_a33905c95a4d545efcf34abfbf790ad9c}{INTERNAL\+\_\+\+CATCH\+\_\+\+TESTCASE2}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( CATCH2\+\_\+\+INTERNAL\+\_\+\+TEST\+\_\+ ), \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__registry_8hpp_source_l00117}{117}} of file \mbox{\hyperlink{catch__test__registry_8hpp_source}{catch\+\_\+test\+\_\+registry.\+hpp}}.
+
+\Hypertarget{catch__test__registry_8hpp_a33905c95a4d545efcf34abfbf790ad9c}\label{catch__test__registry_8hpp_a33905c95a4d545efcf34abfbf790ad9c} 
+\index{catch\_test\_registry.hpp@{catch\_test\_registry.hpp}!INTERNAL\_CATCH\_TESTCASE2@{INTERNAL\_CATCH\_TESTCASE2}}
+\index{INTERNAL\_CATCH\_TESTCASE2@{INTERNAL\_CATCH\_TESTCASE2}!catch\_test\_registry.hpp@{catch\_test\_registry.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_TESTCASE2}{INTERNAL\_CATCH\_TESTCASE2}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+TESTCASE2(\begin{DoxyParamCaption}\item[{}]{Test\+Name,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ TestName();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ namespace\{\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCatch_1_1AutoReg}{Catch::AutoReg}}\ \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\_CATCH\_UNIQUE\_NAME}}(\ autoRegistrar\ )(\ \mbox{\hyperlink{namespaceCatch_a4036958fd61b3ba0b3d2467e7f4f6fd7}{Catch::makeTestInvoker}}(\ \&TestName\ ),\ \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\_INTERNAL\_LINEINFO}},\ \mbox{\hyperlink{classCatch_1_1StringRef}{Catch::StringRef}}(),\ \mbox{\hyperlink{structCatch_1_1NameAndTags}{Catch::NameAndTags}}\{\ \_\_VA\_ARGS\_\_\ \}\ );\ \}\ \textcolor{comment}{/*\ NOLINT\ */}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ static\ \textcolor{keywordtype}{void}\ TestName()}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__test__registry_8hpp_source_l00109}{109}} of file \mbox{\hyperlink{catch__test__registry_8hpp_source}{catch\+\_\+test\+\_\+registry.\+hpp}}.
+

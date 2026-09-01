@@ -1,0 +1,195 @@
+\doxysection{catch\+\_\+matchers\+\_\+vector.\+hpp}
+\hypertarget{catch__matchers__vector_8hpp_source}{}\label{catch__matchers__vector_8hpp_source}\index{src/catch2/matchers/catch\_matchers\_vector.hpp@{src/catch2/matchers/catch\_matchers\_vector.hpp}}
+\mbox{\hyperlink{catch__matchers__vector_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_MATCHERS\_VECTOR\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_MATCHERS\_VECTOR\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__matchers_8hpp}{catch2/matchers/catch\_matchers.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__approx_8hpp}{catch2/catch\_approx.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00017}00017\ \textcolor{keyword}{namespace\ }Matchers\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Alloc>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00020}\mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher}{00020}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher}{VectorContainsElementMatcher}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{MatcherBase}}<std::vector<T,\ Alloc>>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ T\ \textcolor{keyword}{const}\&\ m\_comparator;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00024}\mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher_a01d4ec7b52548b89c0f8ac74cdd12b83}{00024}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher_a01d4ec7b52548b89c0f8ac74cdd12b83}{VectorContainsElementMatcher}}(T\ \textcolor{keyword}{const}\&\ comparator):}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ m\_comparator(comparator)}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00028}\mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher_a69b1843704bb874ed9e798bc3f85a132}{00028}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher_a69b1843704bb874ed9e798bc3f85a132}{match}}(std::vector<T,\ Alloc>\ \textcolor{keyword}{const}\&\ v)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ el\ :\ v)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (el\ ==\ m\_comparator)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00037}\mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher_aba9e9deda0aecbf8ffeae026633eebb7}{00037}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher_aba9e9deda0aecbf8ffeae026633eebb7}{describe}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Contains:\ "{}}\ +\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af0ad48344ffd3f92f3568465248a9880}{::Catch::Detail::stringify}}(\ m\_comparator\ );}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00040}00040\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ AllocComp,\ \textcolor{keyword}{typename}\ AllocMatch>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00043}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher}{00043}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher}{ContainsMatcher}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{MatcherBase}}<std::vector<T,\ AllocMatch>>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ m\_comparator;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00047}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher_a8b98e39a7b7fccf412b2db3d5ed3f605}{00047}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher_a8b98e39a7b7fccf412b2db3d5ed3f605}{ContainsMatcher}}(std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ comparator):}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ m\_comparator(\ comparator\ )}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00051}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher_a5cde762e6a9223ff567259f8d326e830}{00051}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher_a5cde762e6a9223ff567259f8d326e830}{match}}(std::vector<T,\ AllocMatch>\ \textcolor{keyword}{const}\&\ v)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ !TBD:\ see\ note\ in\ EqualsMatcher}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_comparator.size()\ >\ v.size())}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ comparator\ :\ m\_comparator)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ present\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ el\ :\ v)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (el\ ==\ comparator)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ present\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!present)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00069}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher_a96868897b6f5aa6a775935d2ef2fe1ca}{00069}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher_a96868897b6f5aa6a775935d2ef2fe1ca}{describe}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Contains:\ "{}}\ +\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af0ad48344ffd3f92f3568465248a9880}{::Catch::Detail::stringify}}(\ m\_comparator\ );}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00072}00072\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ AllocComp,\ \textcolor{keyword}{typename}\ AllocMatch>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00075}\mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher}{00075}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher}{EqualsMatcher}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{MatcherBase}}<std::vector<T,\ AllocMatch>>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ m\_comparator;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00078}00078\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00079}\mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher_adf2f8e1ac54dbda0fcb31fa3bd854594}{00079}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher_adf2f8e1ac54dbda0fcb31fa3bd854594}{EqualsMatcher}}(std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ comparator):}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ m\_comparator(\ comparator\ )}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00083}\mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher_a4c9a597b56446aa654dcceac97a17766}{00083}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher_a4c9a597b56446aa654dcceac97a17766}{match}}(std::vector<T,\ AllocMatch>\ \textcolor{keyword}{const}\&\ v)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ !TBD:\ This\ currently\ works\ if\ all\ elements\ can\ be\ compared\ using\ !=}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ a\ more\ general\ approach\ would\ be\ via\ a\ compare\ template\ that\ defaults}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ using\ !=.\ but\ could\ be\ specialised\ for,\ e.g.\ std::vector<T>\ etc}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ then\ just\ call\ that\ directly}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_comparator.size()\ !=\ v.size()\ )\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ std::size\_t\ i\ =\ 0;\ i\ <\ v.size();\ ++i\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !(\ m\_comparator[i]\ ==\ v[i]\ )\ )\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00094}\mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher_af07af00c2d5553355f4476e2c3858bb4}{00094}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher_af07af00c2d5553355f4476e2c3858bb4}{describe}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Equals:\ "{}}\ +\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af0ad48344ffd3f92f3568465248a9880}{::Catch::Detail::stringify}}(\ m\_comparator\ );}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00097}00097\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00099}00099\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ AllocComp,\ \textcolor{keyword}{typename}\ AllocMatch>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00100}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{00100}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{ApproxMatcher}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{MatcherBase}}<std::vector<T,\ AllocMatch>>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ m\_comparator;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classCatch_1_1Approx}{Catch::Approx}}\ approx\ =\ \mbox{\hyperlink{classCatch_1_1Approx_aae48202f7bf38b6e3ebfaac7ef46b7af}{Catch::Approx::custom}}();}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00104}00104\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00105}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_a35c7c8ef8f80adfb57bda699e6c360e2}{00105}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_a35c7c8ef8f80adfb57bda699e6c360e2}{ApproxMatcher}}(std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ comparator):}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ m\_comparator(\ comparator\ )}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00109}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_a55b54d9cf9353bc4cfe3908f6c92d2c1}{00109}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_a55b54d9cf9353bc4cfe3908f6c92d2c1}{match}}(std::vector<T,\ AllocMatch>\ \textcolor{keyword}{const}\&\ v)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_comparator.size()\ !=\ v.size())}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ v.size();\ ++i)}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_comparator[i]\ !=\ approx(v[i]))}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00117}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_a7bae09538c8109549698a70ebf810de6}{00117}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_a7bae09538c8109549698a70ebf810de6}{describe}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}is\ approx:\ "{}}\ +\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af0ad48344ffd3f92f3568465248a9880}{::Catch::Detail::stringify}}(\ m\_comparator\ );}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00120}00120\ \ \ \ \ \ \ \ \ template\ <typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00121}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_abfabce91ba247311a98b90e7e35016b2}{00121}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{ApproxMatcher}}\&\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_abfabce91ba247311a98b90e7e35016b2}{epsilon}}(\ T\ \textcolor{keyword}{const}\&\ newEpsilon\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ approx.\mbox{\hyperlink{classCatch_1_1Approx_ab9b569c030c0399a187f96e7d95e501f}{epsilon}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(newEpsilon));}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00125}00125\ \ \ \ \ \ \ \ \ template\ <typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00126}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_afd6e8a70cce75301d1f8c20c4ed87696}{00126}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{ApproxMatcher}}\&\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_afd6e8a70cce75301d1f8c20c4ed87696}{margin}}(\ T\ \textcolor{keyword}{const}\&\ newMargin\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ approx.\mbox{\hyperlink{classCatch_1_1Approx_af4d5b0df9462561dacb65f19b9c770c3}{margin}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(newMargin));}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ template\ <typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00131}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_a15d79222d1927d8eb59d1be95418e657}{00131}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{ApproxMatcher}}\&\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher_a15d79222d1927d8eb59d1be95418e657}{scale}}(\ T\ \textcolor{keyword}{const}\&\ newScale\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ approx.\mbox{\hyperlink{classCatch_1_1Approx_a8b01c1b0697e834c6df637b5163a7dac}{scale}}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(newScale));}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00135}00135\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00137}00137\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ AllocComp,\ \textcolor{keyword}{typename}\ AllocMatch>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00138}\mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher}{00138}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher}{UnorderedEqualsMatcher}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{MatcherBase}}<std::vector<T,\ AllocMatch>>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00139}00139\ \ \ \ \ \ \ \ \ std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ m\_target;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00141}00141\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00142}\mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher_ad434cf67520598a9faf1c1d2c3bb3113}{00142}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher_ad434cf67520598a9faf1c1d2c3bb3113}{UnorderedEqualsMatcher}}(std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ target):}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ m\_target(target)}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00145}\mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher_a10fbc1c08173c4456455c3c13584af8a}{00145}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher_a10fbc1c08173c4456455c3c13584af8a}{match}}(std::vector<T,\ AllocMatch>\ \textcolor{keyword}{const}\&\ vec)\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_target.size()\ !=\ vec.size())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::is\_permutation(m\_target.begin(),\ m\_target.end(),\ vec.begin());}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00152}\mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher_a15d60e576f7e137626a5950b345221a8}{00152}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher_a15d60e576f7e137626a5950b345221a8}{describe}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}UnorderedEquals:\ "{}}\ +\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af0ad48344ffd3f92f3568465248a9880}{::Catch::Detail::stringify}}(m\_target);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00155}00155\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00158}00158\ \ \ \ \ \textcolor{comment}{//\ The\ following\ functions\ create\ the\ actual\ matcher\ objects.}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00159}00159\ \ \ \ \ \textcolor{comment}{//\ This\ allows\ the\ types\ to\ be\ inferred}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00162}00162\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ AllocComp\ =\ std::allocator<T>,\ \textcolor{keyword}{typename}\ AllocMatch\ =\ AllocComp>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00163}\mbox{\hyperlink{namespaceCatch_1_1Matchers_ae26fd1f942722526c95b93af5b29e285}{00163}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher}{ContainsMatcher<T,\ AllocComp,\ AllocMatch>}}\ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a1e4f65df3aa5fd461e46a301655f5e46}{Contains}}(\ std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ comparator\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher}{ContainsMatcher<T,\ AllocComp,\ AllocMatch>}}(comparator);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00165}00165\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00168}00168\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Alloc\ =\ std::allocator<T>>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00169}\mbox{\hyperlink{namespaceCatch_1_1Matchers_a677dc421d43495081c61501d63a3d7aa}{00169}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher}{VectorContainsElementMatcher<T,\ Alloc>}}\ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a677dc421d43495081c61501d63a3d7aa}{VectorContains}}(\ T\ \textcolor{keyword}{const}\&\ comparator\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher}{VectorContainsElementMatcher<T,\ Alloc>}}(comparator);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00171}00171\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00174}00174\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ AllocComp\ =\ std::allocator<T>,\ \textcolor{keyword}{typename}\ AllocMatch\ =\ AllocComp>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00175}\mbox{\hyperlink{namespaceCatch_1_1Matchers_a044fadf0c182c7674da1ee7d7a14a2af}{00175}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher}{EqualsMatcher<T,\ AllocComp,\ AllocMatch>}}\ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a313539dbfbb441d8cebce56d4031f104}{Equals}}(\ std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ comparator\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher}{EqualsMatcher<T,\ AllocComp,\ AllocMatch>}}(comparator);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00177}00177\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00180}00180\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ AllocComp\ =\ std::allocator<T>,\ \textcolor{keyword}{typename}\ AllocMatch\ =\ AllocComp>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00181}\mbox{\hyperlink{namespaceCatch_1_1Matchers_a9f3b477eb84f043a6f954e26f511e8ab}{00181}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{ApproxMatcher<T,\ AllocComp,\ AllocMatch>}}\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}(\ std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ comparator\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{ApproxMatcher<T,\ AllocComp,\ AllocMatch>}}(comparator);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00186}00186\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ AllocComp\ =\ std::allocator<T>,\ \textcolor{keyword}{typename}\ AllocMatch\ =\ AllocComp>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00187}\mbox{\hyperlink{namespaceCatch_1_1Matchers_a40531208875e65d9d4c7b4094a23ead1}{00187}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher}{UnorderedEqualsMatcher<T,\ AllocComp,\ AllocMatch>}}\ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a40531208875e65d9d4c7b4094a23ead1}{UnorderedEquals}}(std::vector<T,\ AllocComp>\ \textcolor{keyword}{const}\&\ target)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher}{UnorderedEqualsMatcher<T,\ AllocComp,\ AllocMatch>}}(target);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00191}00191\ \}\ \textcolor{comment}{//\ namespace\ Matchers}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00192}00192\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__vector_8hpp_source_l00194}00194\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_MATCHERS\_VECTOR\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

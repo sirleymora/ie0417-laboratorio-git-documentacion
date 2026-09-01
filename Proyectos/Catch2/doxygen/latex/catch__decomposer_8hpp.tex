@@ -1,0 +1,158 @@
+\doxysection{src/catch2/internal/catch\+\_\+decomposer.hpp File Reference}
+\hypertarget{catch__decomposer_8hpp}{}\label{catch__decomposer_8hpp}\index{src/catch2/internal/catch\_decomposer.hpp@{src/catch2/internal/catch\_decomposer.hpp}}
+{\ttfamily \#include $<$catch2/catch\+\_\+tostring.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+stringref.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compare\+\_\+traits.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+test\+\_\+failure\+\_\+exception.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+logical\+\_\+traits.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compiler\+\_\+capabilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$iosfwd$>$}\newline
+Include dependency graph for catch\+\_\+decomposer.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__decomposer_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__decomposer_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1capture__by__value}{Catch\+::capture\+\_\+by\+\_\+value$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1always__false}{Catch\+::always\+\_\+false$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1ITransientExpression}{Catch\+::\+ITransient\+Expression}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1BinaryExpr}{Catch\+::\+Binary\+Expr$<$ Lhs\+T, Rhs\+T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1UnaryExpr}{Catch\+::\+Unary\+Expr$<$ Lhs\+T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1ExprLhs}{Catch\+::\+Expr\+Lhs$<$ Lhs\+T $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Decomposer}{Catch\+::\+Decomposer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__decomposer_8hpp_aea22592bf22edde6e70861c9b3b2bf51}{CATCH\+\_\+\+INTERNAL\+\_\+\+DEFINE\+\_\+\+EXPRESSION\+\_\+\+EQUALITY\+\_\+\+OPERATOR}}(id,  op)
+\item 
+\#define \mbox{\hyperlink{catch__decomposer_8hpp_a174ed3879abb714748caf24811434362}{CATCH\+\_\+\+INTERNAL\+\_\+\+DEFINE\+\_\+\+EXPRESSION\+\_\+\+COMPARISON\+\_\+\+OPERATOR}}(id,  op)
+\item 
+\#define \mbox{\hyperlink{catch__decomposer_8hpp_aabca54677fdc77aa49edd62439e706b3}{CATCH\+\_\+\+INTERNAL\+\_\+\+DEFINE\+\_\+\+EXPRESSION\+\_\+\+OPERATOR}}(op)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespaceCatch_1_1Detail_a097d8d70ff4b62329023a3b9935ce1fd}{Catch\+::\+Detail\+::\+Remove\+CVRef\+\_\+t}} = std\+::remove\+\_\+cv\+\_\+t$<$ std\+::remove\+\_\+reference\+\_\+t$<$ T $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceCatch_a520110c31f26cf9892595772ab814fc0}{Catch\+::format\+Reconstructed\+Expression}} (std\+::ostream \&os, std\+::string const \&lhs, \mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} op, std\+::string const \&rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Why does decomposing look the way it does\+:
+
+Conceptually, decomposing is simple. We change {\ttfamily REQUIRE( a == b )} into {\ttfamily Decomposer\{\} \texorpdfstring{$<$}{<}= a == b}, so that {\ttfamily Decomposer\{\} \texorpdfstring{$<$}{<}= a} is evaluated first, and our custom operator is used for {\ttfamily a == b}, because {\ttfamily a} is transformed into {\ttfamily Expr\+Lhs\texorpdfstring{$<$}{<}T\&\texorpdfstring{$>$}{>}} and then into {\ttfamily Binary\+Expr\texorpdfstring{$<$}{<}T\&, U\&\texorpdfstring{$>$}{>}}.
+
+In practice, decomposing ends up a mess, because we have to support various fun things.
+
+1) Types that are only comparable with literal 0, and they do this by comparing against a magic type with pointer constructor and deleted other constructors. Example\+: {\ttfamily REQUIRE((a \texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>} b) == 0)} in libstdc++
+
+2) Types that are only comparable with literal 0, and they do this by comparing against a magic type with consteval integer constructor. Example\+: {\ttfamily REQUIRE((a \texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>} b) == 0)} in current MSVC STL.
+
+3) Types that have no linkage, and so we cannot form a reference to them. Example\+: some implementations of traits.
+
+4) Starting with C++20, when the compiler sees {\ttfamily a == b}, it also uses {\ttfamily b == a} when constructing the overload set. For us this means that when the compiler handles {\ttfamily Expr\+Lhs\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>} == b}, it also tries to resolve the overload set for {\ttfamily b == Expr\+Lhs\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}.
+
+To accommodate these use cases, decomposer ended up rather complex.
+
+1) These types are handled by adding SFINAE overloads to our comparison operators, checking whether {\ttfamily T == U} are comparable with the given operator, and if not, whether T (or U) are comparable with literal 0. If yes, the overload compares T (or U) with 0 literal inline in the definition.
+
+Note that for extra correctness, we check that the other type is either an {\ttfamily int} (literal 0 is captured as {\ttfamily int} by templates), or a {\ttfamily long} (some platforms use 0L for {\ttfamily NULL} and we want to support that for pointer comparisons).
+
+2) For these types, {\ttfamily is\+\_\+foo\+\_\+comparable\texorpdfstring{$<$}{<}T, int\texorpdfstring{$>$}{>}} is true, but letting them fall into the overload that actually does {\ttfamily T == int} causes compilation error. Handling them requires that the decomposition is {\ttfamily constexpr}, so that P2564\+R3 applies and the {\ttfamily consteval} from their accompanying magic type is propagated through the {\ttfamily constexpr} call stack.
+
+However this is not enough to handle these types automatically, because our default is to capture types by reference, to avoid runtime copies. While these references cannot become dangling, they outlive the constexpr context and thus the default capture path cannot be actually constexpr.
+
+The solution is to capture these types by value, by explicitly specializing {\ttfamily \doxylink{structCatch_1_1capture__by__value}{Catch\+::capture\+\_\+by\+\_\+value}} for them. Catch2 provides specialization for {\ttfamily std\+::foo\+\_\+ordering}s, but users can specialize the trait for their own types as well.
+
+3) If a type has no linkage, we also cannot capture it by reference. The solution is once again to capture them by value. We handle the common cases by using {\ttfamily std\+::is\+\_\+arithmetic} and {\ttfamily std\+::is\+\_\+enum} as the default for {\ttfamily \doxylink{structCatch_1_1capture__by__value}{Catch\+::capture\+\_\+by\+\_\+value}}, but that is only a some-\/effort heuristic. These combine to capture all possible bitfield bases, and also some trait-\/like types. As with 2), users can specialize {\ttfamily capture\+\_\+by\+\_\+value} for their own types as needed.
+
+4) To support C++20 and make the SFINAE on our decomposing operators work, the SFINAE has to happen in return type, rather than in a template type. This is due to our use of logical type traits ({\ttfamily conjunction}/{\ttfamily disjunction}/{\ttfamily negation}), that we use to workaround an issue in older (9-\/) versions of GCC. I still blame C++20 for this, because without the comparison order switching, the logical traits could still be used in template type.
+
+There are also other side concerns, e.\+g. supporting both {\ttfamily \doxylink{catch__test__macros_8hpp_ad57835ba8f1bb419a865ada6bd011a85}{REQUIRE(a)}} and {\ttfamily REQUIRE(a == b)}, or making {\ttfamily \doxylink{catch__matchers_8hpp_ac1354db6f3e9c1e0a8eda0eea7ff1f0a}{REQUIRE\+\_\+\+THAT(a, Is\+Equal(b))}} slot nicely into the same expression handling logic, but these are rather straightforward and add only a bit of complexity (e.\+g. common base class for decomposed expressions). 
+
+Definition in file \mbox{\hyperlink{catch__decomposer_8hpp_source}{catch\+\_\+decomposer.\+hpp}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__decomposer_8hpp_a174ed3879abb714748caf24811434362}\label{catch__decomposer_8hpp_a174ed3879abb714748caf24811434362} 
+\index{catch\_decomposer.hpp@{catch\_decomposer.hpp}!CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_COMPARISON\_OPERATOR@{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_COMPARISON\_OPERATOR}}
+\index{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_COMPARISON\_OPERATOR@{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_COMPARISON\_OPERATOR}!catch\_decomposer.hpp@{catch\_decomposer.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_COMPARISON\_OPERATOR}{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_COMPARISON\_OPERATOR}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+DEFINE\+\_\+\+EXPRESSION\+\_\+\+COMPARISON\+\_\+\+OPERATOR(\begin{DoxyParamCaption}\item[{}]{id,  }\item[{}]{op }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__decomposer_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{catch__decomposer_8hpp_source}{catch\+\_\+decomposer.\+hpp}}.
+
+\Hypertarget{catch__decomposer_8hpp_aea22592bf22edde6e70861c9b3b2bf51}\label{catch__decomposer_8hpp_aea22592bf22edde6e70861c9b3b2bf51} 
+\index{catch\_decomposer.hpp@{catch\_decomposer.hpp}!CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_EQUALITY\_OPERATOR@{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_EQUALITY\_OPERATOR}}
+\index{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_EQUALITY\_OPERATOR@{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_EQUALITY\_OPERATOR}!catch\_decomposer.hpp@{catch\_decomposer.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_EQUALITY\_OPERATOR}{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_EQUALITY\_OPERATOR}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+DEFINE\+\_\+\+EXPRESSION\+\_\+\+EQUALITY\+\_\+\+OPERATOR(\begin{DoxyParamCaption}\item[{}]{id,  }\item[{}]{op }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__decomposer_8hpp_source_l00293}{293}} of file \mbox{\hyperlink{catch__decomposer_8hpp_source}{catch\+\_\+decomposer.\+hpp}}.
+
+\Hypertarget{catch__decomposer_8hpp_aabca54677fdc77aa49edd62439e706b3}\label{catch__decomposer_8hpp_aabca54677fdc77aa49edd62439e706b3} 
+\index{catch\_decomposer.hpp@{catch\_decomposer.hpp}!CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_OPERATOR@{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_OPERATOR}}
+\index{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_OPERATOR@{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_OPERATOR}!catch\_decomposer.hpp@{catch\_decomposer.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_OPERATOR}{CATCH\_INTERNAL\_DEFINE\_EXPRESSION\_OPERATOR}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+DEFINE\+\_\+\+EXPRESSION\+\_\+\+OPERATOR(\begin{DoxyParamCaption}\item[{}]{op }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ RhsT>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{friend}\ \textcolor{keyword}{auto}\ \textcolor{keyword}{operator}\ op(\ ExprLhs\&\&\ lhs,\ RhsT\&\&\ rhs\ )\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/>\ std::enable\_if\_t<\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ !capture\_by\_value<Detail::RemoveCVRef\_t<RhsT>>\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{::value}},\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ BinaryExpr<LhsT,\ RhsT\ const\&>>\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ static\_cast<bool>(\ lhs.m\_lhs\ op\ rhs\ ),\ lhs.m\_lhs,\ \#op\#\#\_sr,\ rhs\ \};\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ RhsT>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{friend}\ \textcolor{keyword}{auto}\ \textcolor{keyword}{operator}\ op(\ ExprLhs\&\&\ lhs,\ RhsT\ rhs\ )\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/>\ std::enable\_if\_t<capture\_by\_value<RhsT>::value,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BinaryExpr<LhsT,\ RhsT>>\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ static\_cast<bool>(\ lhs.m\_lhs\ op\ rhs\ ),\ lhs.m\_lhs,\ \#op\#\#\_sr,\ rhs\ \};\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__decomposer_8hpp_source_l00399}{399}} of file \mbox{\hyperlink{catch__decomposer_8hpp_source}{catch\+\_\+decomposer.\+hpp}}.
+

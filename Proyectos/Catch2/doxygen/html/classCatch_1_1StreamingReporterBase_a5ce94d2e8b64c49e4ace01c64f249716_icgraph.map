@@ -1,0 +1,9 @@
+<map id="Catch::StreamingReporterBase::testRunStarting" name="Catch::StreamingReporterBase::testRunStarting">
+<area shape="rect" id="Node000001" title=" " alt="" coords="228,69,419,109"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1ConsoleReporter.html#a89d08018bf29583341bdfe7422007011" title=" " alt="" coords="5,5,180,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,68,165,48,166,43,238,63"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1JsonReporter.html#a3f80d7738e259540e247be6b93bf563c" title=" " alt="" coords="17,69,168,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,92,168,92,168,87,214,87"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlReporter.html#ab5de0b02d5a30612ae5449360d867672" title=" " alt="" coords="18,133,167,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="238,116,166,136,165,131,237,110"/>
+</map>

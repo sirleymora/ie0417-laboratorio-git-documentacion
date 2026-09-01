@@ -1,0 +1,176 @@
+\doxysection{src/catch2/matchers/catch\+\_\+matchers.hpp File Reference}
+\hypertarget{catch__matchers_8hpp}{}\label{catch__matchers_8hpp}\index{src/catch2/matchers/catch\_matchers.hpp@{src/catch2/matchers/catch\_matchers.hpp}}
+{\ttfamily \#include $<$catch2/matchers/internal/catch\+\_\+matchers\+\_\+impl.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+lifetimebound.\+hpp$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for catch\+\_\+matchers.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherUntypedBase}{Catch\+::\+Matchers\+::\+Matcher\+Untyped\+Base}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Catch\+::\+Matchers\+::\+Matcher\+Base$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOf}{Catch\+::\+Matchers\+::\+Detail\+::\+Match\+All\+Of$<$ Arg\+T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOf}{Catch\+::\+Matchers\+::\+Detail\+::\+Match\+Any\+Of$<$ Arg\+T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchNotOf}{Catch\+::\+Matchers\+::\+Detail\+::\+Match\+Not\+Of$<$ Arg\+T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers}{Catch\+::\+Matchers}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail}{Catch\+::\+Matchers\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__matchers_8hpp_aa39a017db507132071d2819f087b2f28}{REQUIRE\+\_\+\+THROWS\+\_\+\+WITH}}(expr,  matcher)~\mbox{\hyperlink{catch__test__macro__impl_8hpp_a4296ab989dbc1f6c52c24d60012144d6}{INTERNAL\+\_\+\+CATCH\+\_\+\+THROWS\+\_\+\+STR\+\_\+\+MATCHES}}( "{}REQUIRE\+\_\+\+THROWS\+\_\+\+WITH"{}, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{Catch\+::\+Result\+Disposition\+::\+Normal}}, matcher, expr )
+\item 
+\#define \mbox{\hyperlink{catch__matchers_8hpp_a54473a48ac2ac55bfe1165b69e1b8010}{REQUIRE\+\_\+\+THROWS\+\_\+\+MATCHES}}(expr,  exception\+Type,  matcher)~\mbox{\hyperlink{catch__matchers__impl_8hpp_ace8fc7b74db8a1b2916554ad64e5b036}{INTERNAL\+\_\+\+CATCH\+\_\+\+THROWS\+\_\+\+MATCHES}}( "{}REQUIRE\+\_\+\+THROWS\+\_\+\+MATCHES"{}, exception\+Type, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{Catch\+::\+Result\+Disposition\+::\+Normal}}, matcher, expr )
+\item 
+\#define \mbox{\hyperlink{catch__matchers_8hpp_a4903733490f526b58053836575e99066}{CHECK\+\_\+\+THROWS\+\_\+\+WITH}}(expr,  matcher)~\mbox{\hyperlink{catch__test__macro__impl_8hpp_a4296ab989dbc1f6c52c24d60012144d6}{INTERNAL\+\_\+\+CATCH\+\_\+\+THROWS\+\_\+\+STR\+\_\+\+MATCHES}}( "{}CHECK\+\_\+\+THROWS\+\_\+\+WITH"{}, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8aa18c94bd60c5614e17a84c2ced3bbfd5}{Catch\+::\+Result\+Disposition\+::\+Continue\+On\+Failure}}, matcher, expr )
+\item 
+\#define \mbox{\hyperlink{catch__matchers_8hpp_a74fcc14d39e8cc35ff39f69c5b60e375}{CHECK\+\_\+\+THROWS\+\_\+\+MATCHES}}(expr,  exception\+Type,  matcher)~\mbox{\hyperlink{catch__matchers__impl_8hpp_ace8fc7b74db8a1b2916554ad64e5b036}{INTERNAL\+\_\+\+CATCH\+\_\+\+THROWS\+\_\+\+MATCHES}}( "{}CHECK\+\_\+\+THROWS\+\_\+\+MATCHES"{}, exception\+Type, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8aa18c94bd60c5614e17a84c2ced3bbfd5}{Catch\+::\+Result\+Disposition\+::\+Continue\+On\+Failure}}, matcher, expr )
+\item 
+\#define \mbox{\hyperlink{catch__matchers_8hpp_a5b8c33c63e0804d4458e2c761370b75d}{CHECK\+\_\+\+THAT}}(arg,  matcher)~\mbox{\hyperlink{catch__matchers__impl_8hpp_a877690adc04f1fbfe944df6bebe6f8b5}{INTERNAL\+\_\+\+CHECK\+\_\+\+THAT}}( "{}CHECK\+\_\+\+THAT"{}, matcher, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8aa18c94bd60c5614e17a84c2ced3bbfd5}{Catch\+::\+Result\+Disposition\+::\+Continue\+On\+Failure}}, arg )
+\item 
+\#define \mbox{\hyperlink{catch__matchers_8hpp_ac1354db6f3e9c1e0a8eda0eea7ff1f0a}{REQUIRE\+\_\+\+THAT}}(arg,  matcher)~\mbox{\hyperlink{catch__matchers__impl_8hpp_a877690adc04f1fbfe944df6bebe6f8b5}{INTERNAL\+\_\+\+CHECK\+\_\+\+THAT}}( "{}REQUIRE\+\_\+\+THAT"{}, matcher, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{Catch\+::\+Result\+Disposition\+::\+Normal}}, arg )
+\item 
+\#define \mbox{\hyperlink{catch__matchers_8hpp_afc2d995fe1eea4b3b7c150a1de2fe544}{STATIC\+\_\+\+REQUIRE\+\_\+\+THAT}}(arg,  matcher)
+\item 
+\#define \mbox{\hyperlink{catch__matchers_8hpp_a23b16ff4b1939d8142cb76fb3a3a0a09}{STATIC\+\_\+\+CHECK\+\_\+\+THAT}}(arg,  matcher)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename ArgT $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOf}{Match\+All\+Of}}$<$ ArgT $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_ac418993df83e01e488034f4a1ebbb73d}{Catch\+::\+Matchers\+::\+Detail\+::operator\&\&}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOf}{Match\+All\+Of}}$<$ ArgT $>$ const \&lhs, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ ArgT $>$ const \&rhs)=delete
+\item 
+{\footnotesize template$<$typename ArgT $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOf}{Match\+All\+Of}}$<$ ArgT $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a2222cfbf8fbad7592b1a10a814a3fe8f}{Catch\+::\+Matchers\+::\+Detail\+::operator\&\&}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ ArgT $>$ const \&lhs, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOf}{Match\+All\+Of}}$<$ ArgT $>$ const \&rhs)=delete
+\item 
+{\footnotesize template$<$typename ArgT $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOf}{Match\+Any\+Of}}$<$ ArgT $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a7838f4aa71ef3cf414c29632ac3ec3fb}{Catch\+::\+Matchers\+::\+Detail\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOf}{Match\+Any\+Of}}$<$ ArgT $>$ const \&lhs, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ ArgT $>$ const \&rhs)=delete
+\item 
+{\footnotesize template$<$typename ArgT $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOf}{Match\+Any\+Of}}$<$ ArgT $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a80dcde9728dd7bc1ad5f8c75171f2045}{Catch\+::\+Matchers\+::\+Detail\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ ArgT $>$ const \&lhs, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOf}{Match\+Any\+Of}}$<$ ArgT $>$ const \&rhs)=delete
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOf}{Detail\+::\+Match\+All\+Of}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a4f70fa676840d1fa8724b9ebf792e271}{Catch\+::\+Matchers\+::operator\&\&}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOf}{Detail\+::\+Match\+Any\+Of}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_acdae5b67b9c1ba440b209ec83bbf665d}{Catch\+::\+Matchers\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchNotOf}{Detail\+::\+Match\+Not\+Of}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a0c6f7e39ee26a862325f1c030679928f}{Catch\+::\+Matchers\+::operator!}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&matcher \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__matchers_8hpp_a5b8c33c63e0804d4458e2c761370b75d}\label{catch__matchers_8hpp_a5b8c33c63e0804d4458e2c761370b75d} 
+\index{catch\_matchers.hpp@{catch\_matchers.hpp}!CHECK\_THAT@{CHECK\_THAT}}
+\index{CHECK\_THAT@{CHECK\_THAT}!catch\_matchers.hpp@{catch\_matchers.hpp}}
+\doxysubsubsection{\texorpdfstring{CHECK\_THAT}{CHECK\_THAT}}
+{\footnotesize\ttfamily \#define CHECK\+\_\+\+THAT(\begin{DoxyParamCaption}\item[{}]{arg,  }\item[{}]{matcher }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__matchers__impl_8hpp_a877690adc04f1fbfe944df6bebe6f8b5}{INTERNAL\+\_\+\+CHECK\+\_\+\+THAT}}( "{}CHECK\+\_\+\+THAT"{}, matcher, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8aa18c94bd60c5614e17a84c2ced3bbfd5}{Catch\+::\+Result\+Disposition\+::\+Continue\+On\+Failure}}, arg )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00253}{253}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+\Hypertarget{catch__matchers_8hpp_a74fcc14d39e8cc35ff39f69c5b60e375}\label{catch__matchers_8hpp_a74fcc14d39e8cc35ff39f69c5b60e375} 
+\index{catch\_matchers.hpp@{catch\_matchers.hpp}!CHECK\_THROWS\_MATCHES@{CHECK\_THROWS\_MATCHES}}
+\index{CHECK\_THROWS\_MATCHES@{CHECK\_THROWS\_MATCHES}!catch\_matchers.hpp@{catch\_matchers.hpp}}
+\doxysubsubsection{\texorpdfstring{CHECK\_THROWS\_MATCHES}{CHECK\_THROWS\_MATCHES}}
+{\footnotesize\ttfamily \#define CHECK\+\_\+\+THROWS\+\_\+\+MATCHES(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{exception\+Type,  }\item[{}]{matcher }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__matchers__impl_8hpp_ace8fc7b74db8a1b2916554ad64e5b036}{INTERNAL\+\_\+\+CATCH\+\_\+\+THROWS\+\_\+\+MATCHES}}( "{}CHECK\+\_\+\+THROWS\+\_\+\+MATCHES"{}, exception\+Type, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8aa18c94bd60c5614e17a84c2ced3bbfd5}{Catch\+::\+Result\+Disposition\+::\+Continue\+On\+Failure}}, matcher, expr )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00251}{251}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+\Hypertarget{catch__matchers_8hpp_a4903733490f526b58053836575e99066}\label{catch__matchers_8hpp_a4903733490f526b58053836575e99066} 
+\index{catch\_matchers.hpp@{catch\_matchers.hpp}!CHECK\_THROWS\_WITH@{CHECK\_THROWS\_WITH}}
+\index{CHECK\_THROWS\_WITH@{CHECK\_THROWS\_WITH}!catch\_matchers.hpp@{catch\_matchers.hpp}}
+\doxysubsubsection{\texorpdfstring{CHECK\_THROWS\_WITH}{CHECK\_THROWS\_WITH}}
+{\footnotesize\ttfamily \#define CHECK\+\_\+\+THROWS\+\_\+\+WITH(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{matcher }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__test__macro__impl_8hpp_a4296ab989dbc1f6c52c24d60012144d6}{INTERNAL\+\_\+\+CATCH\+\_\+\+THROWS\+\_\+\+STR\+\_\+\+MATCHES}}( "{}CHECK\+\_\+\+THROWS\+\_\+\+WITH"{}, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8aa18c94bd60c5614e17a84c2ced3bbfd5}{Catch\+::\+Result\+Disposition\+::\+Continue\+On\+Failure}}, matcher, expr )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00250}{250}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+\Hypertarget{catch__matchers_8hpp_ac1354db6f3e9c1e0a8eda0eea7ff1f0a}\label{catch__matchers_8hpp_ac1354db6f3e9c1e0a8eda0eea7ff1f0a} 
+\index{catch\_matchers.hpp@{catch\_matchers.hpp}!REQUIRE\_THAT@{REQUIRE\_THAT}}
+\index{REQUIRE\_THAT@{REQUIRE\_THAT}!catch\_matchers.hpp@{catch\_matchers.hpp}}
+\doxysubsubsection{\texorpdfstring{REQUIRE\_THAT}{REQUIRE\_THAT}}
+{\footnotesize\ttfamily \#define REQUIRE\+\_\+\+THAT(\begin{DoxyParamCaption}\item[{}]{arg,  }\item[{}]{matcher }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__matchers__impl_8hpp_a877690adc04f1fbfe944df6bebe6f8b5}{INTERNAL\+\_\+\+CHECK\+\_\+\+THAT}}( "{}REQUIRE\+\_\+\+THAT"{}, matcher, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{Catch\+::\+Result\+Disposition\+::\+Normal}}, arg )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00254}{254}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+\Hypertarget{catch__matchers_8hpp_a54473a48ac2ac55bfe1165b69e1b8010}\label{catch__matchers_8hpp_a54473a48ac2ac55bfe1165b69e1b8010} 
+\index{catch\_matchers.hpp@{catch\_matchers.hpp}!REQUIRE\_THROWS\_MATCHES@{REQUIRE\_THROWS\_MATCHES}}
+\index{REQUIRE\_THROWS\_MATCHES@{REQUIRE\_THROWS\_MATCHES}!catch\_matchers.hpp@{catch\_matchers.hpp}}
+\doxysubsubsection{\texorpdfstring{REQUIRE\_THROWS\_MATCHES}{REQUIRE\_THROWS\_MATCHES}}
+{\footnotesize\ttfamily \#define REQUIRE\+\_\+\+THROWS\+\_\+\+MATCHES(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{exception\+Type,  }\item[{}]{matcher }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__matchers__impl_8hpp_ace8fc7b74db8a1b2916554ad64e5b036}{INTERNAL\+\_\+\+CATCH\+\_\+\+THROWS\+\_\+\+MATCHES}}( "{}REQUIRE\+\_\+\+THROWS\+\_\+\+MATCHES"{}, exception\+Type, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{Catch\+::\+Result\+Disposition\+::\+Normal}}, matcher, expr )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00248}{248}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+\Hypertarget{catch__matchers_8hpp_aa39a017db507132071d2819f087b2f28}\label{catch__matchers_8hpp_aa39a017db507132071d2819f087b2f28} 
+\index{catch\_matchers.hpp@{catch\_matchers.hpp}!REQUIRE\_THROWS\_WITH@{REQUIRE\_THROWS\_WITH}}
+\index{REQUIRE\_THROWS\_WITH@{REQUIRE\_THROWS\_WITH}!catch\_matchers.hpp@{catch\_matchers.hpp}}
+\doxysubsubsection{\texorpdfstring{REQUIRE\_THROWS\_WITH}{REQUIRE\_THROWS\_WITH}}
+{\footnotesize\ttfamily \#define REQUIRE\+\_\+\+THROWS\+\_\+\+WITH(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{matcher }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__test__macro__impl_8hpp_a4296ab989dbc1f6c52c24d60012144d6}{INTERNAL\+\_\+\+CATCH\+\_\+\+THROWS\+\_\+\+STR\+\_\+\+MATCHES}}( "{}REQUIRE\+\_\+\+THROWS\+\_\+\+WITH"{}, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{Catch\+::\+Result\+Disposition\+::\+Normal}}, matcher, expr )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00247}{247}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+\Hypertarget{catch__matchers_8hpp_a23b16ff4b1939d8142cb76fb3a3a0a09}\label{catch__matchers_8hpp_a23b16ff4b1939d8142cb76fb3a3a0a09} 
+\index{catch\_matchers.hpp@{catch\_matchers.hpp}!STATIC\_CHECK\_THAT@{STATIC\_CHECK\_THAT}}
+\index{STATIC\_CHECK\_THAT@{STATIC\_CHECK\_THAT}!catch\_matchers.hpp@{catch\_matchers.hpp}}
+\doxysubsubsection{\texorpdfstring{STATIC\_CHECK\_THAT}{STATIC\_CHECK\_THAT}}
+{\footnotesize\ttfamily \#define STATIC\+\_\+\+CHECK\+\_\+\+THAT(\begin{DoxyParamCaption}\item[{}]{arg,  }\item[{}]{matcher }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\ (\ matcher\ ).match(\ arg\ ),\ \#matcher\ \textcolor{stringliteral}{"{}.match(\ "{}}\ \#arg\ \textcolor{stringliteral}{"{}\ )"{}});\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ SUCCEED(\ \#matcher\ \textcolor{stringliteral}{"{}.match(\ "{}}\ \#arg\ \textcolor{stringliteral}{"{}\ )"{}}\ )}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00260}{260}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+\Hypertarget{catch__matchers_8hpp_afc2d995fe1eea4b3b7c150a1de2fe544}\label{catch__matchers_8hpp_afc2d995fe1eea4b3b7c150a1de2fe544} 
+\index{catch\_matchers.hpp@{catch\_matchers.hpp}!STATIC\_REQUIRE\_THAT@{STATIC\_REQUIRE\_THAT}}
+\index{STATIC\_REQUIRE\_THAT@{STATIC\_REQUIRE\_THAT}!catch\_matchers.hpp@{catch\_matchers.hpp}}
+\doxysubsubsection{\texorpdfstring{STATIC\_REQUIRE\_THAT}{STATIC\_REQUIRE\_THAT}}
+{\footnotesize\ttfamily \#define STATIC\+\_\+\+REQUIRE\+\_\+\+THAT(\begin{DoxyParamCaption}\item[{}]{arg,  }\item[{}]{matcher }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\ (\ matcher\ ).match(\ arg\ ),\ \#matcher\ \textcolor{stringliteral}{"{}.match(\ "{}}\ \#arg\ \textcolor{stringliteral}{"{}\ )"{}});\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ SUCCEED(\ \#matcher\ \textcolor{stringliteral}{"{}.match(\ "{}}\ \#arg\ \textcolor{stringliteral}{"{}\ )"{}}\ )}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00257}{257}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+

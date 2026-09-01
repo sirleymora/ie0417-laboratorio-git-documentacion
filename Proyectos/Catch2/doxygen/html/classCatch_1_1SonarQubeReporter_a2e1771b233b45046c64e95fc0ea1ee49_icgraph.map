@@ -1,0 +1,16 @@
+<map id="Catch::SonarQubeReporter::writeAssertion" name="Catch::SonarQubeReporter::writeAssertion">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1461,29,1656,69"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1SonarQubeReporter.html#ad7d49dcd6e1e753355b1a824b4805d98" title=" " alt="" coords="1219,29,1413,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1447,52,1414,52,1414,47,1447,47"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1SonarQubeReporter.html#a6c3bf02bc36f29c9f58ac8261d903f53" title=" " alt="" coords="976,29,1171,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1205,52,1171,52,1171,47,1205,47"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="1115,18,1100,11,1073,8,1050,10,1036,15,1031,21,1033,28,1028,30,1025,20,1033,10,1049,5,1073,3,1102,6,1117,13"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1SonarQubeReporter.html#a28756eaa7e0bb22a8fdb6a66bf655f7a" title=" " alt="" coords="733,29,928,69"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="962,52,928,52,928,47,962,47"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1SonarQubeReporter.html#af036e53a767f62bb717be5f44cf71d29" title=" " alt="" coords="491,29,685,69"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="719,52,686,52,686,47,719,47"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1SonarQubeReporter.html#a327ca03fcdfa7afec48861cd54241cdd" title=" " alt="" coords="248,29,443,69"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="477,52,443,52,443,47,477,47"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1SonarQubeReporter.html#a770aaa74035d32ca5b7cebeb64012516" title="Customization point: called after last test finishes (testRunEnded has been handled)" alt="" coords="5,29,200,69"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="234,52,200,52,200,47,234,47"/>
+</map>

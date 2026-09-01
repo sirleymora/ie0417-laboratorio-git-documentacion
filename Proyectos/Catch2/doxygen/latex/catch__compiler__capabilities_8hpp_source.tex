@@ -1,0 +1,484 @@
+\doxysection{catch\+\_\+compiler\+\_\+capabilities.\+hpp}
+\hypertarget{catch__compiler__capabilities_8hpp_source}{}\label{catch__compiler__capabilities_8hpp_source}\index{src/catch2/internal/catch\_compiler\_capabilities.hpp@{src/catch2/internal/catch\_compiler\_capabilities.hpp}}
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_COMPILER\_CAPABILITIES\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_COMPILER\_CAPABILITIES\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00011}00011\ \textcolor{comment}{//\ Detect\ a\ number\ of\ compiler\ features\ -\/\ by\ compiler}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00012}00012\ \textcolor{comment}{//\ The\ following\ features\ are\ defined:}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00013}00013\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00014}00014\ \textcolor{comment}{//\ CATCH\_CONFIG\_WINDOWS\_SEH\ :\ is\ Windows\ SEH\ supported?}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00015}00015\ \textcolor{comment}{//\ CATCH\_CONFIG\_POSIX\_SIGNALS\ :\ are\ POSIX\ signals\ supported?}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00016}00016\ \textcolor{comment}{//\ CATCH\_CONFIG\_DISABLE\_EXCEPTIONS\ :\ Are\ exceptions\ enabled?}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00017}00017\ \textcolor{comment}{//\ ****************}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00018}00018\ \textcolor{comment}{//\ Note\ to\ maintainers:\ if\ new\ toggles\ are\ added\ please\ document\ them}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00019}00019\ \textcolor{comment}{//\ in\ configuration.md,\ too}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00020}00020\ \textcolor{comment}{//\ ****************}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00022}00022\ \textcolor{comment}{//\ In\ general\ each\ macro\ has\ a\ \_NO\_<feature\ name>\ form}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00023}00023\ \textcolor{comment}{//\ (e.g.\ CATCH\_CONFIG\_NO\_POSIX\_SIGNALS)\ which\ disables\ the\ feature.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00024}00024\ \textcolor{comment}{//\ Many\ features,\ at\ point\ of\ detection,\ define\ an\ \_INTERNAL\_\ macro,\ so\ they}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00025}00025\ \textcolor{comment}{//\ can\ be\ combined,\ en-\/mass,\ with\ the\ \_NO\_\ forms\ later.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__platform_8hpp}{catch2/internal/catch\_platform.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <catch2/catch\_user\_config.hpp>}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#if\ (\_\_cplusplus\ >=\ 201703L)\ ||\ (defined(\_MSVC\_LANG)\ \&\&\ \_MSVC\_LANG\ >=\ 201703L)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00031}00031\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CPP17\_OR\_GREATER}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00034}00034\ \textcolor{preprocessor}{\#if\ (\_\_cplusplus\ >=\ 202002L)\ ||\ (defined(\_MSVC\_LANG)\ \&\&\ \_MSVC\_LANG\ >=\ 202002L)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00035}00035\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CPP20\_OR\_GREATER}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00036}00036\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00038}00038\ \textcolor{comment}{//\ Matchers\ are\ only\ constexpr-\/able\ in\ C++20}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00039}00039\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_CPP20\_OR\_GREATER\ )\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00040}00040\ \textcolor{preprocessor}{\ \ \ \ defined(\ \_\_cpp\_constexpr\_dynamic\_alloc\ )\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00041}00041\ \textcolor{preprocessor}{\ \ \ \ \_\_cpp\_constexpr\_dynamic\_alloc\ >=\ 201907L\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00042}00042\ \textcolor{preprocessor}{\ \ \ \ }\textcolor{comment}{/*\ GCC\ <\ 13\ define\ the\ feature\ macro,\ but\ compiler\ bugs\ stop\ us\ from\ using\ it\ */}\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00043}00043\ \textcolor{preprocessor}{\ \ \ \ (\ !defined(\ \_\_GNUC\_\_\ )\ ||\ \_\_GNUC\_\_\ >=\ 13\ ||\ defined(\_\_clang\_\_)\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00044}00044\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONSTEXPR\_MATCHERS\_ENABLED}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00045}00045\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_DESTRUCTOR\_CONSTEXPR\ constexpr}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00046}00046\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00047}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{00047}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_DESTRUCTOR\_CONSTEXPR}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00048}00048\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00050}00050\ \textcolor{comment}{//\ Only\ GCC\ compiler\ should\ be\ used\ in\ this\ block,\ so\ other\ compilers\ trying\ to}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00051}00051\ \textcolor{comment}{//\ mask\ themselves\ as\ GCC\ should\ be\ ignored.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00052}00052\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)\ \&\&\ !defined(\_\_clang\_\_)\ \&\&\ !defined(\_\_ICC)\ \&\&\ !defined(\_\_CUDACC\_\_)\ \&\&\ !defined(\_\_LCC\_\_)\ \&\&\ !defined(\_\_NVCOMPILER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00053}00053\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \_Pragma(\ "{}GCC\ diagnostic\ push"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00054}00054\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \ \_Pragma(\ "{}GCC\ diagnostic\ pop"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00056}00056\ \textcolor{comment}{//\ This\ only\ works\ on\ GCC\ 9+.\ so\ we\ have\ to\ also\ add\ a\ global\ suppression\ of\ Wparentheses}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00057}00057\ \textcolor{comment}{//\ for\ older\ versions\ of\ GCC.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00058}00058\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00059}00059\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}GCC\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wparentheses\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00061}00061\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_RESULT\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00062}00062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}GCC\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wunused-\/result\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00064}00064\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00065}00065\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}GCC\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wunused-\/variable\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00067}00067\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_USELESS\_CAST\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}GCC\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wuseless-\/cast\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00070}00070\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00071}00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}GCC\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wshadow\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00073}00073\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_USE\_BUILTIN\_CONSTANT\_P}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00075}00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00077}00077\ \textcolor{preprocessor}{\#if\ defined(\_\_NVCOMPILER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00078}00078\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \_Pragma(\ "{}diag\ push"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00079}00079\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \ \_Pragma(\ "{}diag\ pop"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00080}00080\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \_Pragma(\ "{}diag\_suppress\ declared\_but\_not\_referenced"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00081}00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00083}00083\ \textcolor{preprocessor}{\#if\ defined(\_\_CUDACC\_\_)\ \&\&\ !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00084}00084\ \textcolor{preprocessor}{\#\ \ ifdef\ \_\_NVCC\_DIAG\_PRAGMA\_SUPPORT\_\_}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00085}00085\ \textcolor{comment}{//\ New\ pragmas\ introduced\ in\ CUDA\ 11.5+}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00086}00086\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \_Pragma(\ "{}nv\_diagnostic\ push"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00087}00087\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \ \_Pragma(\ "{}nv\_diagnostic\ pop"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00088}00088\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \_Pragma(\ "{}nv\_diag\_suppress\ 177"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00089}00089\ \textcolor{preprocessor}{\#\ \ else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00090}00090\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \_Pragma(\ "{}diag\_suppress\ 177"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00091}00091\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00092}00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00094}00094\ \textcolor{comment}{//\ clang-\/cl\ defines\ \_MSC\_VER\ as\ well\ as\ \_\_clang\_\_,\ which\ could\ cause\ the}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00095}00095\ \textcolor{comment}{//\ start/stop\ internal\ suppression\ macros\ to\ be\ double\ defined.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00096}00096\ \textcolor{preprocessor}{\#if\ defined(\_\_clang\_\_)\ \&\&\ !defined(\_MSC\_VER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00097}00097\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_USE\_BUILTIN\_CONSTANT\_P}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00098}00098\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \_Pragma(\ "{}clang\ diagnostic\ push"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00099}00099\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \ \_Pragma(\ "{}clang\ diagnostic\ pop"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00100}00100\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_clang\_\_\ \&\&\ !\_MSC\_VER}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00102}00102\ \textcolor{preprocessor}{\#if\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00104}00104\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00105}00105\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wexit-\/time-\/destructors\(\backslash\)"{}"{}\ )\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00106}00106\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wglobal-\/constructors\(\backslash\)"{}"{})}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00108}00108\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00109}00109\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wparentheses\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00111}00111\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00112}00112\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wunused-\/variable\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00114}00114\ \textcolor{preprocessor}{\#\ \ \ \ if\ (\_\_clang\_major\_\_\ >=\ 20)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00115}00115\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00116}00116\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wvariadic-\/macro-\/arguments-\/omitted\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00117}00117\ \textcolor{preprocessor}{\#\ \ \ \ elif\ (\_\_clang\_major\_\_\ ==\ 19)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00118}00118\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00119}00119\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wc++20-\/extensions\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00120}00120\ \textcolor{preprocessor}{\#\ \ \ \ else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00121}00121\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00122}00122\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wgnu-\/zero-\/variadic-\/macro-\/arguments\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00123}00123\ \textcolor{preprocessor}{\#\ \ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00125}00125\ \textcolor{preprocessor}{\#\ \ \ \ if\ (\ \_\_clang\_major\_\_\ >=\ 22\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00126}00126\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00127}00127\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wc2y-\/extensions\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00128}00128\ \textcolor{preprocessor}{\#\ \ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00130}00130\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00131}00131\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wunused-\/template\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00133}00133\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_COMMA\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00134}00134\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wcomma\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00136}00136\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00137}00137\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_Pragma(\ "{}clang\ diagnostic\ ignored\ \(\backslash\)"{}-\/Wshadow\(\backslash\)"{}"{}\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00139}00139\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_clang\_\_}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00141}00141\ \textcolor{comment}{//\ As\ of\ this\ writing,\ IBM\ XL's\ implementation\ of\ \_\_builtin\_constant\_p\ has\ a\ bug}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00142}00142\ \textcolor{comment}{//\ which\ results\ in\ calls\ to\ destructors\ being\ emitted\ for\ each\ temporary,}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00143}00143\ \textcolor{comment}{//\ without\ a\ matching\ initialization.\ In\ practice,\ this\ can\ result\ in\ something}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00144}00144\ \textcolor{comment}{//\ like\ \`{}std::string::\string~string`\ being\ called\ on\ an\ uninitialized\ value.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00145}00145\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00146}00146\ \textcolor{comment}{//\ For\ example,\ this\ code\ will\ likely\ segfault\ under\ IBM\ XL:}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00147}00147\ \textcolor{comment}{//\ \`{}\`{}\`{}}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00148}00148\ \textcolor{comment}{//\ REQUIRE(std::string("{}12"{})\ +\ "{}34"{}\ ==\ "{}1234"{})}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00149}00149\ \textcolor{comment}{//\ \`{}\`{}\`{}}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00150}00150\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00151}00151\ \textcolor{comment}{//\ Similarly,\ NVHPC's\ implementation\ of\ \`{}\_\_builtin\_constant\_p`\ has\ a\ bug\ which}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00152}00152\ \textcolor{comment}{//\ results\ in\ calls\ to\ the\ immediately\ evaluated\ lambda\ expressions\ to\ be}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00153}00153\ \textcolor{comment}{//\ reported\ as\ unevaluated\ lambdas.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00154}00154\ \textcolor{comment}{//\ https://developer.nvidia.com/nvidia\_bug/3321845.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00155}00155\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00156}00156\ \textcolor{comment}{//\ Therefore,\ \`{}CATCH\_INTERNAL\_IGNORE\_BUT\_WARN`\ is\ not\ implemented.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00157}00157\ \textcolor{preprocessor}{\#if\ defined(\ \_\_ibmxl\_\_\ )\ ||\ defined(\ \_\_CUDACC\_\_\ )\ ||\ defined(\ \_\_NVCOMPILER\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00158}00158\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_NO\_USE\_BUILTIN\_CONSTANT\_P}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00159}00159\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00164}00164\ \textcolor{comment}{//\ We\ know\ some\ environments\ not\ to\ support\ full\ POSIX\ signals}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00165}00165\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_PLATFORM\_WINDOWS\ )\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00166}00166\ \textcolor{preprocessor}{\ \ \ \ defined(\ CATCH\_PLATFORM\_PLAYSTATION\ )\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00167}00167\ \textcolor{preprocessor}{\ \ \ \ defined(\ \_\_CYGWIN\_\_\ )\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00168}00168\ \textcolor{preprocessor}{\ \ \ \ defined(\ \_\_QNX\_\_\ )\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00169}00169\ \textcolor{preprocessor}{\ \ \ \ defined(\ \_\_EMSCRIPTEN\_\_\ )\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00170}00170\ \textcolor{preprocessor}{\ \ \ \ defined(\ \_\_DJGPP\_\_\ )\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00171}00171\ \textcolor{preprocessor}{\ \ \ \ defined(\ \_\_OS400\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00172}00172\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_NO\_POSIX\_SIGNALS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00173}00173\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00174}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a3c8d4b828da004fc3ad2511c1900ec19}{00174}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_POSIX\_SIGNALS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00175}00175\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00178}00178\ \textcolor{comment}{//\ Assume\ that\ some\ platforms\ do\ not\ support\ getenv.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00179}00179\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_PLATFORM\_WINDOWS\_UWP\ )\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00180}00180\ \textcolor{preprocessor}{\ \ \ \ defined(\ CATCH\_PLATFORM\_PLAYSTATION\ )\ ||\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00181}00181\ \textcolor{preprocessor}{\ \ \ \ defined(\ \_GAMING\_XBOX\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00182}00182\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_NO\_GETENV}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00183}00183\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00184}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_af1d39364eef8e638ff7d96d0a47bed92}{00184}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_GETENV}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00185}00185\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00188}00188\ \textcolor{comment}{//\ Android\ somehow\ still\ does\ not\ support\ std::to\_string}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00189}00189\ \textcolor{preprocessor}{\#if\ defined(\_\_ANDROID\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00190}00190\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_NO\_CPP11\_TO\_STRING}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00191}00191\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00194}00194\ \textcolor{comment}{//\ Not\ all\ Windows\ environments\ support\ SEH\ properly}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00195}00195\ \textcolor{preprocessor}{\#if\ defined(\_\_MINGW32\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00196}00196\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_NO\_WINDOWS\_SEH}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00197}00197\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00200}00200\ \textcolor{comment}{//\ PS4}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00201}00201\ \textcolor{preprocessor}{\#if\ defined(\_\_ORBIS\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00202}00202\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_NO\_NEW\_CAPTURE}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00203}00203\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00206}00206\ \textcolor{comment}{//\ Cygwin}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00207}00207\ \textcolor{preprocessor}{\#ifdef\ \_\_CYGWIN\_\_}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00209}00209\ \textcolor{comment}{//\ Required\ for\ some\ versions\ of\ Cygwin\ to\ declare\ gettimeofday}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00210}00210\ \textcolor{comment}{//\ see:\ http://stackoverflow.com/questions/36901803/gettimeofday-\/not-\/declared-\/in-\/this-\/scope-\/cygwin}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00211}00211\ \textcolor{preprocessor}{\#\ \ \ define\ \_BSD\_SOURCE}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00212}00212\ \textcolor{comment}{//\ some\ versions\ of\ cygwin\ (most)\ do\ not\ support\ std::to\_string.\ Use\ the\ libstd\ check.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00213}00213\ \textcolor{comment}{//\ https://gcc.gnu.org/onlinedocs/gcc-\/4.8.2/libstdc++/api/a01053\_source.html\ line\ 2812-\/2813}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00214}00214\ \textcolor{preprocessor}{\#\ if\ !((\_\_cplusplus\ >=\ 201103L)\ \&\&\ defined(\_GLIBCXX\_USE\_C99)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00215}00215\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \&\&\ !defined(\_GLIBCXX\_HAVE\_BROKEN\_VSWPRINTF))}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00217}00217\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_NO\_CPP11\_TO\_STRING}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00219}00219\ \textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00220}00220\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_CYGWIN\_\_}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00223}00223\ \textcolor{comment}{//\ Visual\ C++}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00224}00224\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ \&\&\ !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00226}00226\ \textcolor{comment}{//\ We\ want\ to\ defer\ to\ nvcc-\/specific\ warning\ suppression\ if\ we\ are\ compiled}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00227}00227\ \textcolor{comment}{//\ with\ nvcc\ masquerading\ for\ MSVC.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00228}00228\ \textcolor{preprocessor}{\#\ \ \ \ if\ !defined(\ \_\_CUDACC\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00229}00229\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ \ define\ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00230}00230\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \_\_pragma(\ warning(\ push\ )\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00231}00231\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ \ define\ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00232}00232\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \_\_pragma(\ warning(\ pop\ )\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00233}00233\ \textcolor{preprocessor}{\#\ \ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00235}00235\ \textcolor{comment}{//\ Suppress\ MSVC\ C++\ Core\ Guidelines\ checker\ warning\ 26426:}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00236}00236\ \textcolor{comment}{//\ "{}Global\ initializer\ calls\ a\ non-\/constexpr\ function\ (i.22)"{}}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00237}00237\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00238}00238\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \_\_pragma(\ warning(\ disable\ :\ 26426\ )\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00240}00240\ \textcolor{comment}{//\ Universal\ Windows\ platform\ does\ not\ support\ SEH}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00241}00241\ \textcolor{preprocessor}{\#\ \ if\ !defined(CATCH\_PLATFORM\_WINDOWS\_UWP)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00242}00242\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_WINDOWS\_SEH}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00243}00243\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00245}00245\ \textcolor{comment}{//\ Only\ some\ Windows\ platform\ families\ support\ the\ console}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00246}00246\ \textcolor{preprocessor}{\#\ \ if\ defined(WINAPI\_FAMILY\_PARTITION)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00247}00247\ \textcolor{preprocessor}{\#\ \ \ \ if\ !WINAPI\_FAMILY\_PARTITION(WINAPI\_PARTITION\_APP\ |\ WINAPI\_PARTITION\_SYSTEM)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00248}00248\ \textcolor{preprocessor}{\#\ \ \ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_NO\_COLOUR\_WIN32}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00249}00249\ \textcolor{preprocessor}{\#\ \ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00250}00250\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00252}00252\ \textcolor{comment}{//\ MSVC\ traditional\ preprocessor\ needs\ some\ workaround\ for\ \_\_VA\_ARGS\_\_}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00253}00253\ \textcolor{comment}{//\ \_MSVC\_TRADITIONAL\ ==\ 0\ means\ new\ conformant\ preprocessor}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00254}00254\ \textcolor{comment}{//\ \_MSVC\_TRADITIONAL\ ==\ 1\ means\ old\ traditional\ non-\/conformant\ preprocessor}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00255}00255\ \textcolor{preprocessor}{\#\ \ if\ !defined(\_\_clang\_\_)\ }\textcolor{comment}{//\ Handle\ Clang\ masquerading\ for\ msvc}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00256}00256\ \textcolor{preprocessor}{\#\ \ \ \ if\ !defined(\_MSVC\_TRADITIONAL)\ ||\ (defined(\_MSVC\_TRADITIONAL)\ \&\&\ \_MSVC\_TRADITIONAL)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00257}00257\ \textcolor{preprocessor}{\#\ \ \ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_TRADITIONAL\_MSVC\_PREPROCESSOR}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00258}00258\ \textcolor{preprocessor}{\#\ \ \ \ endif\ }\textcolor{comment}{//\ MSVC\_TRADITIONAL}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00259}00259\ \textcolor{preprocessor}{\#\ \ endif\ }\textcolor{comment}{//\ \_\_clang\_\_}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00261}00261\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_MSC\_VER}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00263}00263\ \textcolor{preprocessor}{\#if\ defined(\_REENTRANT)\ ||\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00264}00264\ \textcolor{comment}{//\ Enable\ async\ processing,\ as\ -\/pthread\ is\ specified\ or\ no\ additional\ linking\ is\ required}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00265}00265\ \textcolor{preprocessor}{\#\ define\ CATCH\_INTERNAL\_CONFIG\_USE\_ASYNC}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00266}00266\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_MSC\_VER}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00269}00269\ \textcolor{comment}{//\ Check\ if\ we\ are\ compiled\ with\ -\/fno-\/exceptions\ or\ equivalent}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00270}00270\ \textcolor{preprocessor}{\#if\ defined(\_\_EXCEPTIONS)\ ||\ defined(\_\_cpp\_exceptions)\ ||\ defined(\_CPPUNWIND)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00271}00271\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_INTERNAL\_CONFIG\_EXCEPTIONS\_ENABLED}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00272}00272\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00276}00276\ \textcolor{comment}{//\ Embarcadero\ C++Build}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00277}00277\ \textcolor{preprocessor}{\#if\ defined(\_\_BORLANDC\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00278}00278\ \textcolor{preprocessor}{\ \ \ \ \#define\ CATCH\_INTERNAL\_CONFIG\_POLYFILL\_ISNAN}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00279}00279\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00283}00283\ \textcolor{comment}{//\ RTX\ is\ a\ special\ version\ of\ Windows\ that\ is\ real\ time.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00284}00284\ \textcolor{comment}{//\ This\ means\ that\ it\ is\ detected\ as\ Windows,\ but\ does\ not\ provide}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00285}00285\ \textcolor{comment}{//\ the\ same\ set\ of\ capabilities\ as\ real\ Windows\ does.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00286}00286\ \textcolor{preprocessor}{\#if\ defined(UNDER\_RTSS)\ ||\ defined(RTX64\_BUILD)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00287}00287\ \textcolor{preprocessor}{\ \ \ \ \#define\ CATCH\_INTERNAL\_CONFIG\_NO\_WINDOWS\_SEH}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00288}00288\ \textcolor{preprocessor}{\ \ \ \ \#define\ CATCH\_INTERNAL\_CONFIG\_NO\_ASYNC}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00289}00289\ \textcolor{preprocessor}{\ \ \ \ \#define\ CATCH\_INTERNAL\_CONFIG\_NO\_COLOUR\_WIN32}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00290}00290\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00292}00292\ \textcolor{preprocessor}{\#if\ !defined(\_GLIBCXX\_USE\_C99\_MATH\_TR1)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00293}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a48ae5ed6ff9168c5ad3d5058527fbfae}{00293}}\ \textcolor{preprocessor}{\#define\ CATCH\_INTERNAL\_CONFIG\_GLOBAL\_NEXTAFTER}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00294}00294\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00296}00296\ \textcolor{comment}{//\ Various\ stdlib\ support\ checks\ that\ require\ \_\_has\_include}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00297}00297\ \textcolor{preprocessor}{\#if\ defined(\_\_has\_include)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00298}00298\ \ \ \textcolor{comment}{//\ Check\ if\ string\_view\ is\ available\ and\ usable}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00299}00299\ \textcolor{preprocessor}{\ \ \#if\ \_\_has\_include(<string\_view>)\ \&\&\ defined(CATCH\_CPP17\_OR\_GREATER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00300}00300\ \textcolor{preprocessor}{\ \ \#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_CPP17\_STRING\_VIEW}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00301}00301\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00303}00303\ \ \ \textcolor{comment}{//\ Check\ if\ optional\ is\ available\ and\ usable}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00304}00304\ \textcolor{preprocessor}{\ \ \#\ \ if\ \_\_has\_include(<optional>)\ \&\&\ defined(CATCH\_CPP17\_OR\_GREATER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00305}00305\ \textcolor{preprocessor}{\ \ \#\ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_CPP17\_OPTIONAL}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00306}00306\ \textcolor{preprocessor}{\ \ \#\ \ endif\ }\textcolor{comment}{//\ \_\_has\_include(<optional>)\ \&\&\ defined(CATCH\_CPP17\_OR\_GREATER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00308}00308\ \ \ \textcolor{comment}{//\ Check\ if\ byte\ is\ available\ and\ usable}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00309}00309\ \textcolor{preprocessor}{\ \ \#\ \ if\ \_\_has\_include(<cstddef>)\ \&\&\ defined(CATCH\_CPP17\_OR\_GREATER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00310}00310\ \textcolor{preprocessor}{\ \ \#\ \ \ \ include\ <cstddef>}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00311}00311\ \textcolor{preprocessor}{\ \ \#\ \ \ \ if\ defined(\_\_cpp\_lib\_byte)\ \&\&\ (\_\_cpp\_lib\_byte\ >\ 0)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00312}00312\ \textcolor{preprocessor}{\ \ \#\ \ \ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_CPP17\_BYTE}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00313}00313\ \textcolor{preprocessor}{\ \ \#\ \ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00314}00314\ \textcolor{preprocessor}{\ \ \#\ \ endif\ }\textcolor{comment}{//\ \_\_has\_include(<cstddef>)\ \&\&\ defined(CATCH\_CPP17\_OR\_GREATER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00316}00316\ \ \ \textcolor{comment}{//\ Check\ if\ variant\ is\ available\ and\ usable}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00317}00317\ \textcolor{preprocessor}{\ \ \#\ \ if\ \_\_has\_include(<variant>)\ \&\&\ defined(CATCH\_CPP17\_OR\_GREATER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00318}00318\ \textcolor{preprocessor}{\ \ \#\ \ \ \ if\ defined(\_\_clang\_\_)\ \&\&\ (\_\_clang\_major\_\_\ <\ 8)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ work\ around\ clang\ bug\ with\ libstdc++\ https://bugs.llvm.org/show\_bug.cgi?id=31852}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fix\ should\ be\ in\ clang\ 8,\ workaround\ in\ libstdc++\ 8.2}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00321}00321\ \textcolor{preprocessor}{\ \ \#\ \ \ \ \ \ include\ <ciso646>}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00322}00322\ \textcolor{preprocessor}{\ \ \#\ \ \ \ \ \ if\ defined(\_\_GLIBCXX\_\_)\ \&\&\ defined(\_GLIBCXX\_RELEASE)\ \&\&\ (\_GLIBCXX\_RELEASE\ <\ 9)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00323}00323\ \textcolor{preprocessor}{\ \ \#\ \ \ \ \ \ \ \ define\ CATCH\_CONFIG\_NO\_CPP17\_VARIANT}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00324}00324\ \textcolor{preprocessor}{\ \ \#\ \ \ \ \ \ else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00325}00325\ \textcolor{preprocessor}{\ \ \#\ \ \ \ \ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_CPP17\_VARIANT}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00326}00326\ \textcolor{preprocessor}{\ \ \#\ \ \ \ \ \ endif\ }\textcolor{comment}{//\ defined(\_\_GLIBCXX\_\_)\ \&\&\ defined(\_GLIBCXX\_RELEASE)\ \&\&\ (\_GLIBCXX\_RELEASE\ <\ 9)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00327}00327\ \textcolor{preprocessor}{\ \ \#\ \ \ \ else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00328}00328\ \textcolor{preprocessor}{\ \ \#\ \ \ \ \ \ define\ CATCH\_INTERNAL\_CONFIG\_CPP17\_VARIANT}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00329}00329\ \textcolor{preprocessor}{\ \ \#\ \ \ \ endif\ }\textcolor{comment}{//\ defined(\_\_clang\_\_)\ \&\&\ (\_\_clang\_major\_\_\ <\ 8)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00330}00330\ \textcolor{preprocessor}{\ \ \#\ \ endif\ }\textcolor{comment}{//\ \_\_has\_include(<variant>)\ \&\&\ defined(CATCH\_CPP17\_OR\_GREATER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00331}00331\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ defined(\_\_has\_include)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00334}00334\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_WINDOWS\_SEH)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_WINDOWS\_SEH)\ \&\&\ !defined(CATCH\_CONFIG\_WINDOWS\_SEH)\ \&\&\ !defined(CATCH\_INTERNAL\_CONFIG\_NO\_WINDOWS\_SEH)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00335}00335\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_CONFIG\_WINDOWS\_SEH}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00336}00336\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00337}00337\ \textcolor{comment}{//\ This\ is\ set\ by\ default,\ because\ we\ assume\ that\ unix\ compilers\ are\ posix-\/signal-\/compatible\ by\ default.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00338}00338\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_POSIX\_SIGNALS)\ \&\&\ !defined(CATCH\_INTERNAL\_CONFIG\_NO\_POSIX\_SIGNALS)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_POSIX\_SIGNALS)\ \&\&\ !defined(CATCH\_CONFIG\_POSIX\_SIGNALS)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00339}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_ac5eee4f90512985d2043f971c6f08707}{00339}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_CONFIG\_POSIX\_SIGNALS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00340}00340\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00342}00342\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_GETENV)\ \&\&\ !defined(CATCH\_INTERNAL\_CONFIG\_NO\_GETENV)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_GETENV)\ \&\&\ !defined(CATCH\_CONFIG\_GETENV)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00343}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a031d6a2aef5109e070f77e0d87a32b17}{00343}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_CONFIG\_GETENV}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00344}00344\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00346}00346\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_INTERNAL\_CONFIG\_NO\_CPP11\_TO\_STRING)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_CPP11\_TO\_STRING)\ \&\&\ !defined(CATCH\_CONFIG\_CPP11\_TO\_STRING)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00347}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a5e8669f07e3db1e9e1604508689bc28a}{00347}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_CONFIG\_CPP11\_TO\_STRING}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00348}00348\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00349}00349\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00350}00350\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_CPP17\_OPTIONAL)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_CPP17\_OPTIONAL)\ \&\&\ !defined(CATCH\_CONFIG\_CPP17\_OPTIONAL)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00351}00351\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CONFIG\_CPP17\_OPTIONAL}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00352}00352\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00353}00353\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00354}00354\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_CPP17\_STRING\_VIEW)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_CPP17\_STRING\_VIEW)\ \&\&\ !defined(CATCH\_CONFIG\_CPP17\_STRING\_VIEW)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00355}00355\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CONFIG\_CPP17\_STRING\_VIEW}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00356}00356\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00358}00358\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_CPP17\_VARIANT)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_CPP17\_VARIANT)\ \&\&\ !defined(CATCH\_CONFIG\_CPP17\_VARIANT)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00359}00359\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CONFIG\_CPP17\_VARIANT}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00360}00360\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00362}00362\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_CPP17\_BYTE)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_CPP17\_BYTE)\ \&\&\ !defined(CATCH\_CONFIG\_CPP17\_BYTE)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00363}00363\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CONFIG\_CPP17\_BYTE}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00364}00364\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00366}00366\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00367}00367\ \textcolor{preprocessor}{\#if\ defined(CATCH\_CONFIG\_EXPERIMENTAL\_REDIRECT)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00368}00368\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_INTERNAL\_CONFIG\_NEW\_CAPTURE}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00369}00369\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00371}00371\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_NEW\_CAPTURE)\ \&\&\ !defined(CATCH\_INTERNAL\_CONFIG\_NO\_NEW\_CAPTURE)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_NEW\_CAPTURE)\ \&\&\ !defined(CATCH\_CONFIG\_NEW\_CAPTURE)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00372}00372\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CONFIG\_NEW\_CAPTURE}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00373}00373\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00375}00375\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_INTERNAL\_CONFIG\_EXCEPTIONS\_ENABLED\ )\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00376}00376\ \textcolor{preprocessor}{\ \ \ \ !defined(\ CATCH\_CONFIG\_DISABLE\_EXCEPTIONS\ )\ \&\&\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00377}00377\ \textcolor{preprocessor}{\ \ \ \ !defined(\ CATCH\_CONFIG\_NO\_DISABLE\_EXCEPTIONS\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00378}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a893712b2ba6e7400136a0a023b12e9db}{00378}}\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CONFIG\_DISABLE\_EXCEPTIONS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00379}00379\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00381}00381\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_POLYFILL\_ISNAN)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_POLYFILL\_ISNAN)\ \&\&\ !defined(CATCH\_CONFIG\_POLYFILL\_ISNAN)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00382}00382\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CONFIG\_POLYFILL\_ISNAN}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00383}00383\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00385}00385\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_USE\_ASYNC)\ \ \&\&\ !defined(CATCH\_INTERNAL\_CONFIG\_NO\_ASYNC)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_USE\_ASYNC)\ \&\&\ !defined(CATCH\_CONFIG\_USE\_ASYNC)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00386}00386\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CONFIG\_USE\_ASYNC}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00387}00387\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00389}00389\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_GLOBAL\_NEXTAFTER)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_GLOBAL\_NEXTAFTER)\ \&\&\ !defined(CATCH\_CONFIG\_GLOBAL\_NEXTAFTER)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00390}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a3271a306c531fd4a2c6c6180e4903fd9}{00390}}\ \textcolor{preprocessor}{\#\ \ define\ CATCH\_CONFIG\_GLOBAL\_NEXTAFTER}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00391}00391\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00392}00392\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00394}00394\ \textcolor{comment}{//\ The\ goal\ of\ this\ macro\ is\ to\ avoid\ evaluation\ of\ the\ arguments,\ but}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00395}00395\ \textcolor{comment}{//\ still\ have\ the\ compiler\ warn\ on\ problems\ inside...}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00396}00396\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_INTERNAL\_CONFIG\_USE\_BUILTIN\_CONSTANT\_P\ )\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00397}00397\ \textcolor{preprocessor}{\ \ \ \ !defined(\ CATCH\_INTERNAL\_CONFIG\_NO\_USE\_BUILTIN\_CONSTANT\_P\ )\ \&\&\ !defined(CATCH\_CONFIG\_USE\_BUILTIN\_CONSTANT\_P)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00398}00398\ \textcolor{preprocessor}{\#define\ CATCH\_CONFIG\_USE\_BUILTIN\_CONSTANT\_P}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00399}00399\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00401}00401\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_CONFIG\_USE\_BUILTIN\_CONSTANT\_P\ )\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00402}00402\ \textcolor{preprocessor}{\ \ \ \ !defined(\ CATCH\_CONFIG\_NO\_USE\_BUILTIN\_CONSTANT\_P\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00403}00403\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_IGNORE\_BUT\_WARN(\ ...\ )\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00404}00404\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (void)\_\_builtin\_constant\_p(\ \_\_VA\_ARGS\_\_\ )\ }\textcolor{comment}{/*\ NOLINT(cppcoreguidelines-\/pro-\/type-\/vararg,\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00405}00405\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hicpp-\/vararg)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00406}00406\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00407}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_aa7ffc39ff2307d382e766a867d49b67a}{00407}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_IGNORE\_BUT\_WARN(\ ...\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00408}00408\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00410}00410\ \textcolor{comment}{//\ Even\ if\ we\ do\ not\ think\ the\ compiler\ has\ that\ warning,\ we\ still\ have}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00411}00411\ \textcolor{comment}{//\ to\ provide\ a\ macro\ that\ can\ be\ used\ by\ the\ code.}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00412}00412\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00413}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a1500dca9a578a0bd2f85771cfa3fd35d}{00413}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00414}00414\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00415}00415\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00416}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_ad9594e9891b032f0dd0279960dc861a5}{00416}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00417}00417\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00418}00418\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00419}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a89c1608a68775aca1bb7c265f7ba923a}{00419}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00420}00420\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00421}00421\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00422}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_aa0200c23b35ba2bd8ebed69a8f3c1c66}{00422}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00423}00423\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00424}00424\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_RESULT)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00425}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a4928300ab3058e4b594e93bf73a9a3c2}{00425}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_RESULT}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00426}00426\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00427}00427\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00428}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_afd86e877ae53a18ac74078959b8af053}{00428}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00429}00429\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00430}00430\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_INTERNAL\_SUPPRESS\_USELESS\_CAST\_WARNINGS)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00431}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a4ccd8a84431fe6636f9e9ab492941491}{00431}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_USELESS\_CAST\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00432}00432\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00433}00433\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00434}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_af9c2d6807f17109481b536551c0c10bf}{00434}}\ \textcolor{preprocessor}{\#\ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00435}00435\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00436}00436\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00437}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a10a275cf93b99d6f1246d9d9df09d1d8}{00437}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00438}00438\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00439}00439\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_INTERNAL\_SUPPRESS\_COMMA\_WARNINGS\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00440}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a7bc5b3c9171a2b0d9d2e23459c25d4b0}{00440}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_COMMA\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00441}00441\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00442}00442\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00443}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_adcf1ca30d92d27477df5490f6568ea34}{00443}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00444}00444\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00445}00445\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00446}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a2df5668ab531f6b9392c5f9ef09a6c60}{00446}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00447}00447\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00449}00449\ \textcolor{preprocessor}{\#if\ defined(\_\_APPLE\_\_)\ \&\&\ defined(\_\_apple\_build\_version\_\_)\ \&\&\ (\_\_clang\_major\_\_\ <\ 10)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00450}00450\ \textcolor{preprocessor}{\#\ \ \ undef\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00451}00451\ \textcolor{preprocessor}{\#elif\ defined(\_\_clang\_\_)\ \&\&\ (\_\_clang\_major\_\_\ <\ 5)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00452}00452\ \textcolor{preprocessor}{\#\ \ \ undef\ CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00453}00453\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00455}00455\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00456}00456\ \textcolor{preprocessor}{\#if\ defined(CATCH\_CONFIG\_DISABLE\_EXCEPTIONS)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00457}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_ab76c2d22e571ab1a828f5c60d2f485a6}{00457}}\ \textcolor{preprocessor}{\#define\ CATCH\_TRY\ if\ ((true))}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00458}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_afa0ae14e70806dca4f8bf06d06645fa9}{00458}}\ \textcolor{preprocessor}{\#define\ CATCH\_CATCH\_ALL\ if\ ((false))}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00459}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a3caecf3cbc55848423d744df50d84d5b}{00459}}\ \textcolor{preprocessor}{\#define\ CATCH\_CATCH\_ANON(type)\ if\ ((false))}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00460}00460\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00461}00461\ \textcolor{preprocessor}{\#define\ CATCH\_TRY\ try}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00462}00462\ \textcolor{preprocessor}{\#define\ CATCH\_CATCH\_ALL\ catch\ (...)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00463}00463\ \textcolor{preprocessor}{\#define\ CATCH\_CATCH\_ANON(type)\ catch\ (type)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00464}00464\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00466}00466\ \textcolor{preprocessor}{\#if\ defined(CATCH\_INTERNAL\_CONFIG\_TRADITIONAL\_MSVC\_PREPROCESSOR)\ \&\&\ !defined(CATCH\_CONFIG\_NO\_TRADITIONAL\_MSVC\_PREPROCESSOR)\ \&\&\ !defined(CATCH\_CONFIG\_TRADITIONAL\_MSVC\_PREPROCESSOR)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00467}00467\ \textcolor{preprocessor}{\#define\ CATCH\_CONFIG\_TRADITIONAL\_MSVC\_PREPROCESSOR}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00468}00468\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00470}00470\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_PLATFORM\_WINDOWS\ )\ \&\&\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00471}00471\ \textcolor{preprocessor}{\ \ \ \ !defined(\ CATCH\_CONFIG\_COLOUR\_WIN32\ )\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00472}00472\ \textcolor{preprocessor}{\ \ \ \ !defined(\ CATCH\_CONFIG\_NO\_COLOUR\_WIN32\ )\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00473}00473\ \textcolor{preprocessor}{\ \ \ \ !defined(\ CATCH\_INTERNAL\_CONFIG\_NO\_COLOUR\_WIN32\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00474}00474\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_CONFIG\_COLOUR\_WIN32}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00475}00475\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00476}00476\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00477}00477\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_CONFIG\_SHARED\_LIBRARY\ )\ \&\&\ defined(\ \_MSC\_VER\ )\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00478}00478\ \textcolor{preprocessor}{\ \ \ \ !defined(\ CATCH\_CONFIG\_STATIC\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00479}00479\ \textcolor{preprocessor}{\#\ \ \ \ ifdef\ Catch2\_EXPORTS}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00480}00480\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ \ define\ CATCH\_EXPORT\ }\textcolor{comment}{//\_\_declspec(\ dllexport\ )\ //\ not\ needed}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00481}00481\ \textcolor{preprocessor}{\#\ \ \ \ else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00482}00482\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ \ define\ CATCH\_EXPORT\ \_\_declspec(\ dllimport\ )}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00483}00483\ \textcolor{preprocessor}{\#\ \ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00484}00484\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00485}\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a7a076eb1c404d5e057d159c9b271cc6f}{00485}}\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_EXPORT}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00486}00486\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00487}00487\ }
+\DoxyCodeLine{\Hypertarget{catch__compiler__capabilities_8hpp_source_l00488}00488\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_COMPILER\_CAPABILITIES\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

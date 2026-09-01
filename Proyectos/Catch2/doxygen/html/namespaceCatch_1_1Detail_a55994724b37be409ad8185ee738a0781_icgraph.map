@@ -1,0 +1,25 @@
+<map id="Catch::Detail::size" name="Catch::Detail::size">
+<area shape="rect" id="Node000001" title=" " alt="" coords="511,314,651,339"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#a23bdcac0ef138b222c3747e2af979e9a" title="Encases `string in quotes, and optionally escapes invisibles." alt="" coords="260,205,448,245"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="545,309,462,265,418,248,420,243,464,260,548,304"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1Matchers_1_1HasSizeMatcher.html#a3da8ccdb53738086b698fa4bf669f800" title=" " alt="" coords="261,275,447,315"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="497,318,447,310,448,305,497,312"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1Matchers_1_1SizeMatchesMatcher.html#a838aefd1ad9b43b2e997b05e6ff45398" title=" " alt="" coords="245,339,463,379"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="497,341,463,346,462,341,497,336"/>
+<area shape="rect" id="Node000011" href="$namespaceCatch_1_1Detail.html#ac5d6c510e565ee5bddcc2236194ce29e" title=" " alt="" coords="258,413,450,453"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="547,349,464,393,411,416,409,411,462,388,545,344"/>
+<area shape="rect" id="Node000003" href="$structCatch_1_1StringMaker_3_01char_01_5_01_4.html#a6f0642657bcd943dadfb3be075095e26" title=" " alt="" coords="27,5,175,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="329,196,274,127,237,91,196,60,174,48,176,43,199,55,240,87,277,124,333,192"/>
+<area shape="rect" id="Node000004" href="$structCatch_1_1StringMaker_3_01char_0fSZ_0e_4.html#a095e415534f9145300271befe9853357" title=" " alt="" coords="21,69,181,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="315,199,260,161,196,124,168,112,170,107,199,119,263,156,318,195"/>
+<area shape="rect" id="Node000005" href="$structCatch_1_1StringMaker_3_01std_1_1string_01_4.html#aeb3af973a07047e84544d4c6ab81ce8d" title=" " alt="" coords="14,133,189,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="269,204,172,176,173,171,271,199"/>
+<area shape="rect" id="Node000006" href="$structCatch_1_1StringMaker_3_01signed_01char_0fSZ_0e_4.html#a23ac689cc79dbcfe9b1765fe9e25690e" title=" " alt="" coords="22,198,181,253"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="246,228,181,228,181,223,246,223"/>
+<area shape="rect" id="Node000007" href="$structCatch_1_1StringMaker_3_01unsigned_01char_0fSZ_0e_4.html#a590d64c72b0cc75c113f1eea95d52b66" title=" " alt="" coords="18,277,185,331"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="277,252,186,281,184,276,275,247"/>
+<area shape="rect" id="Node000008" href="$namespaceCatch_1_1Detail.html#a0dc4241ab150d3d8e1d0a3d30c781c39" title=" " alt="" coords="7,356,195,396"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="263,254,247,265,231,284,224,304,216,324,199,345,178,358,175,354,196,341,212,321,219,302,226,281,244,261,260,250"/>
+<area shape="rect" id="Node000012" href="$namespaceCatch_1_1Detail.html#a371620ed524abfcae5c3772bf49b563a" title=" " alt="" coords="5,420,197,460"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="244,439,198,440,197,435,244,434"/>
+</map>

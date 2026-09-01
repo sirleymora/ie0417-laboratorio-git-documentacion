@@ -1,0 +1,894 @@
+\doxysection{Catch\+::Matchers Namespace Reference}
+\hypertarget{namespaceCatch_1_1Matchers}{}\label{namespaceCatch_1_1Matchers}\index{Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail}{Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllMatchMatcher}{All\+Match\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllTrueMatcher}{All\+True\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyMatchMatcher}{Any\+Match\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyTrueMatcher}{Any\+True\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{Approx\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{Contains\+Element\+Matcher}}
+\begin{DoxyCompactList}\small\item\em Matcher for checking that an element in range is equal to specific element. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher}{Contains\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher}{Contains\+Matcher\+Matcher}}
+\begin{DoxyCompactList}\small\item\em Meta-\/matcher for checking that an element in a range matches a specific matcher. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1EndsWithMatcher}{Ends\+With\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher}{Equals\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ExceptionMessageMatcher}{Exception\+Message\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ExceptionMessageMatchesMatcher}{Exception\+Message\+Matches\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1HasSizeMatcher}{Has\+Size\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1IsEmptyMatcher}{Is\+Empty\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1IsNaNMatcher}{Is\+Na\+NMatcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherGenericBase}{Matcher\+Generic\+Base}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherUntypedBase}{Matcher\+Untyped\+Base}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneMatchMatcher}{None\+Match\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneTrueMatcher}{None\+True\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher}{Predicate\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1RangeEqualsMatcher}{Range\+Equals\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1RegexMatcher}{Regex\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1SizeMatchesMatcher}{Size\+Matches\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1StartsWithMatcher}{Starts\+With\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1StringContainsMatcher}{String\+Contains\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1StringEqualsMatcher}{String\+Equals\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1StringMatcherBase}{String\+Matcher\+Base}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher}{Unordered\+Equals\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedRangeEqualsMatcher}{Unordered\+Range\+Equals\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher}{Vector\+Contains\+Element\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinAbsMatcher}{Within\+Abs\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinRelMatcher}{Within\+Rel\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinUlpsMatcher}{Within\+Ulps\+Matcher}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOf}{Detail\+::\+Match\+All\+Of}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a4f70fa676840d1fa8724b9ebf792e271}{operator\&\&}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOf}{Detail\+::\+Match\+Any\+Of}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_acdae5b67b9c1ba440b209ec83bbf665d}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchNotOf}{Detail\+::\+Match\+Not\+Of}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a0c6f7e39ee26a862325f1c030679928f}{operator!}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&matcher \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1IsEmptyMatcher}{Is\+Empty\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a1077c04ed84844005de5cba252539155}{Is\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts empty ranges/containers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1HasSizeMatcher}{Has\+Size\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a26b1935b4858a41d775147a42807e419}{Size\+Is}} (std\+::size\+\_\+t sz)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts ranges/containers with specific size. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+matcher\+\_\+v$<$ Matcher $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1SizeMatchesMatcher}{Size\+Matches\+Matcher}}$<$ Matcher $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a73e95add3cfd9cf34f00056d956b19b8}{Size\+Is}} (Matcher \&\&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$!Detail\+::is\+\_\+matcher\+\_\+v$<$ T $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{Contains\+Element\+Matcher}}$<$ T, std\+::equal\+\_\+to$<$$>$ $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a1e4f65df3aa5fd461e46a301655f5e46}{Contains}} (T \&\&elem)
+\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+matcher\+\_\+v$<$ Matcher $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher}{Contains\+Matcher\+Matcher}}$<$ Matcher $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_af9c93fd22e74d63e7cb8ea358a32d5c6}{Contains}} (Matcher \&\&matcher)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether a range contains element matching a matcher. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Equality $>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{Contains\+Element\+Matcher}}$<$ T, Equality $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a62142de4307ad1ac909c2c326e6cb83b}{Contains}} (T \&\&elem, Equality \&\&eq)
+\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1ExceptionMessageMatcher}{Exception\+Message\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_af11fe22b71a449fc411d47ea91cabd13}{Message}} (std\+::string const  \&message)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether a std derived exception has the provided message. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename String\+Matcher\+Type $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1ExceptionMessageMatchesMatcher}{Exception\+Message\+Matches\+Matcher}}$<$ String\+Matcher\+Type $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a43d157b3bafccf230fbdc23a29682f71}{Message\+Matches}} (String\+Matcher\+Type \&\&matcher)
+\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinUlpsMatcher}{Within\+Ulps\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a88361ad809aab09ff75c87bf6cdd7fad}{Within\+ULP}} (double target, uint64\+\_\+t max\+Ulp\+Diff)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts doubles within certain ULP range of target. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinUlpsMatcher}{Within\+Ulps\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_af0eb912b197be0f79e60fd1884e9ac29}{Within\+ULP}} (float target, uint64\+\_\+t max\+Ulp\+Diff)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts floats within certain ULP range of target. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinAbsMatcher}{Within\+Abs\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a13a915665906ab3efb39e118c649285f}{Within\+Abs}} (double target, double margin)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts numbers within certain range of target. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinRelMatcher}{Within\+Rel\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a78dba3ba1112c48a6376a38b48ea70e2}{Within\+Rel}} (double target, double eps)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts doubles within certain relative range of target. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinRelMatcher}{Within\+Rel\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a01c32f9483573cfb0d703f5f34b9848d}{Within\+Rel}} (double target)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts doubles within 100\texorpdfstring{$\ast$}{*}\+DBL\+\_\+\+EPS relative range of target. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinRelMatcher}{Within\+Rel\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a65b303b8eb9ba612cc5c149488aa7753}{Within\+Rel}} (float target, float eps)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts doubles within certain relative range of target. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinRelMatcher}{Within\+Rel\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a735b5278dad4189adbc79098c2360b03}{Within\+Rel}} (float target)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts floats within 100\texorpdfstring{$\ast$}{*}\+FLT\+\_\+\+EPS relative range of target. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1IsNaNMatcher}{Is\+Na\+NMatcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a0d170fa146d9a4ec0d908acce010128e}{Is\+NaN}} ()
+\item 
+{\footnotesize template$<$typename T , typename Pred $>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher}{Predicate\+Matcher}}$<$ T, Pred $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a88237241635f13a26fe373d2533aa6e3}{Predicate}} (Pred \&\&predicate, std\+::string const \&description="{}"{})
+\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllMatchMatcher}{All\+Match\+Matcher}}$<$ Matcher $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a5820d92c4cb9596e16c97b5aa200f112}{All\+Match}} (Matcher \&\&matcher)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether all elements in a range match a matcher. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneMatchMatcher}{None\+Match\+Matcher}}$<$ Matcher $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_ae1c21acb8b666d070125747f803fd0ce}{None\+Match}} (Matcher \&\&matcher)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether no element in a range matches a matcher. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyMatchMatcher}{Any\+Match\+Matcher}}$<$ Matcher $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a89ca9e3b69fe931d681c53a2bc91135e}{Any\+Match}} (Matcher \&\&matcher)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether any element in a range matches a matcher. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllTrueMatcher}{All\+True\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a3ca63dd6c8c0a5c57bb9954c1e5dd755}{All\+True}} ()
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether all elements in a range are true. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneTrueMatcher}{None\+True\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a5114f7216dee07fac48c42967c4b84b4}{None\+True}} ()
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether no element in a range is true. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyTrueMatcher}{Any\+True\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a21bbf53c611a92fec03d01acd2da2776}{Any\+True}} ()
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether any element in a range is true. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Range\+Like , typename Equality  = decltype( std\+::equal\+\_\+to$<$$>$\{\} )$>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1RangeEqualsMatcher}{Range\+Equals\+Matcher}}$<$ Range\+Like, Equality $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a1d87557bb63a3d78a834d3e25c0c6c51}{Range\+Equals}} (Range\+Like \&\&range, Equality \&\&predicate=std\+::equal\+\_\+to$<$$>$\{\})
+\item 
+{\footnotesize template$<$typename T , typename Equality  = decltype( std\+::equal\+\_\+to$<$$>$\{\} )$>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1RangeEqualsMatcher}{Range\+Equals\+Matcher}}$<$ std\+::initializer\+\_\+list$<$ T $>$, Equality $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a5d1c0b867d4ed757584bd7252a64ad07}{Range\+Equals}} (std\+::initializer\+\_\+list$<$ T $>$ range, Equality \&\&predicate=std\+::equal\+\_\+to$<$$>$\{\})
+\item 
+{\footnotesize template$<$typename Range\+Like , typename Equality  = decltype( std\+::equal\+\_\+to$<$$>$\{\} )$>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedRangeEqualsMatcher}{Unordered\+Range\+Equals\+Matcher}}$<$ Range\+Like, Equality $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_acf7c393b909b0dad3466bea2a39e1012}{Unordered\+Range\+Equals}} (Range\+Like \&\&range, Equality \&\&predicate=std\+::equal\+\_\+to$<$$>$\{\})
+\item 
+{\footnotesize template$<$typename T , typename Equality  = decltype( std\+::equal\+\_\+to$<$$>$\{\} )$>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedRangeEqualsMatcher}{Unordered\+Range\+Equals\+Matcher}}$<$ std\+::initializer\+\_\+list$<$ T $>$, Equality $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_abb02f182e3ab9ea6befd39c886012b17}{Unordered\+Range\+Equals}} (std\+::initializer\+\_\+list$<$ T $>$ range, Equality \&\&predicate=std\+::equal\+\_\+to$<$$>$\{\})
+\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1StringEqualsMatcher}{String\+Equals\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a313539dbfbb441d8cebce56d4031f104}{Equals}} (std\+::string str, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings that are exactly equal to {\ttfamily str} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1StringContainsMatcher}{String\+Contains\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a9b8f5d4ec0671c6d669444b9ef280660}{Contains\+Substring}} (std\+::string str, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings that contain {\ttfamily str} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1EndsWithMatcher}{Ends\+With\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_af2081747e5de5de50c8c3ad4670ffbf8}{Ends\+With}} (std\+::string str, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings that {\itshape end} with {\ttfamily str} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1StartsWithMatcher}{Starts\+With\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a0db9463227f9d1a0a7ddbac31aaa8753}{Starts\+With}} (std\+::string str, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings that {\itshape start} with {\ttfamily str} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1RegexMatcher}{Regex\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a604f82313cebac08ce35242e4813ae1d}{Matches}} (std\+::string regex, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings matching {\ttfamily regex} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Matcher\+LHS , typename Matcher\+RHS $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::are\+\_\+generic\+\_\+matchers\+\_\+v$<$ Matcher\+LHS, Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Detail\+::\+Match\+All\+Of\+Generic}}$<$ Matcher\+LHS, Matcher\+RHS $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a895ebd163ea75f218352b1a720b7570b}{operator\&\&}} (Matcher\+LHS const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, Matcher\+RHS const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename Matcher\+LHS , typename Matcher\+RHS $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::are\+\_\+generic\+\_\+matchers\+\_\+v$<$ Matcher\+LHS, Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Detail\+::\+Match\+Any\+Of\+Generic}}$<$ Matcher\+LHS, Matcher\+RHS $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_ac0a9ac7d0e190f0cb5c70162cce8945f}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (Matcher\+LHS const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, Matcher\+RHS const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename MatcherT $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ MatcherT $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchNotOfGeneric}{Detail\+::\+Match\+Not\+Of\+Generic}}$<$ MatcherT $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a221dc13ad83e95e9aad4c6c311babac3}{operator!}} (MatcherT const \&matcher \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\begin{DoxyCompactList}\small\item\em Wrap provided generic matcher in generic negator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Matcher\+LHS , typename Arg\+RHS $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+LHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Detail\+::\+Match\+All\+Of\+Generic}}$<$ Matcher\+LHS, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_aa922843a6cbb895c6809ffb536d191d8}{operator\&\&}} (Matcher\+LHS const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename Arg\+LHS , typename Matcher\+RHS $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Detail\+::\+Match\+All\+Of\+Generic}}$<$ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$, Matcher\+RHS $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a54c738cff4c1237ff396c7f19aa57a87}{operator\&\&}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$ const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, Matcher\+RHS const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename Matcher\+LHS , typename Arg\+RHS $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+LHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Detail\+::\+Match\+Any\+Of\+Generic}}$<$ Matcher\+LHS, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a0d1d072a335833472a172e045ff3064c}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (Matcher\+LHS const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename Arg\+LHS , typename Matcher\+RHS $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Detail\+::\+Match\+Any\+Of\+Generic}}$<$ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$, Matcher\+RHS $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a061f3488b6a696dda9d48de9afb1b475}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$ const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, Matcher\+RHS const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher}{Contains\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_ae26fd1f942722526c95b93af5b29e285}{Contains}} (std\+::vector$<$ T, Alloc\+Comp $>$ const \&comparator)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that contain all elements in {\ttfamily comparator} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher}{Vector\+Contains\+Element\+Matcher}}$<$ T, Alloc $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a677dc421d43495081c61501d63a3d7aa}{Vector\+Contains}} (T const \&comparator)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that contain {\ttfamily comparator} as an element. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher}{Equals\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a044fadf0c182c7674da1ee7d7a14a2af}{Equals}} (std\+::vector$<$ T, Alloc\+Comp $>$ const \&comparator)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that are exactly equal to {\ttfamily comparator} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{Approx\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a9f3b477eb84f043a6f954e26f511e8ab}{Approx}} (std\+::vector$<$ T, Alloc\+Comp $>$ const \&comparator)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that {\ttfamily comparator} as an element. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher}{Unordered\+Equals\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a40531208875e65d9d4c7b4094a23ead1}{Unordered\+Equals}} (std\+::vector$<$ T, Alloc\+Comp $>$ const \&target)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that is equal to {\ttfamily target} modulo permutation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceCatch_1_1Matchers_a5820d92c4cb9596e16c97b5aa200f112}\label{namespaceCatch_1_1Matchers_a5820d92c4cb9596e16c97b5aa200f112} 
+\index{Catch::Matchers@{Catch::Matchers}!AllMatch@{AllMatch}}
+\index{AllMatch@{AllMatch}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{AllMatch()}{AllMatch()}}
+{\footnotesize\ttfamily template$<$typename Matcher $>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllMatchMatcher}{All\+Match\+Matcher}}$<$ Matcher $>$ Catch\+::\+Matchers\+::\+All\+Match (\begin{DoxyParamCaption}\item[{Matcher \&\&}]{matcher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Creates a matcher that checks whether all elements in a range match a matcher. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00138}{138}} of file \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source}{catch\+\_\+matchers\+\_\+quantifiers.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a3ca63dd6c8c0a5c57bb9954c1e5dd755}\label{namespaceCatch_1_1Matchers_a3ca63dd6c8c0a5c57bb9954c1e5dd755} 
+\index{Catch::Matchers@{Catch::Matchers}!AllTrue@{AllTrue}}
+\index{AllTrue@{AllTrue}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{AllTrue()}{AllTrue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllTrueMatcher}{All\+True\+Matcher}} Catch\+::\+Matchers\+::\+All\+True (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a matcher that checks whether all elements in a range are true. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00156}{156}} of file \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source}{catch\+\_\+matchers\+\_\+quantifiers.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a89ca9e3b69fe931d681c53a2bc91135e}\label{namespaceCatch_1_1Matchers_a89ca9e3b69fe931d681c53a2bc91135e} 
+\index{Catch::Matchers@{Catch::Matchers}!AnyMatch@{AnyMatch}}
+\index{AnyMatch@{AnyMatch}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{AnyMatch()}{AnyMatch()}}
+{\footnotesize\ttfamily template$<$typename Matcher $>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyMatchMatcher}{Any\+Match\+Matcher}}$<$ Matcher $>$ Catch\+::\+Matchers\+::\+Any\+Match (\begin{DoxyParamCaption}\item[{Matcher \&\&}]{matcher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Creates a matcher that checks whether any element in a range matches a matcher. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source}{catch\+\_\+matchers\+\_\+quantifiers.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a21bbf53c611a92fec03d01acd2da2776}\label{namespaceCatch_1_1Matchers_a21bbf53c611a92fec03d01acd2da2776} 
+\index{Catch::Matchers@{Catch::Matchers}!AnyTrue@{AnyTrue}}
+\index{AnyTrue@{AnyTrue}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{AnyTrue()}{AnyTrue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyTrueMatcher}{Any\+True\+Matcher}} Catch\+::\+Matchers\+::\+Any\+True (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a matcher that checks whether any element in a range is true. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00164}{164}} of file \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source}{catch\+\_\+matchers\+\_\+quantifiers.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a9f3b477eb84f043a6f954e26f511e8ab}\label{namespaceCatch_1_1Matchers_a9f3b477eb84f043a6f954e26f511e8ab} 
+\index{Catch::Matchers@{Catch::Matchers}!Approx@{Approx}}
+\index{Approx@{Approx}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Approx()}{Approx()}}
+{\footnotesize\ttfamily template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{Approx\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ Catch\+::\+Matchers\+::\+Approx (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T, Alloc\+Comp $>$ const \&}]{comparator }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that matches vectors that {\ttfamily comparator} as an element. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__vector_8hpp_source_l00181}{181}} of file \mbox{\hyperlink{catch__matchers__vector_8hpp_source}{catch\+\_\+matchers\+\_\+vector.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_af9c93fd22e74d63e7cb8ea358a32d5c6}\label{namespaceCatch_1_1Matchers_af9c93fd22e74d63e7cb8ea358a32d5c6} 
+\index{Catch::Matchers@{Catch::Matchers}!Contains@{Contains}}
+\index{Contains@{Contains}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Contains()}{Contains()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Matcher $>$ \\
+constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+matcher\+\_\+v$<$ Matcher $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher}{Contains\+Matcher\+Matcher}}$<$ Matcher $>$ $>$ Catch\+::\+Matchers\+::\+Contains (\begin{DoxyParamCaption}\item[{Matcher \&\&}]{matcher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Creates a matcher that checks whether a range contains element matching a matcher. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__contains_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{catch__matchers__contains_8hpp_source}{catch\+\_\+matchers\+\_\+contains.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_ae26fd1f942722526c95b93af5b29e285}\label{namespaceCatch_1_1Matchers_ae26fd1f942722526c95b93af5b29e285} 
+\index{Catch::Matchers@{Catch::Matchers}!Contains@{Contains}}
+\index{Contains@{Contains}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Contains()}{Contains()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher}{Contains\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ Catch\+::\+Matchers\+::\+Contains (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T, Alloc\+Comp $>$ const \&}]{comparator }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that matches vectors that contain all elements in {\ttfamily comparator} 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__vector_8hpp_source_l00163}{163}} of file \mbox{\hyperlink{catch__matchers__vector_8hpp_source}{catch\+\_\+matchers\+\_\+vector.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a1e4f65df3aa5fd461e46a301655f5e46}\label{namespaceCatch_1_1Matchers_a1e4f65df3aa5fd461e46a301655f5e46} 
+\index{Catch::Matchers@{Catch::Matchers}!Contains@{Contains}}
+\index{Contains@{Contains}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Contains()}{Contains()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr std\+::enable\+\_\+if\+\_\+t$<$!Detail\+::is\+\_\+matcher\+\_\+v$<$ T $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{Contains\+Element\+Matcher}}$<$ T, std\+::equal\+\_\+to$<$$>$ $>$ $>$ Catch\+::\+Matchers\+::\+Contains (\begin{DoxyParamCaption}\item[{T \&\&}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Creates a matcher that checks whether a range contains a specific element.
+
+Uses {\ttfamily std\+::equal\+\_\+to} to do the comparison 
+
+Definition at line \mbox{\hyperlink{catch__matchers__contains_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{catch__matchers__contains_8hpp_source}{catch\+\_\+matchers\+\_\+contains.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a62142de4307ad1ac909c2c326e6cb83b}\label{namespaceCatch_1_1Matchers_a62142de4307ad1ac909c2c326e6cb83b} 
+\index{Catch::Matchers@{Catch::Matchers}!Contains@{Contains}}
+\index{Contains@{Contains}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Contains()}{Contains()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T , typename Equality $>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{Contains\+Element\+Matcher}}$<$ T, Equality $>$ Catch\+::\+Matchers\+::\+Contains (\begin{DoxyParamCaption}\item[{T \&\&}]{elem,  }\item[{Equality \&\&}]{eq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Creates a matcher that checks whether a range contains a specific element.
+
+Uses {\ttfamily eq} to do the comparisons, the element is provided on the rhs 
+
+Definition at line \mbox{\hyperlink{catch__matchers__contains_8hpp_source_l00095}{95}} of file \mbox{\hyperlink{catch__matchers__contains_8hpp_source}{catch\+\_\+matchers\+\_\+contains.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a9b8f5d4ec0671c6d669444b9ef280660}\label{namespaceCatch_1_1Matchers_a9b8f5d4ec0671c6d669444b9ef280660} 
+\index{Catch::Matchers@{Catch::Matchers}!ContainsSubstring@{ContainsSubstring}}
+\index{ContainsSubstring@{ContainsSubstring}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{ContainsSubstring()}{ContainsSubstring()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1StringContainsMatcher}{String\+Contains\+Matcher}} Catch\+::\+Matchers\+::\+Contains\+Substring (\begin{DoxyParamCaption}\item[{std\+::string}]{str,  }\item[{\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}}}]{case\+Sensitivity }\end{DoxyParamCaption})}
+
+
+
+Creates matcher that accepts strings that contain {\ttfamily str} 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__string_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{catch__matchers__string_8cpp_source}{catch\+\_\+matchers\+\_\+string.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_af2081747e5de5de50c8c3ad4670ffbf8}\label{namespaceCatch_1_1Matchers_af2081747e5de5de50c8c3ad4670ffbf8} 
+\index{Catch::Matchers@{Catch::Matchers}!EndsWith@{EndsWith}}
+\index{EndsWith@{EndsWith}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{EndsWith()}{EndsWith()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1EndsWithMatcher}{Ends\+With\+Matcher}} Catch\+::\+Matchers\+::\+Ends\+With (\begin{DoxyParamCaption}\item[{std\+::string}]{str,  }\item[{\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}}}]{case\+Sensitivity }\end{DoxyParamCaption})}
+
+
+
+Creates matcher that accepts strings that {\itshape end} with {\ttfamily str} 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__string_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{catch__matchers__string_8cpp_source}{catch\+\_\+matchers\+\_\+string.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a313539dbfbb441d8cebce56d4031f104}\label{namespaceCatch_1_1Matchers_a313539dbfbb441d8cebce56d4031f104} 
+\index{Catch::Matchers@{Catch::Matchers}!Equals@{Equals}}
+\index{Equals@{Equals}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Equals()}{Equals()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1StringEqualsMatcher}{String\+Equals\+Matcher}} Catch\+::\+Matchers\+::\+Equals (\begin{DoxyParamCaption}\item[{std\+::string}]{str,  }\item[{\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}}}]{case\+Sensitivity }\end{DoxyParamCaption})}
+
+
+
+Creates matcher that accepts strings that are exactly equal to {\ttfamily str} 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__string_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{catch__matchers__string_8cpp_source}{catch\+\_\+matchers\+\_\+string.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__assertion__handler_8cpp_source_l00085}{Catch\+::handle\+Exception\+Match\+Expr()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Matchers_a313539dbfbb441d8cebce56d4031f104_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Matchers_a044fadf0c182c7674da1ee7d7a14a2af}\label{namespaceCatch_1_1Matchers_a044fadf0c182c7674da1ee7d7a14a2af} 
+\index{Catch::Matchers@{Catch::Matchers}!Equals@{Equals}}
+\index{Equals@{Equals}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Equals()}{Equals()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher}{Equals\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ Catch\+::\+Matchers\+::\+Equals (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T, Alloc\+Comp $>$ const \&}]{comparator }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that matches vectors that are exactly equal to {\ttfamily comparator} 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__vector_8hpp_source_l00175}{175}} of file \mbox{\hyperlink{catch__matchers__vector_8hpp_source}{catch\+\_\+matchers\+\_\+vector.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a1077c04ed84844005de5cba252539155}\label{namespaceCatch_1_1Matchers_a1077c04ed84844005de5cba252539155} 
+\index{Catch::Matchers@{Catch::Matchers}!IsEmpty@{IsEmpty}}
+\index{IsEmpty@{IsEmpty}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{IsEmpty()}{IsEmpty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1IsEmptyMatcher}{Is\+Empty\+Matcher}} Catch\+::\+Matchers\+::\+Is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a matcher that accepts empty ranges/containers. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__container__properties_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{catch__matchers__container__properties_8hpp_source}{catch\+\_\+matchers\+\_\+container\+\_\+properties.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a0d170fa146d9a4ec0d908acce010128e}\label{namespaceCatch_1_1Matchers_a0d170fa146d9a4ec0d908acce010128e} 
+\index{Catch::Matchers@{Catch::Matchers}!IsNaN@{IsNaN}}
+\index{IsNaN@{IsNaN}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{IsNaN()}{IsNaN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1IsNaNMatcher}{Is\+Na\+NMatcher}} Catch\+::\+Matchers\+::\+Is\+NaN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source_l00223}{223}} of file \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source}{catch\+\_\+matchers\+\_\+floating\+\_\+point.\+cpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a604f82313cebac08ce35242e4813ae1d}\label{namespaceCatch_1_1Matchers_a604f82313cebac08ce35242e4813ae1d} 
+\index{Catch::Matchers@{Catch::Matchers}!Matches@{Matches}}
+\index{Matches@{Matches}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Matches()}{Matches()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1RegexMatcher}{Regex\+Matcher}} Catch\+::\+Matchers\+::\+Matches (\begin{DoxyParamCaption}\item[{std\+::string}]{regex,  }\item[{\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}}}]{case\+Sensitivity }\end{DoxyParamCaption})}
+
+
+
+Creates matcher that accepts strings matching {\ttfamily regex} 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__string_8cpp_source_l00145}{145}} of file \mbox{\hyperlink{catch__matchers__string_8cpp_source}{catch\+\_\+matchers\+\_\+string.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_af11fe22b71a449fc411d47ea91cabd13}\label{namespaceCatch_1_1Matchers_af11fe22b71a449fc411d47ea91cabd13} 
+\index{Catch::Matchers@{Catch::Matchers}!Message@{Message}}
+\index{Message@{Message}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Message()}{Message()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1ExceptionMessageMatcher}{Exception\+Message\+Matcher}} Catch\+::\+Matchers\+::\+Message (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{message }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that checks whether a std derived exception has the provided message. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__exception_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{catch__matchers__exception_8cpp_source}{catch\+\_\+matchers\+\_\+exception.\+cpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a43d157b3bafccf230fbdc23a29682f71}\label{namespaceCatch_1_1Matchers_a43d157b3bafccf230fbdc23a29682f71} 
+\index{Catch::Matchers@{Catch::Matchers}!MessageMatches@{MessageMatches}}
+\index{MessageMatches@{MessageMatches}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{MessageMatches()}{MessageMatches()}}
+{\footnotesize\ttfamily template$<$typename String\+Matcher\+Type $>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1ExceptionMessageMatchesMatcher}{Exception\+Message\+Matches\+Matcher}}$<$ String\+Matcher\+Type $>$ Catch\+::\+Matchers\+::\+Message\+Matches (\begin{DoxyParamCaption}\item[{String\+Matcher\+Type \&\&}]{matcher }\end{DoxyParamCaption})}
+
+Creates a matcher that checks whether a message from an std derived exception matches a provided matcher 
+
+Definition at line \mbox{\hyperlink{catch__matchers__exception_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{catch__matchers__exception_8hpp_source}{catch\+\_\+matchers\+\_\+exception.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_ae1c21acb8b666d070125747f803fd0ce}\label{namespaceCatch_1_1Matchers_ae1c21acb8b666d070125747f803fd0ce} 
+\index{Catch::Matchers@{Catch::Matchers}!NoneMatch@{NoneMatch}}
+\index{NoneMatch@{NoneMatch}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{NoneMatch()}{NoneMatch()}}
+{\footnotesize\ttfamily template$<$typename Matcher $>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneMatchMatcher}{None\+Match\+Matcher}}$<$ Matcher $>$ Catch\+::\+Matchers\+::\+None\+Match (\begin{DoxyParamCaption}\item[{Matcher \&\&}]{matcher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Creates a matcher that checks whether no element in a range matches a matcher. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00144}{144}} of file \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source}{catch\+\_\+matchers\+\_\+quantifiers.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a5114f7216dee07fac48c42967c4b84b4}\label{namespaceCatch_1_1Matchers_a5114f7216dee07fac48c42967c4b84b4} 
+\index{Catch::Matchers@{Catch::Matchers}!NoneTrue@{NoneTrue}}
+\index{NoneTrue@{NoneTrue}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{NoneTrue()}{NoneTrue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneTrueMatcher}{None\+True\+Matcher}} Catch\+::\+Matchers\+::\+None\+True (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a matcher that checks whether no element in a range is true. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00160}{160}} of file \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source}{catch\+\_\+matchers\+\_\+quantifiers.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a0c6f7e39ee26a862325f1c030679928f}\label{namespaceCatch_1_1Matchers_a0c6f7e39ee26a862325f1c030679928f} 
+\index{Catch::Matchers@{Catch::Matchers}!operator"!@{operator"!}}
+\index{operator"!@{operator"!}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator"!()}{operator!()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchNotOf}{Detail\+::\+Match\+Not\+Of}}$<$ T $>$ Catch\+::\+Matchers\+::operator! (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&matcher}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00199}{199}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__matchers__templated_8hpp_source_l00300}{operator!()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Matchers_a0c6f7e39ee26a862325f1c030679928f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Matchers_a221dc13ad83e95e9aad4c6c311babac3}\label{namespaceCatch_1_1Matchers_a221dc13ad83e95e9aad4c6c311babac3} 
+\index{Catch::Matchers@{Catch::Matchers}!operator"!@{operator"!}}
+\index{operator"!@{operator"!}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator"!()}{operator!()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename MatcherT $>$ \\
+constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ MatcherT $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchNotOfGeneric}{Detail\+::\+Match\+Not\+Of\+Generic}}$<$ MatcherT $>$ $>$ Catch\+::\+Matchers\+::operator! (\begin{DoxyParamCaption}\item[{MatcherT const \&matcher}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Wrap provided generic matcher in generic negator. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__templated_8hpp_source_l00300}{300}} of file \mbox{\hyperlink{catch__matchers__templated_8hpp_source}{catch\+\_\+matchers\+\_\+templated.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__matchers_8hpp_source_l00199}{operator!()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Matchers_a221dc13ad83e95e9aad4c6c311babac3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Matchers_a54c738cff4c1237ff396c7f19aa57a87}\label{namespaceCatch_1_1Matchers_a54c738cff4c1237ff396c7f19aa57a87} 
+\index{Catch::Matchers@{Catch::Matchers}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator\&\&()}{operator\&\&()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Arg\+LHS , typename Matcher\+RHS $>$ \\
+std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Detail\+::\+Match\+All\+Of\+Generic}}$<$ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$, Matcher\+RHS $>$ $>$ Catch\+::\+Matchers\+::operator\&\& (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$ const \&lhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{Matcher\+RHS const \&rhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__templated_8hpp_source_l00315}{315}} of file \mbox{\hyperlink{catch__matchers__templated_8hpp_source}{catch\+\_\+matchers\+\_\+templated.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a4f70fa676840d1fa8724b9ebf792e271}\label{namespaceCatch_1_1Matchers_a4f70fa676840d1fa8724b9ebf792e271} 
+\index{Catch::Matchers@{Catch::Matchers}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator\&\&()}{operator\&\&()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOf}{Detail\+::\+Match\+All\+Of}}$<$ T $>$ Catch\+::\+Matchers\+::operator\&\& (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&lhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&rhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00185}{185}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_aa922843a6cbb895c6809ffb536d191d8}\label{namespaceCatch_1_1Matchers_aa922843a6cbb895c6809ffb536d191d8} 
+\index{Catch::Matchers@{Catch::Matchers}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator\&\&()}{operator\&\&()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Matcher\+LHS , typename Arg\+RHS $>$ \\
+std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+LHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Detail\+::\+Match\+All\+Of\+Generic}}$<$ Matcher\+LHS, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ $>$ $>$ Catch\+::\+Matchers\+::operator\&\& (\begin{DoxyParamCaption}\item[{Matcher\+LHS const \&lhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ const \&rhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__templated_8hpp_source_l00308}{308}} of file \mbox{\hyperlink{catch__matchers__templated_8hpp_source}{catch\+\_\+matchers\+\_\+templated.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a895ebd163ea75f218352b1a720b7570b}\label{namespaceCatch_1_1Matchers_a895ebd163ea75f218352b1a720b7570b} 
+\index{Catch::Matchers@{Catch::Matchers}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator\&\&()}{operator\&\&()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename Matcher\+LHS , typename Matcher\+RHS $>$ \\
+constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::are\+\_\+generic\+\_\+matchers\+\_\+v$<$ Matcher\+LHS, Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Detail\+::\+Match\+All\+Of\+Generic}}$<$ Matcher\+LHS, Matcher\+RHS $>$ $>$ Catch\+::\+Matchers\+::operator\&\& (\begin{DoxyParamCaption}\item[{Matcher\+LHS const \&lhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{Matcher\+RHS const \&rhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__templated_8hpp_source_l00282}{282}} of file \mbox{\hyperlink{catch__matchers__templated_8hpp_source}{catch\+\_\+matchers\+\_\+templated.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a061f3488b6a696dda9d48de9afb1b475}\label{namespaceCatch_1_1Matchers_a061f3488b6a696dda9d48de9afb1b475} 
+\index{Catch::Matchers@{Catch::Matchers}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}()}{operator||()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Arg\+LHS , typename Matcher\+RHS $>$ \\
+std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Detail\+::\+Match\+Any\+Of\+Generic}}$<$ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$, Matcher\+RHS $>$ $>$ Catch\+::\+Matchers\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$ const \&lhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{Matcher\+RHS const \&rhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__templated_8hpp_source_l00329}{329}} of file \mbox{\hyperlink{catch__matchers__templated_8hpp_source}{catch\+\_\+matchers\+\_\+templated.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_acdae5b67b9c1ba440b209ec83bbf665d}\label{namespaceCatch_1_1Matchers_acdae5b67b9c1ba440b209ec83bbf665d} 
+\index{Catch::Matchers@{Catch::Matchers}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}()}{operator||()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOf}{Detail\+::\+Match\+Any\+Of}}$<$ T $>$ Catch\+::\+Matchers\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&lhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ T $>$ const \&rhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers_8hpp_source_l00192}{192}} of file \mbox{\hyperlink{catch__matchers_8hpp_source}{catch\+\_\+matchers.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a0d1d072a335833472a172e045ff3064c}\label{namespaceCatch_1_1Matchers_a0d1d072a335833472a172e045ff3064c} 
+\index{Catch::Matchers@{Catch::Matchers}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}()}{operator||()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Matcher\+LHS , typename Arg\+RHS $>$ \\
+std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+LHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Detail\+::\+Match\+Any\+Of\+Generic}}$<$ Matcher\+LHS, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ $>$ $>$ Catch\+::\+Matchers\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{Matcher\+LHS const \&lhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ const \&rhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__templated_8hpp_source_l00322}{322}} of file \mbox{\hyperlink{catch__matchers__templated_8hpp_source}{catch\+\_\+matchers\+\_\+templated.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_ac0a9ac7d0e190f0cb5c70162cce8945f}\label{namespaceCatch_1_1Matchers_ac0a9ac7d0e190f0cb5c70162cce8945f} 
+\index{Catch::Matchers@{Catch::Matchers}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}()}{operator||()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename Matcher\+LHS , typename Matcher\+RHS $>$ \\
+constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::are\+\_\+generic\+\_\+matchers\+\_\+v$<$ Matcher\+LHS, Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Detail\+::\+Match\+Any\+Of\+Generic}}$<$ Matcher\+LHS, Matcher\+RHS $>$ $>$ Catch\+::\+Matchers\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{Matcher\+LHS const \&lhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{Matcher\+RHS const \&rhs}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__templated_8hpp_source_l00291}{291}} of file \mbox{\hyperlink{catch__matchers__templated_8hpp_source}{catch\+\_\+matchers\+\_\+templated.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a88237241635f13a26fe373d2533aa6e3}\label{namespaceCatch_1_1Matchers_a88237241635f13a26fe373d2533aa6e3} 
+\index{Catch::Matchers@{Catch::Matchers}!Predicate@{Predicate}}
+\index{Predicate@{Predicate}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{Predicate()}{Predicate()}}
+{\footnotesize\ttfamily template$<$typename T , typename Pred $>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher}{Predicate\+Matcher}}$<$ T, Pred $>$ Catch\+::\+Matchers\+::\+Predicate (\begin{DoxyParamCaption}\item[{Pred \&\&}]{predicate,  }\item[{std\+::string const \&}]{description = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+Creates a matcher that calls delegates {\ttfamily match} to the provided predicate.
+
+The user has to explicitly specify the argument type to the matcher 
+
+Definition at line \mbox{\hyperlink{catch__matchers__predicate_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{catch__matchers__predicate_8hpp_source}{catch\+\_\+matchers\+\_\+predicate.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}, and \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a1d87557bb63a3d78a834d3e25c0c6c51}\label{namespaceCatch_1_1Matchers_a1d87557bb63a3d78a834d3e25c0c6c51} 
+\index{Catch::Matchers@{Catch::Matchers}!RangeEquals@{RangeEquals}}
+\index{RangeEquals@{RangeEquals}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{RangeEquals()}{RangeEquals()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Range\+Like , typename Equality  = decltype( std\+::equal\+\_\+to$<$$>$\{\} )$>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1RangeEqualsMatcher}{Range\+Equals\+Matcher}}$<$ Range\+Like, Equality $>$ Catch\+::\+Matchers\+::\+Range\+Equals (\begin{DoxyParamCaption}\item[{Range\+Like \&\&}]{range,  }\item[{Equality \&\&}]{predicate = {\ttfamily std\+:\+:equal\+\_\+to$<$$>$\{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Creates a matcher that checks if all elements in a range are equal to all elements in another range.
+
+Uses the provided predicate {\ttfamily predicate} to do the comparisons (defaulting to {\ttfamily std\+::equal\+\_\+to}) 
+
+Definition at line \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source}{catch\+\_\+matchers\+\_\+range\+\_\+equals.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a5d1c0b867d4ed757584bd7252a64ad07}\label{namespaceCatch_1_1Matchers_a5d1c0b867d4ed757584bd7252a64ad07} 
+\index{Catch::Matchers@{Catch::Matchers}!RangeEquals@{RangeEquals}}
+\index{RangeEquals@{RangeEquals}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{RangeEquals()}{RangeEquals()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Equality  = decltype( std\+::equal\+\_\+to$<$$>$\{\} )$>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1RangeEqualsMatcher}{Range\+Equals\+Matcher}}$<$ std\+::initializer\+\_\+list$<$ T $>$, Equality $>$ Catch\+::\+Matchers\+::\+Range\+Equals (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ T $>$}]{range,  }\item[{Equality \&\&}]{predicate = {\ttfamily std\+:\+:equal\+\_\+to$<$$>$\{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Creates a matcher that checks if all elements in a range are equal to all elements in an initializer list.
+
+Uses the provided predicate {\ttfamily predicate} to do the comparisons (defaulting to {\ttfamily std\+::equal\+\_\+to}) 
+
+Definition at line \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source_l00121}{121}} of file \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source}{catch\+\_\+matchers\+\_\+range\+\_\+equals.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a73e95add3cfd9cf34f00056d956b19b8}\label{namespaceCatch_1_1Matchers_a73e95add3cfd9cf34f00056d956b19b8} 
+\index{Catch::Matchers@{Catch::Matchers}!SizeIs@{SizeIs}}
+\index{SizeIs@{SizeIs}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{SizeIs()}{SizeIs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Matcher $>$ \\
+constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+matcher\+\_\+v$<$ Matcher $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1SizeMatchesMatcher}{Size\+Matches\+Matcher}}$<$ Matcher $>$ $>$ Catch\+::\+Matchers\+::\+Size\+Is (\begin{DoxyParamCaption}\item[{Matcher \&\&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__container__properties_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{catch__matchers__container__properties_8hpp_source}{catch\+\_\+matchers\+\_\+container\+\_\+properties.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a26b1935b4858a41d775147a42807e419}\label{namespaceCatch_1_1Matchers_a26b1935b4858a41d775147a42807e419} 
+\index{Catch::Matchers@{Catch::Matchers}!SizeIs@{SizeIs}}
+\index{SizeIs@{SizeIs}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{SizeIs()}{SizeIs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1HasSizeMatcher}{Has\+Size\+Matcher}} Catch\+::\+Matchers\+::\+Size\+Is (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{sz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a matcher that accepts ranges/containers with specific size. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__container__properties_8hpp_source_l00080}{80}} of file \mbox{\hyperlink{catch__matchers__container__properties_8hpp_source}{catch\+\_\+matchers\+\_\+container\+\_\+properties.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a0db9463227f9d1a0a7ddbac31aaa8753}\label{namespaceCatch_1_1Matchers_a0db9463227f9d1a0a7ddbac31aaa8753} 
+\index{Catch::Matchers@{Catch::Matchers}!StartsWith@{StartsWith}}
+\index{StartsWith@{StartsWith}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{StartsWith()}{StartsWith()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1StartsWithMatcher}{Starts\+With\+Matcher}} Catch\+::\+Matchers\+::\+Starts\+With (\begin{DoxyParamCaption}\item[{std\+::string}]{str,  }\item[{\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}}}]{case\+Sensitivity }\end{DoxyParamCaption})}
+
+
+
+Creates matcher that accepts strings that {\itshape start} with {\ttfamily str} 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__string_8cpp_source_l00141}{141}} of file \mbox{\hyperlink{catch__matchers__string_8cpp_source}{catch\+\_\+matchers\+\_\+string.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a40531208875e65d9d4c7b4094a23ead1}\label{namespaceCatch_1_1Matchers_a40531208875e65d9d4c7b4094a23ead1} 
+\index{Catch::Matchers@{Catch::Matchers}!UnorderedEquals@{UnorderedEquals}}
+\index{UnorderedEquals@{UnorderedEquals}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{UnorderedEquals()}{UnorderedEquals()}}
+{\footnotesize\ttfamily template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher}{Unordered\+Equals\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ Catch\+::\+Matchers\+::\+Unordered\+Equals (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T, Alloc\+Comp $>$ const \&}]{target }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that matches vectors that is equal to {\ttfamily target} modulo permutation. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__vector_8hpp_source_l00187}{187}} of file \mbox{\hyperlink{catch__matchers__vector_8hpp_source}{catch\+\_\+matchers\+\_\+vector.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_acf7c393b909b0dad3466bea2a39e1012}\label{namespaceCatch_1_1Matchers_acf7c393b909b0dad3466bea2a39e1012} 
+\index{Catch::Matchers@{Catch::Matchers}!UnorderedRangeEquals@{UnorderedRangeEquals}}
+\index{UnorderedRangeEquals@{UnorderedRangeEquals}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{UnorderedRangeEquals()}{UnorderedRangeEquals()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Range\+Like , typename Equality  = decltype( std\+::equal\+\_\+to$<$$>$\{\} )$>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedRangeEqualsMatcher}{Unordered\+Range\+Equals\+Matcher}}$<$ Range\+Like, Equality $>$ Catch\+::\+Matchers\+::\+Unordered\+Range\+Equals (\begin{DoxyParamCaption}\item[{Range\+Like \&\&}]{range,  }\item[{Equality \&\&}]{predicate = {\ttfamily std\+:\+:equal\+\_\+to$<$$>$\{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Creates a matcher that checks if all elements in a range are equal to all elements in another range, in some permutation.
+
+Uses the provided predicate {\ttfamily predicate} to do the comparisons (defaulting to {\ttfamily std\+::equal\+\_\+to}) 
+
+Definition at line \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source_l00137}{137}} of file \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source}{catch\+\_\+matchers\+\_\+range\+\_\+equals.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_abb02f182e3ab9ea6befd39c886012b17}\label{namespaceCatch_1_1Matchers_abb02f182e3ab9ea6befd39c886012b17} 
+\index{Catch::Matchers@{Catch::Matchers}!UnorderedRangeEquals@{UnorderedRangeEquals}}
+\index{UnorderedRangeEquals@{UnorderedRangeEquals}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{UnorderedRangeEquals()}{UnorderedRangeEquals()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename Equality  = decltype( std\+::equal\+\_\+to$<$$>$\{\} )$>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedRangeEqualsMatcher}{Unordered\+Range\+Equals\+Matcher}}$<$ std\+::initializer\+\_\+list$<$ T $>$, Equality $>$ Catch\+::\+Matchers\+::\+Unordered\+Range\+Equals (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ T $>$}]{range,  }\item[{Equality \&\&}]{predicate = {\ttfamily std\+:\+:equal\+\_\+to$<$$>$\{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Creates a matcher that checks if all elements in a range are equal to all elements in an initializer list, in some permutation.
+
+Uses the provided predicate {\ttfamily predicate} to do the comparisons (defaulting to {\ttfamily std\+::equal\+\_\+to}) 
+
+Definition at line \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source_l00153}{153}} of file \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source}{catch\+\_\+matchers\+\_\+range\+\_\+equals.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a677dc421d43495081c61501d63a3d7aa}\label{namespaceCatch_1_1Matchers_a677dc421d43495081c61501d63a3d7aa} 
+\index{Catch::Matchers@{Catch::Matchers}!VectorContains@{VectorContains}}
+\index{VectorContains@{VectorContains}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{VectorContains()}{VectorContains()}}
+{\footnotesize\ttfamily template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher}{Vector\+Contains\+Element\+Matcher}}$<$ T, Alloc $>$ Catch\+::\+Matchers\+::\+Vector\+Contains (\begin{DoxyParamCaption}\item[{T const \&}]{comparator }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that matches vectors that contain {\ttfamily comparator} as an element. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__vector_8hpp_source_l00169}{169}} of file \mbox{\hyperlink{catch__matchers__vector_8hpp_source}{catch\+\_\+matchers\+\_\+vector.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a13a915665906ab3efb39e118c649285f}\label{namespaceCatch_1_1Matchers_a13a915665906ab3efb39e118c649285f} 
+\index{Catch::Matchers@{Catch::Matchers}!WithinAbs@{WithinAbs}}
+\index{WithinAbs@{WithinAbs}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{WithinAbs()}{WithinAbs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinAbsMatcher}{Within\+Abs\+Matcher}} Catch\+::\+Matchers\+::\+Within\+Abs (\begin{DoxyParamCaption}\item[{double}]{target,  }\item[{double}]{margin }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that accepts numbers within certain range of target. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source_l00192}{192}} of file \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source}{catch\+\_\+matchers\+\_\+floating\+\_\+point.\+cpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a01c32f9483573cfb0d703f5f34b9848d}\label{namespaceCatch_1_1Matchers_a01c32f9483573cfb0d703f5f34b9848d} 
+\index{Catch::Matchers@{Catch::Matchers}!WithinRel@{WithinRel}}
+\index{WithinRel@{WithinRel}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{WithinRel()}{WithinRel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinRelMatcher}{Within\+Rel\+Matcher}} Catch\+::\+Matchers\+::\+Within\+Rel (\begin{DoxyParamCaption}\item[{double}]{target }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that accepts doubles within 100\texorpdfstring{$\ast$}{*}\+DBL\+\_\+\+EPS relative range of target. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source_l00200}{200}} of file \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source}{catch\+\_\+matchers\+\_\+floating\+\_\+point.\+cpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a78dba3ba1112c48a6376a38b48ea70e2}\label{namespaceCatch_1_1Matchers_a78dba3ba1112c48a6376a38b48ea70e2} 
+\index{Catch::Matchers@{Catch::Matchers}!WithinRel@{WithinRel}}
+\index{WithinRel@{WithinRel}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{WithinRel()}{WithinRel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinRelMatcher}{Within\+Rel\+Matcher}} Catch\+::\+Matchers\+::\+Within\+Rel (\begin{DoxyParamCaption}\item[{double}]{target,  }\item[{double}]{eps }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that accepts doubles within certain relative range of target. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source_l00196}{196}} of file \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source}{catch\+\_\+matchers\+\_\+floating\+\_\+point.\+cpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a735b5278dad4189adbc79098c2360b03}\label{namespaceCatch_1_1Matchers_a735b5278dad4189adbc79098c2360b03} 
+\index{Catch::Matchers@{Catch::Matchers}!WithinRel@{WithinRel}}
+\index{WithinRel@{WithinRel}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{WithinRel()}{WithinRel()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinRelMatcher}{Within\+Rel\+Matcher}} Catch\+::\+Matchers\+::\+Within\+Rel (\begin{DoxyParamCaption}\item[{float}]{target }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that accepts floats within 100\texorpdfstring{$\ast$}{*}\+FLT\+\_\+\+EPS relative range of target. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source_l00208}{208}} of file \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source}{catch\+\_\+matchers\+\_\+floating\+\_\+point.\+cpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a65b303b8eb9ba612cc5c149488aa7753}\label{namespaceCatch_1_1Matchers_a65b303b8eb9ba612cc5c149488aa7753} 
+\index{Catch::Matchers@{Catch::Matchers}!WithinRel@{WithinRel}}
+\index{WithinRel@{WithinRel}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{WithinRel()}{WithinRel()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinRelMatcher}{Within\+Rel\+Matcher}} Catch\+::\+Matchers\+::\+Within\+Rel (\begin{DoxyParamCaption}\item[{float}]{target,  }\item[{float}]{eps }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that accepts doubles within certain relative range of target. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source_l00204}{204}} of file \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source}{catch\+\_\+matchers\+\_\+floating\+\_\+point.\+cpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_a88361ad809aab09ff75c87bf6cdd7fad}\label{namespaceCatch_1_1Matchers_a88361ad809aab09ff75c87bf6cdd7fad} 
+\index{Catch::Matchers@{Catch::Matchers}!WithinULP@{WithinULP}}
+\index{WithinULP@{WithinULP}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{WithinULP()}{WithinULP()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinUlpsMatcher}{Within\+Ulps\+Matcher}} Catch\+::\+Matchers\+::\+Within\+ULP (\begin{DoxyParamCaption}\item[{double}]{target,  }\item[{uint64\+\_\+t}]{max\+Ulp\+Diff }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that accepts doubles within certain ULP range of target. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source_l00184}{184}} of file \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source}{catch\+\_\+matchers\+\_\+floating\+\_\+point.\+cpp}}.
+
+\Hypertarget{namespaceCatch_1_1Matchers_af0eb912b197be0f79e60fd1884e9ac29}\label{namespaceCatch_1_1Matchers_af0eb912b197be0f79e60fd1884e9ac29} 
+\index{Catch::Matchers@{Catch::Matchers}!WithinULP@{WithinULP}}
+\index{WithinULP@{WithinULP}!Catch::Matchers@{Catch::Matchers}}
+\doxysubsubsection{\texorpdfstring{WithinULP()}{WithinULP()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Matchers_1_1WithinUlpsMatcher}{Within\+Ulps\+Matcher}} Catch\+::\+Matchers\+::\+Within\+ULP (\begin{DoxyParamCaption}\item[{float}]{target,  }\item[{uint64\+\_\+t}]{max\+Ulp\+Diff }\end{DoxyParamCaption})}
+
+
+
+Creates a matcher that accepts floats within certain ULP range of target. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{catch__matchers__floating__point_8cpp_source}{catch\+\_\+matchers\+\_\+floating\+\_\+point.\+cpp}}.
+

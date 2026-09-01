@@ -1,0 +1,36 @@
+\doxysection{src/catch2/matchers/catch\+\_\+matchers\+\_\+string.cpp File Reference}
+\hypertarget{catch__matchers__string_8cpp}{}\label{catch__matchers__string_8cpp}\index{src/catch2/matchers/catch\_matchers\_string.cpp@{src/catch2/matchers/catch\_matchers\_string.cpp}}
+{\ttfamily \#include $<$catch2/matchers/catch\+\_\+matchers\+\_\+string.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+string\+\_\+manip.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+tostring.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+case\+\_\+insensitive\+\_\+comparisons.\+hpp$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+Include dependency graph for catch\+\_\+matchers\+\_\+string.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers__string_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers}{Catch\+::\+Matchers}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1StringEqualsMatcher}{String\+Equals\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a313539dbfbb441d8cebce56d4031f104}{Catch\+::\+Matchers\+::\+Equals}} (std\+::string str, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings that are exactly equal to {\ttfamily str} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1StringContainsMatcher}{String\+Contains\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a9b8f5d4ec0671c6d669444b9ef280660}{Catch\+::\+Matchers\+::\+Contains\+Substring}} (std\+::string str, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings that contain {\ttfamily str} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1EndsWithMatcher}{Ends\+With\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_af2081747e5de5de50c8c3ad4670ffbf8}{Catch\+::\+Matchers\+::\+Ends\+With}} (std\+::string str, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings that {\itshape end} with {\ttfamily str} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1StartsWithMatcher}{Starts\+With\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a0db9463227f9d1a0a7ddbac31aaa8753}{Catch\+::\+Matchers\+::\+Starts\+With}} (std\+::string str, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings that {\itshape start} with {\ttfamily str} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Matchers_1_1RegexMatcher}{Regex\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a604f82313cebac08ce35242e4813ae1d}{Catch\+::\+Matchers\+::\+Matches}} (std\+::string regex, \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{Case\+Sensitive}} case\+Sensitivity=\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36a93cba07454f06a4a960172bbd6e2a435}{Case\+Sensitive\+::\+Yes}})
+\begin{DoxyCompactList}\small\item\em Creates matcher that accepts strings matching {\ttfamily regex} \end{DoxyCompactList}\end{DoxyCompactItemize}

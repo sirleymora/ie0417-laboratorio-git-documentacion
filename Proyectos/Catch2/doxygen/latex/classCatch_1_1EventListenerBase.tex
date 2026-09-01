@@ -1,0 +1,510 @@
+\doxysection{Catch\+::Event\+Listener\+Base Class Reference}
+\hypertarget{classCatch_1_1EventListenerBase}{}\label{classCatch_1_1EventListenerBase}\index{Catch::EventListenerBase@{Catch::EventListenerBase}}
+
+
+{\ttfamily \#include $<$catch\+\_\+reporter\+\_\+event\+\_\+listener.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::Event\+Listener\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{classCatch_1_1EventListenerBase__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Catch\+::Event\+Listener\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1EventListenerBase__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a0ee72a1f310d16e0c131b2420e91e0dc}{report\+Invalid\+Test\+Spec}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} unmatched\+Spec) override
+\begin{DoxyCompactList}\small\item\em Called for all invalid test specs from the cli. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a0cac63a4695456132d34727c698c6025}{fatal\+Error\+Encountered}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} error) override
+\begin{DoxyCompactList}\small\item\em Called if a fatal error (signal/structured exception) occurred. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_ad516f1acfa0313022a5b50c0278ebf7a}{benchmark\+Preparing}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} name) override
+\begin{DoxyCompactList}\small\item\em Called when user-\/code is being probed before the actual benchmark runs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_aac0691661bce3b68ef876801741415df}{benchmark\+Starting}} (\mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{Benchmark\+Info}} const \&benchmark\+Info) override
+\begin{DoxyCompactList}\small\item\em Called after probe but before the user-\/code is being benchmarked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_af5987993f16cf365f7d3e66d88b3877e}{benchmark\+Ended}} (\mbox{\hyperlink{structCatch_1_1BenchmarkStats}{Benchmark\+Stats}}$<$$>$ const \&benchmark\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called with the benchmark results if benchmark successfully finishes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a63ec40e4f18b045be4a41e766cacbfd2}{benchmark\+Failed}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} error) override
+\begin{DoxyCompactList}\small\item\em Called if running the benchmarks fails for any reason. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_adeab36ce43a79f658b817fb73c345936}{assertion\+Starting}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&assertion\+Info) override
+\begin{DoxyCompactList}\small\item\em Called before assertion success/failure is evaluated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a9fee1046bb51b5545ddf1444d1e01480}{assertion\+Ended}} (\mbox{\hyperlink{structCatch_1_1AssertionStats}{Assertion\+Stats}} const \&assertion\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called after assertion was fully evaluated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a00c37594a72158bb534bae980392ab53}{list\+Reporters}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{Reporter\+Description}} $>$ const \&descriptions) override
+\begin{DoxyCompactList}\small\item\em Writes out information about provided reporters using reporter-\/specific format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a4757ec53087d819d3dbe1d85f8ee0d48}{list\+Listeners}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{Listener\+Description}} $>$ const \&descriptions) override
+\begin{DoxyCompactList}\small\item\em Writes out the provided listeners descriptions using reporter-\/specific format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_aca87099a86bea8d6007dc69467efeff8}{list\+Tests}} (std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \&tests) override
+\begin{DoxyCompactList}\small\item\em Writes out information about provided tests using reporter-\/specific format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a85f16bf8076947b32acae376f5f84ea7}{list\+Tags}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1TagInfo}{Tag\+Info}} $>$ const \&tag\+Infos) override
+\begin{DoxyCompactList}\small\item\em Writes out information about the provided tags using reporter-\/specific format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a93b020650d8860243bef0c02d5fd7527}{no\+Matching\+Test\+Cases}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} unmatched\+Spec) override
+\begin{DoxyCompactList}\small\item\em Called when no test cases match provided test spec. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a49b422668f34cc02d5f5ebeed3e275e0}{test\+Run\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} const \&test\+Run\+Info) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_af2b261973f4bcf130c615bf49e1807b4}{test\+Case\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&test\+Info) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_aad717d5878240ceb84ab078146ba5e1e}{test\+Case\+Partial\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&test\+Info, uint64\+\_\+t part\+Number) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a5bfe040888b2e287cab8dd2e57ecc747}{section\+Starting}} (\mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} const \&section\+Info) override
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily SECTION} is being entered. Not called for skipped sections. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a3292f6b208442c43ad706b1fe6cce08b}{section\+Ended}} (\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} const \&section\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called after a {\ttfamily SECTION} has finished running. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_ad58066fa69b5af081128a92b78c99f24}{test\+Case\+Partial\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&test\+Case\+Stats, uint64\+\_\+t part\+Number) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a3825591ad6b26ebb3760eb54a16376d1}{test\+Case\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&test\+Case\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a058debcc3927de59d9ce5492e8d8a939}{test\+Run\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats}} const \&test\+Run\+Stats) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1EventListenerBase_a976f5bf4c1ce2bab8c072ed4004ca52e}{skip\+Test}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&test\+Info) override
+\item 
+\mbox{\hyperlink{classCatch_1_1EventListenerBase_aaaa931eff91dcc54dbcbe3fc7e0d4ab8}{IEvent\+Listener}} (\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \texorpdfstring{$\ast$}{*}config)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1IEventListener}{Catch\+::\+IEvent\+Listener}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1IEventListener_aaaa931eff91dcc54dbcbe3fc7e0d4ab8}{IEvent\+Listener}} (\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \texorpdfstring{$\ast$}{*}config)
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1IEventListener_acfa267bbb655d4530752d5ec2507b95c}{\texorpdfstring{$\sim$}{\string~}\+IEvent\+Listener}} ()
+\item 
+\mbox{\hyperlink{structCatch_1_1ReporterPreferences}{Reporter\+Preferences}} const \& \mbox{\hyperlink{classCatch_1_1IEventListener_a613b60656347b078f9a8d0385892f2d4}{get\+Preferences}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1IEventListener}{Catch\+::\+IEvent\+Listener}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1ReporterPreferences}{Reporter\+Preferences}} \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\+\_\+preferences}}
+\begin{DoxyCompactList}\small\item\em Derived classes can set up their preferences here. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\+\_\+config}}
+\begin{DoxyCompactList}\small\item\em The test run\textquotesingle{}s config as filled in from CLI and defaults. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class to simplify implementing listeners.
+
+Provides empty default implementation for all \doxylink{classCatch_1_1IEventListener}{IEvent\+Listener} member functions, so that a listener implementation can pick which member functions it actually cares about. 
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8hpp_source_l00022}{22}} of file \mbox{\hyperlink{catch__reporter__event__listener_8hpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1EventListenerBase_a9fee1046bb51b5545ddf1444d1e01480}\label{classCatch_1_1EventListenerBase_a9fee1046bb51b5545ddf1444d1e01480} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!assertionEnded@{assertionEnded}}
+\index{assertionEnded@{assertionEnded}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{assertionEnded()}{assertionEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::assertion\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionStats}{Assertion\+Stats}} const \&}]{assertion\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after assertion was fully evaluated. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a43aec5f970694bd25a736e3d9871b5c4}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_adeab36ce43a79f658b817fb73c345936}\label{classCatch_1_1EventListenerBase_adeab36ce43a79f658b817fb73c345936} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!assertionStarting@{assertionStarting}}
+\index{assertionStarting@{assertionStarting}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{assertionStarting()}{assertionStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::assertion\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&}]{assertion\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called before assertion success/failure is evaluated. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a739285f21094b48e665fe32610d12b4d}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_af5987993f16cf365f7d3e66d88b3877e}\label{classCatch_1_1EventListenerBase_af5987993f16cf365f7d3e66d88b3877e} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!benchmarkEnded@{benchmarkEnded}}
+\index{benchmarkEnded@{benchmarkEnded}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{benchmarkEnded()}{benchmarkEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::benchmark\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1BenchmarkStats}{Benchmark\+Stats}}$<$$>$ const \&}]{benchmark\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called with the benchmark results if benchmark successfully finishes. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a69d16f703f6fa505cee57d4420f56d4c}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a63ec40e4f18b045be4a41e766cacbfd2}\label{classCatch_1_1EventListenerBase_a63ec40e4f18b045be4a41e766cacbfd2} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!benchmarkFailed@{benchmarkFailed}}
+\index{benchmarkFailed@{benchmarkFailed}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{benchmarkFailed()}{benchmarkFailed()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::benchmark\+Failed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{benchmark\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called if running the benchmarks fails for any reason. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a8698348805f39879bccdfacb4afd5095}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_ad516f1acfa0313022a5b50c0278ebf7a}\label{classCatch_1_1EventListenerBase_ad516f1acfa0313022a5b50c0278ebf7a} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!benchmarkPreparing@{benchmarkPreparing}}
+\index{benchmarkPreparing@{benchmarkPreparing}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{benchmarkPreparing()}{benchmarkPreparing()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::benchmark\+Preparing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{benchmark\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called when user-\/code is being probed before the actual benchmark runs. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_ac16d3fb730b139bbc1810b7e42cde5ac}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_aac0691661bce3b68ef876801741415df}\label{classCatch_1_1EventListenerBase_aac0691661bce3b68ef876801741415df} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!benchmarkStarting@{benchmarkStarting}}
+\index{benchmarkStarting@{benchmarkStarting}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{benchmarkStarting()}{benchmarkStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::benchmark\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{Benchmark\+Info}} const \&}]{benchmark\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after probe but before the user-\/code is being benchmarked. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a96e744c9c4bdbea26f16ec2f1d0090fe}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a0cac63a4695456132d34727c698c6025}\label{classCatch_1_1EventListenerBase_a0cac63a4695456132d34727c698c6025} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!fatalErrorEncountered@{fatalErrorEncountered}}
+\index{fatalErrorEncountered@{fatalErrorEncountered}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{fatalErrorEncountered()}{fatalErrorEncountered()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::fatal\+Error\+Encountered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called if a fatal error (signal/structured exception) occurred. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_aefa99bd01a2b15d36f223e3a60fbd536}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_aaaa931eff91dcc54dbcbe3fc7e0d4ab8}\label{classCatch_1_1EventListenerBase_aaaa931eff91dcc54dbcbe3fc7e0d4ab8} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!IEventListener@{IEventListener}}
+\index{IEventListener@{IEventListener}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{IEventListener()}{IEventListener()}}
+{\footnotesize\ttfamily Catch\+::\+IEvent\+Listener\+::\+IEvent\+Listener (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \texorpdfstring{$\ast$}{*}}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00149}{149}} of file \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source}{catch\+\_\+interfaces\+\_\+reporter.\+hpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a4757ec53087d819d3dbe1d85f8ee0d48}\label{classCatch_1_1EventListenerBase_a4757ec53087d819d3dbe1d85f8ee0d48} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!listListeners@{listListeners}}
+\index{listListeners@{listListeners}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{listListeners()}{listListeners()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::list\+Listeners (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{Listener\+Description}} $>$ const \&}]{descriptions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes out the provided listeners descriptions using reporter-\/specific format. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_acb1f0a5480b35730183105e9f77796f6}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a00c37594a72158bb534bae980392ab53}\label{classCatch_1_1EventListenerBase_a00c37594a72158bb534bae980392ab53} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!listReporters@{listReporters}}
+\index{listReporters@{listReporters}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{listReporters()}{listReporters()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::list\+Reporters (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{Reporter\+Description}} $>$ const \&}]{descriptions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes out information about provided reporters using reporter-\/specific format. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a7da9f6743a14db5f7e3e1c92f00c1b6b}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a85f16bf8076947b32acae376f5f84ea7}\label{classCatch_1_1EventListenerBase_a85f16bf8076947b32acae376f5f84ea7} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!listTags@{listTags}}
+\index{listTags@{listTags}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{listTags()}{listTags()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::list\+Tags (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1TagInfo}{Tag\+Info}} $>$ const \&}]{tags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes out information about the provided tags using reporter-\/specific format. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a52536b083c74898292be38f7fb5591e1}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_aca87099a86bea8d6007dc69467efeff8}\label{classCatch_1_1EventListenerBase_aca87099a86bea8d6007dc69467efeff8} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!listTests@{listTests}}
+\index{listTests@{listTests}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{listTests()}{listTests()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::list\+Tests (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \&}]{tests }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes out information about provided tests using reporter-\/specific format. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a52d9cd25aaaff57d7ba044d1108b2e9e}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a93b020650d8860243bef0c02d5fd7527}\label{classCatch_1_1EventListenerBase_a93b020650d8860243bef0c02d5fd7527} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!noMatchingTestCases@{noMatchingTestCases}}
+\index{noMatchingTestCases@{noMatchingTestCases}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{noMatchingTestCases()}{noMatchingTestCases()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::no\+Matching\+Test\+Cases (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{unmatched\+Spec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called when no test cases match provided test spec. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_acf4a6648c7fe3449634491d54a7be0ce}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a0ee72a1f310d16e0c131b2420e91e0dc}\label{classCatch_1_1EventListenerBase_a0ee72a1f310d16e0c131b2420e91e0dc} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!reportInvalidTestSpec@{reportInvalidTestSpec}}
+\index{reportInvalidTestSpec@{reportInvalidTestSpec}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{reportInvalidTestSpec()}{reportInvalidTestSpec()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::report\+Invalid\+Test\+Spec (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{invalid\+Argument }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called for all invalid test specs from the cli. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_acde7b07d7c37fb6d2d21cf97c68065ec}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a3292f6b208442c43ad706b1fe6cce08b}\label{classCatch_1_1EventListenerBase_a3292f6b208442c43ad706b1fe6cce08b} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!sectionEnded@{sectionEnded}}
+\index{sectionEnded@{sectionEnded}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{sectionEnded()}{sectionEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::section\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} const \&}]{section\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after a {\ttfamily SECTION} has finished running. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a077b6305d49853779d715777e90138bd}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a5bfe040888b2e287cab8dd2e57ecc747}\label{classCatch_1_1EventListenerBase_a5bfe040888b2e287cab8dd2e57ecc747} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!sectionStarting@{sectionStarting}}
+\index{sectionStarting@{sectionStarting}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{sectionStarting()}{sectionStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::section\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} const \&}]{section\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called when a {\ttfamily SECTION} is being entered. Not called for skipped sections. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_aaca0feeb367dea20806972112e4846d0}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a976f5bf4c1ce2bab8c072ed4004ca52e}\label{classCatch_1_1EventListenerBase_a976f5bf4c1ce2bab8c072ed4004ca52e} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!skipTest@{skipTest}}
+\index{skipTest@{skipTest}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{skipTest()}{skipTest()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::skip\+Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&}]{test\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Called with test cases that are skipped due to the test run aborting. NOT called for test cases that are explicitly skipped using the {\ttfamily SKIP} macro.
+
+Deprecated -\/ will be removed in the next major release. 
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a350c8872b5826a6b62635cfa4eafac93}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a3825591ad6b26ebb3760eb54a16376d1}\label{classCatch_1_1EventListenerBase_a3825591ad6b26ebb3760eb54a16376d1} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!testCaseEnded@{testCaseEnded}}
+\index{testCaseEnded@{testCaseEnded}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{testCaseEnded()}{testCaseEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::test\+Case\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&}]{test\+Case\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_abe5cb0aaed8d0d5d8a42d23a7e36b667}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_ad58066fa69b5af081128a92b78c99f24}\label{classCatch_1_1EventListenerBase_ad58066fa69b5af081128a92b78c99f24} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!testCasePartialEnded@{testCasePartialEnded}}
+\index{testCasePartialEnded@{testCasePartialEnded}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{testCasePartialEnded()}{testCasePartialEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::test\+Case\+Partial\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&}]{test\+Case\+Stats,  }\item[{uint64\+\_\+t}]{part\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a1ca022b9d648e34eaee8f772c5f4969c}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_aad717d5878240ceb84ab078146ba5e1e}\label{classCatch_1_1EventListenerBase_aad717d5878240ceb84ab078146ba5e1e} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!testCasePartialStarting@{testCasePartialStarting}}
+\index{testCasePartialStarting@{testCasePartialStarting}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{testCasePartialStarting()}{testCasePartialStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::test\+Case\+Partial\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&}]{test\+Info,  }\item[{uint64\+\_\+t}]{part\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_aa50659430e5ba60c662ef5218e5c1e53}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_af2b261973f4bcf130c615bf49e1807b4}\label{classCatch_1_1EventListenerBase_af2b261973f4bcf130c615bf49e1807b4} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!testCaseStarting@{testCaseStarting}}
+\index{testCaseStarting@{testCaseStarting}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{testCaseStarting()}{testCaseStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::test\+Case\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&}]{test\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a20bdd5b474e496a1a2a0b9e6a806ca4b}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a058debcc3927de59d9ce5492e8d8a939}\label{classCatch_1_1EventListenerBase_a058debcc3927de59d9ce5492e8d8a939} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!testRunEnded@{testRunEnded}}
+\index{testRunEnded@{testRunEnded}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{testRunEnded()}{testRunEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::test\+Run\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats}} const \&}]{test\+Run\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Called once after all tests in a testing run are finished
+
+Not called if tests weren\textquotesingle{}t run (e.\+g. only listings happened) 
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a97a17235b82da761043654491db0b17c}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+\Hypertarget{classCatch_1_1EventListenerBase_a49b422668f34cc02d5f5ebeed3e275e0}\label{classCatch_1_1EventListenerBase_a49b422668f34cc02d5f5ebeed3e275e0} 
+\index{Catch::EventListenerBase@{Catch::EventListenerBase}!testRunStarting@{testRunStarting}}
+\index{testRunStarting@{testRunStarting}!Catch::EventListenerBase@{Catch::EventListenerBase}}
+\doxysubsubsection{\texorpdfstring{testRunStarting()}{testRunStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Event\+Listener\+Base\+::test\+Run\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} const \&}]{test\+Run\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Called once in a testing run before tests are started
+
+Not called if tests won\textquotesingle{}t be run (e.\+g. only listing will happen) 
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a3b7a9118f5b47011216aa31424ec4982}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{catch__reporter__event__listener_8cpp_source}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__event__listener_8hpp}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+hpp}}\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__event__listener_8cpp}{catch\+\_\+reporter\+\_\+event\+\_\+listener.\+cpp}}\end{DoxyCompactItemize}

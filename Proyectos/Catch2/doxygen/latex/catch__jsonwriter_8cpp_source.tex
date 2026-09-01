@@ -1,0 +1,220 @@
+\doxysection{catch\+\_\+jsonwriter.\+cpp}
+\hypertarget{catch__jsonwriter_8cpp_source}{}\label{catch__jsonwriter_8cpp_source}\index{src/catch2/internal/catch\_jsonwriter.cpp@{src/catch2/internal/catch\_jsonwriter.cpp}}
+\mbox{\hyperlink{catch__jsonwriter_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__enforce_8hpp}{catch2/internal/catch\_enforce.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__jsonwriter_8hpp}{catch2/internal/catch\_jsonwriter.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__polyfills_8hpp}{catch2/internal/catch\_polyfills.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__unreachable_8hpp}{catch2/internal/catch\_unreachable.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <locale>}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }EscapeLUT\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00020}\mbox{\hyperlink{catch__jsonwriter_8cpp_ab698bbe978334125bc35de75719ebcdc}{00020}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{catch__jsonwriter_8cpp_ab698bbe978334125bc35de75719ebcdc}{escape}}[256]\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ EscapeLUT()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__jsonwriter_8cpp_ab698bbe978334125bc35de75719ebcdc}{escape}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ \textcolor{charliteral}{'"{}'}\ )]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__jsonwriter_8cpp_ab698bbe978334125bc35de75719ebcdc}{escape}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}\ )]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__jsonwriter_8cpp_ab698bbe978334125bc35de75719ebcdc}{escape}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ \textcolor{charliteral}{'\(\backslash\)b'}\ )]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__jsonwriter_8cpp_ab698bbe978334125bc35de75719ebcdc}{escape}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ \textcolor{charliteral}{'\(\backslash\)f'}\ )]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__jsonwriter_8cpp_ab698bbe978334125bc35de75719ebcdc}{escape}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ \textcolor{charliteral}{'\(\backslash\)n'}\ )]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__jsonwriter_8cpp_ab698bbe978334125bc35de75719ebcdc}{escape}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ \textcolor{charliteral}{'\(\backslash\)r'}\ )]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__jsonwriter_8cpp_ab698bbe978334125bc35de75719ebcdc}{escape}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ \textcolor{charliteral}{'\(\backslash\)t'}\ )]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ EscapeLUT\ escapeLUT\{\};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ needsEscape(\ \textcolor{keywordtype}{char}\ c\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ escapeLUT.escape[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ c\ )];}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCatch_1_1StringRef}{Catch::StringRef}}\ makeEscapeStringRef(\ \textcolor{keywordtype}{char}\ c\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ c\ ==\ \textcolor{charliteral}{'"{}'}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)b'}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)b"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)f'}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)f"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)n'}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)n"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)r'}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)r"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)t'}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)t"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Detail_a1babf8feb5e4bb8fd3d79d664fecbde6}{Catch::Detail::Unreachable}}();}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00055}00055\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00057}\mbox{\hyperlink{structCatch_1_1JsonUtils_aea62df8ab37b21aeca19bf9b498f9b0f}{00057}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCatch_1_1JsonUtils_aea62df8ab37b21aeca19bf9b498f9b0f}{JsonUtils::indent}}(\ std::ostream\&\ os,\ std::uint64\_t\ level\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ std::uint64\_t\ i\ =\ 0;\ i\ <\ level;\ ++i\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00062}\mbox{\hyperlink{structCatch_1_1JsonUtils_aec704cfeb6b818a2db271a844a2bb267}{00062}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCatch_1_1JsonUtils_aec704cfeb6b818a2db271a844a2bb267}{JsonUtils::appendCommaNewline}}(\ std::ostream\&\ os,}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ should\_comma,}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ level\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ should\_comma\ )\ \{\ os\ <<\ \textcolor{charliteral}{','};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ should\_comma\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1JsonUtils_aea62df8ab37b21aeca19bf9b498f9b0f}{indent}}(\ os,\ level\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter_ac4bdf59dcf53cc2cd0840f0ecb53b720}{JsonObjectWriter::JsonObjectWriter}}(\ std::ostream\&\ os\ ):}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter}{JsonObjectWriter}}\{\ os,\ 0\ \}\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter_ac4bdf59dcf53cc2cd0840f0ecb53b720}{JsonObjectWriter::JsonObjectWriter}}(\ std::ostream\&\ os,}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ indent\_level\ ):}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ m\_os\{\ os\ \},\ m\_indent\_level\{\ indent\_level\ \}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'\{'};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00079}\mbox{\hyperlink{classCatch_1_1JsonObjectWriter_a8ed2917cc2092b1647497be27292c5d6}{00079}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter_ac4bdf59dcf53cc2cd0840f0ecb53b720}{JsonObjectWriter::JsonObjectWriter}}(\ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter}{JsonObjectWriter}}\&\&\ source\ )\ \textcolor{keyword}{noexcept}:}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ m\_os\{\ source.m\_os\ \},}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ m\_indent\_level\{\ source.m\_indent\_level\ \},}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ m\_should\_comma\{\ source.m\_should\_comma\ \},}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ m\_active\{\ source.m\_active\ \}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ source.m\_active\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00087}\mbox{\hyperlink{classCatch_1_1JsonObjectWriter_ad9286cb43cef2ffb40232ca941931ed1}{00087}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter_ad9286cb43cef2ffb40232ca941931ed1}{JsonObjectWriter::\string~JsonObjectWriter}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !m\_active\ )\ \{\ \textcolor{keywordflow}{return};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1JsonUtils_aea62df8ab37b21aeca19bf9b498f9b0f}{JsonUtils::indent}}(\ m\_os,\ m\_indent\_level\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'\}'};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00095}\mbox{\hyperlink{classCatch_1_1JsonObjectWriter_a8d01f3ce1de7ee663e033b039484c6e3}{00095}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonValueWriter}{JsonValueWriter}}\ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter_a8d01f3ce1de7ee663e033b039484c6e3}{JsonObjectWriter::write}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_ab44666b6e91e2bbae6bcf104d48726d6}{key}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1JsonUtils_aec704cfeb6b818a2db271a844a2bb267}{JsonUtils::appendCommaNewline}}(}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os,\ m\_should\_comma,\ m\_indent\_level\ +\ 1\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'"{}'}\ <<\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_ab44666b6e91e2bbae6bcf104d48726d6}{key}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}:\ "{}};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1JsonValueWriter}{JsonValueWriter}}\{\ m\_os,\ m\_indent\_level\ +\ 1\ \};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter_ac8d879a227959f66b87d8a4019ac1721}{JsonArrayWriter::JsonArrayWriter}}(\ std::ostream\&\ os\ ):}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{JsonArrayWriter}}\{\ os,\ 0\ \}\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00105}00105\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter_ac8d879a227959f66b87d8a4019ac1721}{JsonArrayWriter::JsonArrayWriter}}(\ std::ostream\&\ os,}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ indent\_level\ ):}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ m\_os\{\ os\ \},\ m\_indent\_level\{\ indent\_level\ \}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'['};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00110}\mbox{\hyperlink{classCatch_1_1JsonArrayWriter_ab43752e5fd4739ef20c490caeccfd545}{00110}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter_ac8d879a227959f66b87d8a4019ac1721}{JsonArrayWriter::JsonArrayWriter}}(\ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{JsonArrayWriter}}\&\&\ source\ )\ \textcolor{keyword}{noexcept}:}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ m\_os\{\ source.m\_os\ \},}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ m\_indent\_level\{\ source.m\_indent\_level\ \},}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ m\_should\_comma\{\ source.m\_should\_comma\ \},}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ m\_active\{\ source.m\_active\ \}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ source.m\_active\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00117}\mbox{\hyperlink{classCatch_1_1JsonArrayWriter_ad5475b62642e180d94657a1d9fd26324}{00117}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter_ad5475b62642e180d94657a1d9fd26324}{JsonArrayWriter::\string~JsonArrayWriter}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !m\_active\ )\ \{\ \textcolor{keywordflow}{return};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1JsonUtils_aea62df8ab37b21aeca19bf9b498f9b0f}{JsonUtils::indent}}(\ m\_os,\ m\_indent\_level\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{']'};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00125}\mbox{\hyperlink{classCatch_1_1JsonArrayWriter_a18541b938a5d8886424778ab2ef070dd}{00125}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter}{JsonObjectWriter}}\ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter_a18541b938a5d8886424778ab2ef070dd}{JsonArrayWriter::writeObject}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1JsonUtils_aec704cfeb6b818a2db271a844a2bb267}{JsonUtils::appendCommaNewline}}(}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os,\ m\_should\_comma,\ m\_indent\_level\ +\ 1\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter}{JsonObjectWriter}}\{\ m\_os,\ m\_indent\_level\ +\ 1\ \};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00131}\mbox{\hyperlink{classCatch_1_1JsonArrayWriter_a1ba9c807ddfef9827c08573f8fb74b0f}{00131}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{JsonArrayWriter}}\ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter_a1ba9c807ddfef9827c08573f8fb74b0f}{JsonArrayWriter::writeArray}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1JsonUtils_aec704cfeb6b818a2db271a844a2bb267}{JsonUtils::appendCommaNewline}}(}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os,\ m\_should\_comma,\ m\_indent\_level\ +\ 1\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{JsonArrayWriter}}\{\ m\_os,\ m\_indent\_level\ +\ 1\ \};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00135}00135\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00137}\mbox{\hyperlink{classCatch_1_1JsonArrayWriter_a55e747ab677bc5237e802a99b0318cf4}{00137}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{JsonArrayWriter}}\&\ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter_a0e67851d58ebebada32e27fd60ebbee6}{JsonArrayWriter::write}}(\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ writeImpl(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00139}00139\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00141}00141\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9a9071df8441676263b103c78aec7cff}{JsonValueWriter::JsonValueWriter}}(\ std::ostream\&\ os\ ):}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonValueWriter}{JsonValueWriter}}\{\ os,\ 0\ \}\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00144}00144\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9a9071df8441676263b103c78aec7cff}{JsonValueWriter::JsonValueWriter}}(\ std::ostream\&\ os,}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ indent\_level\ ):}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ m\_os\{\ os\ \},\ m\_indent\_level\{\ indent\_level\ \}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ use\ C\ locale\ so\ that\ writing\ of\ numerical\ values\ is\ locale-\/independent.}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ m\_sstream.imbue(\ std::locale::classic()\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00151}\mbox{\hyperlink{classCatch_1_1JsonValueWriter_ae4b5e770f5dd1a50ed4cd91d3b82c520}{00151}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter}{JsonObjectWriter}}\ \mbox{\hyperlink{classCatch_1_1JsonValueWriter_ae4b5e770f5dd1a50ed4cd91d3b82c520}{JsonValueWriter::writeObject}}()\ \&\&\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter}{JsonObjectWriter}}\{\ m\_os,\ m\_indent\_level\ \};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00153}00153\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00155}\mbox{\hyperlink{classCatch_1_1JsonValueWriter_a6b0a406c55f14ca7c9177d8fb02583e5}{00155}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{JsonArrayWriter}}\ \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a6b0a406c55f14ca7c9177d8fb02583e5}{JsonValueWriter::writeArray}}()\ \&\&\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{JsonArrayWriter}}\{\ m\_os,\ m\_indent\_level\ \};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00159}\mbox{\hyperlink{classCatch_1_1JsonValueWriter_ae1b36616eecf549256c3e2003ef20c0b}{00159}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9839d99c5d5b5c6e3f68172d0f21119e}{JsonValueWriter::write}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{Catch::StringRef}}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ \&\&\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ writeImpl(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}},\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00163}\mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9f90b9975b779c5de4612d6f0b015d5a}{00163}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9839d99c5d5b5c6e3f68172d0f21119e}{JsonValueWriter::write}}(\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ \&\&\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ writeFloatingPoint(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00165}00165\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00167}\mbox{\hyperlink{classCatch_1_1JsonValueWriter_a4afd84c9b78990d0ab355dc63b311dca}{00167}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9839d99c5d5b5c6e3f68172d0f21119e}{JsonValueWriter::write}}(\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ \&\&\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ writeFloatingPoint(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00169}00169\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00171}\mbox{\hyperlink{classCatch_1_1JsonValueWriter_afde67123702fe0e62cea6e4861265502}{00171}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9839d99c5d5b5c6e3f68172d0f21119e}{JsonValueWriter::write}}(\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ \&\&\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ writeImpl(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ ?\ \textcolor{stringliteral}{"{}true"{}}\_sr\ :\ \textcolor{stringliteral}{"{}false"{}}\_sr,\ false\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00173}00173\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00176}00176\ \ \ \ \ \textcolor{keywordtype}{void}\ JsonValueWriter::writeFloatingPoint(\ T\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{namespaceCatch_aff37796f0f578c2816f74267e641c5f7}{Catch::isnan}}(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ writeImpl(\ \textcolor{stringliteral}{"{}NaN"{}}\_sr,\ \textcolor{keyword}{false}\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ std::isinf(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ writeImpl(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ <\ 0\ ?\ \textcolor{stringliteral}{"{}-\/Infinity"{}}\_sr\ :\ \textcolor{stringliteral}{"{}Infinity"{}}\_sr,\ false\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ m\_sstream\ <<\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ writeImpl(\ m\_sstream.str(),\ \textcolor{keyword}{false}\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00185}00185\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00187}00187\ \ \ \ \ \textcolor{keywordtype}{void}\ JsonValueWriter::writeImpl(\ \mbox{\hyperlink{classCatch_1_1StringRef}{Catch::StringRef}}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}},\ \textcolor{keywordtype}{bool}\ quote\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Escaping\ only\ makes\ sense\ for\ actual\ strings,\ which\ are\ passed}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ with\ \`{}quote\ ==\ true`.\ Non-\/quoted\ values\ are\ things\ like\ bools}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ numbers,\ which\ cannot\ create\ inputs\ that\ need\ escaping.}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !quote\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ current\_start\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}.size();\ ++i\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ needsEscape(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}[i]\ )\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ current\_start\ <\ i\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_os}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}.substr(\ current\_start,\ i\ -\/\ current\_start\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ makeEscapeStringRef(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}[i]\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_start\ =\ i\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ current\_start\ <\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}.size()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}.substr(\ current\_start,}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}.size()\ -\/\ current\_start\ );}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00212}00212\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{catch__jsonwriter_8cpp_source_l00214}00214\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+
+\end{DoxyCode}

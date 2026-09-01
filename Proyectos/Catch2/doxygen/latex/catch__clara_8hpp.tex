@@ -1,0 +1,154 @@
+\doxysection{src/catch2/internal/catch\+\_\+clara.hpp File Reference}
+\hypertarget{catch__clara_8hpp}{}\label{catch__clara_8hpp}\index{src/catch2/internal/catch\_clara.hpp@{src/catch2/internal/catch\_clara.hpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+stringref.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+noncopyable.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+void\+\_\+type.\+hpp$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for catch\+\_\+clara.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__clara_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__clara_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1accept__many__t}{Catch\+::\+Clara\+::accept\+\_\+many\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1fake__arg}{Catch\+::\+Clara\+::\+Detail\+::fake\+\_\+arg}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1UnaryLambdaTraits}{Catch\+::\+Clara\+::\+Detail\+::\+Unary\+Lambda\+Traits$<$ L $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1UnaryLambdaTraits_3_01ReturnT_07ClassT_1_1_5_08_07Args_8_8_8_08_01const_01_4}{Catch\+::\+Clara\+::\+Detail\+::\+Unary\+Lambda\+Traits$<$ Return\+T(\+Class\+T\+::\texorpdfstring{$\ast$}{*})(\+Args...) const $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1UnaryLambdaTraits_3_01ReturnT_07ClassT_1_1_5_08_07ArgT_08_01const_01_4}{Catch\+::\+Clara\+::\+Detail\+::\+Unary\+Lambda\+Traits$<$ Return\+T(\+Class\+T\+::\texorpdfstring{$\ast$}{*})(\+Arg\+T) const $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1Token}{Catch\+::\+Clara\+::\+Detail\+::\+Token}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1TokenStream}{Catch\+::\+Clara\+::\+Detail\+::\+Token\+Stream}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Base}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Value\+Base$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_3_01void_01_4}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Value\+Base$<$ void $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ParseState}{Catch\+::\+Clara\+::\+Detail\+::\+Parse\+State}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1HelpColumns}{Catch\+::\+Clara\+::\+Detail\+::\+Help\+Columns}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1BoundRef}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Ref}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1BoundValueRefBase}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Value\+Ref\+Base}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1BoundFlagRefBase}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Flag\+Ref\+Base}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1BoundValueRef}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Value\+Ref$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1BoundValueRef_3_01std_1_1vector_3_01T_01_4_01_4}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Value\+Ref$<$ std\+::vector$<$ T $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1BoundFlagRef}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Flag\+Ref}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1LambdaInvoker}{Catch\+::\+Clara\+::\+Detail\+::\+Lambda\+Invoker$<$ Return\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1LambdaInvoker_3_01void_01_4}{Catch\+::\+Clara\+::\+Detail\+::\+Lambda\+Invoker$<$ void $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1BoundLambda}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Lambda$<$ L $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1BoundManyLambda}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Many\+Lambda$<$ L $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Detail_1_1BoundFlagLambda}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Flag\+Lambda$<$ L $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ParserBase}{Catch\+::\+Clara\+::\+Detail\+::\+Parser\+Base}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ComposableParserImpl}{Catch\+::\+Clara\+::\+Detail\+::\+Composable\+Parser\+Impl$<$ Derived\+T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ParserRefImpl}{Catch\+::\+Clara\+::\+Detail\+::\+Parser\+Ref\+Impl$<$ Derived\+T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Arg}{Catch\+::\+Clara\+::\+Arg}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Opt}{Catch\+::\+Clara\+::\+Opt}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1ExeName}{Catch\+::\+Clara\+::\+Exe\+Name}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Parser}{Catch\+::\+Clara\+::\+Parser}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Clara_1_1Args}{Catch\+::\+Clara\+::\+Args}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Clara_1_1Help}{Catch\+::\+Clara\+::\+Help}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Clara}{Catch\+::\+Clara}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail}{Catch\+::\+Clara\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a6e654fbaeeb330b09e392b9f76896bba}{Catch\+::\+Clara\+::\+Detail\+::\+Result}} = \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}}$<$ void $>$
+\item 
+using \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a573bc9d08e790ef1245e858e42647ce8}{Catch\+::\+Clara\+::\+Detail\+::\+Parser\+Result}} = \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}}$<$ \mbox{\hyperlink{namespaceCatch_1_1Clara_aaef02c0376384b6e869e40b3dcc33f61}{Parse\+Result\+Type}} $>$
+\item 
+using \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_ad5a6efa4581181f8a6d14338ad80d981}{Catch\+::\+Clara\+::\+Detail\+::\+Internal\+Parse\+Result}} = \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}}$<$ \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ParseState}{Parse\+State}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceCatch_1_1Clara_aaef02c0376384b6e869e40b3dcc33f61}{Catch\+::\+Clara\+::\+Parse\+Result\+Type}} \{ \mbox{\hyperlink{namespaceCatch_1_1Clara_aaef02c0376384b6e869e40b3dcc33f61ab65b6f388bb1788248938a5cff5bad1d}{Catch\+::\+Clara\+::\+Matched}}
+, \mbox{\hyperlink{namespaceCatch_1_1Clara_aaef02c0376384b6e869e40b3dcc33f61ac8b77721c677e0429241a9250972122d}{Catch\+::\+Clara\+::\+No\+Match}}
+, \mbox{\hyperlink{namespaceCatch_1_1Clara_aaef02c0376384b6e869e40b3dcc33f61aaa79962a9cad5bd52c86305ad0bd9442}{Catch\+::\+Clara\+::\+Short\+Circuit\+All}}
+, \mbox{\hyperlink{namespaceCatch_1_1Clara_aaef02c0376384b6e869e40b3dcc33f61a3b06a989e906666754995bb461cacc4f}{Catch\+::\+Clara\+::\+Short\+Circuit\+Same}}
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a6ead4fe5ce95aee22dc4fb3e38404a04}{Catch\+::\+Clara\+::\+Detail\+::\+Token\+Type}} \{ \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a6ead4fe5ce95aee22dc4fb3e38404a04a054b4f3ea543c990f6b125f41af6ebf7}{Catch\+::\+Clara\+::\+Detail\+::\+Option}}
+, \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a6ead4fe5ce95aee22dc4fb3e38404a04a1853680a6d666b9fea2d789dd00bc7eb}{Catch\+::\+Clara\+::\+Detail\+::\+Argument}}
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Type}} \{ \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa60852f204ed8028c1c58808b746d115}{Catch\+::\+Clara\+::\+Detail\+::\+Ok}}
+, \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa50b3452a2f7b026eb9325c5df52c157}{Catch\+::\+Clara\+::\+Detail\+::\+Logic\+Error}}
+, \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa334b8fdd25f8fb3e632228494604ee1}{Catch\+::\+Clara\+::\+Detail\+::\+Runtime\+Error}}
+ \}
+\begin{DoxyCompactList}\small\item\em Denotes type of a parsing result. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_ab58189b0df24d5c251b76bd327164b6c}{Catch\+::\+Clara\+::\+Detail\+::\+Optionality}} \{ \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_ab58189b0df24d5c251b76bd327164b6caebb061953c0454b2c8ee7b0ac615ebcd}{Catch\+::\+Clara\+::\+Detail\+::\+Optional}}
+, \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_ab58189b0df24d5c251b76bd327164b6cab651efdb98a5d6bd2b3935d0c3f4a5e2}{Catch\+::\+Clara\+::\+Detail\+::\+Required}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a573bc9d08e790ef1245e858e42647ce8}{Parser\+Result}} \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a91a7876e712852feaf1d1d6072216af9}{Catch\+::\+Clara\+::\+Detail\+::convert\+Into}} (std\+::string const \&source, T \&target)
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a573bc9d08e790ef1245e858e42647ce8}{Parser\+Result}} \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_ab5b76a1843c33a4a71aa698a3defc528}{Catch\+::\+Clara\+::\+Detail\+::convert\+Into}} (std\+::string const \&source, std\+::string \&target)
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a573bc9d08e790ef1245e858e42647ce8}{Parser\+Result}} \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_aaf5cc67b22b463d47af6e69ee31bf44e}{Catch\+::\+Clara\+::\+Detail\+::convert\+Into}} (std\+::string const \&source, bool \&target)
+\item 
+{\footnotesize template$<$typename Arg\+Type , typename L $>$ }\\auto \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_aa756e2e2404a66852ab7fbd14a2a4647}{Catch\+::\+Clara\+::\+Detail\+::invoke\+Lambda}} (L const \&lambda, std\+::string const \&arg) -\/$>$ \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a573bc9d08e790ef1245e858e42647ce8}{Parser\+Result}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{structCatch_1_1Clara_1_1accept__many__t}{accept\+\_\+many\+\_\+t}} \mbox{\hyperlink{namespaceCatch_1_1Clara_ae84a92d31f809405143b6a0963649ea4}{Catch\+::\+Clara\+::accept\+\_\+many}} \{\}
+\end{DoxyCompactItemize}

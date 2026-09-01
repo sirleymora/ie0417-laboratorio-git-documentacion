@@ -1,0 +1,41 @@
+\doxysection{catch\+\_\+case\+\_\+insensitive\+\_\+comparisons.\+cpp}
+\hypertarget{catch__case__insensitive__comparisons_8cpp_source}{}\label{catch__case__insensitive__comparisons_8cpp_source}\index{src/catch2/internal/catch\_case\_insensitive\_comparisons.cpp@{src/catch2/internal/catch\_case\_insensitive\_comparisons.cpp}}
+\mbox{\hyperlink{catch__case__insensitive__comparisons_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__case__insensitive__comparisons_8hpp}{catch2/internal/catch\_case\_insensitive\_comparisons.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__string__manip_8hpp}{catch2/internal/catch\_string\_manip.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00014}00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00017}\mbox{\hyperlink{structCatch_1_1Detail_1_1CaseInsensitiveLess_afb8566de0da0b7cb041c743e2e612615}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCatch_1_1Detail_1_1CaseInsensitiveLess_afb8566de0da0b7cb041c743e2e612615}{CaseInsensitiveLess::operator()}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ lhs,}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ rhs\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::lexicographical\_compare(}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lhs.\mbox{\hyperlink{classCatch_1_1StringRef_ab0adc7198d60867c2842b998ae456795}{begin}}(),\ lhs.\mbox{\hyperlink{classCatch_1_1StringRef_a3ce9afc711b559d6cc59666898fc0828}{end}}(),}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhs.\mbox{\hyperlink{classCatch_1_1StringRef_ab0adc7198d60867c2842b998ae456795}{begin}}(),\ rhs.\mbox{\hyperlink{classCatch_1_1StringRef_a3ce9afc711b559d6cc59666898fc0828}{end}}(),}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\ \textcolor{keywordtype}{char}\ l,\ \textcolor{keywordtype}{char}\ r\ )\ \{\ return\ toLower(\ l\ )\ <\ toLower(\ r\ );\ \}\ );}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00026}\mbox{\hyperlink{structCatch_1_1Detail_1_1CaseInsensitiveEqualTo_aa2c1e9725816f6780f839828c982bd34}{00026}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Detail_1_1CaseInsensitiveEqualTo_aa2c1e9725816f6780f839828c982bd34}{CaseInsensitiveEqualTo::operator()}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ lhs,}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ rhs\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::equal(}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lhs.\mbox{\hyperlink{classCatch_1_1StringRef_ab0adc7198d60867c2842b998ae456795}{begin}}(),\ lhs.\mbox{\hyperlink{classCatch_1_1StringRef_a3ce9afc711b559d6cc59666898fc0828}{end}}(),}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rhs.\mbox{\hyperlink{classCatch_1_1StringRef_ab0adc7198d60867c2842b998ae456795}{begin}}(),\ rhs.\mbox{\hyperlink{classCatch_1_1StringRef_a3ce9afc711b559d6cc59666898fc0828}{end}}(),}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\ \textcolor{keywordtype}{char}\ l,\ \textcolor{keywordtype}{char}\ r\ )\ \{\ return\ toLower(\ l\ )\ ==\ toLower(\ r\ );\ \}\ );}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00034}00034\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__case__insensitive__comparisons_8cpp_source_l00035}00035\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+
+\end{DoxyCode}

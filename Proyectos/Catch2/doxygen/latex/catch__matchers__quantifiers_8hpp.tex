@@ -1,0 +1,57 @@
+\doxysection{src/catch2/matchers/catch\+\_\+matchers\+\_\+quantifiers.hpp File Reference}
+\hypertarget{catch__matchers__quantifiers_8hpp}{}\label{catch__matchers__quantifiers_8hpp}\index{src/catch2/matchers/catch\_matchers\_quantifiers.hpp@{src/catch2/matchers/catch\_matchers\_quantifiers.hpp}}
+{\ttfamily \#include $<$catch2/matchers/catch\+\_\+matchers\+\_\+templated.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+Include dependency graph for catch\+\_\+matchers\+\_\+quantifiers.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers__quantifiers_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers__quantifiers_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllMatchMatcher}{Catch\+::\+Matchers\+::\+All\+Match\+Matcher$<$ Matcher $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneMatchMatcher}{Catch\+::\+Matchers\+::\+None\+Match\+Matcher$<$ Matcher $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyMatchMatcher}{Catch\+::\+Matchers\+::\+Any\+Match\+Matcher$<$ Matcher $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllTrueMatcher}{Catch\+::\+Matchers\+::\+All\+True\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneTrueMatcher}{Catch\+::\+Matchers\+::\+None\+True\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyTrueMatcher}{Catch\+::\+Matchers\+::\+Any\+True\+Matcher}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers}{Catch\+::\+Matchers}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllMatchMatcher}{All\+Match\+Matcher}}$<$ Matcher $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a5820d92c4cb9596e16c97b5aa200f112}{Catch\+::\+Matchers\+::\+All\+Match}} (Matcher \&\&matcher)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether all elements in a range match a matcher. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneMatchMatcher}{None\+Match\+Matcher}}$<$ Matcher $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_ae1c21acb8b666d070125747f803fd0ce}{Catch\+::\+Matchers\+::\+None\+Match}} (Matcher \&\&matcher)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether no element in a range matches a matcher. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyMatchMatcher}{Any\+Match\+Matcher}}$<$ Matcher $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a89ca9e3b69fe931d681c53a2bc91135e}{Catch\+::\+Matchers\+::\+Any\+Match}} (Matcher \&\&matcher)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether any element in a range matches a matcher. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1AllTrueMatcher}{All\+True\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a3ca63dd6c8c0a5c57bb9954c1e5dd755}{Catch\+::\+Matchers\+::\+All\+True}} ()
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether all elements in a range are true. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1NoneTrueMatcher}{None\+True\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a5114f7216dee07fac48c42967c4b84b4}{Catch\+::\+Matchers\+::\+None\+True}} ()
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether no element in a range is true. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1AnyTrueMatcher}{Any\+True\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a21bbf53c611a92fec03d01acd2da2776}{Catch\+::\+Matchers\+::\+Any\+True}} ()
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether any element in a range is true. \end{DoxyCompactList}\end{DoxyCompactItemize}

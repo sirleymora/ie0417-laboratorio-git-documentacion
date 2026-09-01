@@ -1,0 +1,37 @@
+\doxysection{catch\+\_\+sample\+\_\+analysis.\+hpp}
+\hypertarget{catch__sample__analysis_8hpp_source}{}\label{catch__sample__analysis_8hpp_source}\index{src/catch2/benchmark/catch\_sample\_analysis.hpp@{src/catch2/benchmark/catch\_sample\_analysis.hpp}}
+\mbox{\hyperlink{catch__sample__analysis_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00008}00008\ \textcolor{comment}{//\ Adapted\ from\ donated\ nonius\ code.}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#ifndef\ CATCH\_SAMPLE\_ANALYSIS\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#define\ CATCH\_SAMPLE\_ANALYSIS\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__estimate_8hpp}{catch2/benchmark/catch\_estimate.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__outlier__classification_8hpp}{catch2/benchmark/catch\_outlier\_classification.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__clock_8hpp}{catch2/benchmark/catch\_clock.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00019}00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a74575b23d5305310e904f87eb02ff980}{Benchmark}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00021}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis}{SampleAnalysis}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00022}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_ad323d63e1895f868f52c0655875ba67d}{00022}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<FDuration>\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_ad323d63e1895f868f52c0655875ba67d}{samples}};}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00023}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_aa73a649b4eaa32fea5fefe181925b247}{00023}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Estimate}{Estimate<FDuration>}}\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_aa73a649b4eaa32fea5fefe181925b247}{mean}};}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00024}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_a7ef4889f28af063958aa28ba326d8399}{00024}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Estimate}{Estimate<FDuration>}}\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_a7ef4889f28af063958aa28ba326d8399}{standard\_deviation}};}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00025}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_a7956e4b789b3909d269b5d756b61c063}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1OutlierClassification}{OutlierClassification}}\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_a7956e4b789b3909d269b5d756b61c063}{outliers}};}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00026}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_a3b6f7fac3cd345ea6276c11267562c09}{00026}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1SampleAnalysis_a3b6f7fac3cd345ea6276c11267562c09}{outlier\_variance}};}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00028}00028\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Benchmark}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00029}00029\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{catch__sample__analysis_8hpp_source_l00031}00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_SAMPLE\_ANALYSIS\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

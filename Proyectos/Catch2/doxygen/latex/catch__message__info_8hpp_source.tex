@@ -1,0 +1,50 @@
+\doxysection{catch\+\_\+message\+\_\+info.\+hpp}
+\hypertarget{catch__message__info_8hpp_source}{}\label{catch__message__info_8hpp_source}\index{src/catch2/internal/catch\_message\_info.hpp@{src/catch2/internal/catch\_message\_info.hpp}}
+\mbox{\hyperlink{catch__message__info_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_MESSAGE\_INFO\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_MESSAGE\_INFO\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__deprecation__macro_8hpp}{catch2/internal/catch\_deprecation\_macro.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__result__type_8hpp}{catch2/internal/catch\_result\_type.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__source__line__info_8hpp}{catch2/internal/catch\_source\_line\_info.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__stringref_8hpp}{catch2/internal/catch\_stringref.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00018}00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00020}\mbox{\hyperlink{structCatch_1_1MessageInfo}{00020}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}(\ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ \_macroName,}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{SourceLineInfo}}\ \textcolor{keyword}{const}\&\ \_lineInfo,}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{ResultWas::OfType}}\ \_type\ );}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00025}\mbox{\hyperlink{structCatch_1_1MessageInfo_a3ee7cd41def0989d2193bad7101436a0}{00025}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ \mbox{\hyperlink{structCatch_1_1MessageInfo_a3ee7cd41def0989d2193bad7101436a0}{macroName}};}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00026}\mbox{\hyperlink{structCatch_1_1MessageInfo_ab6cd06e050bf426c6577502a5c50e256}{00026}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structCatch_1_1MessageInfo_ab6cd06e050bf426c6577502a5c50e256}{message}};}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00027}\mbox{\hyperlink{structCatch_1_1MessageInfo_a985165328723e599696ebd8e43195cc5}{00027}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{SourceLineInfo}}\ \mbox{\hyperlink{structCatch_1_1MessageInfo_a985165328723e599696ebd8e43195cc5}{lineInfo}};}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00028}\mbox{\hyperlink{structCatch_1_1MessageInfo_ae928b9117465c696e45951d9d0284e78}{00028}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{ResultWas::OfType}}\ \mbox{\hyperlink{structCatch_1_1MessageInfo_ae928b9117465c696e45951d9d0284e78}{type}};}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ "{}ID"{}\ of\ the\ message,\ used\ to\ know\ when\ to\ remove\ it\ from\ reporter\ context.}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00030}\mbox{\hyperlink{structCatch_1_1MessageInfo_a7f4f57ea21e50160adefce7b68a781d6}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structCatch_1_1MessageInfo_a7f4f57ea21e50160adefce7b68a781d6}{sequence}};}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__deprecation__macro_8hpp_ac113a32e7b14a0dddabc3f0ebbad751a}{CATCH\_DEPRECATED}}(\ \textcolor{stringliteral}{"{}Explicitly\ use\ the\ 'sequence'\ member\ instead"{}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00033}\mbox{\hyperlink{structCatch_1_1MessageInfo_af4b37f2172ba55395813b4bb6bbbde1a}{00033}}\ \ \ \ \ \ \ \ \ bool\ operator\ ==\ (\mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}\ const\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structCatch_1_1MessageInfo_a7f4f57ea21e50160adefce7b68a781d6}{sequence}}\ ==\ other.sequence;}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__deprecation__macro_8hpp_ac113a32e7b14a0dddabc3f0ebbad751a}{CATCH\_DEPRECATED}}(\ \textcolor{stringliteral}{"{}Explicitly\ use\ the\ 'sequence'\ member\ instead"{}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00037}\mbox{\hyperlink{structCatch_1_1MessageInfo_a8254cb8fca2da02a29a9843cdcb79df1}{00037}}\ \ \ \ \ \ \ \ \ bool\ operator\ <\ (\mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}\ const\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structCatch_1_1MessageInfo_a7f4f57ea21e50160adefce7b68a781d6}{sequence}}\ <\ other.sequence;}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00040}00040\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00042}00042\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{catch__message__info_8hpp_source_l00044}00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_MESSAGE\_INFO\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

@@ -1,0 +1,157 @@
+\doxysection{Catch\+::Test\+Registry Class Reference}
+\hypertarget{classCatch_1_1TestRegistry}{}\label{classCatch_1_1TestRegistry}\index{Catch::TestRegistry@{Catch::TestRegistry}}
+
+
+{\ttfamily \#include $<$catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::Test\+Registry\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classCatch_1_1TestRegistry__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Catch\+::Test\+Registry\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classCatch_1_1TestRegistry__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCatch_1_1TestRegistry_ae34807279278ee041194f9bb22c318b8}{register\+Test}} (\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} $>$ test\+Info, \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1ITestInvoker}{ITest\+Invoker}} $>$ test\+Invoker)
+\item 
+void \mbox{\hyperlink{classCatch_1_1TestRegistry_ae9e3b2f84c19bbb38b6d8d5b73476696}{enable\+Filename\+Tags}} () override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \& \mbox{\hyperlink{classCatch_1_1TestRegistry_ad757ac080f3bb70861f355fef6a01284}{get\+All\+Tests}} () const override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \& \mbox{\hyperlink{classCatch_1_1TestRegistry_a3ee84f12242987a74f101d0232c46f64}{get\+All\+Tests\+Sorted}} (\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \&config) const override
+\item 
+\mbox{\hyperlink{classCatch_1_1TestRegistry_a9b2e63f959da062d933dee2277a2af57}{Test\+Registry}} ()
+\item 
+\mbox{\hyperlink{classCatch_1_1TestRegistry_ad9749b47a223bc4df10df3862efdf7d3}{\texorpdfstring{$\sim$}{\string~}\+Test\+Registry}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1ITestCaseRegistry}{Catch\+::\+ITest\+Case\+Registry}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1ITestCaseRegistry_a5c87686b13b19051351b3225ffb8dc69}{\texorpdfstring{$\sim$}{\string~}\+ITest\+Case\+Registry}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__registry__impl_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{catch__test__case__registry__impl_8hpp_source}{catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1TestRegistry_a9b2e63f959da062d933dee2277a2af57}\label{classCatch_1_1TestRegistry_a9b2e63f959da062d933dee2277a2af57} 
+\index{Catch::TestRegistry@{Catch::TestRegistry}!TestRegistry@{TestRegistry}}
+\index{TestRegistry@{TestRegistry}!Catch::TestRegistry@{Catch::TestRegistry}}
+\doxysubsubsection{\texorpdfstring{TestRegistry()}{TestRegistry()}}
+{\footnotesize\ttfamily Catch\+::\+Test\+Registry\+::\+Test\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source}{catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+cpp}}.
+
+\Hypertarget{classCatch_1_1TestRegistry_ad9749b47a223bc4df10df3862efdf7d3}\label{classCatch_1_1TestRegistry_ad9749b47a223bc4df10df3862efdf7d3} 
+\index{Catch::TestRegistry@{Catch::TestRegistry}!````~TestRegistry@{\texorpdfstring{$\sim$}{\string~}TestRegistry}}
+\index{````~TestRegistry@{\texorpdfstring{$\sim$}{\string~}TestRegistry}!Catch::TestRegistry@{Catch::TestRegistry}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TestRegistry()}{\string~TestRegistry()}}
+{\footnotesize\ttfamily Catch\+::\+Test\+Registry\+::\texorpdfstring{$\sim$}{\string~}\+Test\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1TestRegistry_ae9e3b2f84c19bbb38b6d8d5b73476696}\label{classCatch_1_1TestRegistry_ae9e3b2f84c19bbb38b6d8d5b73476696} 
+\index{Catch::TestRegistry@{Catch::TestRegistry}!enableFilenameTags@{enableFilenameTags}}
+\index{enableFilenameTags@{enableFilenameTags}!Catch::TestRegistry@{Catch::TestRegistry}}
+\doxysubsubsection{\texorpdfstring{enableFilenameTags()}{enableFilenameTags()}}
+{\footnotesize\ttfamily void Catch\+::\+Test\+Registry\+::enable\+Filename\+Tags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1ITestCaseRegistry_ab529aede99f142b907d71b29718beebd}{Catch\+::\+ITest\+Case\+Registry}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source_l00145}{145}} of file \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source}{catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+cpp}}.
+
+\Hypertarget{classCatch_1_1TestRegistry_ad757ac080f3bb70861f355fef6a01284}\label{classCatch_1_1TestRegistry_ad757ac080f3bb70861f355fef6a01284} 
+\index{Catch::TestRegistry@{Catch::TestRegistry}!getAllTests@{getAllTests}}
+\index{getAllTests@{getAllTests}!Catch::TestRegistry@{Catch::TestRegistry}}
+\doxysubsubsection{\texorpdfstring{getAllTests()}{getAllTests()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const  \& Catch\+::\+Test\+Registry\+::get\+All\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1ITestCaseRegistry_ae02711fa7a079392b40924a4f54f3e77}{Catch\+::\+ITest\+Case\+Registry}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source_l00151}{151}} of file \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source}{catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+cpp}}.
+
+\Hypertarget{classCatch_1_1TestRegistry_a3ee84f12242987a74f101d0232c46f64}\label{classCatch_1_1TestRegistry_a3ee84f12242987a74f101d0232c46f64} 
+\index{Catch::TestRegistry@{Catch::TestRegistry}!getAllTestsSorted@{getAllTestsSorted}}
+\index{getAllTestsSorted@{getAllTestsSorted}!Catch::TestRegistry@{Catch::TestRegistry}}
+\doxysubsubsection{\texorpdfstring{getAllTestsSorted()}{getAllTestsSorted()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const  \& Catch\+::\+Test\+Registry\+::get\+All\+Tests\+Sorted (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \&}]{config }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1ITestCaseRegistry_afe6f46567ddf819dbf24c1b03d36f89c}{Catch\+::\+ITest\+Case\+Registry}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source_l00154}{154}} of file \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source}{catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{classCatch_1_1IConfig_afef98a620d17d1ef1cba91550146ca28}{Catch\+::\+IConfig\+::run\+Order()}}, and \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source_l00059}{Catch\+::sort\+Tests()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TestRegistry_a3ee84f12242987a74f101d0232c46f64_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TestRegistry_ae34807279278ee041194f9bb22c318b8}\label{classCatch_1_1TestRegistry_ae34807279278ee041194f9bb22c318b8} 
+\index{Catch::TestRegistry@{Catch::TestRegistry}!registerTest@{registerTest}}
+\index{registerTest@{registerTest}!Catch::TestRegistry@{Catch::TestRegistry}}
+\doxysubsubsection{\texorpdfstring{registerTest()}{registerTest()}}
+{\footnotesize\ttfamily void Catch\+::\+Test\+Registry\+::register\+Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} $>$}]{test\+Info,  }\item[{\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1ITestInvoker}{ITest\+Invoker}} $>$}]{test\+Invoker }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source_l00139}{139}} of file \mbox{\hyperlink{catch__test__case__registry__impl_8cpp_source}{catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00080}{Catch\+::\+Detail\+::unique\+\_\+ptr$<$ T $>$\+::get()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{classCatch_1_1TestRegistry_ae34807279278ee041194f9bb22c318b8_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__test__case__registry__impl_8hpp}{catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__test__case__registry__impl_8cpp}{catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,26 @@
+\doxysection{src/catch2/internal/catch\+\_\+getenv.cpp File Reference}
+\hypertarget{catch__getenv_8cpp}{}\label{catch__getenv_8cpp}\index{src/catch2/internal/catch\_getenv.cpp@{src/catch2/internal/catch\_getenv.cpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+getenv.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+platform.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compiler\+\_\+capabilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+Include dependency graph for catch\+\_\+getenv.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__getenv_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceCatch_1_1Detail_ac2c4729f86da1f577c1d269cede249d0}{Catch\+::\+Detail\+::get\+Env}} (char const  \texorpdfstring{$\ast$}{*}var\+Name)
+\begin{DoxyCompactList}\small\item\em Wrapper over {\ttfamily std\+::getenv} that compiles on UWP (and always returns nullptr there) \end{DoxyCompactList}\end{DoxyCompactItemize}

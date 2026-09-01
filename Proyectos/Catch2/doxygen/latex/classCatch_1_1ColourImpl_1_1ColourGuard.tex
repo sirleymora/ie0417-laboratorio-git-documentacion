@@ -1,0 +1,186 @@
+\doxysection{Catch\+::Colour\+Impl\+::Colour\+Guard Class Reference}
+\hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard}{}\label{classCatch_1_1ColourImpl_1_1ColourGuard}\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+
+
+{\ttfamily \#include $<$catch\+\_\+console\+\_\+colour.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_a98caafd603a40b0cf4680725e8a7c782}{Colour\+Guard}} (\mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231e}{Colour\+::\+Code}} code, \mbox{\hyperlink{classCatch_1_1ColourImpl}{Colour\+Impl}} const \texorpdfstring{$\ast$}{*}colour)
+\begin{DoxyCompactList}\small\item\em Does {\bfseries{not}} engage the guard/start the colour. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_a88313a95895097b490f1a0bc4e8ab3df}{Colour\+Guard}} (\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} const \&rhs)=delete
+\item 
+\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \& \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_a708b9a9729ea47d59ccca1bb65625adc}{operator=}} (\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} const \&rhs)=delete
+\item 
+\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_a2312b11b3e340eef9cd613d986ee007d}{Colour\+Guard}} (\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \&\&rhs) noexcept
+\item 
+\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \& \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_afed4f1f1ad614387c60ffa0c3cab18d5}{operator=}} (\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \&\&rhs) noexcept
+\item 
+\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_ac8c979671a30e05c25d8c135340e2c96}{\texorpdfstring{$\sim$}{\string~}\+Colour\+Guard}} ()
+\begin{DoxyCompactList}\small\item\em Removes colour {\itshape if} the guard was engaged. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \& \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_a2ed115aa9e07e9d51b56fad106be4262}{engage}} (std\+::ostream \&stream) \&
+\item 
+\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \&\& \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_ad205aaa084db4ae7dafc9e43e703a13a}{engage}} (std\+::ostream \&stream) \&\&
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_aad1e2dbd391cfaff0e6ed9eac3746291}{operator$<$$<$}} (std\+::ostream \&lhs, \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \&guard)
+\begin{DoxyCompactList}\small\item\em Engages the guard and starts using colour. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_a01222bedba524d9deb38ecef7d545a49}{operator$<$$<$}} (std\+::ostream \&lhs, \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \&\&guard)
+\begin{DoxyCompactList}\small\item\em Engages the guard and starts using colour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+RAII wrapper around writing specific colour of text using specific colour impl into a stream. 
+
+Definition at line \mbox{\hyperlink{catch__console__colour_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{catch__console__colour_8hpp_source}{catch\+\_\+console\+\_\+colour.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_a98caafd603a40b0cf4680725e8a7c782}\label{classCatch_1_1ColourImpl_1_1ColourGuard_a98caafd603a40b0cf4680725e8a7c782} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!ColourGuard@{ColourGuard}}
+\index{ColourGuard@{ColourGuard}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{ColourGuard()}{ColourGuard()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Catch\+::\+Colour\+Impl\+::\+Colour\+Guard\+::\+Colour\+Guard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231e}{Colour\+::\+Code}}}]{code,  }\item[{\mbox{\hyperlink{classCatch_1_1ColourImpl}{Colour\+Impl}} const \texorpdfstring{$\ast$}{*}}]{colour }\end{DoxyParamCaption})}
+
+
+
+Does {\bfseries{not}} engage the guard/start the colour. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__console__colour_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{catch__console__colour_8cpp_source}{catch\+\_\+console\+\_\+colour.\+cpp}}.
+
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_a88313a95895097b490f1a0bc4e8ab3df}\label{classCatch_1_1ColourImpl_1_1ColourGuard_a88313a95895097b490f1a0bc4e8ab3df} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!ColourGuard@{ColourGuard}}
+\index{ColourGuard@{ColourGuard}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{ColourGuard()}{ColourGuard()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Catch\+::\+Colour\+Impl\+::\+Colour\+Guard\+::\+Colour\+Guard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_a2312b11b3e340eef9cd613d986ee007d}\label{classCatch_1_1ColourImpl_1_1ColourGuard_a2312b11b3e340eef9cd613d986ee007d} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!ColourGuard@{ColourGuard}}
+\index{ColourGuard@{ColourGuard}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{ColourGuard()}{ColourGuard()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Catch\+::\+Colour\+Impl\+::\+Colour\+Guard\+::\+Colour\+Guard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \&\&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__console__colour_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{catch__console__colour_8cpp_source}{catch\+\_\+console\+\_\+colour.\+cpp}}.
+
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_ac8c979671a30e05c25d8c135340e2c96}\label{classCatch_1_1ColourImpl_1_1ColourGuard_ac8c979671a30e05c25d8c135340e2c96} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!````~ColourGuard@{\texorpdfstring{$\sim$}{\string~}ColourGuard}}
+\index{````~ColourGuard@{\texorpdfstring{$\sim$}{\string~}ColourGuard}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ColourGuard()}{\string~ColourGuard()}}
+{\footnotesize\ttfamily Catch\+::\+Colour\+Impl\+::\+Colour\+Guard\+::\texorpdfstring{$\sim$}{\string~}\+Colour\+Guard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes colour {\itshape if} the guard was engaged. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__console__colour_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{catch__console__colour_8cpp_source}{catch\+\_\+console\+\_\+colour.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__console__colour_8hpp_source_l00023}{Catch\+::\+Colour\+::\+None}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_a2ed115aa9e07e9d51b56fad106be4262}\label{classCatch_1_1ColourImpl_1_1ColourGuard_a2ed115aa9e07e9d51b56fad106be4262} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!engage@{engage}}
+\index{engage@{engage}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{engage()}{engage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Impl\+::\+Colour\+Guard}} \& Catch\+::\+Colour\+Impl\+::\+Colour\+Guard\+::engage (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream }\end{DoxyParamCaption}) \&}
+
+Explicitly engages colour for given stream.
+
+The API based on operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} should be preferred. 
+
+Definition at line \mbox{\hyperlink{catch__console__colour_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{catch__console__colour_8cpp_source}{catch\+\_\+console\+\_\+colour.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00234}{Catch\+::default\+List\+Tests()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1ColourImpl_1_1ColourGuard_a2ed115aa9e07e9d51b56fad106be4262_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_ad205aaa084db4ae7dafc9e43e703a13a}\label{classCatch_1_1ColourImpl_1_1ColourGuard_ad205aaa084db4ae7dafc9e43e703a13a} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!engage@{engage}}
+\index{engage@{engage}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{engage()}{engage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Impl\+::\+Colour\+Guard}} \&\& Catch\+::\+Colour\+Impl\+::\+Colour\+Guard\+::engage (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream }\end{DoxyParamCaption}) \&\&}
+
+Explicitly engages colour for given stream.
+
+The API based on operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} should be preferred. 
+
+Definition at line \mbox{\hyperlink{catch__console__colour_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{catch__console__colour_8cpp_source}{catch\+\_\+console\+\_\+colour.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_afed4f1f1ad614387c60ffa0c3cab18d5}\label{classCatch_1_1ColourImpl_1_1ColourGuard_afed4f1f1ad614387c60ffa0c3cab18d5} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!operator=@{operator=}}
+\index{operator=@{operator=}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Impl\+::\+Colour\+Guard}} \& Catch\+::\+Colour\+Impl\+::\+Colour\+Guard\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \&\&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__console__colour_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{catch__console__colour_8cpp_source}{catch\+\_\+console\+\_\+colour.\+cpp}}.
+
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_a708b9a9729ea47d59ccca1bb65625adc}\label{classCatch_1_1ColourImpl_1_1ColourGuard_a708b9a9729ea47d59ccca1bb65625adc} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!operator=@{operator=}}
+\index{operator=@{operator=}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \& Catch\+::\+Colour\+Impl\+::\+Colour\+Guard\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_a01222bedba524d9deb38ecef7d545a49}\label{classCatch_1_1ColourImpl_1_1ColourGuard_a01222bedba524d9deb38ecef7d545a49} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{lhs,  }\item[{\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \&\&}]{guard }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Engages the guard and starts using colour. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__console__colour_8hpp_source_l00109}{109}} of file \mbox{\hyperlink{catch__console__colour_8hpp_source}{catch\+\_\+console\+\_\+colour.\+hpp}}.
+
+\Hypertarget{classCatch_1_1ColourImpl_1_1ColourGuard_aad1e2dbd391cfaff0e6ed9eac3746291}\label{classCatch_1_1ColourImpl_1_1ColourGuard_aad1e2dbd391cfaff0e6ed9eac3746291} 
+\index{Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Catch::ColourImpl::ColourGuard@{Catch::ColourImpl::ColourGuard}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{lhs,  }\item[{\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard}{Colour\+Guard}} \&}]{guard }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Engages the guard and starts using colour. 
+
+
+
+Definition at line \mbox{\hyperlink{catch__console__colour_8hpp_source_l00103}{103}} of file \mbox{\hyperlink{catch__console__colour_8hpp_source}{catch\+\_\+console\+\_\+colour.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__console__colour_8hpp}{catch\+\_\+console\+\_\+colour.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__console__colour_8cpp}{catch\+\_\+console\+\_\+colour.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,11 @@
+<map id="Catch::Benchmark::Detail::weighted_average_quantile" name="Catch::Benchmark::Detail::weighted_average_quantile">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,216,79"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#a18fef8312d01399bbf5722432f099216" title=" " alt="" coords="264,5,475,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,40,276,30,277,35,217,45"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#adb6f098507d08daee7e92c9ab12dab09" title=" " alt="" coords="275,79,463,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,73,262,80,261,85,216,78"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="324,80,321,70,328,60,345,55,369,53,398,56,413,63,411,68,396,61,369,58,346,60,331,65,326,71,329,78"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#af41e4c8ef30c33051b7330895f8effd1" title=" " alt="" coords="523,79,711,119"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="464,105,509,106,509,111,464,111"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="523,93,477,93,477,88,523,88"/>
+</map>

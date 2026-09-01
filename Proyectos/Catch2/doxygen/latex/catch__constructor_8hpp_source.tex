@@ -1,0 +1,88 @@
+\doxysection{catch\+\_\+constructor.\+hpp}
+\hypertarget{catch__constructor_8hpp_source}{}\label{catch__constructor_8hpp_source}\index{src/catch2/benchmark/catch\_constructor.hpp@{src/catch2/benchmark/catch\_constructor.hpp}}
+\mbox{\hyperlink{catch__constructor_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00008}00008\ \textcolor{comment}{//\ Adapted\ from\ donated\ nonius\ code.}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#ifndef\ CATCH\_CONSTRUCTOR\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#define\ CATCH\_CONSTRUCTOR\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__move__and__forward_8hpp}{catch2/internal/catch\_move\_and\_forward.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00017}00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a74575b23d5305310e904f87eb02ff980}{Benchmark}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{bool}\ Destruct>}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00021}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage}{00021}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage}{ObjectStorage}}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00023}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_a3bdc976ee96d7fcb13b1574e0b3c031d}{00023}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_a3bdc976ee96d7fcb13b1574e0b3c031d}{ObjectStorage}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00025}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_a0aa2343f6092b5fa82d6fd827c2cc6a5}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_a0aa2343f6092b5fa82d6fd827c2cc6a5}{ObjectStorage}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage}{ObjectStorage}}\&\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{other}})}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}(\&data)\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}}(\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{other}}.stored\_object());}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00030}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_a48cb51bf6c86fe1e475aead069edd6aa}{00030}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_a48cb51bf6c86fe1e475aead069edd6aa}{ObjectStorage}}(\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage}{ObjectStorage}}\&\&\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{other}})}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}(data)\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{other}}.stored\_object()));}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00035}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_a672f0bc299a46ae24acf83d946d1056c}{00035}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_a672f0bc299a46ae24acf83d946d1056c}{\string~ObjectStorage}}()\ \{\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{destruct\_on\_exit<T>}}();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00038}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_aefe652a42f4325601e153acbd6d959fd}{00038}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_aefe652a42f4325601e153acbd6d959fd}{construct}}(Args\&\&...\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{args}})}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ (data)\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{args}})...);}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ AllowManualDestruction\ =\ !Destruct>}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00044}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_aa900bef7043eb089ebdf32b2df4a492b}{00044}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::enable\_if\_t<AllowManualDestruction>\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage_aa900bef7043eb089ebdf32b2df4a492b}{destruct}}()}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stored\_object().\string~T();}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ this\ is\ a\ constructor\ benchmark,\ destruct\ the\ underlying\ object}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ destruct\_on\_exit(std::enable\_if\_t<Destruct,\ U>*\ =\ \textcolor{keyword}{nullptr})\ \{\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{destruct<true>}}();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Otherwise,\ don't}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ destruct\_on\_exit(std::enable\_if\_t<!Destruct,\ U>*\ =\ \textcolor{keyword}{nullptr})\ \{\ \}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00057}00057\ \textcolor{preprocessor}{\#if\ defined(\ \_\_GNUC\_\_\ )\ \&\&\ \_\_GNUC\_\_\ <=\ 6}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00058}00058\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00059}00059\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wstrict-\/aliasing"{}}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00060}00060\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}}\&\ stored\_object()\ \{\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}}*\textcolor{keyword}{>}(\ data\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}}\ \textcolor{keyword}{const}\&\ stored\_object()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{reinterpret\_cast<}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{const}}*\textcolor{keyword}{>}(\ data\ );}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00066}00066\ \textcolor{preprocessor}{\#if\ defined(\ \_\_GNUC\_\_\ )\ \&\&\ \_\_GNUC\_\_\ <=\ 6}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00067}00067\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00068}00068\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{alignas}(\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}}\ )\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ data[\textcolor{keyword}{sizeof}(\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}}\ )]\{\};}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00075}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_a2409ca95b18bac9ceb8422d0346a7269}{00075}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage}{storage\_for}}\ =\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage}{Detail::ObjectStorage<T,\ true>}};}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00078}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_a36b7983f8fd2f2dd3ecc4e30c61966df}{00078}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage}{destructable\_object}}\ =\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1ObjectStorage}{Detail::ObjectStorage<T,\ false>}};}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00079}00079\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Benchmark}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00080}00080\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{catch__constructor_8hpp_source_l00082}00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_CONSTRUCTOR\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

@@ -1,0 +1,91 @@
+\doxysection{src/catch2/catch\+\_\+translate\+\_\+exception.hpp File Reference}
+\hypertarget{catch__translate__exception_8hpp}{}\label{catch__translate__exception_8hpp}\index{src/catch2/catch\_translate\_exception.hpp@{src/catch2/catch\_translate\_exception.hpp}}
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+exception.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compiler\+\_\+capabilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+unique\+\_\+name.\+hpp$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+Include dependency graph for catch\+\_\+translate\+\_\+exception.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__translate__exception_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__translate__exception_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1ExceptionTranslatorRegistrar}{Catch\+::\+Exception\+Translator\+Registrar}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__translate__exception_8hpp_ab5314f401394dc4f7d1ac8b59370af09}{INTERNAL\+\_\+\+CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION2}}(translator\+Name,  signature)
+\item 
+\#define \mbox{\hyperlink{catch__translate__exception_8hpp_a109d814750b0a695e2b66e9c53e748c0}{INTERNAL\+\_\+\+CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION}}(signature)~\mbox{\hyperlink{catch__translate__exception_8hpp_ab5314f401394dc4f7d1ac8b59370af09}{INTERNAL\+\_\+\+CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION2}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( catch\+\_\+internal\+\_\+\+Exception\+Translator ), signature )
+\item 
+\#define \mbox{\hyperlink{catch__translate__exception_8hpp_a094602ff56422c96e501eaaef1ef8c12}{CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION}}(signature)~\mbox{\hyperlink{catch__translate__exception_8hpp_a109d814750b0a695e2b66e9c53e748c0}{INTERNAL\+\_\+\+CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION}}( signature )
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_a60f033a91680546a152f5dfa4427104c}{Catch\+::\+Detail\+::register\+Translator\+Impl}} (\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1IExceptionTranslator}{IException\+Translator}} $>$ \&\&translator)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__translate__exception_8hpp_a094602ff56422c96e501eaaef1ef8c12}\label{catch__translate__exception_8hpp_a094602ff56422c96e501eaaef1ef8c12} 
+\index{catch\_translate\_exception.hpp@{catch\_translate\_exception.hpp}!CATCH\_TRANSLATE\_EXCEPTION@{CATCH\_TRANSLATE\_EXCEPTION}}
+\index{CATCH\_TRANSLATE\_EXCEPTION@{CATCH\_TRANSLATE\_EXCEPTION}!catch\_translate\_exception.hpp@{catch\_translate\_exception.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_TRANSLATE\_EXCEPTION}{CATCH\_TRANSLATE\_EXCEPTION}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION(\begin{DoxyParamCaption}\item[{}]{signature }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__translate__exception_8hpp_a109d814750b0a695e2b66e9c53e748c0}{INTERNAL\+\_\+\+CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION}}( signature )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__translate__exception_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{catch__translate__exception_8hpp_source}{catch\+\_\+translate\+\_\+exception.\+hpp}}.
+
+\Hypertarget{catch__translate__exception_8hpp_a109d814750b0a695e2b66e9c53e748c0}\label{catch__translate__exception_8hpp_a109d814750b0a695e2b66e9c53e748c0} 
+\index{catch\_translate\_exception.hpp@{catch\_translate\_exception.hpp}!INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION@{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION}}
+\index{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION@{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION}!catch\_translate\_exception.hpp@{catch\_translate\_exception.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION}{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION(\begin{DoxyParamCaption}\item[{}]{signature }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__translate__exception_8hpp_ab5314f401394dc4f7d1ac8b59370af09}{INTERNAL\+\_\+\+CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION2}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( catch\+\_\+internal\+\_\+\+Exception\+Translator ), signature )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__translate__exception_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{catch__translate__exception_8hpp_source}{catch\+\_\+translate\+\_\+exception.\+hpp}}.
+
+\Hypertarget{catch__translate__exception_8hpp_ab5314f401394dc4f7d1ac8b59370af09}\label{catch__translate__exception_8hpp_ab5314f401394dc4f7d1ac8b59370af09} 
+\index{catch\_translate\_exception.hpp@{catch\_translate\_exception.hpp}!INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION2@{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION2}}
+\index{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION2@{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION2}!catch\_translate\_exception.hpp@{catch\_translate\_exception.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION2}{INTERNAL\_CATCH\_TRANSLATE\_EXCEPTION2}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+TRANSLATE\+\_\+\+EXCEPTION2(\begin{DoxyParamCaption}\item[{}]{translator\+Name,  }\item[{}]{signature }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ std::string\ translatorName(\ signature\ );\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ namespace\{\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCatch_1_1ExceptionTranslatorRegistrar}{Catch::ExceptionTranslatorRegistrar}}\ \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\_CATCH\_UNIQUE\_NAME}}(\ catch\_internal\_ExceptionRegistrar\ )(\ \&translatorName\ );\ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ static\ std::string\ translatorName(\ signature\ )}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__translate__exception_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{catch__translate__exception_8hpp_source}{catch\+\_\+translate\+\_\+exception.\+hpp}}.
+

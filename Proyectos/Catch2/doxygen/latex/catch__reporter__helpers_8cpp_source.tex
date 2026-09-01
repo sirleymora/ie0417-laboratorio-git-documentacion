@@ -1,0 +1,385 @@
+\doxysection{catch\+\_\+reporter\+\_\+helpers.\+cpp}
+\hypertarget{catch__reporter__helpers_8cpp_source}{}\label{catch__reporter__helpers_8cpp_source}\index{src/catch2/reporters/catch\_reporter\_helpers.cpp@{src/catch2/reporters/catch\_reporter\_helpers.cpp}}
+\mbox{\hyperlink{catch__reporter__helpers_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__helpers_8hpp}{catch2/reporters/catch\_reporter\_helpers.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__config_8hpp}{catch2/interfaces/catch\_interfaces\_config.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__console__width_8hpp}{catch2/internal/catch\_console\_width.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__errno__guard_8hpp}{catch2/internal/catch\_errno\_guard.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__textflow_8hpp}{catch2/internal/catch\_textflow.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reusable__string__stream_8hpp}{catch2/internal/catch\_reusable\_string\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__string__manip_8hpp}{catch2/internal/catch\_string\_manip.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__console__colour_8hpp}{catch2/internal/catch\_console\_colour.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__tostring_8hpp}{catch2/catch\_tostring.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__info_8hpp}{catch2/catch\_test\_case\_info.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <cfloat>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00027}00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ listTestNamesOnly(std::ostream\&\ out,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<TestCaseHandle>\ \textcolor{keyword}{const}\&\ tests)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ test\ :\ tests)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ testCaseInfo\ =\ test.getTestCaseInfo();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceCatch_a695f62327be0676e046291eeaae15110}{startsWith}}(testCaseInfo.name,\ \textcolor{charliteral}{'\#'}))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{charliteral}{'"{}'}\ <<\ testCaseInfo.name\ <<\ \textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ testCaseInfo.name;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00045}00045\ \ \ \ \ \}\ \textcolor{comment}{//\ end\ unnamed\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ Because\ formatting\ using\ c++\ streams\ is\ stateful,\ drop\ down\ to\ C\ is}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ required\ Alternatively\ we\ could\ use\ stringstream,\ but\ its\ performance}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ is...\ not\ good.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00051}\mbox{\hyperlink{namespaceCatch_af65507889895c5c4b04fb831eeab2972}{00051}}\ \ \ \ \ std::string\ \mbox{\hyperlink{namespaceCatch_af65507889895c5c4b04fb831eeab2972}{getFormattedDuration}}(\ \textcolor{keywordtype}{double}\ duration\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Max\ exponent\ +\ 1\ is\ required\ to\ represent\ the\ whole\ part}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ +\ 1\ for\ decimal\ point}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ +\ 3\ for\ the\ 3\ decimal\ places}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ +\ 1\ for\ null\ terminator}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::size\_t\ maxDoubleSize\ =\ DBL\_MAX\_10\_EXP\ +\ 1\ +\ 1\ +\ 3\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[maxDoubleSize];}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Save\ previous\ errno,\ to\ prevent\ sprintf\ from\ overwriting\ it}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ErrnoGuard}{ErrnoGuard}}\ guard;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00061}00061\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ printedLength\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ sprintf\_s(\ buffer,\ \textcolor{stringliteral}{"{}\%.3f"{}},\ duration\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00064}00064\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ printedLength\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ std::snprintf(\ buffer,\ maxDoubleSize,\ \textcolor{stringliteral}{"{}\%.3f"{}},\ duration\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00067}00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(\ buffer,\ printedLength\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00071}\mbox{\hyperlink{namespaceCatch_af4e1ece5befeb3ff910c3a54ff44abb0}{00071}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_af4e1ece5befeb3ff910c3a54ff44abb0}{shouldShowDuration}}(\ \mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}}\ \textcolor{keyword}{const}\&\ config,\ \textcolor{keywordtype}{double}\ duration\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ config.\mbox{\hyperlink{classCatch_1_1IConfig_a5a9e2fbbb8150bd197d8abd9af18da14}{showDurations}}()\ ==\ \mbox{\hyperlink{namespaceCatch_afcb41c3350d3488c0efb02816a8867c8a68eec46437c384d8dad18d5464ebc35c}{ShowDurations::Always}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ config.\mbox{\hyperlink{classCatch_1_1IConfig_a5a9e2fbbb8150bd197d8abd9af18da14}{showDurations}}()\ ==\ \mbox{\hyperlink{namespaceCatch_afcb41c3350d3488c0efb02816a8867c8a6e7b34fa59e1bd229b207892956dc41c}{ShowDurations::Never}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ min\ =\ config.\mbox{\hyperlink{classCatch_1_1IConfig_a160c6f6e19ed6ae946f7a9e737099189}{minDuration}}();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ min\ >=\ 0\ \&\&\ duration\ >=\ min;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00082}\mbox{\hyperlink{namespaceCatch_ae5e405537e8a55293a1b6cad32e2cdb5}{00082}}\ \ \ \ \ std::string\ \mbox{\hyperlink{namespaceCatch_ae5e405537e8a55293a1b6cad32e2cdb5}{serializeFilters}}(\ std::vector<std::string>\ \textcolor{keyword}{const}\&\ filters\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ add\ a\ '\ '\ separator\ between\ each\ filter}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ serialized\_size\ =\ filters.size()\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ filter\ :\ filters)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ serialized\_size\ +=\ filter.size();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ std::string\ serialized;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ serialized.reserve(serialized\_size);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ filter\ :\ filters)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!first)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ serialized.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ serialized.append(filter);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serialized;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00104}\mbox{\hyperlink{structCatch_1_1lineOfChars_a4bab1e8c96d3943adf3f546614d928c7}{00104}}\ \ \ \ \ std::ostream\&\ \mbox{\hyperlink{namespaceCatch_aa7e8f5954fada348761e0473b3e4c1a2}{operator<<}}(\ std::ostream\&\ out,\ \mbox{\hyperlink{structCatch_1_1lineOfChars}{lineOfChars}}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keywordtype}{size\_t}\ idx\ =\ 0;\ idx\ <\ \mbox{\hyperlink{catch__console__width_8hpp_a6776b7d6e3810ce1414fe9bd8c305e5b}{CATCH\_CONFIG\_CONSOLE\_WIDTH}}\ -\/\ 1;\ ++idx\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ out.put(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}.c\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00111}00111\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00112}\mbox{\hyperlink{namespaceCatch_a7fc9276bf852d1625d986c0cbc3eabce}{00112}}\ \ \ \ \ \mbox{\hyperlink{namespaceCatch_a7fc9276bf852d1625d986c0cbc3eabce}{defaultListReporters}}(\ std::ostream\&\ out,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ReporterDescription>\ \textcolor{keyword}{const}\&\ descriptions,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}}\ verbosity\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Available\ reporters:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ maxNameLen\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ std::max\_element(\ descriptions.begin(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ descriptions.end(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{ReporterDescription}}\ \textcolor{keyword}{const}\&\ lhs,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{ReporterDescription}}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ lhs.name.size()\ <\ rhs.name.size();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/>name.size();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ desc\ :\ descriptions\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ verbosity\ ==\ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a098753f8980036f4b936e3d4b6997111}{Verbosity::Quiet}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{TextFlow::Column}}(\ desc.name\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}{indent}}(\ 2\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf}{width}}(\ 5\ +\ maxNameLen\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{TextFlow::Column}}(\ desc.name\ +\ \textcolor{charliteral}{':'}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}{indent}}(\ 2\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf}{width}}(\ 5\ +\ maxNameLen\ )\ +}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{TextFlow::Column}}(\ desc.description\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_af0308126b67a74476e35c29c3787af8a}{initialIndent}}(\ 0\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}{indent}}(\ 2\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf}{width}}(\ \mbox{\hyperlink{catch__console__width_8hpp_a6776b7d6e3810ce1414fe9bd8c305e5b}{CATCH\_CONFIG\_CONSOLE\_WIDTH}}\ -\/\ maxNameLen\ -\/\ 8\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00143}00143\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00145}\mbox{\hyperlink{namespaceCatch_ad4043ebe446bced10d36c36c7ab9bb70}{00145}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_ad4043ebe446bced10d36c36c7ab9bb70}{defaultListListeners}}(\ std::ostream\&\ out,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ListenerDescription>\ \textcolor{keyword}{const}\&\ descriptions,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}}\ verbosity\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ verbosity\ ==\ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a098753f8980036f4b936e3d4b6997111}{Verbosity::Quiet}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ desc\ :\ descriptions\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ desc.name\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Registered\ listeners:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(descriptions.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ maxNameLen\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ std::max\_element(\ descriptions.begin(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ descriptions.end(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{ListenerDescription}}\ \textcolor{keyword}{const}\&\ lhs,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{ListenerDescription}}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ lhs.name.size()\ <\ rhs.name.size();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/>name.size();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ desc\ :\ descriptions\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ TextFlow::Column(\ static\_cast<std::string>(\ desc.name\ )\ +}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{charliteral}{':'}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .indent(\ 2\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf}{width}}(\ maxNameLen\ +\ 5\ )\ +}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{TextFlow::Column}}(\ desc.description\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_af0308126b67a74476e35c29c3787af8a}{initialIndent}}(\ 0\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}{indent}}(\ 2\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf}{width}}(\ \mbox{\hyperlink{catch__console__width_8hpp_a6776b7d6e3810ce1414fe9bd8c305e5b}{CATCH\_CONFIG\_CONSOLE\_WIDTH}}\ -\/\ maxNameLen\ -\/\ 8\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00185}\mbox{\hyperlink{namespaceCatch_a9534411fa7935dfb64da3a912f396b0d}{00185}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_a9534411fa7935dfb64da3a912f396b0d}{defaultListTags}}(\ std::ostream\&\ out,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<TagInfo>\ \textcolor{keyword}{const}\&\ tags,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isFiltered,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}}\ verbosity\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (verbosity\ ==\ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a098753f8980036f4b936e3d4b6997111}{Verbosity::Quiet}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ tagCount\ :\ tags)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ tagCount.all()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ isFiltered\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Tags\ for\ matching\ test\ cases:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}All\ available\ tags:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ minimum\ whitespace\ to\ pad\ tag\ counts,\ possibly\ overwritten\ below}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ maxTagCountLen\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ determine\ necessary\ padding\ for\ tag\ count\ column}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !\ tags.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ maxTagCount\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::max\_element(\ tags.begin(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tags.end(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ lhs,\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ lhs.count\ <\ rhs.count;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/>count;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ more\ padding\ necessary\ for\ 3+\ digits}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (maxTagCount\ >=\ 100)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ numDigits\ =\ 1\ +\ std::floor(\ std::log10(\ maxTagCount\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maxTagCountLen\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\ numDigits\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ tagCount\ :\ tags\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReusableStringStream}{ReusableStringStream}}\ rss;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ rss\ <<\ \textcolor{stringliteral}{"{}\ \ "{}}\ <<\ std::setw(\ maxTagCountLen\ )\ <<\ tagCount.count\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ str\ =\ rss.\mbox{\hyperlink{classCatch_1_1ReusableStringStream_a3d93d9f26cddd6c5c48b6ef63c694119}{str}}();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ wrapper\ =\ \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{TextFlow::Column}}(\ tagCount.all()\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_af0308126b67a74476e35c29c3787af8a}{initialIndent}}(\ 0\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}{indent}}(\ str.size()\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf}{width}}(\ \mbox{\hyperlink{catch__console__width_8hpp_a6776b7d6e3810ce1414fe9bd8c305e5b}{CATCH\_CONFIG\_CONSOLE\_WIDTH}}\ -\/\ 10\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ str\ <<\ wrapper\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ out\ <<\ \mbox{\hyperlink{classCatch_1_1pluralise}{pluralise}}(tags.size(),\ \textcolor{stringliteral}{"{}tag"{}}\_sr)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}}\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00232}00232\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00234}\mbox{\hyperlink{namespaceCatch_a6dce9f6d9a416fe7a06e6394d557606a}{00234}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_a6dce9f6d9a416fe7a06e6394d557606a}{defaultListTests}}(std::ostream\&\ out,\ \mbox{\hyperlink{classCatch_1_1ColourImpl}{ColourImpl}}*\ streamColour,\ std::vector<TestCaseHandle>\ \textcolor{keyword}{const}\&\ tests,\ \textcolor{keywordtype}{bool}\ isFiltered,\ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}}\ verbosity)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ special\ case\ this\ to\ provide\ the\ equivalent\ of\ old}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}-\/-\/list-\/test-\/names-\/only`,\ which\ could\ then\ be\ used\ by\ the}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}-\/-\/input-\/file`\ option.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (verbosity\ ==\ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a098753f8980036f4b936e3d4b6997111}{Verbosity::Quiet}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ listTestNamesOnly(out,\ tests);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isFiltered)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}Matching\ test\ cases:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}All\ available\ test\ cases:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ test\ :\ tests)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ testCaseInfo\ =\ test.getTestCaseInfo();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231e}{Colour::Code}}\ colour\ =\ testCaseInfo.isHidden()}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ead1df1acfaa7d432aa3025dac9788f4ba}{Colour::SecondaryText}}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ea40dcc995da140b1531ff4c44bfbf269e}{Colour::None}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ colourGuard\ =\ streamColour-\/>\mbox{\hyperlink{classCatch_1_1ColourImpl_a9ea7675bd556065d5b72b51e04ed9379}{guardColour}}(\ colour\ ).\mbox{\hyperlink{classCatch_1_1ColourImpl_1_1ColourGuard_a2ed115aa9e07e9d51b56fad106be4262}{engage}}(\ out\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{TextFlow::Column}}(testCaseInfo.name).\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}{indent}}(2)\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (verbosity\ >=\ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a655d20c1ca69519ca647684edbb2db35}{Verbosity::High}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{TextFlow::Column}}(\mbox{\hyperlink{namespaceCatch_1_1Detail_af0ad48344ffd3f92f3568465248a9880}{Catch::Detail::stringify}}(testCaseInfo.lineInfo)).\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}{indent}}(4)\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!testCaseInfo.tags.empty()\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ verbosity\ >\ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a098753f8980036f4b936e3d4b6997111}{Verbosity::Quiet}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{TextFlow::Column}}(testCaseInfo.tagsAsString()).\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}{indent}}(6)\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isFiltered)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \mbox{\hyperlink{classCatch_1_1pluralise}{pluralise}}(tests.size(),\ \textcolor{stringliteral}{"{}matching\ test\ case"{}}\_sr);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \mbox{\hyperlink{classCatch_1_1pluralise}{pluralise}}(tests.size(),\ \textcolor{stringliteral}{"{}test\ case"{}}\_sr);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}}\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00272}00272\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00274}00274\ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }SummaryColumn\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ SummaryColumn(\ std::string\ suffix,\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231e}{Colour::Code}}\ colour\ ):}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_suffix(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ suffix\ )\ ),\ m\_colour(\ colour\ )\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ SummaryColumn\&\&\ addRow(\ std::uint64\_t\ count\ )\ \&\&\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ row\ =\ std::to\_string(count);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ new\_width\ =\ std::max(\ m\_width,\ row.size()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ new\_width\ >\ m\_width\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\&\ oldRow\ :\ m\_rows\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ oldRow.insert(\ 0,\ new\_width\ -\/\ m\_width,\ \textcolor{charliteral}{'\ '}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ row.insert(\ 0,\ m\_width\ -\/\ row.size(),\ \textcolor{charliteral}{'\ '}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_width\ =\ new\_width;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_rows.push\_back(\ row\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::move(\ *\textcolor{keyword}{this}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\&\ getSuffix()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_suffix;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231e}{Colour::Code}}\ getColour()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_colour;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\&\ getRow(\ std::size\_t\ index\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_rows[index];}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ m\_suffix;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231e}{Colour::Code}}\ m\_colour;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ m\_width\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ m\_rows;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ printSummaryRow(\ std::ostream\&\ stream,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ColourImpl\&\ colour,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ StringRef\ label,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<SummaryColumn>\ \textcolor{keyword}{const}\&\ cols,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ row\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ col\ :\ cols\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ =\ col.getRow(\ row\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ suffix\ =\ col.getSuffix();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ suffix.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream\ <<\ label\ <<\ \textcolor{stringliteral}{"{}:\ "{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ !=\ \textcolor{stringliteral}{"{}0"{}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream\ <<\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream\ <<\ colour.guardColour(\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ea9174302eeb6a742940b000286e2b2e72}{Colour::Warning}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}-\/\ none\ -\/"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ !=\ \textcolor{stringliteral}{"{}0"{}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream\ <<\ colour.guardColour(\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ea77ba9d49f3bf6670679009e5e25de790}{Colour::LightGrey}}\ )\ <<\ \textcolor{stringliteral}{"{}\ |\ "{}}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ colour.guardColour(\ col.getColour()\ )\ <<\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{'\ '}\ <<\ suffix;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ stream\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00332}00332\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00334}\mbox{\hyperlink{namespaceCatch_aecf85e8927841af21b8fcd3bab31df2b}{00334}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_aecf85e8927841af21b8fcd3bab31df2b}{printTestRunTotals}}(\ std::ostream\&\ stream,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ColourImpl}{ColourImpl}}\&\ streamColour,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Totals}{Totals}}\ \textcolor{keyword}{const}\&\ totals\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_a71bb4c4ac8e1dcb06951848f587bf591}{total}}()\ ==\ 0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ stream\ <<\ streamColour.\mbox{\hyperlink{classCatch_1_1ColourImpl_a9ea7675bd556065d5b72b51e04ed9379}{guardColour}}(\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ea9174302eeb6a742940b000286e2b2e72}{Colour::Warning}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}No\ tests\ ran\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}.\mbox{\hyperlink{structCatch_1_1Counts_a71bb4c4ac8e1dcb06951848f587bf591}{total}}()\ >\ 0\ \&\&\ totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_a84999490e0ecaa3de5e121bf48eda1b3}{allPassed}}()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ stream\ <<\ streamColour.\mbox{\hyperlink{classCatch_1_1ColourImpl_a9ea7675bd556065d5b72b51e04ed9379}{guardColour}}(\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ead37a03fa9447f4ddafae150a2f5bb5c7}{Colour::ResultSuccess}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}All\ tests\ passed"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ stream\ <<\ \textcolor{stringliteral}{"{}\ ("{}}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classCatch_1_1pluralise}{pluralise}}(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}},\ \textcolor{stringliteral}{"{}assertion"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ in\ "{}}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classCatch_1_1pluralise}{pluralise}}(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}},\ \textcolor{stringliteral}{"{}test\ case"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{')'}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00353}00353\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ std::vector<SummaryColumn>\ columns;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00355}00355\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ include\ "{}skipped\ assertions"{}\ in\ total\ count}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ totalAssertionCount\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}.\mbox{\hyperlink{structCatch_1_1Counts_a71bb4c4ac8e1dcb06951848f587bf591}{total}}()\ -\/\ totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}.\mbox{\hyperlink{structCatch_1_1Counts_a4bc5425fed9628cb30e9c4702ee75ea5}{skipped}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ columns.push\_back(\ SummaryColumn(\ \textcolor{stringliteral}{"{}"{}},\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ea40dcc995da140b1531ff4c44bfbf269e}{Colour::None}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_a71bb4c4ac8e1dcb06951848f587bf591}{total}}()\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ totalAssertionCount\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ columns.push\_back(\ SummaryColumn(\ \textcolor{stringliteral}{"{}passed"{}},\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ea7484eac852f28f8684f998f4736898df}{Colour::Success}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}}\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ columns.push\_back(\ SummaryColumn(\ \textcolor{stringliteral}{"{}failed"{}},\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ea2db97a1f0d8607af13061097fa4cdc8d}{Colour::ResultError}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ columns.push\_back(\ SummaryColumn(\ \textcolor{stringliteral}{"{}skipped"{}},\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ea195c4633817d81266cd77d7fdb68685c}{Colour::Skip}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_a4bc5425fed9628cb30e9c4702ee75ea5}{skipped}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ print\ "{}skipped\ assertions"{}}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ 0\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ columns.push\_back(}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ SummaryColumn(\ \textcolor{stringliteral}{"{}failed\ as\ expected"{}},\ \mbox{\hyperlink{structCatch_1_1Colour_a987a596fd001bd80db06b3ba7d53231ea1a37b295ed9206e23034c212bfe1d749}{Colour::ResultExpectedFailure}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_ad42a25fd6c31ca6c6320f4cf5e857028}{failedButOk}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .addRow(\ totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}.\mbox{\hyperlink{structCatch_1_1Counts_ad42a25fd6c31ca6c6320f4cf5e857028}{failedButOk}}\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ printSummaryRow(\ stream,\ streamColour,\ \textcolor{stringliteral}{"{}test\ cases"{}}\_sr,\ columns,\ 0\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ printSummaryRow(\ stream,\ streamColour,\ \textcolor{stringliteral}{"{}assertions"{}}\_sr,\ columns,\ 1\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00377}00377\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__helpers_8cpp_source_l00379}00379\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+
+\end{DoxyCode}

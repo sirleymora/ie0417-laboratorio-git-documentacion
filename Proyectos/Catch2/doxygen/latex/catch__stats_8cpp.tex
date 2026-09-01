@@ -1,0 +1,49 @@
+\doxysection{src/catch2/benchmark/detail/catch\+\_\+stats.cpp File Reference}
+\hypertarget{catch__stats_8cpp}{}\label{catch__stats_8cpp}\index{src/catch2/benchmark/detail/catch\_stats.cpp@{src/catch2/benchmark/detail/catch\_stats.cpp}}
+{\ttfamily \#include $<$catch2/benchmark/detail/catch\+\_\+stats.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compiler\+\_\+capabilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+floating\+\_\+point\+\_\+helpers.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+random\+\_\+number\+\_\+generator.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+Include dependency graph for catch\+\_\+stats.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__stats_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Benchmark}{Catch\+::\+Benchmark}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail}{Catch\+::\+Benchmark\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a571030d8a3068b49d454220cfdea714f}{Catch\+::\+Benchmark\+::\+Detail\+::weighted\+\_\+average\+\_\+quantile}} (\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{int}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{k}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{int}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{q}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{first}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{last}})
+\item 
+\mbox{\hyperlink{structCatch_1_1Benchmark_1_1OutlierClassification}{Outlier\+Classification}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a523468c0e7dbf99ffb1801aad78e352d}{Catch\+::\+Benchmark\+::\+Detail\+::classify\+\_\+outliers}} (\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{const}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{first}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{const}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{last}})
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_ac5f830d662344dd75387c26aa83e6ac3}{Catch\+::\+Benchmark\+::\+Detail\+::mean}} (\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{const}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{first}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{const}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{last}})
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_abc5e70b0f758f550b2fdff85512efdb5}{Catch\+::\+Benchmark\+::\+Detail\+::normal\+\_\+cdf}} (\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{x}})
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a62d6c634e2c8901d02ffe8718817f1b4}{Catch\+::\+Benchmark\+::\+Detail\+::erfc\+\_\+inv}} (\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{x}})
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_af3527090cdeb0456b1aacbdc29050841}{Catch\+::\+Benchmark\+::\+Detail\+::normal\+\_\+quantile}} (\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{p}})
+\item 
+\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Estimate}{Estimate}}$<$ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} $>$ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a0a635ce60c227f5217d9606e2afe527c}{Catch\+::\+Benchmark\+::\+Detail\+::bootstrap}} (\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{confidence\+\_\+level}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{first}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{last}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_ab80ec998a74880040522fae3c22d5b29}{sample}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{const}} \&\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{resample}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}}(\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{estimator}})(\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{const}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{const}} \texorpdfstring{$\ast$}{*}))
+\item 
+\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1bootstrap__analysis}{bootstrap\+\_\+analysis}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a1a4ae7ccc7fa8c996bc6e4ada5a7004b}{Catch\+::\+Benchmark\+::\+Detail\+::analyse\+\_\+samples}} (\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{confidence\+\_\+level}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{unsigned}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{int}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{n\+\_\+resamples}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{first}}, \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{double}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{last}})
+\end{DoxyCompactItemize}

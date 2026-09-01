@@ -1,0 +1,211 @@
+\doxysection{Catch\+::Counts Struct Reference}
+\hypertarget{structCatch_1_1Counts}{}\label{structCatch_1_1Counts}\index{Catch::Counts@{Catch::Counts}}
+
+
+{\ttfamily \#include $<$catch\+\_\+totals.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1Counts}{Counts}} \mbox{\hyperlink{structCatch_1_1Counts_aaa10666f559057e3e860d2a5a6fae4c4}{operator-\/}} (\mbox{\hyperlink{structCatch_1_1Counts}{Counts}} const \&other) const
+\item 
+\mbox{\hyperlink{structCatch_1_1Counts}{Counts}} \& \mbox{\hyperlink{structCatch_1_1Counts_a0c4a2295b896e189cdf4663377e156df}{operator+=}} (\mbox{\hyperlink{structCatch_1_1Counts}{Counts}} const \&other)
+\item 
+std\+::uint64\+\_\+t \mbox{\hyperlink{structCatch_1_1Counts_a71bb4c4ac8e1dcb06951848f587bf591}{total}} () const
+\item 
+bool \mbox{\hyperlink{structCatch_1_1Counts_a84999490e0ecaa3de5e121bf48eda1b3}{all\+Passed}} () const
+\item 
+bool \mbox{\hyperlink{structCatch_1_1Counts_a33bd996e016030155b99fe1c51c08991}{all\+Ok}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::uint64\+\_\+t \mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}} = 0
+\item 
+std\+::uint64\+\_\+t \mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}} = 0
+\item 
+std\+::uint64\+\_\+t \mbox{\hyperlink{structCatch_1_1Counts_ad42a25fd6c31ca6c6320f4cf5e857028}{failed\+But\+Ok}} = 0
+\item 
+std\+::uint64\+\_\+t \mbox{\hyperlink{structCatch_1_1Counts_a4bc5425fed9628cb30e9c4702ee75ea5}{skipped}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{catch__totals_8hpp_source}{catch\+\_\+totals.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structCatch_1_1Counts_a33bd996e016030155b99fe1c51c08991}\label{structCatch_1_1Counts_a33bd996e016030155b99fe1c51c08991} 
+\index{Catch::Counts@{Catch::Counts}!allOk@{allOk}}
+\index{allOk@{allOk}!Catch::Counts@{Catch::Counts}}
+\doxysubsubsection{\texorpdfstring{allOk()}{allOk()}}
+{\footnotesize\ttfamily bool Catch\+::\+Counts\+::all\+Ok (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{catch__totals_8cpp_source}{catch\+\_\+totals.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00024}{failed}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__automake_8cpp_source_l00017}{Catch\+::\+Automake\+Reporter\+::test\+Case\+Ended()}}, and \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00190}{Catch\+::\+Xml\+Reporter\+::test\+Case\+Ended()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structCatch_1_1Counts_a33bd996e016030155b99fe1c51c08991_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structCatch_1_1Counts_a84999490e0ecaa3de5e121bf48eda1b3}\label{structCatch_1_1Counts_a84999490e0ecaa3de5e121bf48eda1b3} 
+\index{Catch::Counts@{Catch::Counts}!allPassed@{allPassed}}
+\index{allPassed@{allPassed}!Catch::Counts@{Catch::Counts}}
+\doxysubsubsection{\texorpdfstring{allPassed()}{allPassed()}}
+{\footnotesize\ttfamily bool Catch\+::\+Counts\+::all\+Passed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{catch__totals_8cpp_source}{catch\+\_\+totals.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00024}{failed}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00025}{failed\+But\+Ok}}, and \mbox{\hyperlink{catch__totals_8hpp_source_l00026}{skipped}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00334}{Catch\+::print\+Test\+Run\+Totals()}}, and \mbox{\hyperlink{catch__reporter__automake_8cpp_source_l00017}{Catch\+::\+Automake\+Reporter\+::test\+Case\+Ended()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structCatch_1_1Counts_a84999490e0ecaa3de5e121bf48eda1b3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structCatch_1_1Counts_a0c4a2295b896e189cdf4663377e156df}\label{structCatch_1_1Counts_a0c4a2295b896e189cdf4663377e156df} 
+\index{Catch::Counts@{Catch::Counts}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Catch::Counts@{Catch::Counts}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1Counts}{Counts}} \& Catch\+::\+Counts\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1Counts}{Counts}} const \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{catch__totals_8cpp_source}{catch\+\_\+totals.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00024}{failed}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00025}{failed\+But\+Ok}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00023}{passed}}, and \mbox{\hyperlink{catch__totals_8hpp_source_l00026}{skipped}}.
+
+\Hypertarget{structCatch_1_1Counts_aaa10666f559057e3e860d2a5a6fae4c4}\label{structCatch_1_1Counts_aaa10666f559057e3e860d2a5a6fae4c4} 
+\index{Catch::Counts@{Catch::Counts}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Catch::Counts@{Catch::Counts}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1Counts}{Counts}} Catch\+::\+Counts\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1Counts}{Counts}} const \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{catch__totals_8cpp_source}{catch\+\_\+totals.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00024}{failed}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00025}{failed\+But\+Ok}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00023}{passed}}, and \mbox{\hyperlink{catch__totals_8hpp_source_l00026}{skipped}}.
+
+\Hypertarget{structCatch_1_1Counts_a71bb4c4ac8e1dcb06951848f587bf591}\label{structCatch_1_1Counts_a71bb4c4ac8e1dcb06951848f587bf591} 
+\index{Catch::Counts@{Catch::Counts}!total@{total}}
+\index{total@{total}!Catch::Counts@{Catch::Counts}}
+\doxysubsubsection{\texorpdfstring{total()}{total()}}
+{\footnotesize\ttfamily std\+::uint64\+\_\+t Catch\+::\+Counts\+::total (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{catch__totals_8cpp_source}{catch\+\_\+totals.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00024}{failed}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00025}{failed\+But\+Ok}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00023}{passed}}, and \mbox{\hyperlink{catch__totals_8hpp_source_l00026}{skipped}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00334}{Catch\+::print\+Test\+Run\+Totals()}}, \mbox{\hyperlink{catch__reporter__tap_8cpp_source_l00217}{Catch\+::\+TAPReporter\+::test\+Run\+Ended()}}, and \mbox{\hyperlink{catch__reporter__sonarqube_8cpp_source_l00071}{Catch\+::\+Sonar\+Qube\+Reporter\+::write\+Section()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structCatch_1_1Counts_a71bb4c4ac8e1dcb06951848f587bf591_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}\label{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c} 
+\index{Catch::Counts@{Catch::Counts}!failed@{failed}}
+\index{failed@{failed}!Catch::Counts@{Catch::Counts}}
+\doxysubsubsection{\texorpdfstring{failed}{failed}}
+{\footnotesize\ttfamily std\+::uint64\+\_\+t Catch\+::\+Counts\+::failed = 0}
+
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{catch__totals_8hpp_source}{catch\+\_\+totals.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__run__context_8cpp_source_l00747}{Catch\+::\+Run\+Context\+::aborting()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00035}{all\+Ok()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00032}{all\+Passed()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00052}{Catch\+::\+Totals\+::delta()}}, \mbox{\hyperlink{catch__run__context_8cpp_source_l00663}{Catch\+::\+Run\+Context\+::handle\+Fatal\+Error\+Condition()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00021}{operator+=()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00012}{operator-\/()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00334}{Catch\+::print\+Test\+Run\+Totals()}}, \mbox{\hyperlink{catch__run__context_8cpp_source_l00361}{Catch\+::\+Run\+Context\+::run\+Test()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00172}{Catch\+::\+Xml\+Reporter\+::section\+Ended()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00206}{Catch\+::\+Xml\+Reporter\+::test\+Run\+Ended()}}, and \mbox{\hyperlink{catch__totals_8cpp_source_l00029}{total()}}.
+
+\Hypertarget{structCatch_1_1Counts_ad42a25fd6c31ca6c6320f4cf5e857028}\label{structCatch_1_1Counts_ad42a25fd6c31ca6c6320f4cf5e857028} 
+\index{Catch::Counts@{Catch::Counts}!failedButOk@{failedButOk}}
+\index{failedButOk@{failedButOk}!Catch::Counts@{Catch::Counts}}
+\doxysubsubsection{\texorpdfstring{failedButOk}{failedButOk}}
+{\footnotesize\ttfamily std\+::uint64\+\_\+t Catch\+::\+Counts\+::failed\+But\+Ok = 0}
+
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{catch__totals_8hpp_source}{catch\+\_\+totals.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__totals_8cpp_source_l00032}{all\+Passed()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00052}{Catch\+::\+Totals\+::delta()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00021}{operator+=()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00012}{operator-\/()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00334}{Catch\+::print\+Test\+Run\+Totals()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00172}{Catch\+::\+Xml\+Reporter\+::section\+Ended()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00206}{Catch\+::\+Xml\+Reporter\+::test\+Run\+Ended()}}, and \mbox{\hyperlink{catch__totals_8cpp_source_l00029}{total()}}.
+
+\Hypertarget{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}\label{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1} 
+\index{Catch::Counts@{Catch::Counts}!passed@{passed}}
+\index{passed@{passed}!Catch::Counts@{Catch::Counts}}
+\doxysubsubsection{\texorpdfstring{passed}{passed}}
+{\footnotesize\ttfamily std\+::uint64\+\_\+t Catch\+::\+Counts\+::passed = 0}
+
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{catch__totals_8hpp_source}{catch\+\_\+totals.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__totals_8cpp_source_l00052}{Catch\+::\+Totals\+::delta()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00021}{operator+=()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00012}{operator-\/()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00334}{Catch\+::print\+Test\+Run\+Totals()}}, \mbox{\hyperlink{catch__run__context_8cpp_source_l00361}{Catch\+::\+Run\+Context\+::run\+Test()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00172}{Catch\+::\+Xml\+Reporter\+::section\+Ended()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00206}{Catch\+::\+Xml\+Reporter\+::test\+Run\+Ended()}}, and \mbox{\hyperlink{catch__totals_8cpp_source_l00029}{total()}}.
+
+\Hypertarget{structCatch_1_1Counts_a4bc5425fed9628cb30e9c4702ee75ea5}\label{structCatch_1_1Counts_a4bc5425fed9628cb30e9c4702ee75ea5} 
+\index{Catch::Counts@{Catch::Counts}!skipped@{skipped}}
+\index{skipped@{skipped}!Catch::Counts@{Catch::Counts}}
+\doxysubsubsection{\texorpdfstring{skipped}{skipped}}
+{\footnotesize\ttfamily std\+::uint64\+\_\+t Catch\+::\+Counts\+::skipped = 0}
+
+
+
+Definition at line \mbox{\hyperlink{catch__totals_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{catch__totals_8hpp_source}{catch\+\_\+totals.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__totals_8cpp_source_l00032}{all\+Passed()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00052}{Catch\+::\+Totals\+::delta()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00021}{operator+=()}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00012}{operator-\/()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00334}{Catch\+::print\+Test\+Run\+Totals()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00172}{Catch\+::\+Xml\+Reporter\+::section\+Ended()}}, \mbox{\hyperlink{catch__reporter__automake_8cpp_source_l00017}{Catch\+::\+Automake\+Reporter\+::test\+Case\+Ended()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00190}{Catch\+::\+Xml\+Reporter\+::test\+Case\+Ended()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00206}{Catch\+::\+Xml\+Reporter\+::test\+Run\+Ended()}}, and \mbox{\hyperlink{catch__totals_8cpp_source_l00029}{total()}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/\mbox{\hyperlink{catch__totals_8hpp}{catch\+\_\+totals.\+hpp}}\item 
+src/catch2/\mbox{\hyperlink{catch__totals_8cpp}{catch\+\_\+totals.\+cpp}}\end{DoxyCompactItemize}

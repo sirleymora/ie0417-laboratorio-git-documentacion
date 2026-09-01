@@ -1,0 +1,323 @@
+\doxysection{catch\+\_\+reporter\+\_\+junit.\+cpp}
+\hypertarget{catch__reporter__junit_8cpp_source}{}\label{catch__reporter__junit_8cpp_source}\index{src/catch2/reporters/catch\_reporter\_junit.cpp@{src/catch2/reporters/catch\_reporter\_junit.cpp}}
+\mbox{\hyperlink{catch__reporter__junit_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__junit_8hpp}{catch2/reporters/catch\_reporter\_junit.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__helpers_8hpp}{catch2/reporters/catch\_reporter\_helpers.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__tostring_8hpp}{catch2/catch\_tostring.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__string__manip_8hpp}{catch2/internal/catch\_string\_manip.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__textflow_8hpp}{catch2/internal/catch\_textflow.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__config_8hpp}{catch2/interfaces/catch\_interfaces\_config.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__info_8hpp}{catch2/catch\_test\_case\_info.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__spec_8hpp}{catch2/catch\_test\_spec.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__move__and__forward_8hpp}{catch2/internal/catch\_move\_and\_forward.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00024}00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ std::string\ getCurrentTimestamp()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ time\_t\ rawtime;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ std::time(\&rawtime);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ std::tm\ timeInfo\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#if\ defined\ (\_MSC\_VER)\ ||\ defined\ (\_\_MINGW32\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ gmtime\_s(\&timeInfo,\ \&rawtime);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00034}00034\ \textcolor{preprocessor}{\#elif\ defined\ (CATCH\_PLATFORM\_PLAYSTATION)}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ gmtime\_s(\&rawtime,\ \&timeInfo);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00036}00036\ \textcolor{preprocessor}{\#elif\ defined\ (\_\_IAR\_SYSTEMS\_ICC\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ timeInfo\ =\ *std::gmtime(\&rawtime);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00038}00038\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ gmtime\_r(\&rawtime,\ \&timeInfo);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\ timeStampSize\ =\ \textcolor{keyword}{sizeof}(\textcolor{stringliteral}{"{}2017-\/01-\/16T17:06:45Z"{}});}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ timeStamp[timeStampSize];}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \textcolor{keyword}{const}\ fmt\ =\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%dT\%H:\%M:\%SZ"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ std::strftime(timeStamp,\ timeStampSize,\ fmt,\ \&timeInfo);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(timeStamp,\ timeStampSize\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ std::string\ fileNameTag(std::vector<Tag>\ \textcolor{keyword}{const}\&\ tags)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find\_if(begin(tags),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end(tags),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ []\ (Tag\ \textcolor{keyword}{const}\&\ tag)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tag.original.size()\ >\ 0}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ tag.original[0]\ ==\ \textcolor{charliteral}{'\#'};\ \});}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ tags.end())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}std::string\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ it-\/>original.substr(1,\ it-\/>original.size()\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Formats\ the\ duration\ in\ seconds\ to\ 3\ decimal\ places.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ done\ because\ some\ genius\ defined\ Maven\ Surefire\ schema}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ in\ a\ way\ that\ only\ accepts\ 3\ decimal\ places,\ and\ tools\ like}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Jenkins\ use\ that\ schema\ for\ validation\ JUnit\ reporter\ output.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ std::string\ formatDuration(\ \textcolor{keywordtype}{double}\ seconds\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ ReusableStringStream\ rss;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ rss\ <<\ std::fixed\ <<\ std::setprecision(\ 3\ )\ <<\ seconds;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rss.str();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ normalizeNamespaceMarkers(std::string\&\ str)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ pos\ =\ str.find(\ \textcolor{stringliteral}{"{}::"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\ pos\ !=\ std::string::npos\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str.replace(\ pos,\ 2,\ \textcolor{stringliteral}{"{}."{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ str.find(\ \textcolor{stringliteral}{"{}::"{}},\ pos\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00084}00084\ \ \ \ \ \}\ \textcolor{comment}{//\ anonymous\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00086}\mbox{\hyperlink{classCatch_1_1JunitReporter_ad367918f93081de6215d6382f4888c62}{00086}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JunitReporter_ad367918f93081de6215d6382f4888c62}{JunitReporter::JunitReporter}}(\ \mbox{\hyperlink{structCatch_1_1ReporterConfig}{ReporterConfig}}\&\&\ \_config\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ :\ \ \ \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase}{CumulativeReporterBase}}(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\_config)\ ),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ xml(\ m\_stream\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\_preferences}}.\mbox{\hyperlink{structCatch_1_1ReporterPreferences_a434511c4080edbbc12e0d1c31ea14769}{shouldRedirectStdOut}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\_preferences}}.\mbox{\hyperlink{structCatch_1_1ReporterPreferences_a10e13e10dfdc9a97dde0a72c573d7419}{shouldReportAllAssertions}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\_preferences}}.\mbox{\hyperlink{structCatch_1_1ReporterPreferences_a5b166c77ffa2af709ecd7ae0142990f0}{shouldReportAllAssertionStarts}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_adb2a7d7ea4dd571f6308eec59db90dbf}{m\_shouldStoreSuccesfulAssertions}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00096}\mbox{\hyperlink{classCatch_1_1JunitReporter_ae5f1a7cac555d694ef27fbcc8f78d964}{00096}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1JunitReporter_ae5f1a7cac555d694ef27fbcc8f78d964}{JunitReporter::getDescription}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Reports\ test\ results\ in\ an\ XML\ format\ that\ looks\ like\ Ant's\ junitreport\ target"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00100}\mbox{\hyperlink{classCatch_1_1JunitReporter_a416da4586bd135749eea5adc8aa41280}{00100}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JunitReporter_a416da4586bd135749eea5adc8aa41280}{JunitReporter::testRunStarting}}(\ \mbox{\hyperlink{structCatch_1_1TestRunInfo}{TestRunInfo}}\ \textcolor{keyword}{const}\&\ runInfo\ )\ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a662e58abd84046ac036417d9c533e42e}{CumulativeReporterBase::testRunStarting}}(\ runInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_a5e5190bcb1f47a76ddca863591a6cc00}{startElement}}(\ \textcolor{stringliteral}{"{}testsuites"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ suiteTimer.\mbox{\hyperlink{classCatch_1_1Timer_a0a56e879e43f36c102bf9ea8b5fc8b72}{start}}();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ stdOutForSuite.clear();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ stdErrForSuite.clear();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ unexpectedExceptions\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00109}\mbox{\hyperlink{classCatch_1_1JunitReporter_a1e099029f5c138d5bcda0fdd184ef3ee}{00109}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JunitReporter_a1e099029f5c138d5bcda0fdd184ef3ee}{JunitReporter::testCaseStarting}}(\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo}{TestCaseInfo}}\ \textcolor{keyword}{const}\&\ testCaseInfo\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ m\_okToFail\ =\ testCaseInfo.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a5f37291295e3a6de2dd85324c941edaf}{okToFail}}();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00113}\mbox{\hyperlink{classCatch_1_1JunitReporter_a8d063eed4b88fe55d13e022605a07944}{00113}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JunitReporter_a8d063eed4b88fe55d13e022605a07944}{JunitReporter::assertionEnded}}(\ \mbox{\hyperlink{structCatch_1_1AssertionStats}{AssertionStats}}\ \textcolor{keyword}{const}\&\ assertionStats\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ assertionStats.\mbox{\hyperlink{structCatch_1_1AssertionStats_a9f983a85332251f464efb4efba021b89}{assertionResult}}.\mbox{\hyperlink{classCatch_1_1AssertionResult_ac810750194e1722489d2fd16e8c6a4a8}{getResultType}}()\ ==\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45}{ResultWas::ThrewException}}\ \&\&\ !m\_okToFail\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ unexpectedExceptions++;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a0feaaf7d39fcb4d277146d8137af98c5}{CumulativeReporterBase::assertionEnded}}(\ assertionStats\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00119}\mbox{\hyperlink{classCatch_1_1JunitReporter_ad04704cfa67f64ca6bf540e9cbe108f4}{00119}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JunitReporter_ad04704cfa67f64ca6bf540e9cbe108f4}{JunitReporter::testCaseEnded}}(\ \mbox{\hyperlink{structCatch_1_1TestCaseStats}{TestCaseStats}}\ \textcolor{keyword}{const}\&\ testCaseStats\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ stdOutForSuite\ +=\ testCaseStats.\mbox{\hyperlink{structCatch_1_1TestCaseStats_acab436aeefce581c52d0e195872484f7}{stdOut}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ stdErrForSuite\ +=\ testCaseStats.\mbox{\hyperlink{structCatch_1_1TestCaseStats_a84851abaa94a6b09664517a4919fa8ac}{stdErr}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a71d47761bf73926e3eabcf50f4edb20e}{CumulativeReporterBase::testCaseEnded}}(\ testCaseStats\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00125}\mbox{\hyperlink{classCatch_1_1JunitReporter_a529ba203e91db27821519f8c41ac7905}{00125}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JunitReporter_a529ba203e91db27821519f8c41ac7905}{JunitReporter::testRunEndedCumulative}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ suiteTime\ =\ suiteTimer.\mbox{\hyperlink{classCatch_1_1Timer_a065e37e3c9eb16bd4dcf41971d8deedc}{getElapsedSeconds}}();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ writeRun(\ *\mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_ab00810cee084b633c010abb5e6acc40a}{m\_testRun}},\ suiteTime\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_a548009dad62cd446371e0b76775ce657}{endElement}}();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{void}\ JunitReporter::writeRun(\ TestRunNode\ \textcolor{keyword}{const}\&\ testRunNode,\ \textcolor{keywordtype}{double}\ suiteTime\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{XmlWriter::ScopedElement}}\ e\ =\ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\ \textcolor{stringliteral}{"{}testsuite"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1TestRunStats}{TestRunStats}}\ \textcolor{keyword}{const}\&\ stats\ =\ testRunNode.value;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}name"{}}\_sr,\ stats.runInfo.name\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}errors"{}}\_sr,\ unexpectedExceptions\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}failures"{}}\_sr,\ stats.totals.assertions.failed-\/unexpectedExceptions\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}skipped"{}}\_sr,\ stats.totals.assertions.skipped\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}tests"{}}\_sr,\ stats.totals.assertions.total()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}hostname"{}}\_sr,\ \textcolor{stringliteral}{"{}tbd"{}}\_sr\ );\ \textcolor{comment}{//\ !TBD}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a5a9e2fbbb8150bd197d8abd9af18da14}{showDurations}}()\ ==\ \mbox{\hyperlink{namespaceCatch_afcb41c3350d3488c0efb02816a8867c8a6e7b34fa59e1bd229b207892956dc41c}{ShowDurations::Never}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}time"{}}\_sr,\ \textcolor{stringliteral}{"{}"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}time"{}}\_sr,\ formatDuration(\ suiteTime\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}timestamp"{}}\_sr,\ getCurrentTimestamp()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Write\ properties}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ properties\ =\ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\textcolor{stringliteral}{"{}properties"{}});}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\textcolor{stringliteral}{"{}property"{}})}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df}{writeAttribute}}(\textcolor{stringliteral}{"{}name"{}}\_sr,\ \textcolor{stringliteral}{"{}random-\/seed"{}}\_sr)}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df}{writeAttribute}}(\textcolor{stringliteral}{"{}value"{}}\_sr,\ \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a71994ea53eb66e353e5e195088f9bad7}{rngSeed}}());}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a6c021a1bf5cae58cb6c4b754af6cd4b5}{testSpec}}().\mbox{\hyperlink{classCatch_1_1TestSpec_ac6d69b4a19677d95e46af0467fc72ecd}{hasFilters}}())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\textcolor{stringliteral}{"{}property"{}})}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df}{writeAttribute}}(\textcolor{stringliteral}{"{}name"{}}\_sr,\ \textcolor{stringliteral}{"{}filters"{}}\_sr)}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df}{writeAttribute}}(\textcolor{stringliteral}{"{}value"{}}\_sr,\ \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a6c021a1bf5cae58cb6c4b754af6cd4b5}{testSpec}}());}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Write\ test\ cases}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ child\ :\ testRunNode.children\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ writeTestCase(\ *child\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\ \textcolor{stringliteral}{"{}system-\/out"{}}\ ).\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e}{writeText}}(\ \mbox{\hyperlink{namespaceCatch_aea28035c2fa625ced568c1765e82a3bc}{trim}}(\ stdOutForSuite\ ),\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da755fee300780823fcf4df98383331745}{XmlFormatting::Newline}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\ \textcolor{stringliteral}{"{}system-\/err"{}}\ ).\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e}{writeText}}(\ \mbox{\hyperlink{namespaceCatch_aea28035c2fa625ced568c1765e82a3bc}{trim}}(\ stdErrForSuite\ ),\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da755fee300780823fcf4df98383331745}{XmlFormatting::Newline}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00166}00166\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00168}00168\ \ \ \ \ \textcolor{keywordtype}{void}\ JunitReporter::writeTestCase(\ TestCaseNode\ \textcolor{keyword}{const}\&\ testCaseNode\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ TestCaseStats\ \textcolor{keyword}{const}\&\ stats\ =\ testCaseNode.value;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ All\ test\ cases\ have\ exactly\ one\ section\ -\/\ which\ represents\ the}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ test\ case\ itself.\ That\ section\ may\ have\ 0-\/n\ nested\ sections}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ assert(\ testCaseNode.children.size()\ ==\ 1\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ SectionNode\ \textcolor{keyword}{const}\&\ rootSection\ =\ *testCaseNode.children.front();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ std::string\ className\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}std::string\textcolor{keyword}{>}(\ stats.testInfo-\/>className\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ className.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ className\ =\ fileNameTag(stats.testInfo-\/>tags);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ className.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ className\ =\ \textcolor{stringliteral}{"{}global"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !\mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_ad67bb593486213c6918732f73177b7a5}{name}}().\mbox{\hyperlink{classCatch_1_1StringRef_a0b4841c28cbb14ba07296964a0187023}{empty}}()\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ className\ =\ \textcolor{keyword}{static\_cast<}std::string\textcolor{keyword}{>}(\mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_ad67bb593486213c6918732f73177b7a5}{name}}())\ +\ \textcolor{charliteral}{'.'}\ +\ className;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ normalizeNamespaceMarkers(className);}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ writeSection(\ className,\ \textcolor{stringliteral}{"{}"{}},\ rootSection,\ stats.testInfo-\/>okToFail()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00192}00192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00194}00194\ \ \ \ \ \textcolor{keywordtype}{void}\ JunitReporter::writeSection(\ std::string\ \textcolor{keyword}{const}\&\ className,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \textcolor{keyword}{const}\&\ rootName,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SectionNode\ \textcolor{keyword}{const}\&\ sectionNode,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ testOkToFail)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ std::string\ name\ =\ \mbox{\hyperlink{namespaceCatch_aea28035c2fa625ced568c1765e82a3bc}{trim}}(\ sectionNode.stats.sectionInfo.name\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !rootName.empty()\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ name\ =\ rootName\ +\ \textcolor{charliteral}{'/'}\ +\ name;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ sectionNode.stats.assertions.total()\ >\ 0}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ ||\ !sectionNode.stdOut.empty()}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ ||\ !sectionNode.stdErr.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ XmlWriter::ScopedElement\ e\ =\ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\ \textcolor{stringliteral}{"{}testcase"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ className.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}classname"{}}\_sr,\ name\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}name"{}}\_sr,\ \textcolor{stringliteral}{"{}root"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}classname"{}}\_sr,\ className\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}name"{}}\_sr,\ name\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}time"{}}\_sr,\ formatDuration(\ sectionNode.stats.durationInSeconds\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ not\ ideal,\ but\ it\ should\ be\ enough\ to\ mimic\ gtest's}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ junit\ output.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ideally\ the\ JUnit\ reporter\ would\ also\ handle\ \`{}skipTest`}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ events\ and\ write\ those\ out\ appropriately.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}status"{}}\_sr,\ \textcolor{stringliteral}{"{}run"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sectionNode.stats.assertions.failedButOk)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\textcolor{stringliteral}{"{}skipped"{}})}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df}{writeAttribute}}(\textcolor{stringliteral}{"{}message"{}},\ \textcolor{stringliteral}{"{}TEST\_CASE\ tagged\ with\ !mayfail"{}});}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ writeAssertions(\ sectionNode\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !sectionNode.stdOut.empty()\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\ \textcolor{stringliteral}{"{}system-\/out"{}}\ ).\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e}{writeText}}(\ \mbox{\hyperlink{namespaceCatch_aea28035c2fa625ced568c1765e82a3bc}{trim}}(\ sectionNode.stdOut\ ),\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da755fee300780823fcf4df98383331745}{XmlFormatting::Newline}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !sectionNode.stdErr.empty()\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\ \textcolor{stringliteral}{"{}system-\/err"{}}\ ).\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e}{writeText}}(\ \mbox{\hyperlink{namespaceCatch_aea28035c2fa625ced568c1765e82a3bc}{trim}}(\ sectionNode.stdErr\ ),\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da755fee300780823fcf4df98383331745}{XmlFormatting::Newline}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ childNode\ :\ sectionNode.childSections\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ if(\ className.\mbox{\hyperlink{namespaceCatch_1_1Detail_a714012d32a8bc2ebcc88ec12e0aab80c}{empty}}()\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ writeSection(\ name,\ \textcolor{stringliteral}{"{}"{}},\ *childNode,\ testOkToFail\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ writeSection(\ className,\ name,\ *childNode,\ testOkToFail\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00239}00239\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00241}00241\ \ \ \ \ \textcolor{keywordtype}{void}\ JunitReporter::writeAssertions(\ SectionNode\ \textcolor{keyword}{const}\&\ sectionNode\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ assertionOrBenchmark\ :\ sectionNode.assertionsAndBenchmarks)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (assertionOrBenchmark.isAssertion())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ JUnit\ XML\ format\ supports\ only\ 1\ error/failure/skip}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assertion\ elements\ per\ test\ case}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (writeAssertion(assertionOrBenchmark.asAssertion()))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00251}00251\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00253}00253\ \ \ \ \ \textcolor{keywordtype}{bool}\ JunitReporter::writeAssertion(\ AssertionStats\ \textcolor{keyword}{const}\&\ stats\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ AssertionResult\ \textcolor{keyword}{const}\&\ result\ =\ stats.assertionResult;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ result.isOk()\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ result.getResultType()\ !=\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa99a9169d030778cf863b92ef02a4de2c}{ResultWas::ExplicitSkip}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ std::string\ elementName;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\ result.getResultType()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45}{ResultWas::ThrewException}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa87fa1f2a2a63290b61948002e2935377}{ResultWas::FatalErrorCondition}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ elementName\ =\ \textcolor{stringliteral}{"{}error"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efacecfc052e2499499b13304249303cc36}{ResultWas::ExplicitFailure}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa5e7126b8458dc1376ac870a719f7873f}{ResultWas::ExpressionFailed}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa8b6d3d5bc78d4e7a95543b6ecfbdb57d}{ResultWas::DidntThrowException}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ elementName\ =\ \textcolor{stringliteral}{"{}failure"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa99a9169d030778cf863b92ef02a4de2c}{ResultWas::ExplicitSkip}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ elementName\ =\ \textcolor{stringliteral}{"{}skipped"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ should\ never\ see\ these\ here:}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c}{ResultWas::Info}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21}{ResultWas::Warning}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efae7cbe89bb9ec7ece9b44d48b63d01b63}{ResultWas::Ok}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa65721dda02fe5efb522e7449e496608a}{ResultWas::Unknown}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c}{ResultWas::FailureBit}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7}{ResultWas::Exception}}:}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ elementName\ =\ \textcolor{stringliteral}{"{}internalError"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ XmlWriter::ScopedElement\ e\ =\ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{scopedElement}}(\ elementName\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}message"{}}\_sr,\ result.getExpression()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ \textcolor{stringliteral}{"{}type"{}}\_sr,\ result.getTestMacroName()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ ReusableStringStream\ rss;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ result.getResultType()\ ==\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa99a9169d030778cf863b92ef02a4de2c}{ResultWas::ExplicitSkip}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ rss\ <<\ \textcolor{stringliteral}{"{}SKIPPED\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ rss\ <<\ \textcolor{stringliteral}{"{}FAILED:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ result.hasExpression()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rss\ <<\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rss\ <<\ result.getExpressionInMacro();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rss\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ result.hasExpandedExpression()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rss\ <<\ \textcolor{stringliteral}{"{}with\ expansion:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rss\ <<\ TextFlow::Column(\ result.getExpandedExpression()\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .indent(\ 2\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ result.hasMessage()\ )\ \{\ rss\ <<\ result.getMessage()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ msg\ :\ stats.infoMessages\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ msg.type\ ==\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c}{ResultWas::Info}}\ )\ \{\ rss\ <<\ msg.message\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ rss\ <<\ \textcolor{stringliteral}{"{}at\ "{}}\ <<\ result.getSourceInfo();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ xml.\mbox{\hyperlink{classCatch_1_1XmlWriter_a0468b6efbc87fc9c262892a1dcd217db}{writeText}}(\ rss.str(),\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da755fee300780823fcf4df98383331745}{XmlFormatting::Newline}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00315}00315\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__junit_8cpp_source_l00317}00317\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+
+\end{DoxyCode}

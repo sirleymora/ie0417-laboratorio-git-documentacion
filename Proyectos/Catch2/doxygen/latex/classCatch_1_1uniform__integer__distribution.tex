@@ -1,0 +1,141 @@
+\doxysection{Catch\+::uniform\+\_\+integer\+\_\+distribution\texorpdfstring{$<$}{<} Integer\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classCatch_1_1uniform__integer__distribution}{}\label{classCatch_1_1uniform__integer__distribution}\index{Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}}
+
+
+{\ttfamily \#include $<$catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\+\_\+type}} = Integer\+Type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a0341f2f4310be1dae93eb56f64cafb0d}{uniform\+\_\+integer\+\_\+distribution}} (Integer\+Type \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{a}}, Integer\+Type \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}{b}})
+\item 
+{\footnotesize template$<$typename Generator $>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\+\_\+type}} \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a948ae913e87da05f6d89738005dac3d3}{operator()}} (Generator \&g)
+\item 
+constexpr \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\+\_\+type}} \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{a}} () const
+\item 
+constexpr \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\+\_\+type}} \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}{b}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Integer\+Type$>$\newline
+class Catch\+::uniform\+\_\+integer\+\_\+distribution$<$ Integer\+Type $>$}
+Implementation of uniform distribution on integers.
+
+Unlike {\ttfamily std\+::uniform\+\_\+int\+\_\+distribution}, this implementation supports various 1 byte integral types, including bool (but you should not actually use it for bools).
+
+The underlying algorithm is based on the one described in "{}\+Fast Random \+Integer Generation in an Interval"{} by Daniel Lemire, but has been optimized under the assumption of reuse of the same distribution object. 
+
+Definition at line \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source}{catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}\label{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950} 
+\index{Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}!result\_type@{result\_type}}
+\index{result\_type@{result\_type}!Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}}
+\doxysubsubsection{\texorpdfstring{result\_type}{result\_type}}
+{\footnotesize\ttfamily template$<$typename Integer\+Type $>$ \\
+using \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution}{Catch\+::uniform\+\_\+integer\+\_\+distribution}}$<$ Integer\+Type $>$\+::result\+\_\+type =  Integer\+Type}
+
+
+
+Definition at line \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source}{catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1uniform__integer__distribution_a0341f2f4310be1dae93eb56f64cafb0d}\label{classCatch_1_1uniform__integer__distribution_a0341f2f4310be1dae93eb56f64cafb0d} 
+\index{Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}!uniform\_integer\_distribution@{uniform\_integer\_distribution}}
+\index{uniform\_integer\_distribution@{uniform\_integer\_distribution}!Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}}
+\doxysubsubsection{\texorpdfstring{uniform\_integer\_distribution()}{uniform\_integer\_distribution()}}
+{\footnotesize\ttfamily template$<$typename Integer\+Type $>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution}{Catch\+::uniform\+\_\+integer\+\_\+distribution}}$<$ Integer\+Type $>$\+::uniform\+\_\+integer\+\_\+distribution (\begin{DoxyParamCaption}\item[{Integer\+Type}]{a,  }\item[{Integer\+Type}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00076}{76}} of file \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source}{catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00102}{Catch\+::uniform\+\_\+integer\+\_\+distribution$<$ Integer\+Type $>$\+::a()}}, and \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00103}{Catch\+::uniform\+\_\+integer\+\_\+distribution$<$ Integer\+Type $>$\+::b()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1uniform__integer__distribution_a0341f2f4310be1dae93eb56f64cafb0d_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}\label{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad} 
+\index{Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}!a@{a}}
+\index{a@{a}!Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}}
+\doxysubsubsection{\texorpdfstring{a()}{a()}}
+{\footnotesize\ttfamily template$<$typename Integer\+Type $>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\+\_\+type}} \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution}{Catch\+::uniform\+\_\+integer\+\_\+distribution}}$<$ Integer\+Type $>$\+::a (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00102}{102}} of file \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source}{catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00076}{Catch\+::uniform\+\_\+integer\+\_\+distribution$<$ Integer\+Type $>$\+::uniform\+\_\+integer\+\_\+distribution()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}\label{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9} 
+\index{Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}!b@{b}}
+\index{b@{b}!Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}}
+\doxysubsubsection{\texorpdfstring{b()}{b()}}
+{\footnotesize\ttfamily template$<$typename Integer\+Type $>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\+\_\+type}} \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution}{Catch\+::uniform\+\_\+integer\+\_\+distribution}}$<$ Integer\+Type $>$\+::b (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00103}{103}} of file \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source}{catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00076}{Catch\+::uniform\+\_\+integer\+\_\+distribution$<$ Integer\+Type $>$\+::uniform\+\_\+integer\+\_\+distribution()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1uniform__integer__distribution_a948ae913e87da05f6d89738005dac3d3}\label{classCatch_1_1uniform__integer__distribution_a948ae913e87da05f6d89738005dac3d3} 
+\index{Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Catch::uniform\_integer\_distribution$<$ IntegerType $>$@{Catch::uniform\_integer\_distribution$<$ IntegerType $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename Integer\+Type $>$ \\
+template$<$typename Generator $>$ \\
+constexpr \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\+\_\+type}} \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution}{Catch\+::uniform\+\_\+integer\+\_\+distribution}}$<$ Integer\+Type $>$\+::operator() (\begin{DoxyParamCaption}\item[{Generator \&}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{catch__uniform__integer__distribution_8hpp_source}{catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__uniform__integer__distribution_8hpp}{catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp}}\end{DoxyCompactItemize}

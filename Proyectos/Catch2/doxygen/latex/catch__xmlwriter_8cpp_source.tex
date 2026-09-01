@@ -1,0 +1,350 @@
+\doxysection{catch\+\_\+xmlwriter.\+cpp}
+\hypertarget{catch__xmlwriter_8cpp_source}{}\label{catch__xmlwriter_8cpp_source}\index{src/catch2/internal/catch\_xmlwriter.cpp@{src/catch2/internal/catch\_xmlwriter.cpp}}
+\mbox{\hyperlink{catch__xmlwriter_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00008}00008\ \textcolor{comment}{//\ Note:\ swapping\ these\ two\ includes\ around\ causes\ MSVC\ to\ error\ out}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00009}00009\ \textcolor{comment}{//\ \ \ \ \ \ \ while\ in\ /permissive-\/\ mode.\ No,\ I\ don't\ know\ why.}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00010}00010\ \textcolor{comment}{//\ \ \ \ \ \ \ Tested\ on\ VS\ 2019,\ 18.\{3,\ 4\}.x}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__enforce_8hpp}{catch2/internal/catch\_enforce.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__xmlwriter_8hpp}{catch2/internal/catch\_xmlwriter.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00018}00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00020}00020\ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ trailingBytes(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((c\ \&\ 0xE0)\ ==\ 0xC0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 2;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((c\ \&\ 0xF0)\ ==\ 0xE0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 3;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((c\ \&\ 0xF8)\ ==\ 0xF0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 4;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_af445c1e136fadba0e92f3c22d68a7641}{CATCH\_INTERNAL\_ERROR}}(\textcolor{stringliteral}{"{}Invalid\ multibyte\ utf-\/8\ start\ byte\ encountered"{}});}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00035}00035\ \ \ \ \ uint32\_t\ headerValue(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((c\ \&\ 0xE0)\ ==\ 0xC0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c\ \&\ 0x1F;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((c\ \&\ 0xF0)\ ==\ 0xE0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c\ \&\ 0x0F;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((c\ \&\ 0xF8)\ ==\ 0xF0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c\ \&\ 0x07;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_af445c1e136fadba0e92f3c22d68a7641}{CATCH\_INTERNAL\_ERROR}}(\textcolor{stringliteral}{"{}Invalid\ multibyte\ utf-\/8\ start\ byte\ encountered"{}});}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ hexEscapeChar(std::ostream\&\ os,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ std::ios\_base::fmtflags\ f(os.flags());}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)x"{}}\_sr}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::uppercase\ <<\ std::hex\ <<\ std::setfill(\textcolor{charliteral}{'0'})\ <<\ std::setw(2)}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(c);}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ os.flags(f);}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ shouldNewline(\mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !!(\textcolor{keyword}{static\_cast<}std::underlying\_type\_t<XmlFormatting>\textcolor{keyword}{>}(fmt\ \&\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da755fee300780823fcf4df98383331745}{XmlFormatting::Newline}}));}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ shouldIndent(\mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !!(\textcolor{keyword}{static\_cast<}std::underlying\_type\_t<XmlFormatting>\textcolor{keyword}{>}(fmt\ \&\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da497470e76a40fc53e14c0df9b4e4ec9f}{XmlFormatting::Indent}}));}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00064}00064\ \}\ \textcolor{comment}{//\ anonymous\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00066}\mbox{\hyperlink{classCatch_1_1XmlEncode_a030fe9de7193fcdbdc06ade38f0113ce}{00066}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1XmlEncode_a030fe9de7193fcdbdc06ade38f0113ce}{XmlEncode::encodeTo}}(\ std::ostream\&\ os\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Apostrophe\ escaping\ not\ necessary\ if\ we\ always\ use\ "{}\ to\ write\ attributes}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (see:\ http://www.w3.org/TR/xml/\#syntax)}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ last\_start\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ write\_to\ =\ [\&](\ \textcolor{keywordtype}{size\_t}\ idx\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ last\_start\ <\ idx\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ m\_str.\mbox{\hyperlink{classCatch_1_1StringRef_aabf71767dfce1066e721456d54972bc5}{substr}}(\ last\_start,\ idx\ -\/\ last\_start\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ last\_start\ =\ idx\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ std::size\_t\ idx\ =\ 0;\ idx\ <\ m\_str.\mbox{\hyperlink{classCatch_1_1StringRef_acb22719801de2b64361b4c283080d4e5}{size}}();\ ++idx\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ c\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ m\_str[idx]\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\ c\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'<'}:}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ write\_to(\ idx\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\&lt;"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\&'}:}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ write\_to(\ idx\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\&amp;"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'>'}:}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ See:\ http://www.w3.org/TR/xml/\#syntax}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ idx\ >\ 2\ \&\&\ m\_str[idx\ -\/\ 1]\ ==\ \textcolor{charliteral}{']'}\ \&\&\ m\_str[idx\ -\/\ 2]\ ==\ \textcolor{charliteral}{']'}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ write\_to(\ idx\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\&gt;"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)"{}'}:}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_forWhat\ ==\ \mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aa3cdd995cc66ae405a4793a98db186005}{ForAttributes}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ write\_to(\ idx\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\&quot;"{}}\_sr;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ for\ control\ characters\ and\ invalid\ utf-\/8}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Escape\ control\ characters\ in\ standard\ ascii}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ see}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ http://stackoverflow.com/questions/404107/why-\/are-\/control-\/characters-\/illegal-\/in-\/xml-\/1-\/0}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ c\ <\ 0x09\ ||\ (\ c\ >\ 0x0D\ \&\&\ c\ <\ 0x20\ )\ ||\ c\ ==\ 0x7F\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ write\_to(\ idx\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hexEscapeChar(\ os,\ c\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Plain\ ASCII:\ Write\ it\ to\ stream}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ c\ <\ 0x7F\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ UTF-\/8\ territory}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ encoding\ is\ valid\ and\ if\ it\ is\ not,\ hex\ escape}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bytes.\ Important:\ We\ do\ not\ check\ the\ exact\ decoded\ values\ for}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ validity,\ only\ the\ encoding\ format\ First\ check\ that\ this\ bytes\ is}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a\ valid\ lead\ byte:\ This\ means\ that\ it\ is\ not\ encoded\ as\ 1111\ 1XXX}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Or\ as\ 10XX\ XXXX}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ c\ <\ 0xC0\ ||\ c\ >=\ 0xF8\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ write\_to(\ idx\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hexEscapeChar(\ os,\ c\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ encBytes\ =\ trailingBytes(\ c\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Are\ there\ enough\ bytes\ left\ to\ avoid\ accessing\ out-\/of-\/bounds}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ memory?}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ idx\ +\ encBytes\ -\/\ 1\ >=\ m\_str.\mbox{\hyperlink{classCatch_1_1StringRef_acb22719801de2b64361b4c283080d4e5}{size}}()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ write\_to(\ idx\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hexEscapeChar(\ os,\ c\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ header\ is\ valid,\ check\ data}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ next\ encBytes\ bytes\ must\ together\ be\ a\ valid\ utf-\/8}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ means:\ bitpattern\ 10XX\ XXXX\ and\ the\ extracted\ value\ is\ sane}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (ish)}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ valid\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ =\ headerValue(\ c\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ std::size\_t\ n\ =\ 1;\ n\ <\ encBytes;\ ++n\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ nc\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ m\_str[idx\ +\ n]\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ valid\ \&=\ (\ (\ nc\ \&\ 0xC0\ )\ ==\ 0x80\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ =\ (\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ <<\ 6\ )\ |\ (\ nc\ \&\ 0x3F\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wrong\ bit\ pattern\ of\ following\ bytes}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ !valid\ )\ ||}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Overlong\ encodings}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ <\ 0x80\ )\ ||}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ 0x80\ <=\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ \&\&\ value\ <\ 0x800\ \&\&\ encBytes\ >\ 2\ )\ ||}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ 0x800\ <\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ \&\&\ value\ <\ 0x10000\ \&\&\ encBytes\ >\ 3\ )\ ||}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Encoded\ value\ out\ of\ range}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ >=\ 0x110000\ )\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ write\_to(\ idx\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hexEscapeChar(\ os,\ c\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ we\ got\ here,\ this\ is\ in\ fact\ a\ valid(ish)\ utf-\/8\ sequence}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ idx\ +=\ encBytes\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ write\_to(\ m\_str.\mbox{\hyperlink{classCatch_1_1StringRef_acb22719801de2b64361b4c283080d4e5}{size}}()\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00174}00174\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00176}\mbox{\hyperlink{classCatch_1_1XmlEncode_a6c7a42b7cf01392f7e3d856cb72d4131}{00176}}\ \ \ \ \ std::ostream\&\ \mbox{\hyperlink{namespaceCatch_aa7e8f5954fada348761e0473b3e4c1a2}{operator\ <<\ }}(\ std::ostream\&\ os,\ \mbox{\hyperlink{classCatch_1_1XmlEncode}{XmlEncode}}\ \textcolor{keyword}{const}\&\ xmlEncode\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ xmlEncode.\mbox{\hyperlink{classCatch_1_1XmlEncode_a030fe9de7193fcdbdc06ade38f0113ce}{encodeTo}}(\ os\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00179}00179\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00181}00181\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a10d8b9a97d73a26966b5878210a66890}{XmlWriter::ScopedElement::ScopedElement}}(\ \mbox{\hyperlink{classCatch_1_1XmlWriter}{XmlWriter}}*\ writer,\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt\ )}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00182}00182\ \ \ \ \ :\ \ \ m\_writer(\ writer\ ),}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ m\_fmt(fmt)}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00184}00184\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00186}\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_af5889da2d2736614969a5e02686cd54a}{00186}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a10d8b9a97d73a26966b5878210a66890}{XmlWriter::ScopedElement::ScopedElement}}(\ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{ScopedElement}}\&\&\ other\ )\ noexcept}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00187}00187\ \ \ \ \ :\ \ \ m\_writer(\ other.m\_writer\ ),}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ m\_fmt(other.m\_fmt)}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00189}00189\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ other.m\_writer\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ other.m\_fmt\ =\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da6adf97f83acf6453d4a6a4b1070f3754}{XmlFormatting::None}};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00192}00192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00193}\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a3f38213b2de1e2e46130cd8d26d37ac7}{00193}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{XmlWriter::ScopedElement}}\&\ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a3f38213b2de1e2e46130cd8d26d37ac7}{XmlWriter::ScopedElement::operator=}}(\ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{ScopedElement}}\&\&\ other\ )\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_writer\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ m\_writer-\/>endElement();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ m\_writer\ =\ other.m\_writer;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ other.m\_writer\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ m\_fmt\ =\ other.m\_fmt;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ other.m\_fmt\ =\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da6adf97f83acf6453d4a6a4b1070f3754}{XmlFormatting::None}};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00202}00202\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00205}\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a2b5d2b7ba641383c79675d1867789d8b}{00205}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a2b5d2b7ba641383c79675d1867789d8b}{XmlWriter::ScopedElement::\string~ScopedElement}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_writer)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ m\_writer-\/>\mbox{\hyperlink{classCatch_1_1XmlWriter_a548009dad62cd446371e0b76775ce657}{endElement}}(m\_fmt);}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00209}00209\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00211}00211\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{XmlWriter::ScopedElement}}\&}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00212}\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e}{00212}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e}{XmlWriter::ScopedElement::writeText}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ text,\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ m\_writer-\/>writeText(\ text,\ fmt\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00215}00215\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00217}00217\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{XmlWriter::ScopedElement}}\&}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00218}\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df}{00218}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df}{XmlWriter::ScopedElement::writeAttribute}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ name,}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ attribute\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ m\_writer-\/>writeAttribute(\ name,\ attribute\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00222}00222\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00225}00225\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_a00bf27c669bce47402c6cc5bde21d6d7}{XmlWriter::XmlWriter}}(\ std::ostream\&\ os\ )\ :\ m\_os(\ os\ )}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00226}00226\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ writeDeclaration();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00228}00228\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00230}\mbox{\hyperlink{classCatch_1_1XmlWriter_ac8ad78245b9f7b2d34574a6903d15fc5}{00230}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_ac8ad78245b9f7b2d34574a6903d15fc5}{XmlWriter::\string~XmlWriter}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!m\_tags.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_a548009dad62cd446371e0b76775ce657}{endElement}}();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ newlineIfNecessary();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00235}00235\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00237}\mbox{\hyperlink{classCatch_1_1XmlWriter_a5e5190bcb1f47a76ddca863591a6cc00}{00237}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter}{XmlWriter}}\&\ \mbox{\hyperlink{classCatch_1_1XmlWriter_a5e5190bcb1f47a76ddca863591a6cc00}{XmlWriter::startElement}}(\ std::string\ \textcolor{keyword}{const}\&\ name,\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_aba98703d9852416e237de82aed4a9c4f}{ensureTagClosed}}();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ newlineIfNecessary();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (shouldIndent(fmt))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ m\_indent;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ m\_indent\ +=\ \textcolor{stringliteral}{"{}\ \ "{}};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'<'}\ <<\ name;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ m\_tags.push\_back(\ name\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ m\_tagIsOpen\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ applyFormatting(fmt);}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00249}00249\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00251}\mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{00251}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{XmlWriter::ScopedElement}}\ \mbox{\hyperlink{classCatch_1_1XmlWriter_ad2fbf17f0dc39443b2db8ab614f4c625}{XmlWriter::scopedElement}}(\ std::string\ \textcolor{keyword}{const}\&\ name,\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{ScopedElement}}\ scoped(\ \textcolor{keyword}{this},\ fmt\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_a5e5190bcb1f47a76ddca863591a6cc00}{startElement}}(\ name,\ fmt\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scoped;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00255}00255\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00257}\mbox{\hyperlink{classCatch_1_1XmlWriter_a548009dad62cd446371e0b76775ce657}{00257}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter}{XmlWriter}}\&\ \mbox{\hyperlink{classCatch_1_1XmlWriter_a548009dad62cd446371e0b76775ce657}{XmlWriter::endElement}}(\mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ m\_indent\ =\ m\_indent.substr(0,\ m\_indent.size()\ -\/\ 2);}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ m\_tagIsOpen\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{stringliteral}{"{}/>"{}};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ m\_tagIsOpen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ newlineIfNecessary();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (shouldIndent(fmt))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ m\_indent;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{stringliteral}{"{}</"{}}\ <<\ m\_tags.back()\ <<\ \textcolor{charliteral}{'>'};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ m\_os\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ applyFormatting(fmt);}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ m\_tags.pop\_back();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00274}00274\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00276}\mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{00276}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter}{XmlWriter}}\&\ \mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{XmlWriter::writeAttribute}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ name,}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ attribute\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !name.\mbox{\hyperlink{classCatch_1_1StringRef_a0b4841c28cbb14ba07296964a0187023}{empty}}()\ \&\&\ !attribute.\mbox{\hyperlink{classCatch_1_1StringRef_a0b4841c28cbb14ba07296964a0187023}{empty}}()\ )}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'\ '}\ <<\ name\ <<\ \textcolor{stringliteral}{"{}=\(\backslash\)"{}"{}}\ <<\ \mbox{\hyperlink{classCatch_1_1XmlEncode}{XmlEncode}}(\ attribute,\ \mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aa3cdd995cc66ae405a4793a98db186005}{XmlEncode::ForAttributes}}\ )\ <<\ \textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00281}00281\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00283}\mbox{\hyperlink{classCatch_1_1XmlWriter_a8fde06816d2dbb3e402106c12d4be417}{00283}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter}{XmlWriter}}\&\ \mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{XmlWriter::writeAttribute}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ name,\ \textcolor{keywordtype}{bool}\ attribute\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(name,\ (attribute\ ?\ \textcolor{stringliteral}{"{}true"{}}\_sr\ :\ \textcolor{stringliteral}{"{}false"{}}\_sr));}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00286}00286\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00288}\mbox{\hyperlink{classCatch_1_1XmlWriter_ac74e0e37e726a1a9159cc55591d615f0}{00288}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter}{XmlWriter}}\&\ \mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{XmlWriter::writeAttribute}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ name,}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ attribute\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_aa792619a7f86dbacd35da5730a4b7b3e}{writeAttribute}}(\ name,\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}(\ attribute\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00292}00292\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00294}\mbox{\hyperlink{classCatch_1_1XmlWriter_a0468b6efbc87fc9c262892a1dcd217db}{00294}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter}{XmlWriter}}\&\ \mbox{\hyperlink{classCatch_1_1XmlWriter_a0468b6efbc87fc9c262892a1dcd217db}{XmlWriter::writeText}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ text,\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\_ENFORCE}}(!m\_tags.empty(),\ \textcolor{stringliteral}{"{}Cannot\ write\ text\ as\ top\ level\ element"{}});}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !text.\mbox{\hyperlink{classCatch_1_1StringRef_a0b4841c28cbb14ba07296964a0187023}{empty}}()\ )\{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ tagWasOpen\ =\ m\_tagIsOpen;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_aba98703d9852416e237de82aed4a9c4f}{ensureTagClosed}}();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tagWasOpen\ \&\&\ shouldIndent(fmt))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ m\_indent;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \mbox{\hyperlink{classCatch_1_1XmlEncode}{XmlEncode}}(\ text,\ \mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aafebf4db23809cd7925a3bdaaa4249de1}{XmlEncode::ForTextNodes}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ applyFormatting(fmt);}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00306}00306\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00308}\mbox{\hyperlink{classCatch_1_1XmlWriter_aada299d901c3756d98094f4834c01009}{00308}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter}{XmlWriter}}\&\ \mbox{\hyperlink{classCatch_1_1XmlWriter_aada299d901c3756d98094f4834c01009}{XmlWriter::writeComment}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ text,\ \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1XmlWriter_aba98703d9852416e237de82aed4a9c4f}{ensureTagClosed}}();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (shouldIndent(fmt))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ m\_indent;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{stringliteral}{"{}<!-\/-\/\ "{}}\ <<\ text\ <<\ \textcolor{stringliteral}{"{}\ -\/-\/>"{}};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ applyFormatting(fmt);}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00316}00316\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00318}\mbox{\hyperlink{classCatch_1_1XmlWriter_ade046e855890067b64d59a3bf6223d39}{00318}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1XmlWriter_ade046e855890067b64d59a3bf6223d39}{XmlWriter::writeStylesheetRef}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ url\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ m\_os\ <<\ R\textcolor{stringliteral}{"{}(<?xml-\/stylesheet\ type="{}text/xsl"{}\ href="{})"{}\ <<\ url\ <<\ R}\textcolor{stringliteral}{"{}("{}?>)"{}\ <<\ }\textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00320}00320\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00322}\mbox{\hyperlink{classCatch_1_1XmlWriter_aba98703d9852416e237de82aed4a9c4f}{00322}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1XmlWriter_aba98703d9852416e237de82aed4a9c4f}{XmlWriter::ensureTagClosed}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ m\_tagIsOpen\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'>'}\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ newlineIfNecessary();}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ m\_tagIsOpen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00328}00328\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00330}00330\ \ \ \ \ \textcolor{keywordtype}{void}\ XmlWriter::applyFormatting(\mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{XmlFormatting}}\ fmt)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ m\_needsNewline\ =\ shouldNewline(fmt);}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00332}00332\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00334}00334\ \ \ \ \ \textcolor{keywordtype}{void}\ XmlWriter::writeDeclaration()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ m\_os\ <<\ R\textcolor{stringliteral}{"{}(<?xml\ version="{}1.0"{}\ encoding="{}UTF-\/8"{}?>)"{}\ <<\ }\textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00336}00336\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00338}00338\ \ \ \ \ \textcolor{keywordtype}{void}\ XmlWriter::newlineIfNecessary()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ m\_needsNewline\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ m\_os\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ m\_needsNewline\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00343}00343\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__xmlwriter_8cpp_source_l00344}00344\ \}}
+
+\end{DoxyCode}

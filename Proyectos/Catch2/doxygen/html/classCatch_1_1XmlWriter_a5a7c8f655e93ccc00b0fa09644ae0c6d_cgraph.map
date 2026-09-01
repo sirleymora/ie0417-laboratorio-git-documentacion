@@ -1,0 +1,10 @@
+<map id="Catch::XmlWriter::writeAttribute" name="Catch::XmlWriter::writeAttribute">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,236,80"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1ReusableStringStream.html#a3d93d9f26cddd6c5c48b6ef63c694119" title="Returns the serialized state." alt="" coords="284,29,521,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,54,270,51,270,57,236,60"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlWriter.html#aa792619a7f86dbacd35da5730a4b7b3e" title="The attribute content is XML&#45;encoded." alt="" coords="287,79,518,104"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="236,74,274,78,273,83,236,80"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="362,31,353,21,357,11,374,5,403,3,438,7,449,11,452,17,448,20,445,15,437,12,403,8,375,10,361,15,358,20,366,27"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1StringRef.html#a0b4841c28cbb14ba07296964a0187023" title=" " alt="" coords="569,79,745,104"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="518,89,555,89,555,94,518,94"/>
+</map>

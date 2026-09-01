@@ -1,0 +1,325 @@
+\doxysection{catch\+\_\+generators\+\_\+adapters.\+hpp}
+\hypertarget{catch__generators__adapters_8hpp_source}{}\label{catch__generators__adapters_8hpp_source}\index{src/catch2/generators/catch\_generators\_adapters.hpp@{src/catch2/generators/catch\_generators\_adapters.hpp}}
+\mbox{\hyperlink{catch__generators__adapters_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_GENERATORS\_ADAPTERS\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_GENERATORS\_ADAPTERS\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__generators_8hpp}{catch2/generators/catch\_generators.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__meta_8hpp}{catch2/internal/catch\_meta.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__move__and__forward_8hpp}{catch2/internal/catch\_move\_and\_forward.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__optional_8hpp}{catch2/internal/catch\_optional.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00018}00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00019}00019\ \textcolor{keyword}{namespace\ }Generators\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00022}\mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator}{00022}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator}{TakeGenerator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator}{IGenerator}}<T>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ m\_generator;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_returned\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_target;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ skipToNthElementImpl(\ std::size\_t\ n\ )\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ n\ >=\ m\_target\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Generators_1_1Detail_aafeb004667a171060fc6aa2b66fc63a4}{Detail::throw\_generator\_exception}}(}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Could\ not\ jump\ to\ Nth\ element:\ not\ enough\ elements"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.skipToNthElement(\ n\ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ m\_returned\ =\ n;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00038}\mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator_aacef789c01a86246249c88a184268c65}{00038}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator_aacef789c01a86246249c88a184268c65}{TakeGenerator}}(\textcolor{keywordtype}{size\_t}\ target,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ generator):}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator)),}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ m\_target(target)}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ assert(target\ !=\ 0\ \&\&\ \textcolor{stringliteral}{"{}Empty\ generators\ are\ not\ allowed"{}});}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00044}\mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator_a7240fb96c311b7d7fde32d1fb5bb67c6}{00044}}\ \ \ \ \ \ \ \ \ T\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator_a7240fb96c311b7d7fde32d1fb5bb67c6}{get}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.get();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00047}\mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator_ae343f3e28fe04e0a20d6fdf69bfb4c78}{00047}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator_ae343f3e28fe04e0a20d6fdf69bfb4c78}{next}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ ++m\_returned;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_returned\ >=\ m\_target)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ success\ =\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.next();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ underlying\ generator\ does\ not\ contain\ enough\ values}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ then\ we\ cut\ short\ as\ well}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!success)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_returned\ =\ m\_target;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ success;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00062}\mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator_a180b832a6947832c7f6ef628745015ed}{00062}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator_a180b832a6947832c7f6ef628745015ed}{isFinite}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00063}00063\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00066}\mbox{\hyperlink{namespaceCatch_1_1Generators_adedfdb318219078ce9107690745d2f2f}{00066}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ \mbox{\hyperlink{namespaceCatch_1_1Generators_adedfdb318219078ce9107690745d2f2f}{take}}(\textcolor{keywordtype}{size\_t}\ target,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ generator)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}(\mbox{\hyperlink{namespaceCatch_1_1Detail_a3175310a581a4d3b7bd12cf543dfa0d9}{Catch::Detail::make\_unique}}<\mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator}{TakeGenerator<T>}}>(target,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator)));}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00068}00068\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Predicate>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00072}\mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator}{00072}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator}{FilterGenerator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator}{IGenerator}}<T>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ m\_generator;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ Predicate\ m\_predicate;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(!std::is\_reference<Predicate>::value,\ \textcolor{stringliteral}{"{}This\ would\ most\ likely\ result\ in\ a\ dangling\ reference"{}});}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00076}00076\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ P>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00078}\mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator_aa16886a5e41cbd3b6ffa3dd52388a3a1}{00078}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator_aa16886a5e41cbd3b6ffa3dd52388a3a1}{FilterGenerator}}(P\&\&\ pred,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ generator):}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator)),}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ m\_predicate(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(pred))}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_predicate(\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.get()))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ It\ might\ happen\ that\ there\ are\ no\ values\ that\ pass\ the}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ filter.\ In\ that\ case\ we\ throw\ an\ exception.}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ has\_initial\_value\ =\ \mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator_a02ce0839dcaa7545c55d0fe70cc50e84}{next}}();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!has\_initial\_value)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Generators_1_1Detail_aafeb004667a171060fc6aa2b66fc63a4}{Detail::throw\_generator\_exception}}(\textcolor{stringliteral}{"{}No\ valid\ value\ found\ in\ filtered\ generator"{}});}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00092}\mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator_a903396f7cf5f1a04379b7c917351e6da}{00092}}\ \ \ \ \ \ \ \ \ T\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator_a903396f7cf5f1a04379b7c917351e6da}{get}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.get();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00096}\mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator_a02ce0839dcaa7545c55d0fe70cc50e84}{00096}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator_a02ce0839dcaa7545c55d0fe70cc50e84}{next}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ success\ =\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.next();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!success)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!m\_predicate(\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.get())\ \&\&\ (success\ =\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.next())\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ success;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00105}\mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator_a787487ad72f35ebd23c868fd16bf39da}{00105}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator_a787487ad72f35ebd23c868fd16bf39da}{isFinite}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.isFinite();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00106}00106\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00109}00109\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Predicate>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00110}\mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{00110}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ \mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{filter}}(Predicate\&\&\ pred,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ generator)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}(\mbox{\hyperlink{namespaceCatch_1_1Detail_a3175310a581a4d3b7bd12cf543dfa0d9}{Catch::Detail::make\_unique}}<\mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator}{FilterGenerator}}<T,\ \textcolor{keyword}{typename}\ std::remove\_reference<Predicate>::type>>(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(pred),\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator)));}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00114}00114\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00115}\mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator}{00115}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator}{RepeatGenerator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator}{IGenerator}}<T>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(!std::is\_same<T,\ bool>::value,}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}RepeatGenerator\ currently\ does\ not\ support\ bools"{}}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}because\ of\ std::vector<bool>\ specialization"{}});}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ m\_generator;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ std::vector<T>\ m\_returned;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_target\_repeats;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_current\_repeat\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_repeat\_index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00124}00124\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00125}\mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator_a3aee12c4f9c2c04823ca3c75a20f234f}{00125}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator_a3aee12c4f9c2c04823ca3c75a20f234f}{RepeatGenerator}}(\textcolor{keywordtype}{size\_t}\ repeats,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ generator):}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator)),}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ m\_target\_repeats(repeats)}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ assert(m\_target\_repeats\ >\ 0\ \&\&\ \textcolor{stringliteral}{"{}Repeat\ generator\ must\ repeat\ at\ least\ once"{}});}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.isFinite())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Generators_1_1Detail_aafeb004667a171060fc6aa2b66fc63a4}{Detail::throw\_generator\_exception}}(\ \textcolor{stringliteral}{"{}Cannot\ repeat\ infinite\ generator"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00135}\mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator_a1b5a4018df276b05dc48e5fa0bcd3d28}{00135}}\ \ \ \ \ \ \ \ \ T\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator_a1b5a4018df276b05dc48e5fa0bcd3d28}{get}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_current\_repeat\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_returned.push\_back(\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.get());}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_returned.back();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_returned[m\_repeat\_index];}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00143}\mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator_a24d5c2b1c09d6d220d4bd4c83f222dcb}{00143}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator_a24d5c2b1c09d6d220d4bd4c83f222dcb}{next}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ There\ are\ 2\ basic\ cases:}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1)\ We\ are\ still\ reading\ the\ generator}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2)\ We\ are\ reading\ our\ own\ cache}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ In\ the\ first\ case,\ we\ need\ to\ poke\ the\ underlying\ generator.}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ it\ happily\ moves,\ we\ are\ left\ in\ that\ state,\ otherwise\ it\ is\ time\ to\ start\ reading\ from\ our\ cache}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_current\_repeat\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ success\ =\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.next();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!success)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++m\_current\_repeat;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_current\_repeat\ <\ m\_target\_repeats;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ In\ the\ second\ case,\ we\ need\ to\ move\ indices\ forward\ and\ check\ that\ we\ haven't\ run\ up\ against\ the\ end}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ ++m\_repeat\_index;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_repeat\_index\ ==\ m\_returned.size())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_repeat\_index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++m\_current\_repeat;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_current\_repeat\ <\ m\_target\_repeats;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00167}\mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator_a4843a676a0b16eff12d474e15221fad6}{00167}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator_a4843a676a0b16eff12d474e15221fad6}{isFinite}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.isFinite();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00168}00168\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00170}00170\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00171}\mbox{\hyperlink{namespaceCatch_1_1Generators_a510cc0d72a7bab8f967827e695b981ba}{00171}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ \mbox{\hyperlink{namespaceCatch_1_1Generators_a510cc0d72a7bab8f967827e695b981ba}{repeat}}(\textcolor{keywordtype}{size\_t}\ repeats,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ generator)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}(\mbox{\hyperlink{namespaceCatch_1_1Detail_a3175310a581a4d3b7bd12cf543dfa0d9}{Catch::Detail::make\_unique}}<\mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator}{RepeatGenerator<T>}}>(repeats,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator)));}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00173}00173\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00175}00175\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00176}\mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator}{00176}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator}{MapGenerator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator}{IGenerator}}<T>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TBD:\ provide\ static\ assert\ for\ mapping\ function,\ for\ friendly\ error\ message}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<U>}}\ m\_generator;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00179}00179\ \ \ \ \ \ \ \ \ Func\ m\_function;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ To\ avoid\ returning\ dangling\ reference,\ we\ have\ to\ save\ the\ values}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classCatch_1_1Optional}{Optional<T>}}\ m\_cache;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ skipToNthElementImpl(\ std::size\_t\ n\ )\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.skipToNthElement(\ n\ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ m\_cache.\mbox{\hyperlink{classCatch_1_1Optional_a543ecebe7d36d7ec101671c6a82db705}{reset}}();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00188}00188\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ F2\ =\ Func>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00190}\mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator_a525c7eaf53ad220ee7add534aff2522c}{00190}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator_a525c7eaf53ad220ee7add534aff2522c}{MapGenerator}}(F2\&\&\ function,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<U>}}\&\&\ generator)\ :}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator)),}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ m\_function(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(function))}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00195}\mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator_abd7ffdef7f7c8575331146c4a95141ad}{00195}}\ \ \ \ \ \ \ \ \ T\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator_abd7ffdef7f7c8575331146c4a95141ad}{get}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !m\_cache\ )\ \{\ m\_cache\ =\ m\_function(\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.get()\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *m\_cache;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00199}\mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator_aa07e2f12d38ae060c30cc30d9dc236c5}{00199}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator_aa07e2f12d38ae060c30cc30d9dc236c5}{next}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ m\_cache.\mbox{\hyperlink{classCatch_1_1Optional_a543ecebe7d36d7ec101671c6a82db705}{reset}}();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.next();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00204}\mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator_a5049f4d1eb259fbbd10ccec73404c481}{00204}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator_a5049f4d1eb259fbbd10ccec73404c481}{isFinite}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.isFinite();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00205}00205\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00207}00207\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Func,\ \textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ T\ =\ FunctionReturnType<Func,\ U>>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00208}\mbox{\hyperlink{namespaceCatch_1_1Generators_af33fd06c51ac9173c3bee2ddee2559a6}{00208}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ \mbox{\hyperlink{namespaceCatch_1_1Generators_af33fd06c51ac9173c3bee2ddee2559a6}{map}}(Func\&\&\ function,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<U>}}\&\&\ generator)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}(}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Detail_a3175310a581a4d3b7bd12cf543dfa0d9}{Catch::Detail::make\_unique}}<\mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator}{MapGenerator<T,\ U,\ Func>}}>(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(function),\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator))}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00211}00211\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00212}00212\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00214}00214\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00215}00215\ \ \ \ \ GeneratorWrapper<T>\ \mbox{\hyperlink{namespaceCatch_1_1Generators_af33fd06c51ac9173c3bee2ddee2559a6}{map}}(Func\&\&\ function,\ GeneratorWrapper<U>\&\&\ generator)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GeneratorWrapper<T>(}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Detail_a3175310a581a4d3b7bd12cf543dfa0d9}{Catch::Detail::make\_unique}}<MapGenerator<T,\ U,\ Func>>(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(function),\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator))}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00218}00218\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00219}00219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00221}00221\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00222}\mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator}{00222}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator}{ChunkGenerator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator}{IGenerator}}<std::vector<T>>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00223}00223\ \ \ \ \ \ \ \ \ std::vector<T>\ m\_chunk;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_chunk\_size;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ m\_generator;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00226}00226\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00227}\mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator_a50c334d00cde3166d71e9b90ebc2d2e3}{00227}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator_a50c334d00cde3166d71e9b90ebc2d2e3}{ChunkGenerator}}(\textcolor{keywordtype}{size\_t}\ size,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ generator)\ :}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ m\_chunk\_size(size),\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator))}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ m\_chunk.reserve(m\_chunk\_size);}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_chunk\_size\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_chunk.push\_back(\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.get());}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 1;\ i\ <\ m\_chunk\_size;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.next())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Generators_1_1Detail_aafeb004667a171060fc6aa2b66fc63a4}{Detail::throw\_generator\_exception}}(\textcolor{stringliteral}{"{}Not\ enough\ values\ to\ initialize\ the\ first\ chunk"{}});}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_chunk.push\_back(\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.get());}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00241}\mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator_afab9d06c84aa469b3af60eb3e8f10597}{00241}}\ \ \ \ \ \ \ \ \ std::vector<T>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator_afab9d06c84aa469b3af60eb3e8f10597}{get}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_chunk;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00244}\mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator_a545e89f80eb1e3c953491541ea083f86}{00244}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator_a545e89f80eb1e3c953491541ea083f86}{next}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ m\_chunk.clear();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ idx\ =\ 0;\ idx\ <\ m\_chunk\_size;\ ++idx)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.next())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_chunk.push\_back(\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.get());}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00255}\mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator_a21f43fdb49569ea813e3e19bb24fbc8c}{00255}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator_a21f43fdb49569ea813e3e19bb24fbc8c}{isFinite}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}.isFinite();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00256}00256\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00258}00258\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00259}\mbox{\hyperlink{namespaceCatch_1_1Generators_acb4654b4e840e438e3bc204ac4d8e157}{00259}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<std::vector<T>}}>\ \mbox{\hyperlink{namespaceCatch_1_1Generators_acb4654b4e840e438e3bc204ac4d8e157}{chunk}}(\textcolor{keywordtype}{size\_t}\ size,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ generator)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<std::vector<T>}}>(}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ Catch::Detail::make\_unique<ChunkGenerator<T>>(size,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(generator))}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00262}00262\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00263}00263\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00265}00265\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00266}\mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator}{00266}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator}{ConcatGenerator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator}{IGenerator}}<T>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00267}00267\ \ \ \ \ \ \ \ \ std::vector<GeneratorWrapper<T>>\ m\_generators;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ m\_current\_generator\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ InsertGenerators(\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ gen\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ m\_generators.push\_back(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ gen\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ InsertGenerators(\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ gen,\ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}\&\&...\ gens\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ m\_generators.push\_back(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ gen\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ InsertGenerators(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ gens\ )...\ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00280}00280\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00282}\mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator_a13d04f82bb34592ad09e7a681f22b78b}{00282}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator_a13d04f82bb34592ad09e7a681f22b78b}{ConcatGenerator}}(\ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}\&\&...\ generators\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ InsertGenerators(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ generators\ )...\ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00286}\mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator_a5cc71d4a8453e335a83fbcf10e8c2574}{00286}}\ \ \ \ \ \ \ \ \ T\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator_a5cc71d4a8453e335a83fbcf10e8c2574}{get}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_generators[m\_current\_generator].get();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00289}\mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator_a31368d2f31c94d1d402e24e0a633458e}{00289}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator_a31368d2f31c94d1d402e24e0a633458e}{next}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ success\ =\ m\_generators[m\_current\_generator].next();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ success\ )\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ current\ generator\ is\ used\ up,\ we\ have\ to\ move\ to\ the\ next\ one}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ ++m\_current\_generator;}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_current\_generator\ <\ m\_generators.size();}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00298}\mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator_a9647e99e96f16da271dace95819c7aff}{00298}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator_a9647e99e96f16da271dace95819c7aff}{isFinite}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ gen\ :\ m\_generators\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !gen.isFinite()\ )\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00304}00304\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00306}00306\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Generators>}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00307}\mbox{\hyperlink{namespaceCatch_1_1Generators_aaf0dfc5b95d3f6b735fdca37574dd11c}{00307}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\ \mbox{\hyperlink{namespaceCatch_1_1Generators_aaf0dfc5b95d3f6b735fdca37574dd11c}{cat}}(\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}\&\&\ generator,}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}\&\&...\ generators\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{GeneratorWrapper<T>}}(}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Detail_a3175310a581a4d3b7bd12cf543dfa0d9}{Catch::Detail::make\_unique}}<\mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator}{ConcatGenerator<T>}}>(}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ generator\ ),\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ generators\ )...\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00312}00312\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00315}00315\ \}\ \textcolor{comment}{//\ namespace\ Generators}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00316}00316\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{catch__generators__adapters_8hpp_source_l00319}00319\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_GENERATORS\_ADAPTERS\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

@@ -1,0 +1,13 @@
+<map id="Catch::ConsoleReporter::testRunEnded" name="Catch::ConsoleReporter::testRunEnded">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,85,180,125"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#aecf85e8927841af21b8fcd3bab31df2b" title=" " alt="" coords="230,63,417,88"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,91,216,86,217,92,181,96"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1StreamingReporterBase.html#abc6e39389e0bb22fb2fce977ced959af" title=" " alt="" coords="228,113,419,153"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="181,113,215,117,214,122,180,118"/>
+<area shape="rect" id="Node000003" href="$structCatch_1_1Counts.html#a84999490e0ecaa3de5e121bf48eda1b3" title=" " alt="" coords="467,5,648,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="375,60,491,31,492,37,377,65"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1ColourImpl.html#a9ea7675bd556065d5b72b51e04ed9379" title=" " alt="" coords="484,55,631,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="417,73,470,73,470,78,417,78"/>
+<area shape="rect" id="Node000005" href="$structCatch_1_1Counts.html#a71bb4c4ac8e1dcb06951848f587bf591" title=" " alt="" coords="482,120,633,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="377,85,492,114,491,119,375,91"/>
+</map>

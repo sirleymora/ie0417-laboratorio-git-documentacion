@@ -1,0 +1,20 @@
+<map id="src/catch2/internal/catch_leak_detector.cpp" name="src/catch2/internal/catch_leak_detector.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="203,5,385,45"/>
+<area shape="rect" id="Node000002" href="$catch__leak__detector_8hpp.html" title=" " alt="" coords="5,93,164,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,48,144,91,142,86,247,43"/>
+<area shape="rect" id="Node000003" href="$catch__interfaces__registry__hub_8hpp.html" title=" " alt="" coords="189,93,399,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="297,46,297,79,291,79,291,46"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="423,101,637,126"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="347,43,487,94,485,99,345,48"/>
+<area shape="rect" id="Node000004" href="$catch__unique__ptr_8hpp.html" title=" " alt="" coords="148,181,307,221"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,135,253,172,248,169,277,132"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="331,189,390,214"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="311,132,345,176,341,179,307,135"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="121,277,190,302"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="213,223,176,267,172,264,209,220"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="245,357,337,383"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="233,221,241,262,256,308,277,344,272,347,252,310,236,263,228,222"/>
+<area shape="rect" id="Node000007" href="$catch__move__and__forward_8hpp.html" title=" " alt="" coords="265,269,448,309"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="258,219,318,259,315,264,255,224"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="343,311,312,348,308,345,339,308"/>
+</map>

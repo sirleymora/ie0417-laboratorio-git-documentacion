@@ -1,0 +1,190 @@
+\doxysection{Catch\+::Capturer Class Reference}
+\hypertarget{classCatch_1_1Capturer}{}\label{classCatch_1_1Capturer}\index{Catch::Capturer@{Catch::Capturer}}
+
+
+{\ttfamily \#include $<$catch\+\_\+message.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Capturer_a59eb6dfc8b6813cb9162807314ce3728}{Capturer}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} macro\+Name, \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&line\+Info, \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{Result\+Was\+::\+Of\+Type}} result\+Type, \mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} names, bool is\+Scoped)
+\item 
+\mbox{\hyperlink{classCatch_1_1Capturer_ab8010e6737ac7a1cdf1be9ab65220cb6}{Capturer}} (\mbox{\hyperlink{classCatch_1_1Capturer}{Capturer}} const \&)=delete
+\item 
+\mbox{\hyperlink{classCatch_1_1Capturer}{Capturer}} \& \mbox{\hyperlink{classCatch_1_1Capturer_a6de9ab7fdd4f1e3cccbbb058d8e58d1d}{operator=}} (\mbox{\hyperlink{classCatch_1_1Capturer}{Capturer}} const \&)=delete
+\item 
+\mbox{\hyperlink{classCatch_1_1Capturer_aecde85cf69e65565cec91e325a657b82}{\texorpdfstring{$\sim$}{\string~}\+Capturer}} ()
+\item 
+void \mbox{\hyperlink{classCatch_1_1Capturer_a0695ebf77f7cdcb344c73bcb3d9131e4}{capture\+Value}} (size\+\_\+t index, std\+::string const \&\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classCatch_1_1Capturer_a60d08e6db2e54740bb2298bbbec3bc0b}{capture\+Values}} (size\+\_\+t index, T const \&\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}})
+\item 
+{\footnotesize template$<$typename T , typename... Ts$>$ }\\void \mbox{\hyperlink{classCatch_1_1Capturer_a76f2a097cfeb3042688300b81eb9bcbc}{capture\+Values}} (size\+\_\+t index, T const \&\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}, Ts const \&... values)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00076}{76}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1Capturer_a59eb6dfc8b6813cb9162807314ce3728}\label{classCatch_1_1Capturer_a59eb6dfc8b6813cb9162807314ce3728} 
+\index{Catch::Capturer@{Catch::Capturer}!Capturer@{Capturer}}
+\index{Capturer@{Capturer}!Catch::Capturer@{Catch::Capturer}}
+\doxysubsubsection{\texorpdfstring{Capturer()}{Capturer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Catch\+::\+Capturer\+::\+Capturer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{macro\+Name,  }\item[{\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&}]{line\+Info,  }\item[{\mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{Result\+Was\+::\+Of\+Type}}}]{result\+Type,  }\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{names,  }\item[{bool}]{is\+Scoped }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{catch__message_8cpp_source}{catch\+\_\+message.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__enforce_8hpp_source_l00041}{CATCH\+\_\+\+INTERNAL\+\_\+\+ERROR}}, \mbox{\hyperlink{catch__stringref_8hpp_source_l00078}{Catch\+::\+String\+Ref\+::size()}}, and \mbox{\hyperlink{catch__stringref_8hpp_source_l00085}{Catch\+::\+String\+Ref\+::substr()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Capturer_a59eb6dfc8b6813cb9162807314ce3728_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Capturer_ab8010e6737ac7a1cdf1be9ab65220cb6}\label{classCatch_1_1Capturer_ab8010e6737ac7a1cdf1be9ab65220cb6} 
+\index{Catch::Capturer@{Catch::Capturer}!Capturer@{Capturer}}
+\index{Capturer@{Capturer}!Catch::Capturer@{Catch::Capturer}}
+\doxysubsubsection{\texorpdfstring{Capturer()}{Capturer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Catch\+::\+Capturer\+::\+Capturer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Capturer}{Capturer}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classCatch_1_1Capturer_aecde85cf69e65565cec91e325a657b82}\label{classCatch_1_1Capturer_aecde85cf69e65565cec91e325a657b82} 
+\index{Catch::Capturer@{Catch::Capturer}!````~Capturer@{\texorpdfstring{$\sim$}{\string~}Capturer}}
+\index{````~Capturer@{\texorpdfstring{$\sim$}{\string~}Capturer}!Catch::Capturer@{Catch::Capturer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Capturer()}{\string~Capturer()}}
+{\footnotesize\ttfamily Catch\+::\+Capturer\+::\texorpdfstring{$\sim$}{\string~}\+Capturer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{catch__message_8cpp_source}{catch\+\_\+message.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__run__context_8cpp_source_l00319}{Catch\+::\+Detail\+::pop\+Scoped\+Message()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Capturer_aecde85cf69e65565cec91e325a657b82_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1Capturer_a0695ebf77f7cdcb344c73bcb3d9131e4}\label{classCatch_1_1Capturer_a0695ebf77f7cdcb344c73bcb3d9131e4} 
+\index{Catch::Capturer@{Catch::Capturer}!captureValue@{captureValue}}
+\index{captureValue@{captureValue}!Catch::Capturer@{Catch::Capturer}}
+\doxysubsubsection{\texorpdfstring{captureValue()}{captureValue()}}
+{\footnotesize\ttfamily void Catch\+::\+Capturer\+::capture\+Value (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index,  }\item[{std\+::string const \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8cpp_source_l00111}{111}} of file \mbox{\hyperlink{catch__message_8cpp_source}{catch\+\_\+message.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__run__context_8cpp_source_l00327}{Catch\+::\+Detail\+::add\+Unscoped\+Message()}}, \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__run__context_8cpp_source_l00315}{Catch\+::\+Detail\+::push\+Scoped\+Message()}}, and \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__message_8hpp_source_l00091}{capture\+Values()}}, and \mbox{\hyperlink{catch__message_8hpp_source_l00096}{capture\+Values()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Capturer_a0695ebf77f7cdcb344c73bcb3d9131e4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Capturer_a0695ebf77f7cdcb344c73bcb3d9131e4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Capturer_a60d08e6db2e54740bb2298bbbec3bc0b}\label{classCatch_1_1Capturer_a60d08e6db2e54740bb2298bbbec3bc0b} 
+\index{Catch::Capturer@{Catch::Capturer}!captureValues@{captureValues}}
+\index{captureValues@{captureValues}!Catch::Capturer@{Catch::Capturer}}
+\doxysubsubsection{\texorpdfstring{captureValues()}{captureValues()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Catch\+::\+Capturer\+::capture\+Values (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index,  }\item[{T const \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00091}{91}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__message_8cpp_source_l00111}{capture\+Value()}}, \mbox{\hyperlink{catch__tostring_8hpp_source_l00144}{Catch\+::\+Detail\+::stringify()}}, and \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__message_8hpp_source_l00096}{capture\+Values()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Capturer_a60d08e6db2e54740bb2298bbbec3bc0b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Capturer_a60d08e6db2e54740bb2298bbbec3bc0b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Capturer_a76f2a097cfeb3042688300b81eb9bcbc}\label{classCatch_1_1Capturer_a76f2a097cfeb3042688300b81eb9bcbc} 
+\index{Catch::Capturer@{Catch::Capturer}!captureValues@{captureValues}}
+\index{captureValues@{captureValues}!Catch::Capturer@{Catch::Capturer}}
+\doxysubsubsection{\texorpdfstring{captureValues()}{captureValues()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename... Ts$>$ \\
+void Catch\+::\+Capturer\+::capture\+Values (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index,  }\item[{T const \&}]{value,  }\item[{Ts const \&...}]{values }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00096}{96}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__message_8cpp_source_l00111}{capture\+Value()}}, \mbox{\hyperlink{catch__message_8hpp_source_l00091}{capture\+Values()}}, \mbox{\hyperlink{catch__tostring_8hpp_source_l00144}{Catch\+::\+Detail\+::stringify()}}, and \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Capturer_a76f2a097cfeb3042688300b81eb9bcbc_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Capturer_a6de9ab7fdd4f1e3cccbbb058d8e58d1d}\label{classCatch_1_1Capturer_a6de9ab7fdd4f1e3cccbbb058d8e58d1d} 
+\index{Catch::Capturer@{Catch::Capturer}!operator=@{operator=}}
+\index{operator=@{operator=}!Catch::Capturer@{Catch::Capturer}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1Capturer}{Capturer}} \& Catch\+::\+Capturer\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Capturer}{Capturer}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/\mbox{\hyperlink{catch__message_8hpp}{catch\+\_\+message.\+hpp}}\item 
+src/catch2/\mbox{\hyperlink{catch__message_8cpp}{catch\+\_\+message.\+cpp}}\end{DoxyCompactItemize}

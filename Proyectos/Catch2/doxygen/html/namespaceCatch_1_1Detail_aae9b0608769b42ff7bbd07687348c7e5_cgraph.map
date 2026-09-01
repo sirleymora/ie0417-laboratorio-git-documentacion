@@ -1,0 +1,9 @@
+<map id="Catch::Detail::registerListenerImpl" name="Catch::Detail::registerListenerImpl">
+<area shape="rect" id="Node000001" title="Actually registers the factory, independent on listener&#39;s concrete type." alt="" coords="5,35,251,60"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#a585459763f2c7610e57de2dd22dd1ad8" title=" " alt="" coords="299,5,520,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,32,285,28,285,34,250,37"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1IMutableRegistryHub.html#a8c70c6e8f0d2ac0c83fe4e5c53d193f6" title=" " alt="" coords="307,55,511,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="251,57,294,61,293,66,250,62"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Singleton.html#a8c18286fe40405813c5bab05e20ce4f0" title=" " alt="" coords="568,5,779,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="520,15,554,15,554,21,520,21"/>
+</map>

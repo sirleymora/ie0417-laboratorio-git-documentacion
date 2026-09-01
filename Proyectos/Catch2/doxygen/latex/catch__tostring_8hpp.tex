@@ -1,0 +1,220 @@
+\doxysection{src/catch2/catch\+\_\+tostring.hpp File Reference}
+\hypertarget{catch__tostring_8hpp}{}\label{catch__tostring_8hpp}\index{src/catch2/catch\_tostring.hpp@{src/catch2/catch\_tostring.hpp}}
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compiler\+\_\+capabilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+config\+\_\+wchar.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+reusable\+\_\+string\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+void\+\_\+type.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+enum\+\_\+info.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+stringref.\+hpp$>$}\newline
+{\ttfamily \#include $<$ratio$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+Include dependency graph for catch\+\_\+tostring.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__tostring_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__tostring_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch__global__namespace__dummy}{Catch\+\_\+global\+\_\+namespace\+\_\+dummy}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker}{Catch\+::\+String\+Maker$<$ T, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01std_1_1string_01_4}{Catch\+::\+String\+Maker$<$ std\+::string $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01char_01const_01_5_01_4}{Catch\+::\+String\+Maker$<$ char const \texorpdfstring{$\ast$}{*} $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01char_01_5_01_4}{Catch\+::\+String\+Maker$<$ char \texorpdfstring{$\ast$}{*} $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01char_0fSZ_0e_4}{Catch\+::\+String\+Maker$<$ char\mbox{[}\+SZ\mbox{]}$>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01signed_01char_0fSZ_0e_4}{Catch\+::\+String\+Maker$<$ signed char\mbox{[}\+SZ\mbox{]}$>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01unsigned_01char_0fSZ_0e_4}{Catch\+::\+String\+Maker$<$ unsigned char\mbox{[}\+SZ\mbox{]}$>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01int_01_4}{Catch\+::\+String\+Maker$<$ int $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01long_01_4}{Catch\+::\+String\+Maker$<$ long $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01long_01long_01_4}{Catch\+::\+String\+Maker$<$ long long $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01unsigned_01int_01_4}{Catch\+::\+String\+Maker$<$ unsigned int $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01unsigned_01long_01_4}{Catch\+::\+String\+Maker$<$ unsigned long $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01unsigned_01long_01long_01_4}{Catch\+::\+String\+Maker$<$ unsigned long long $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01bool_01_4}{Catch\+::\+String\+Maker$<$ bool $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01char_01_4}{Catch\+::\+String\+Maker$<$ char $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01signed_01char_01_4}{Catch\+::\+String\+Maker$<$ signed char $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01unsigned_01char_01_4}{Catch\+::\+String\+Maker$<$ unsigned char $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01std_1_1nullptr__t_01_4}{Catch\+::\+String\+Maker$<$ std\+::nullptr\+\_\+t $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01float_01_4}{Catch\+::\+String\+Maker$<$ float $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01double_01_4}{Catch\+::\+String\+Maker$<$ double $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01T_01_5_01_4}{Catch\+::\+String\+Maker$<$ T \texorpdfstring{$\ast$}{*} $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01R_01C_1_1_5_01_4}{Catch\+::\+String\+Maker$<$ R C\+::\texorpdfstring{$\ast$}{*} $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Detail_1_1is__range__impl}{Catch\+::\+Detail\+::is\+\_\+range\+\_\+impl$<$ T, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Detail_1_1is__range__impl_3_01T_00_01void__t_3_01decltype_07begin_07std_1_1declval_3_01T_01_4_07_08_08_08_4_01_4}{Catch\+::\+Detail\+::is\+\_\+range\+\_\+impl$<$ T, void\+\_\+t$<$ decltype(begin(std\+::declval$<$ T $>$()))$>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1is__range}{Catch\+::is\+\_\+range$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01R_00_01std_1_1enable__if__t_3_01is__range_3_01R_01_4_1_1value_01_32c3977071ebf35680b5962ea44d3bb7}{Catch\+::\+String\+Maker$<$ R, std\+::enable\+\_\+if\+\_\+t$<$ is\+\_\+range$<$ R $>$\+::value \&\&!\+::\+Catch\+::\+Detail\+::\+Is\+Stream\+Insertable\+\_\+v$<$ R $>$ $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01T_0fSZ_0e_4}{Catch\+::\+String\+Maker$<$ T\mbox{[}\+SZ\mbox{]}$>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1ratio__string}{Catch\+::ratio\+\_\+string$<$ Ratio $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1ratio__string_3_01std_1_1atto_01_4}{Catch\+::ratio\+\_\+string$<$ std\+::atto $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1ratio__string_3_01std_1_1femto_01_4}{Catch\+::ratio\+\_\+string$<$ std\+::femto $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1ratio__string_3_01std_1_1pico_01_4}{Catch\+::ratio\+\_\+string$<$ std\+::pico $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1ratio__string_3_01std_1_1nano_01_4}{Catch\+::ratio\+\_\+string$<$ std\+::nano $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1ratio__string_3_01std_1_1micro_01_4}{Catch\+::ratio\+\_\+string$<$ std\+::micro $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1ratio__string_3_01std_1_1milli_01_4}{Catch\+::ratio\+\_\+string$<$ std\+::milli $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01std_1_1chrono_1_1duration_3_01Value_00_01Ratio_01_4_01_4}{Catch\+::\+String\+Maker$<$ std\+::chrono\+::duration$<$ Value, Ratio $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01std_1_1chrono_1_1duration_3_01Value_00_01std_1_1ratio_3_011_01_4_01_4_01_4}{Catch\+::\+String\+Maker$<$ std\+::chrono\+::duration$<$ Value, std\+::ratio$<$ 1 $>$ $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01std_1_1chrono_1_1duration_3_01Value_00_01std_1_1ratio_3_0160_01_4_01_4_01_4}{Catch\+::\+String\+Maker$<$ std\+::chrono\+::duration$<$ Value, std\+::ratio$<$ 60 $>$ $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01std_1_1chrono_1_1duration_3_01Value_00_01std_1_1ratio_3_013600_01_4_01_4_01_4}{Catch\+::\+String\+Maker$<$ std\+::chrono\+::duration$<$ Value, std\+::ratio$<$ 3600 $>$ $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01std_1_1chrono_1_1time__point_3_01Clock_00_01Duration_01_4_01_4}{Catch\+::\+String\+Maker$<$ std\+::chrono\+::time\+\_\+point$<$ Clock, Duration $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1StringMaker_3_01std_1_1chrono_1_1time__point_3_01std_1_1chrono_1_1system__clock_00_01Duration_01_4_01_4}{Catch\+::\+String\+Maker$<$ std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock, Duration $>$ $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__tostring_8hpp_a1c3c601bf24488800bdf3f634a2a6b11}{INTERNAL\+\_\+\+CATCH\+\_\+\+REGISTER\+\_\+\+ENUM}}(enum\+Name, ...)
+\item 
+\#define \mbox{\hyperlink{catch__tostring_8hpp_a3063d7b316c984044916079ab8b7dad6}{CATCH\+\_\+\+REGISTER\+\_\+\+ENUM}}(enum\+Name, ...)~\mbox{\hyperlink{catch__tostring_8hpp_a1c3c601bf24488800bdf3f634a2a6b11}{INTERNAL\+\_\+\+CATCH\+\_\+\+REGISTER\+\_\+\+ENUM}}( enum\+Name, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{catch__tostring_8hpp_aae0cdd5d2f0ac242b9ab18b0f66ba26e}{operator$<$$<$}} (std\+::ostream \&, \mbox{\hyperlink{structCatch__global__namespace__dummy}{Catch\+\_\+global\+\_\+namespace\+\_\+dummy}})
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{namespaceCatch_1_1Detail_ae9744f1112bb15fcb88df6b3e5ccd46a}{Catch\+::\+Detail\+::catch\+\_\+strnlen}} (const char \texorpdfstring{$\ast$}{*}str, std\+::size\+\_\+t n)
+\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_1_1Detail_aeb93ec5fe4305f738aed5ebccae9d4e4}{Catch\+::\+Detail\+::format\+TimeT}} (std\+::time\+\_\+t time)
+\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_1_1Detail_a23bdcac0ef138b222c3747e2af979e9a}{Catch\+::\+Detail\+::convert\+Into\+String}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} string, bool escape\+Invisibles)
+\begin{DoxyCompactList}\small\item\em Encases \`{}string in quotes, and optionally escapes invisibles. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_1_1Detail_a0dc4241ab150d3d8e1d0a3d30c781c39}{Catch\+::\+Detail\+::convert\+Into\+String}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} string)
+\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_1_1Detail_ac5d6c510e565ee5bddcc2236194ce29e}{Catch\+::\+Detail\+::raw\+Memory\+To\+String}} (const void \texorpdfstring{$\ast$}{*}object, std\+::size\+\_\+t \mbox{\hyperlink{namespaceCatch_1_1Detail_a55994724b37be409ad8185ee738a0781}{size}})
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::string \mbox{\hyperlink{namespaceCatch_1_1Detail_a371620ed524abfcae5c3772bf49b563a}{Catch\+::\+Detail\+::raw\+Memory\+To\+String}} (const T \&object)
+\item 
+{\footnotesize template$<$typename E $>$ }\\std\+::string \mbox{\hyperlink{namespaceCatch_1_1Detail_a242396de537c5176710d680cc9ca6b93}{Catch\+::\+Detail\+::convert\+Unknown\+Enum\+To\+String}} (E e)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ !std\+::is\+\_\+enum$<$ T $>$\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{\+::value}} \&\&!std\+::is\+\_\+base\+\_\+of$<$ std\+::exception, T $>$\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{\+::value}}, std\+::string $>$ \mbox{\hyperlink{namespaceCatch_1_1Detail_a355373f5d573df529c1ec80b76586c9f}{Catch\+::\+Detail\+::convert\+Unstreamable}} (T const \&)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ !std\+::is\+\_\+enum$<$ T $>$\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{\+::value}} \&\&std\+::is\+\_\+base\+\_\+of$<$ std\+::exception, T $>$\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{\+::value}}, std\+::string $>$ \mbox{\hyperlink{namespaceCatch_1_1Detail_a94136655b495ecf9d133cc2292d707e9}{Catch\+::\+Detail\+::convert\+Unstreamable}} (T const \&ex)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+enum$<$ T $>$\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{\+::value}}, std\+::string $>$ \mbox{\hyperlink{namespaceCatch_1_1Detail_acc4a8b80cbc750f795e60dd22af8e0fc}{Catch\+::\+Detail\+::convert\+Unstreamable}} (T const \&\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}})
+\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_1_1Detail_adbff06c361ab5a8bb89f5258996da0ff}{Catch\+::\+Detail\+::make\+Exception\+Happened\+String}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::string \mbox{\hyperlink{namespaceCatch_1_1Detail_af0ad48344ffd3f92f3568465248a9880}{Catch\+::\+Detail\+::stringify}} (const T \&e)
+\item 
+{\footnotesize template$<$typename Input\+Iterator , typename Sentinel  = Input\+Iterator$>$ }\\std\+::string \mbox{\hyperlink{namespaceCatch_1_1Detail_ac954cf158347a76a5b0c3f4fa9a9fa52}{Catch\+::\+Detail\+::range\+To\+String}} (Input\+Iterator first, Sentinel last)
+\item 
+{\footnotesize template$<$typename Range $>$ }\\std\+::string \mbox{\hyperlink{namespaceCatch_af13494e925a793e3e7143c6ce6f442c2}{Catch\+::range\+To\+String}} (Range const \&range)
+\item 
+{\footnotesize template$<$typename Allocator $>$ }\\std\+::string \mbox{\hyperlink{namespaceCatch_ae162dc66b7767a52e7e4283915fd3d9f}{Catch\+::range\+To\+String}} (std\+::vector$<$ bool, Allocator $>$ const \&v)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} \mbox{\hyperlink{namespaceCatch_1_1Detail_aa8b72c37b9b6fb01fc898ce47136576f}{Catch\+::\+Detail\+::unprintable\+String}} = "{}\{?\}"{}\+\_\+sr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__tostring_8hpp_a3063d7b316c984044916079ab8b7dad6}\label{catch__tostring_8hpp_a3063d7b316c984044916079ab8b7dad6} 
+\index{catch\_tostring.hpp@{catch\_tostring.hpp}!CATCH\_REGISTER\_ENUM@{CATCH\_REGISTER\_ENUM}}
+\index{CATCH\_REGISTER\_ENUM@{CATCH\_REGISTER\_ENUM}!catch\_tostring.hpp@{catch\_tostring.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_REGISTER\_ENUM}{CATCH\_REGISTER\_ENUM}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+REGISTER\+\_\+\+ENUM(\begin{DoxyParamCaption}\item[{}]{enum\+Name,  }\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__tostring_8hpp_a1c3c601bf24488800bdf3f634a2a6b11}{INTERNAL\+\_\+\+CATCH\+\_\+\+REGISTER\+\_\+\+ENUM}}( enum\+Name, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__tostring_8hpp_source_l00653}{653}} of file \mbox{\hyperlink{catch__tostring_8hpp_source}{catch\+\_\+tostring.\+hpp}}.
+
+\Hypertarget{catch__tostring_8hpp_a1c3c601bf24488800bdf3f634a2a6b11}\label{catch__tostring_8hpp_a1c3c601bf24488800bdf3f634a2a6b11} 
+\index{catch\_tostring.hpp@{catch\_tostring.hpp}!INTERNAL\_CATCH\_REGISTER\_ENUM@{INTERNAL\_CATCH\_REGISTER\_ENUM}}
+\index{INTERNAL\_CATCH\_REGISTER\_ENUM@{INTERNAL\_CATCH\_REGISTER\_ENUM}!catch\_tostring.hpp@{catch\_tostring.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_REGISTER\_ENUM}{INTERNAL\_CATCH\_REGISTER\_ENUM}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+REGISTER\+\_\+\+ENUM(\begin{DoxyParamCaption}\item[{}]{enum\+Name,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }StringMaker<enumName>\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{structCatch_1_1StringMaker_a209862e8b79e663c4a042f57f6de31c7}{convert}}(\ enumName\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ static\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ enumInfo\ =\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ae5ac331a37580e0ee0706d2637724287}{::Catch::Detail::makeEnumInfo}}(\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#enumName,\ \#\_\_VA\_ARGS\_\_,\ \{\ \_\_VA\_ARGS\_\_\ \}\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ \textcolor{keyword}{static\_cast<}std::string\textcolor{keyword}{>}(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enumInfo.lookup(\ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ )\ );\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__tostring_8hpp_source_l00637}{637}} of file \mbox{\hyperlink{catch__tostring_8hpp_source}{catch\+\_\+tostring.\+hpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{catch__tostring_8hpp_aae0cdd5d2f0ac242b9ab18b0f66ba26e}\label{catch__tostring_8hpp_aae0cdd5d2f0ac242b9ab18b0f66ba26e} 
+\index{catch\_tostring.hpp@{catch\_tostring.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!catch\_tostring.hpp@{catch\_tostring.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{,  }\item[{\mbox{\hyperlink{structCatch__global__namespace__dummy}{Catch\+\_\+global\+\_\+namespace\+\_\+dummy}}}]{ }\end{DoxyParamCaption})}
+

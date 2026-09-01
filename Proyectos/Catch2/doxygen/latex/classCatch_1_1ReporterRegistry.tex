@@ -1,0 +1,137 @@
+\doxysection{Catch\+::Reporter\+Registry Class Reference}
+\hypertarget{classCatch_1_1ReporterRegistry}{}\label{classCatch_1_1ReporterRegistry}\index{Catch::ReporterRegistry@{Catch::ReporterRegistry}}
+
+
+{\ttfamily \#include $<$catch\+\_\+reporter\+\_\+registry.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1ReporterRegistry_1_1ReporterRegistryImpl}{Reporter\+Registry\+Impl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1ReporterRegistry_aaa6ef352d1a38c1079c63929519e2d2c}{Reporter\+Registry}} ()
+\item 
+\mbox{\hyperlink{classCatch_1_1ReporterRegistry_a65492e229e86f757592f3a69b0630d18}{\texorpdfstring{$\sim$}{\string~}\+Reporter\+Registry}} ()
+\item 
+\mbox{\hyperlink{namespaceCatch_ae45505c15eb07c0087eba62c13a8ac71}{IEvent\+Listener\+Ptr}} \mbox{\hyperlink{classCatch_1_1ReporterRegistry_ad6e4313f82dc83b608449731391bb7f2}{create}} (std\+::string const \&name, \mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&config) const
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterRegistry_aab7c9862106fd2d3dd5d3dc8d72338c6}{register\+Reporter}} (std\+::string const \&name, \mbox{\hyperlink{namespaceCatch_ae3dfb69314dff5b79fcb517a9cb8803e}{IReporter\+Factory\+Ptr}} factory)
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterRegistry_a6752c283bd4ecf0ced502f73382ea8ef}{register\+Listener}} (\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1EventListenerFactory}{Event\+Listener\+Factory}} $>$ factory)
+\item 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{namespaceCatch_ae3dfb69314dff5b79fcb517a9cb8803e}{IReporter\+Factory\+Ptr}}, \mbox{\hyperlink{structCatch_1_1Detail_1_1CaseInsensitiveLess}{Detail\+::\+Case\+Insensitive\+Less}} $>$ const \& \mbox{\hyperlink{classCatch_1_1ReporterRegistry_a4d2e80a3a3ed404006d28df69bac4239}{get\+Factories}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1EventListenerFactory}{Event\+Listener\+Factory}} $>$ $>$ const \& \mbox{\hyperlink{classCatch_1_1ReporterRegistry_a032d92b84a5d1aa1528bacf17737ec94}{get\+Listeners}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__registry_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{catch__reporter__registry_8hpp_source}{catch\+\_\+reporter\+\_\+registry.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1ReporterRegistry_aaa6ef352d1a38c1079c63929519e2d2c}\label{classCatch_1_1ReporterRegistry_aaa6ef352d1a38c1079c63929519e2d2c} 
+\index{Catch::ReporterRegistry@{Catch::ReporterRegistry}!ReporterRegistry@{ReporterRegistry}}
+\index{ReporterRegistry@{ReporterRegistry}!Catch::ReporterRegistry@{Catch::ReporterRegistry}}
+\doxysubsubsection{\texorpdfstring{ReporterRegistry()}{ReporterRegistry()}}
+{\footnotesize\ttfamily Catch\+::\+Reporter\+Registry\+::\+Reporter\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__registry_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{catch__reporter__registry_8cpp_source}{catch\+\_\+reporter\+\_\+registry.\+cpp}}.
+
+\Hypertarget{classCatch_1_1ReporterRegistry_a65492e229e86f757592f3a69b0630d18}\label{classCatch_1_1ReporterRegistry_a65492e229e86f757592f3a69b0630d18} 
+\index{Catch::ReporterRegistry@{Catch::ReporterRegistry}!````~ReporterRegistry@{\texorpdfstring{$\sim$}{\string~}ReporterRegistry}}
+\index{````~ReporterRegistry@{\texorpdfstring{$\sim$}{\string~}ReporterRegistry}!Catch::ReporterRegistry@{Catch::ReporterRegistry}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ReporterRegistry()}{\string~ReporterRegistry()}}
+{\footnotesize\ttfamily Catch\+::\+Reporter\+Registry\+::\texorpdfstring{$\sim$}{\string~}\+Reporter\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1ReporterRegistry_ad6e4313f82dc83b608449731391bb7f2}\label{classCatch_1_1ReporterRegistry_ad6e4313f82dc83b608449731391bb7f2} 
+\index{Catch::ReporterRegistry@{Catch::ReporterRegistry}!create@{create}}
+\index{create@{create}!Catch::ReporterRegistry@{Catch::ReporterRegistry}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCatch_ae45505c15eb07c0087eba62c13a8ac71}{IEvent\+Listener\+Ptr}} Catch\+::\+Reporter\+Registry\+::create (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name,  }\item[{\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&}]{config }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__registry_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{catch__reporter__registry_8cpp_source}{catch\+\_\+reporter\+\_\+registry.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{classCatch_1_1ReporterRegistry_a4d2e80a3a3ed404006d28df69bac4239}\label{classCatch_1_1ReporterRegistry_a4d2e80a3a3ed404006d28df69bac4239} 
+\index{Catch::ReporterRegistry@{Catch::ReporterRegistry}!getFactories@{getFactories}}
+\index{getFactories@{getFactories}!Catch::ReporterRegistry@{Catch::ReporterRegistry}}
+\doxysubsubsection{\texorpdfstring{getFactories()}{getFactories()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, \mbox{\hyperlink{namespaceCatch_ae3dfb69314dff5b79fcb517a9cb8803e}{IReporter\+Factory\+Ptr}}, \mbox{\hyperlink{structCatch_1_1Detail_1_1CaseInsensitiveLess}{Detail\+::\+Case\+Insensitive\+Less}} $>$ const  \& Catch\+::\+Reporter\+Registry\+::get\+Factories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__registry_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{catch__reporter__registry_8cpp_source}{catch\+\_\+reporter\+\_\+registry.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1ReporterRegistry_a4d2e80a3a3ed404006d28df69bac4239_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1ReporterRegistry_a032d92b84a5d1aa1528bacf17737ec94}\label{classCatch_1_1ReporterRegistry_a032d92b84a5d1aa1528bacf17737ec94} 
+\index{Catch::ReporterRegistry@{Catch::ReporterRegistry}!getListeners@{getListeners}}
+\index{getListeners@{getListeners}!Catch::ReporterRegistry@{Catch::ReporterRegistry}}
+\doxysubsubsection{\texorpdfstring{getListeners()}{getListeners()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1EventListenerFactory}{Event\+Listener\+Factory}} $>$ $>$ const  \& Catch\+::\+Reporter\+Registry\+::get\+Listeners (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__registry_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{catch__reporter__registry_8cpp_source}{catch\+\_\+reporter\+\_\+registry.\+cpp}}.
+
+\Hypertarget{classCatch_1_1ReporterRegistry_a6752c283bd4ecf0ced502f73382ea8ef}\label{classCatch_1_1ReporterRegistry_a6752c283bd4ecf0ced502f73382ea8ef} 
+\index{Catch::ReporterRegistry@{Catch::ReporterRegistry}!registerListener@{registerListener}}
+\index{registerListener@{registerListener}!Catch::ReporterRegistry@{Catch::ReporterRegistry}}
+\doxysubsubsection{\texorpdfstring{registerListener()}{registerListener()}}
+{\footnotesize\ttfamily void Catch\+::\+Reporter\+Registry\+::register\+Listener (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1EventListenerFactory}{Event\+Listener\+Factory}} $>$}]{factory }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__registry_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{catch__reporter__registry_8cpp_source}{catch\+\_\+reporter\+\_\+registry.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{classCatch_1_1ReporterRegistry_aab7c9862106fd2d3dd5d3dc8d72338c6}\label{classCatch_1_1ReporterRegistry_aab7c9862106fd2d3dd5d3dc8d72338c6} 
+\index{Catch::ReporterRegistry@{Catch::ReporterRegistry}!registerReporter@{registerReporter}}
+\index{registerReporter@{registerReporter}!Catch::ReporterRegistry@{Catch::ReporterRegistry}}
+\doxysubsubsection{\texorpdfstring{registerReporter()}{registerReporter()}}
+{\footnotesize\ttfamily void Catch\+::\+Reporter\+Registry\+::register\+Reporter (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name,  }\item[{\mbox{\hyperlink{namespaceCatch_ae3dfb69314dff5b79fcb517a9cb8803e}{IReporter\+Factory\+Ptr}}}]{factory }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__registry_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{catch__reporter__registry_8cpp_source}{catch\+\_\+reporter\+\_\+registry.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__enforce_8hpp_source_l00050}{CATCH\+\_\+\+ENFORCE}}, and \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__reporter__registry_8hpp}{catch\+\_\+reporter\+\_\+registry.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__reporter__registry_8cpp}{catch\+\_\+reporter\+\_\+registry.\+cpp}}\end{DoxyCompactItemize}

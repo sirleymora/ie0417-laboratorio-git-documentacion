@@ -1,0 +1,132 @@
+\doxysection{Catch\+::String\+Streams Struct Reference}
+\hypertarget{structCatch_1_1StringStreams}{}\label{structCatch_1_1StringStreams}\index{Catch::StringStreams@{Catch::StringStreams}}
+
+
+Collaboration diagram for Catch\+::String\+Streams\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{structCatch_1_1StringStreams__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+auto \mbox{\hyperlink{structCatch_1_1StringStreams_a63d964a59436311c8ab4773e50bff012}{add}} () -\/$>$ std\+::pair$<$ std\+::size\+\_\+t, std\+::ostringstream \texorpdfstring{$\ast$}{*} $>$
+\item 
+void \mbox{\hyperlink{structCatch_1_1StringStreams_a1a4426498c9f67f01d5bf59994787cac}{release}} (std\+::size\+\_\+t index, std\+::ostream \texorpdfstring{$\ast$}{*}original\+Ptr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ std\+::ostringstream $>$ $>$ \mbox{\hyperlink{structCatch_1_1StringStreams_a12e806f1886bc1d2ea8e29c13a9b38ca}{m\+\_\+streams}}
+\item 
+std\+::vector$<$ std\+::size\+\_\+t $>$ \mbox{\hyperlink{structCatch_1_1StringStreams_a6c04fb72aa5c9eb66af33a56857f996f}{m\+\_\+unused}}
+\item 
+std\+::ostringstream \mbox{\hyperlink{structCatch_1_1StringStreams_a3eee987f15e8bd678b751cf0a1702a03}{m\+\_\+reference\+Stream}}
+\item 
+\mbox{\hyperlink{structCatch_1_1Detail_1_1Mutex}{Detail\+::\+Mutex}} \mbox{\hyperlink{structCatch_1_1StringStreams_a922eb4a71d6c3120804d8f24f87ab166}{m\+\_\+mutex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source}{catch\+\_\+reusable\+\_\+string\+\_\+stream.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structCatch_1_1StringStreams_a63d964a59436311c8ab4773e50bff012}\label{structCatch_1_1StringStreams_a63d964a59436311c8ab4773e50bff012} 
+\index{Catch::StringStreams@{Catch::StringStreams}!add@{add}}
+\index{add@{add}!Catch::StringStreams@{Catch::StringStreams}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily auto Catch\+::\+String\+Streams\+::add (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ std\+::pair$<$std\+::size\+\_\+t, std\+::ostringstream\texorpdfstring{$\ast$}{*}$>$ \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source}{catch\+\_\+reusable\+\_\+string\+\_\+stream.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00025}{m\+\_\+mutex}}, \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00022}{m\+\_\+streams}}, and \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00023}{m\+\_\+unused}}.
+
+\Hypertarget{structCatch_1_1StringStreams_a1a4426498c9f67f01d5bf59994787cac}\label{structCatch_1_1StringStreams_a1a4426498c9f67f01d5bf59994787cac} 
+\index{Catch::StringStreams@{Catch::StringStreams}!release@{release}}
+\index{release@{release}!Catch::StringStreams@{Catch::StringStreams}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily void Catch\+::\+String\+Streams\+::release (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index,  }\item[{std\+::ostream \texorpdfstring{$\ast$}{*}}]{original\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source}{catch\+\_\+reusable\+\_\+string\+\_\+stream.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00025}{m\+\_\+mutex}}, \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00024}{m\+\_\+reference\+Stream}}, \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00022}{m\+\_\+streams}}, and \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00023}{m\+\_\+unused}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCatch_1_1StringStreams_a922eb4a71d6c3120804d8f24f87ab166}\label{structCatch_1_1StringStreams_a922eb4a71d6c3120804d8f24f87ab166} 
+\index{Catch::StringStreams@{Catch::StringStreams}!m\_mutex@{m\_mutex}}
+\index{m\_mutex@{m\_mutex}!Catch::StringStreams@{Catch::StringStreams}}
+\doxysubsubsection{\texorpdfstring{m\_mutex}{m\_mutex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1Detail_1_1Mutex}{Detail\+::\+Mutex}} Catch\+::\+String\+Streams\+::m\+\_\+mutex}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source}{catch\+\_\+reusable\+\_\+string\+\_\+stream.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00027}{add()}}, and \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00040}{release()}}.
+
+\Hypertarget{structCatch_1_1StringStreams_a3eee987f15e8bd678b751cf0a1702a03}\label{structCatch_1_1StringStreams_a3eee987f15e8bd678b751cf0a1702a03} 
+\index{Catch::StringStreams@{Catch::StringStreams}!m\_referenceStream@{m\_referenceStream}}
+\index{m\_referenceStream@{m\_referenceStream}!Catch::StringStreams@{Catch::StringStreams}}
+\doxysubsubsection{\texorpdfstring{m\_referenceStream}{m\_referenceStream}}
+{\footnotesize\ttfamily std\+::ostringstream Catch\+::\+String\+Streams\+::m\+\_\+reference\+Stream}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source}{catch\+\_\+reusable\+\_\+string\+\_\+stream.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00040}{release()}}.
+
+\Hypertarget{structCatch_1_1StringStreams_a12e806f1886bc1d2ea8e29c13a9b38ca}\label{structCatch_1_1StringStreams_a12e806f1886bc1d2ea8e29c13a9b38ca} 
+\index{Catch::StringStreams@{Catch::StringStreams}!m\_streams@{m\_streams}}
+\index{m\_streams@{m\_streams}!Catch::StringStreams@{Catch::StringStreams}}
+\doxysubsubsection{\texorpdfstring{m\_streams}{m\_streams}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$std\+::ostringstream$>$ $>$ Catch\+::\+String\+Streams\+::m\+\_\+streams}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source}{catch\+\_\+reusable\+\_\+string\+\_\+stream.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00027}{add()}}, and \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00040}{release()}}.
+
+\Hypertarget{structCatch_1_1StringStreams_a6c04fb72aa5c9eb66af33a56857f996f}\label{structCatch_1_1StringStreams_a6c04fb72aa5c9eb66af33a56857f996f} 
+\index{Catch::StringStreams@{Catch::StringStreams}!m\_unused@{m\_unused}}
+\index{m\_unused@{m\_unused}!Catch::StringStreams@{Catch::StringStreams}}
+\doxysubsubsection{\texorpdfstring{m\_unused}{m\_unused}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::size\+\_\+t$>$ Catch\+::\+String\+Streams\+::m\+\_\+unused}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source}{catch\+\_\+reusable\+\_\+string\+\_\+stream.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00027}{add()}}, and \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00040}{release()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__reusable__string__stream_8cpp}{catch\+\_\+reusable\+\_\+string\+\_\+stream.\+cpp}}\end{DoxyCompactItemize}

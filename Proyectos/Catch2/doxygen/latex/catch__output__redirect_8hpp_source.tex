@@ -1,0 +1,80 @@
+\doxysection{catch\+\_\+output\+\_\+redirect.\+hpp}
+\hypertarget{catch__output__redirect_8hpp_source}{}\label{catch__output__redirect_8hpp_source}\index{src/catch2/internal/catch\_output\_redirect.hpp@{src/catch2/internal/catch\_output\_redirect.hpp}}
+\mbox{\hyperlink{catch__output__redirect_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_OUTPUT\_REDIRECT\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_OUTPUT\_REDIRECT\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__unique__ptr_8hpp}{catch2/internal/catch\_unique\_ptr.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00018}\mbox{\hyperlink{classCatch_1_1OutputRedirect}{00018}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1OutputRedirect}{OutputRedirect}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_redirectActive\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ activateImpl()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ deactivateImpl()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00023}\mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acc}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acc}{Kind}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00025}\mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214accaa27697ba76452ee6f2f9bb06f7ed1b4c}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214accaa27697ba76452ee6f2f9bb06f7ed1b4c}{None}},}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00027}\mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca78158060db409a0b622a79e48452e695}{00027}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca78158060db409a0b622a79e48452e695}{Streams}},}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00029}\mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca7f43d39e41a74e8176ff961cd7ceb61e}{00029}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca7f43d39e41a74e8176ff961cd7ceb61e}{FileDescriptors}},}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00032}\mbox{\hyperlink{classCatch_1_1OutputRedirect_a3939e700b924632256bb00d18d040d38}{00032}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCatch_1_1OutputRedirect_a3939e700b924632256bb00d18d040d38}{\string~OutputRedirect}}();\ \textcolor{comment}{//\ =\ default;}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Do\ we\ want\ to\ check\ that\ redirect\ is\ not\ active\ before\ retrieving\ the\ output?}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00035}\mbox{\hyperlink{classCatch_1_1OutputRedirect_abcf121998b31ab0c4b9c63d67e4ca367}{00035}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCatch_1_1OutputRedirect_abcf121998b31ab0c4b9c63d67e4ca367}{getStdout}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00036}\mbox{\hyperlink{classCatch_1_1OutputRedirect_a0876af35fa944085ced1a3c5ecd44edd}{00036}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCatch_1_1OutputRedirect_a0876af35fa944085ced1a3c5ecd44edd}{getStderr}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00037}\mbox{\hyperlink{classCatch_1_1OutputRedirect_abba69edeb694090f83e70d15ff456232}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1OutputRedirect_abba69edeb694090f83e70d15ff456232}{clearBuffers}}()\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00038}\mbox{\hyperlink{classCatch_1_1OutputRedirect_a9a5a1a582183f9866d78a875a673feb9}{00038}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1OutputRedirect_a9a5a1a582183f9866d78a875a673feb9}{isActive}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_redirectActive;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00039}\mbox{\hyperlink{classCatch_1_1OutputRedirect_a4673969e3b9732fbbf01f138ad9bc449}{00039}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1OutputRedirect_a4673969e3b9732fbbf01f138ad9bc449}{activate}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ assert(\ !m\_redirectActive\ \&\&\ \textcolor{stringliteral}{"{}redirect\ is\ already\ active"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ activateImpl();}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ m\_redirectActive\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00044}\mbox{\hyperlink{classCatch_1_1OutputRedirect_a4a162615185e5fc18e18f50bfe59c797}{00044}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1OutputRedirect_a4a162615185e5fc18e18f50bfe59c797}{deactivate}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ assert(\ m\_redirectActive\ \&\&\ \textcolor{stringliteral}{"{}redirect\ is\ not\ active"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ deactivateImpl();}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ m\_redirectActive\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00049}00049\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_a73b1b55bbb03be501419181d88db9c6f}{isRedirectAvailable}}(\ \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acc}{OutputRedirect::Kind}}\ kind);}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00052}00052\ \ \ \ \ Detail::unique\_ptr<OutputRedirect>\ \mbox{\hyperlink{namespaceCatch_ae9831933e640b35f907975c129f4763f}{makeOutputRedirect}}(\ \textcolor{keywordtype}{bool}\ actual\ );}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00054}\mbox{\hyperlink{classCatch_1_1RedirectGuard}{00054}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1OutputRedirect}{OutputRedirect}}*\ m\_redirect;}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_activate;}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_previouslyActive;}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_moved\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}(\ \textcolor{keywordtype}{bool}\ activate,\ \mbox{\hyperlink{classCatch_1_1OutputRedirect}{OutputRedirect}}\&\ redirectImpl\ );}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RedirectGuard_a74e2a0f5bf1ddd652d3e921f09e94deb}{\string~RedirectGuard}}()\ \textcolor{keyword}{noexcept}(\ false\ );}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00064}\mbox{\hyperlink{classCatch_1_1RedirectGuard_a57aae6737d3bf83de3ce64ed5982b8f1}{00064}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RedirectGuard_a57aae6737d3bf83de3ce64ed5982b8f1}{RedirectGuard}}(\ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}\ \textcolor{keyword}{const}\&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00065}\mbox{\hyperlink{classCatch_1_1RedirectGuard_a2da95561dd310a241d2081c47e606dad}{00065}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}\&\ \mbox{\hyperlink{classCatch_1_1RedirectGuard_a2da95561dd310a241d2081c47e606dad}{operator=}}(\ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}\ \textcolor{keyword}{const}\&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ C++14\ needs\ move-\/able\ guards\ to\ return\ them\ from\ functions}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}(\ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}\&\&\ rhs\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}\&\ \mbox{\hyperlink{classCatch_1_1RedirectGuard_a2da95561dd310a241d2081c47e606dad}{operator=}}(\ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}\&\&\ rhs\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00070}00070\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}\ \mbox{\hyperlink{namespaceCatch_a6869418a3394de1080b85a72d73b37e2}{scopedActivate}}(\ \mbox{\hyperlink{classCatch_1_1OutputRedirect}{OutputRedirect}}\&\ redirectImpl\ );}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RedirectGuard}{RedirectGuard}}\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ \mbox{\hyperlink{classCatch_1_1OutputRedirect}{OutputRedirect}}\&\ redirectImpl\ );}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00075}00075\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{catch__output__redirect_8hpp_source_l00077}00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_OUTPUT\_REDIRECT\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

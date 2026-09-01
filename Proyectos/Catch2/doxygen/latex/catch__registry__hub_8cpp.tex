@@ -1,0 +1,45 @@
+\doxysection{src/catch2/catch\+\_\+registry\+\_\+hub.cpp File Reference}
+\hypertarget{catch__registry__hub_8cpp}{}\label{catch__registry__hub_8cpp}\index{src/catch2/catch\_registry\_hub.cpp@{src/catch2/catch\_registry\_hub.cpp}}
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+registry\+\_\+hub.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+context.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+enforce.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+test\+\_\+case\+\_\+registry\+\_\+impl.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+reporter\+\_\+registry.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+exception\+\_\+translator\+\_\+registry.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+tag\+\_\+alias\+\_\+registry.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+startup\+\_\+exception\+\_\+registry.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+singletons.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+test\+\_\+case\+\_\+info.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+noncopyable.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+reporter\+\_\+factory.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+Include dependency graph for catch\+\_\+registry\+\_\+hub.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__registry__hub_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespaceCatch_af942e91344c728dbd8c9732dbf8054c9}{Catch\+::\+Registry\+Hub\+Singleton}} = \mbox{\hyperlink{classCatch_1_1Singleton}{Singleton}}$<$ Registry\+Hub, \mbox{\hyperlink{classCatch_1_1IRegistryHub}{IRegistry\+Hub}}, \mbox{\hyperlink{classCatch_1_1IMutableRegistryHub}{IMutable\+Registry\+Hub}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1IRegistryHub}{IRegistry\+Hub}} const \& \mbox{\hyperlink{namespaceCatch_a5d328566cb8da87b48f1fac3f319ac7a}{Catch\+::get\+Registry\+Hub}} ()
+\item 
+\mbox{\hyperlink{classCatch_1_1IMutableRegistryHub}{IMutable\+Registry\+Hub}} \& \mbox{\hyperlink{namespaceCatch_a585459763f2c7610e57de2dd22dd1ad8}{Catch\+::get\+Mutable\+Registry\+Hub}} ()
+\item 
+void \mbox{\hyperlink{namespaceCatch_a0f78e9afdebc6d4512d18e76fbf54b8c}{Catch\+::clean\+Up}} ()
+\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_adafff91485eeeeb9e9333f317cc0e3b1}{Catch\+::translate\+Active\+Exception}} ()
+\end{DoxyCompactItemize}

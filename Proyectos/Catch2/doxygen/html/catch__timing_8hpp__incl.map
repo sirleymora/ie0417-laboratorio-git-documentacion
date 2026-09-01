@@ -1,0 +1,16 @@
+<map id="src/catch2/benchmark/detail/catch_timing.hpp" name="src/catch2/benchmark/detail/catch_timing.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="116,5,295,45"/>
+<area shape="rect" id="Node000002" href="$catch__clock_8hpp.html" title=" " alt="" coords="5,93,187,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,48,133,87,129,83,179,44"/>
+<area shape="rect" id="Node000004" href="$catch__complete__invoke_8hpp.html" title=" " alt="" coords="211,93,418,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="231,44,281,83,278,87,228,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="63,189,129,214"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,134,99,175,93,175,93,134"/>
+<area shape="rect" id="Node000005" href="$catch__meta_8hpp.html" title=" " alt="" coords="194,181,353,221"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="308,135,291,170,286,168,303,132"/>
+<area shape="rect" id="Node000007" href="$catch__move__and__forward_8hpp.html" title=" " alt="" coords="377,181,559,221"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="350,131,424,172,421,177,347,136"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="325,269,417,295"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="299,219,347,258,344,263,295,224"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="446,224,397,263,394,258,443,219"/>
+</map>

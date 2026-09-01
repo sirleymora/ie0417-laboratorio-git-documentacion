@@ -1,0 +1,91 @@
+\doxysection{catch\+\_\+optimizer.\+hpp}
+\hypertarget{catch__optimizer_8hpp_source}{}\label{catch__optimizer_8hpp_source}\index{src/catch2/benchmark/catch\_optimizer.hpp@{src/catch2/benchmark/catch\_optimizer.hpp}}
+\mbox{\hyperlink{catch__optimizer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00008}00008\ \textcolor{comment}{//\ Adapted\ from\ donated\ nonius\ code.}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#ifndef\ CATCH\_OPTIMIZER\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#define\ CATCH\_OPTIMIZER\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)\ ||\ defined(\_\_IAR\_SYSTEMS\_ICC\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#\ \ \ include\ <atomic>}\ \textcolor{comment}{//\ atomic\_thread\_fence}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__move__and__forward_8hpp}{catch2/internal/catch\_move\_and\_forward.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00021}00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a74575b23d5305310e904f87eb02ff980}{Benchmark}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)\ ||\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ keep\_memory(T*\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{asm}\ \textcolor{keyword}{volatile}(\textcolor{stringliteral}{"{}"{}}\ :\ :\ \textcolor{stringliteral}{"{}g"{}}(p)\ :\ \textcolor{stringliteral}{"{}memory"{}});}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ keep\_memory()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{asm}\ \textcolor{keyword}{volatile}(\textcolor{stringliteral}{"{}"{}}\ :\ :\ :\ \textcolor{stringliteral}{"{}memory"{}});}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{optimizer\_barrier}}()\ \{\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{keep\_memory}}();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00035}00035\ \textcolor{preprocessor}{\#elif\ defined(\_MSC\_VER)\ ||\ defined(\_\_IAR\_SYSTEMS\_ICC\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00037}00037\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00038}00038\ \textcolor{preprocessor}{\#pragma\ optimize("{}"{},\ off)}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00039}00039\ \textcolor{preprocessor}{\#elif\ defined(\_\_IAR\_SYSTEMS\_ICC\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00040}00040\ \textcolor{comment}{//\ For\ IAR\ the\ pragma\ only\ affects\ the\ following\ function}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00041}00041\ \textcolor{preprocessor}{\#pragma\ optimize=disable}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00042}00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ keep\_memory(T*\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ thanks\ @milleniumbug}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ volatile*\textcolor{keyword}{>}(p)\ =\ *\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ \textcolor{keyword}{const\ }volatile*\textcolor{keyword}{>}(p);}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ equivalent\ keep\_memory()}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00049}00049\ \textcolor{preprocessor}{\#if\ defined(\_MSVC\_VER)}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00050}00050\ \textcolor{preprocessor}{\#pragma\ optimize("{}"{},\ on)}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00051}00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{optimizer\_barrier}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::atomic\_thread\_fence(std::memory\_order\_seq\_cst);}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00059}00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00062}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_af5d85780971e55f9337023ad04caa247}{00062}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_af5d85780971e55f9337023ad04caa247}{deoptimize\_value}}(T\&\&\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ keep\_memory(\&x);}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Fn,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00067}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_a9aa891ce6b44df3561292fc1a44b11fb}{00067}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_a9aa891ce6b44df3561292fc1a44b11fb}{invoke\_deoptimized}}(Fn\&\&\ fn,\ Args\&\&...\ args)\ -\/>\ std::enable\_if\_t<!std::is\_same<void,\ \textcolor{keyword}{decltype}(fn(args...))>\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{::value}}>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_af5d85780971e55f9337023ad04caa247}{deoptimize\_value}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(fn)\ (\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(args)...));}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Fn,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_a9aa891ce6b44df3561292fc1a44b11fb}{invoke\_deoptimized}}(Fn\&\&\ fn,\ Args\&\&...\ args)\ -\/>\ std::enable\_if\_t<std::is\_same<void,\ \textcolor{keyword}{decltype}(fn(args...))>\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{::value}}>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}((fn))\ (\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(args)...);}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ In\ the\ non-\/void\ case,\ we\ pass\ the\ result\ through\ \`{}deoptimize\_value`}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ force\ the\ compiler\ to\ keep\ it.\ We\ have\ no\ return\ value\ here,}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ add\ an\ optimizer\ barrier\ (ideally\ a\ memory\ clobber)\ to\ force}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ \_side\ effects\_\ of\ the\ loop\ be\ visible\ (e.g.\ writes\ to\ globals).}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Note\ that\ writes\ to\ benchmark-\/locals\ can\ be\ optimized\ away,\ as}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ would\ expect\ in\ normal\ code.}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{Detail::optimizer\_barrier}}();}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00082}00082\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Benchmark}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00083}00083\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{catch__optimizer_8hpp_source_l00085}00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_OPTIMIZER\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

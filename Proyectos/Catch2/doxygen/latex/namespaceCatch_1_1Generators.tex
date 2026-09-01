@@ -1,0 +1,667 @@
+\doxysection{Catch\+::Generators Namespace Reference}
+\hypertarget{namespaceCatch_1_1Generators}{}\label{namespaceCatch_1_1Generators}\index{Catch::Generators@{Catch::Generators}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Generators_1_1Detail}{Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Generators_1_1as}{as}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator}{Chunk\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator}{Concat\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator}{Filter\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1FixedValuesGenerator}{Fixed\+Values\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase}{Generator\+Untyped\+Base}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator}{IGenerator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1IteratorGenerator}{Iterator\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator}{Map\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1RandomFloatingGenerator}{Random\+Floating\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1RandomFloatingGenerator_3_01long_01double_01_4}{Random\+Floating\+Generator$<$ long double $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1RandomIntegerGenerator}{Random\+Integer\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1RangeGenerator}{Range\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator}{Repeat\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1SingleValueGenerator}{Single\+Value\+Generator}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator}{Take\+Generator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespaceCatch_1_1Generators_a395dd4c96d745226465c026c99f47939}{Generator\+Ptr}} = \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Catch\+::\+Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator}{IGenerator}}$<$ T $>$ $>$
+\item 
+using \mbox{\hyperlink{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}{Generator\+Base\+Ptr}} = \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Catch\+::\+Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase}{Generator\+Untyped\+Base}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGenerator\+Tracker}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceCatch_1_1Generators_ab0ad55177ac1e5f00b123909b191f436}{acquire\+Generator\+Tracker}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} generator\+Name, \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&line\+Info)
+\item 
+\mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGenerator\+Tracker}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceCatch_1_1Generators_a24e1bac2be5e078f26c395a96470b706}{create\+Generator\+Tracker}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} generator\+Name, \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} line\+Info, \mbox{\hyperlink{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}{Generator\+Base\+Ptr}} \&\&generator)
+\item 
+{\footnotesize template$<$typename T , typename DecayedT  = std\+::decay\+\_\+t$<$\+T$>$$>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ DecayedT $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a01aec1a3265d83bfd89f32782521c96b}{value}} (T \&\&value)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_aff55717239311a0e8352a4de5d29967f}{values}} (std\+::initializer\+\_\+list$<$ T $>$ values)
+\item 
+{\footnotesize template$<$typename... Ts$>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ std\+::tuple$<$ std\+::decay\+\_\+t$<$ Ts $>$... $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a2fa425101893564ec8e95b0813077257}{table}} (std\+::initializer\+\_\+list$<$ std\+::tuple$<$ std\+::decay\+\_\+t$<$ Ts $>$... $>$ $>$ tuples)
+\item 
+{\footnotesize template$<$typename T , typename... Gs$>$ }\\auto \mbox{\hyperlink{namespaceCatch_1_1Generators_a7cc95d72b060e2819b2edbbdbf8c646b}{make\+Generators}} (\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator, Gs \&\&... more\+Generators) -\/$>$ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}$<$ T $>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\auto \mbox{\hyperlink{namespaceCatch_1_1Generators_abefb1a0fab3c669b98a53037b3286d22}{make\+Generators}} (\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator) -\/$>$ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}$<$ T $>$
+\item 
+{\footnotesize template$<$typename T , typename... Gs$>$ }\\auto \mbox{\hyperlink{namespaceCatch_1_1Generators_abde22ab68f2348d7e03ca09df3b74e8d}{make\+Generators}} (T \&\&val, Gs \&\&... more\+Generators) -\/$>$ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}$<$ std\+::decay\+\_\+t$<$ T $>$ $>$
+\item 
+{\footnotesize template$<$typename T , typename U , typename... Gs$>$ }\\auto \mbox{\hyperlink{namespaceCatch_1_1Generators_aac8c5682b95d3467b013de492f21e7e2}{make\+Generators}} (\mbox{\hyperlink{structCatch_1_1Generators_1_1as}{as}}$<$ T $>$, U \&\&val, Gs \&\&... more\+Generators) -\/$>$ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}$<$ T $>$
+\item 
+{\footnotesize template$<$typename L $>$ }\\auto \mbox{\hyperlink{namespaceCatch_1_1Generators_a118b852de3ec020b428ad43245dda9c8}{generate}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} generator\+Name, \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&line\+Info, L const \&generator\+Expression) -\/$>$ typename decltype(generator\+Expression())\+::type
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_adedfdb318219078ce9107690745d2f2f}{take}} (size\+\_\+t target, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename T , typename Predicate $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{filter}} (Predicate \&\&pred, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a510cc0d72a7bab8f967827e695b981ba}{repeat}} (size\+\_\+t repeats, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename Func , typename U , typename T  = Function\+Return\+Type$<$\+Func, U$>$$>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_af33fd06c51ac9173c3bee2ddee2559a6}{map}} (Func \&\&function, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ U $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_acb4654b4e840e438e3bc204ac4d8e157}{chunk}} (size\+\_\+t size, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename T , typename... Generators$>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_aaf0dfc5b95d3f6b735fdca37574dd11c}{cat}} (\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator, \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}} \&\&... generators)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+integral$<$ T $>$\mbox{\hyperlink{namespaceCatch_1_1Generators_a01aec1a3265d83bfd89f32782521c96b}{\+::value}}, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_af9b6c581a0c05b70c899c1795a02981e}{random}} (T a, T b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+floating\+\_\+point$<$ T $>$\mbox{\hyperlink{namespaceCatch_1_1Generators_a01aec1a3265d83bfd89f32782521c96b}{\+::value}}, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a36479965bea21840bc126ce5d90d68be}{random}} (T a, T b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a6e53e65dfedc4d39febcb7b2b862afd9}{range}} (T const \&start, T const \&end, T const \&step)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a758d34927bfde268b60ea6b7dc4be6bd}{range}} (T const \&start, T const \&end)
+\item 
+{\footnotesize template$<$typename Input\+Iterator , typename Input\+Sentinel , typename Result\+Type  = std\+::remove\+\_\+const\+\_\+t$<$typename std\+::iterator\+\_\+traits$<$\+Input\+Iterator$>$\+::value\+\_\+type$>$$>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ Result\+Type $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a62a768a07d44903a0691ec620d4f72c4}{from\+\_\+range}} (Input\+Iterator from, Input\+Sentinel to)
+\item 
+{\footnotesize template$<$typename Container $>$ }\\auto \mbox{\hyperlink{namespaceCatch_1_1Generators_a787b8eb3f75f4f1ae548a8e2d8f6c351}{from\+\_\+range}} (Container const \&cnt)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}\label{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01} 
+\index{Catch::Generators@{Catch::Generators}!GeneratorBasePtr@{GeneratorBasePtr}}
+\index{GeneratorBasePtr@{GeneratorBasePtr}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{GeneratorBasePtr}{GeneratorBasePtr}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Catch\+::\+Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase}{Generator\+Untyped\+Base}} $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}{Catch\+::\+Generators\+::\+Generator\+Base\+Ptr}}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__interfaces__capture_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{catch__interfaces__capture_8hpp_source}{catch\+\_\+interfaces\+\_\+capture.\+hpp}}.
+
+\Hypertarget{namespaceCatch_1_1Generators_a395dd4c96d745226465c026c99f47939}\label{namespaceCatch_1_1Generators_a395dd4c96d745226465c026c99f47939} 
+\index{Catch::Generators@{Catch::Generators}!GeneratorPtr@{GeneratorPtr}}
+\index{GeneratorPtr@{GeneratorPtr}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{GeneratorPtr}{GeneratorPtr}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespaceCatch_1_1Generators_a395dd4c96d745226465c026c99f47939}{Catch\+::\+Generators\+::\+Generator\+Ptr}} = typedef \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Catch\+::\+Detail\+::unique\+\_\+ptr}}$<$\mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator}{IGenerator}}$<$T$>$ $>$}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{catch__generators_8hpp_source}{catch\+\_\+generators.\+hpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceCatch_1_1Generators_ab0ad55177ac1e5f00b123909b191f436}\label{namespaceCatch_1_1Generators_ab0ad55177ac1e5f00b123909b191f436} 
+\index{Catch::Generators@{Catch::Generators}!acquireGeneratorTracker@{acquireGeneratorTracker}}
+\index{acquireGeneratorTracker@{acquireGeneratorTracker}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{acquireGeneratorTracker()}{acquireGeneratorTracker()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGenerator\+Tracker}} \texorpdfstring{$\ast$}{*} Catch\+::\+Generators\+::acquire\+Generator\+Tracker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{generator\+Name,  }\item[{\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&}]{line\+Info }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{catch__generators_8cpp_source}{catch\+\_\+generators.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{classCatch_1_1IResultCapture_aa587a5e482902f91c14a4d575589fb70}{Catch\+::\+IResult\+Capture\+::acquire\+Generator\+Tracker()}}, and \mbox{\hyperlink{catch__interfaces__capture_8hpp_source_l00099}{Catch\+::get\+Result\+Capture()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__generators_8hpp_source_l00223}{generate()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_ab0ad55177ac1e5f00b123909b191f436_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_ab0ad55177ac1e5f00b123909b191f436_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_aaf0dfc5b95d3f6b735fdca37574dd11c}\label{namespaceCatch_1_1Generators_aaf0dfc5b95d3f6b735fdca37574dd11c} 
+\index{Catch::Generators@{Catch::Generators}!cat@{cat}}
+\index{cat@{cat}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{cat()}{cat()}}
+{\footnotesize\ttfamily template$<$typename T , typename... Generators$>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ Catch\+::\+Generators\+::cat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&}]{generator,  }\item[{\mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}} \&\&...}]{generators }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00307}{307}} of file \mbox{\hyperlink{catch__generators__adapters_8hpp_source}{catch\+\_\+generators\+\_\+adapters.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_aaf0dfc5b95d3f6b735fdca37574dd11c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_acb4654b4e840e438e3bc204ac4d8e157}\label{namespaceCatch_1_1Generators_acb4654b4e840e438e3bc204ac4d8e157} 
+\index{Catch::Generators@{Catch::Generators}!chunk@{chunk}}
+\index{chunk@{chunk}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{chunk()}{chunk()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ std\+::vector$<$ T $>$ $>$ Catch\+::\+Generators\+::chunk (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&}]{generator }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00259}{259}} of file \mbox{\hyperlink{catch__generators__adapters_8hpp_source}{catch\+\_\+generators\+\_\+adapters.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{namespaceCatch_1_1Generators_a24e1bac2be5e078f26c395a96470b706}\label{namespaceCatch_1_1Generators_a24e1bac2be5e078f26c395a96470b706} 
+\index{Catch::Generators@{Catch::Generators}!createGeneratorTracker@{createGeneratorTracker}}
+\index{createGeneratorTracker@{createGeneratorTracker}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{createGeneratorTracker()}{createGeneratorTracker()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGenerator\+Tracker}} \texorpdfstring{$\ast$}{*} Catch\+::\+Generators\+::create\+Generator\+Tracker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{generator\+Name,  }\item[{\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}}}]{line\+Info,  }\item[{\mbox{\hyperlink{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}{Generator\+Base\+Ptr}} \&\&}]{generator }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{catch__generators_8cpp_source}{catch\+\_\+generators.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{classCatch_1_1IResultCapture_a347c416a766bf77cde2aa05a2a27d034}{Catch\+::\+IResult\+Capture\+::create\+Generator\+Tracker()}}, and \mbox{\hyperlink{catch__interfaces__capture_8hpp_source_l00099}{Catch\+::get\+Result\+Capture()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__generators_8hpp_source_l00223}{generate()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_a24e1bac2be5e078f26c395a96470b706_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_a24e1bac2be5e078f26c395a96470b706_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}\label{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93} 
+\index{Catch::Generators@{Catch::Generators}!filter@{filter}}
+\index{filter@{filter}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{filter()}{filter()}}
+{\footnotesize\ttfamily template$<$typename T , typename Predicate $>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ Catch\+::\+Generators\+::filter (\begin{DoxyParamCaption}\item[{Predicate \&\&}]{pred,  }\item[{\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&}]{generator }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00110}{110}} of file \mbox{\hyperlink{catch__generators__adapters_8hpp_source}{catch\+\_\+generators\+\_\+adapters.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}, \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a787b8eb3f75f4f1ae548a8e2d8f6c351}\label{namespaceCatch_1_1Generators_a787b8eb3f75f4f1ae548a8e2d8f6c351} 
+\index{Catch::Generators@{Catch::Generators}!from\_range@{from\_range}}
+\index{from\_range@{from\_range}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{from\_range()}{from\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Container $>$ \\
+auto Catch\+::\+Generators\+::from\+\_\+range (\begin{DoxyParamCaption}\item[{Container const \&}]{cnt }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__range_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{catch__generators__range_8hpp_source}{catch\+\_\+generators\+\_\+range.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__generators__range_8hpp_source_l00099}{from\+\_\+range()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_a787b8eb3f75f4f1ae548a8e2d8f6c351_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a62a768a07d44903a0691ec620d4f72c4}\label{namespaceCatch_1_1Generators_a62a768a07d44903a0691ec620d4f72c4} 
+\index{Catch::Generators@{Catch::Generators}!from\_range@{from\_range}}
+\index{from\_range@{from\_range}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{from\_range()}{from\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Input\+Iterator , typename Input\+Sentinel , typename Result\+Type  = std\+::remove\+\_\+const\+\_\+t$<$typename std\+::iterator\+\_\+traits$<$\+Input\+Iterator$>$\+::value\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ Result\+Type $>$ Catch\+::\+Generators\+::from\+\_\+range (\begin{DoxyParamCaption}\item[{Input\+Iterator}]{from,  }\item[{Input\+Sentinel}]{to }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__range_8hpp_source_l00099}{99}} of file \mbox{\hyperlink{catch__generators__range_8hpp_source}{catch\+\_\+generators\+\_\+range.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__generators__range_8hpp_source_l00104}{from\+\_\+range()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespaceCatch_1_1Generators_a62a768a07d44903a0691ec620d4f72c4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespaceCatch_1_1Generators_a62a768a07d44903a0691ec620d4f72c4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a118b852de3ec020b428ad43245dda9c8}\label{namespaceCatch_1_1Generators_a118b852de3ec020b428ad43245dda9c8} 
+\index{Catch::Generators@{Catch::Generators}!generate@{generate}}
+\index{generate@{generate}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily template$<$typename L $>$ \\
+auto Catch\+::\+Generators\+::generate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{generator\+Name,  }\item[{\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&}]{line\+Info,  }\item[{L const \&}]{generator\+Expression }\end{DoxyParamCaption}) -\/$>$ typename decltype(generator\+Expression())\+::type }
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8hpp_source_l00223}{223}} of file \mbox{\hyperlink{catch__generators_8hpp_source}{catch\+\_\+generators.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__generators_8cpp_source_l00020}{acquire\+Generator\+Tracker()}}, \mbox{\hyperlink{catch__generators_8cpp_source_l00024}{create\+Generator\+Tracker()}}, \mbox{\hyperlink{classCatch_1_1Generators_1_1IGenerator_a0fb6da789cda5b4e90f036737db82485}{Catch\+::\+Generators\+::\+IGenerator$<$ T $>$\+::get()}}, \mbox{\hyperlink{classCatch_1_1IGeneratorTracker_a23be942fc51672598bfa02c678c3078a}{Catch\+::\+IGenerator\+Tracker\+::get\+Generator()}}, and \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_a118b852de3ec020b428ad43245dda9c8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_aac8c5682b95d3467b013de492f21e7e2}\label{namespaceCatch_1_1Generators_aac8c5682b95d3467b013de492f21e7e2} 
+\index{Catch::Generators@{Catch::Generators}!makeGenerators@{makeGenerators}}
+\index{makeGenerators@{makeGenerators}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{makeGenerators()}{makeGenerators()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T , typename U , typename... Gs$>$ \\
+auto Catch\+::\+Generators\+::make\+Generators (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1Generators_1_1as}{as}}$<$ T $>$}]{,  }\item[{U \&\&}]{val,  }\item[{Gs \&\&...}]{more\+Generators }\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}$<$T$>$ }
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8hpp_source_l00212}{212}} of file \mbox{\hyperlink{catch__generators_8hpp_source}{catch\+\_\+generators.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00200}{make\+Generators()}}, and \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespaceCatch_1_1Generators_aac8c5682b95d3467b013de492f21e7e2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_abefb1a0fab3c669b98a53037b3286d22}\label{namespaceCatch_1_1Generators_abefb1a0fab3c669b98a53037b3286d22} 
+\index{Catch::Generators@{Catch::Generators}!makeGenerators@{makeGenerators}}
+\index{makeGenerators@{makeGenerators}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{makeGenerators()}{makeGenerators()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+auto Catch\+::\+Generators\+::make\+Generators (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&}]{generator }\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}$<$T$>$ }
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8hpp_source_l00204}{204}} of file \mbox{\hyperlink{catch__generators_8hpp_source}{catch\+\_\+generators.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{namespaceCatch_1_1Generators_a7cc95d72b060e2819b2edbbdbf8c646b}\label{namespaceCatch_1_1Generators_a7cc95d72b060e2819b2edbbdbf8c646b} 
+\index{Catch::Generators@{Catch::Generators}!makeGenerators@{makeGenerators}}
+\index{makeGenerators@{makeGenerators}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{makeGenerators()}{makeGenerators()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T , typename... Gs$>$ \\
+auto Catch\+::\+Generators\+::make\+Generators (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&}]{generator,  }\item[{Gs \&\&...}]{more\+Generators }\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}$<$T$>$ }
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8hpp_source_l00200}{200}} of file \mbox{\hyperlink{catch__generators_8hpp_source}{catch\+\_\+generators.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}, and \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__generators_8hpp_source_l00212}{make\+Generators()}}, and \mbox{\hyperlink{catch__generators_8hpp_source_l00208}{make\+Generators()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespaceCatch_1_1Generators_a7cc95d72b060e2819b2edbbdbf8c646b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_abde22ab68f2348d7e03ca09df3b74e8d}\label{namespaceCatch_1_1Generators_abde22ab68f2348d7e03ca09df3b74e8d} 
+\index{Catch::Generators@{Catch::Generators}!makeGenerators@{makeGenerators}}
+\index{makeGenerators@{makeGenerators}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{makeGenerators()}{makeGenerators()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T , typename... Gs$>$ \\
+auto Catch\+::\+Generators\+::make\+Generators (\begin{DoxyParamCaption}\item[{T \&\&}]{val,  }\item[{Gs \&\&...}]{more\+Generators }\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}}$<$std\+::decay\+\_\+t$<$T$>$$>$ }
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8hpp_source_l00208}{208}} of file \mbox{\hyperlink{catch__generators_8hpp_source}{catch\+\_\+generators.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00200}{make\+Generators()}}, and \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespaceCatch_1_1Generators_abde22ab68f2348d7e03ca09df3b74e8d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_af33fd06c51ac9173c3bee2ddee2559a6}\label{namespaceCatch_1_1Generators_af33fd06c51ac9173c3bee2ddee2559a6} 
+\index{Catch::Generators@{Catch::Generators}!map@{map}}
+\index{map@{map}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}}
+{\footnotesize\ttfamily template$<$typename Func , typename U , typename T  = Function\+Return\+Type$<$\+Func, U$>$$>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ Catch\+::\+Generators\+::map (\begin{DoxyParamCaption}\item[{Func \&\&}]{function,  }\item[{\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ U $>$ \&\&}]{generator }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00208}{208}} of file \mbox{\hyperlink{catch__generators__adapters_8hpp_source}{catch\+\_\+generators\+\_\+adapters.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}, \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_af33fd06c51ac9173c3bee2ddee2559a6_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_af9b6c581a0c05b70c899c1795a02981e}\label{namespaceCatch_1_1Generators_af9b6c581a0c05b70c899c1795a02981e} 
+\index{Catch::Generators@{Catch::Generators}!random@{random}}
+\index{random@{random}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{random()}{random()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+integral$<$ T $>$\mbox{\hyperlink{namespaceCatch_1_1Generators_a01aec1a3265d83bfd89f32782521c96b}{\+::value}}, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ $>$ Catch\+::\+Generators\+::random (\begin{DoxyParamCaption}\item[{T}]{a,  }\item[{T}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__random_8hpp_source_l00090}{90}} of file \mbox{\hyperlink{catch__generators__random_8hpp_source}{catch\+\_\+generators\+\_\+random.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__generators__random_8cpp_source_l00017}{Catch\+::\+Generators\+::\+Detail\+::get\+Seed()}}, and \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_af9b6c581a0c05b70c899c1795a02981e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a36479965bea21840bc126ce5d90d68be}\label{namespaceCatch_1_1Generators_a36479965bea21840bc126ce5d90d68be} 
+\index{Catch::Generators@{Catch::Generators}!random@{random}}
+\index{random@{random}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{random()}{random()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+floating\+\_\+point$<$ T $>$\mbox{\hyperlink{namespaceCatch_1_1Generators_a01aec1a3265d83bfd89f32782521c96b}{\+::value}}, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ $>$ Catch\+::\+Generators\+::random (\begin{DoxyParamCaption}\item[{T}]{a,  }\item[{T}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__random_8hpp_source_l00099}{99}} of file \mbox{\hyperlink{catch__generators__random_8hpp_source}{catch\+\_\+generators\+\_\+random.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__generators__random_8cpp_source_l00017}{Catch\+::\+Generators\+::\+Detail\+::get\+Seed()}}, and \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_a36479965bea21840bc126ce5d90d68be_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a758d34927bfde268b60ea6b7dc4be6bd}\label{namespaceCatch_1_1Generators_a758d34927bfde268b60ea6b7dc4be6bd} 
+\index{Catch::Generators@{Catch::Generators}!range@{range}}
+\index{range@{range}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{range()}{range()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ Catch\+::\+Generators\+::range (\begin{DoxyParamCaption}\item[{T const \&}]{start,  }\item[{T const \&}]{end }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__range_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{catch__generators__range_8hpp_source}{catch\+\_\+generators\+\_\+range.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespaceCatch_1_1Generators_a758d34927bfde268b60ea6b7dc4be6bd_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a6e53e65dfedc4d39febcb7b2b862afd9}\label{namespaceCatch_1_1Generators_a6e53e65dfedc4d39febcb7b2b862afd9} 
+\index{Catch::Generators@{Catch::Generators}!range@{range}}
+\index{range@{range}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{range()}{range()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ Catch\+::\+Generators\+::range (\begin{DoxyParamCaption}\item[{T const \&}]{start,  }\item[{T const \&}]{end,  }\item[{T const \&}]{step }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__range_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{catch__generators__range_8hpp_source}{catch\+\_\+generators\+\_\+range.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespaceCatch_1_1Generators_a6e53e65dfedc4d39febcb7b2b862afd9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a510cc0d72a7bab8f967827e695b981ba}\label{namespaceCatch_1_1Generators_a510cc0d72a7bab8f967827e695b981ba} 
+\index{Catch::Generators@{Catch::Generators}!repeat@{repeat}}
+\index{repeat@{repeat}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{repeat()}{repeat()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ Catch\+::\+Generators\+::repeat (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{repeats,  }\item[{\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&}]{generator }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00171}{171}} of file \mbox{\hyperlink{catch__generators__adapters_8hpp_source}{catch\+\_\+generators\+\_\+adapters.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespaceCatch_1_1Generators_a510cc0d72a7bab8f967827e695b981ba_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a2fa425101893564ec8e95b0813077257}\label{namespaceCatch_1_1Generators_a2fa425101893564ec8e95b0813077257} 
+\index{Catch::Generators@{Catch::Generators}!table@{table}}
+\index{table@{table}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{table()}{table()}}
+{\footnotesize\ttfamily template$<$typename... Ts$>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ std\+::tuple$<$ std\+::decay\+\_\+t$<$ Ts $>$... $>$ $>$ Catch\+::\+Generators\+::table (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ std\+::tuple$<$ std\+::decay\+\_\+t$<$ Ts $>$... $>$ $>$}]{tuples }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8hpp_source_l00191}{191}} of file \mbox{\hyperlink{catch__generators_8hpp_source}{catch\+\_\+generators.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__generators_8hpp_source_l00124}{values()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_a2fa425101893564ec8e95b0813077257_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_adedfdb318219078ce9107690745d2f2f}\label{namespaceCatch_1_1Generators_adedfdb318219078ce9107690745d2f2f} 
+\index{Catch::Generators@{Catch::Generators}!take@{take}}
+\index{take@{take}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{take()}{take()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ Catch\+::\+Generators\+::take (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{target,  }\item[{\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&}]{generator }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{catch__generators__adapters_8hpp_source}{catch\+\_\+generators\+\_\+adapters.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceCatch_1_1Generators_adedfdb318219078ce9107690745d2f2f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_a01aec1a3265d83bfd89f32782521c96b}\label{namespaceCatch_1_1Generators_a01aec1a3265d83bfd89f32782521c96b} 
+\index{Catch::Generators@{Catch::Generators}!value@{value}}
+\index{value@{value}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily template$<$typename T , typename DecayedT  = std\+::decay\+\_\+t$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ DecayedT $>$ Catch\+::\+Generators\+::value (\begin{DoxyParamCaption}\item[{T \&\&}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8hpp_source_l00118}{118}} of file \mbox{\hyperlink{catch__generators_8hpp_source}{catch\+\_\+generators.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}, \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}, and \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespaceCatch_1_1Generators_a01aec1a3265d83bfd89f32782521c96b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespaceCatch_1_1Generators_aff55717239311a0e8352a4de5d29967f}\label{namespaceCatch_1_1Generators_aff55717239311a0e8352a4de5d29967f} 
+\index{Catch::Generators@{Catch::Generators}!values@{values}}
+\index{values@{values}!Catch::Generators@{Catch::Generators}}
+\doxysubsubsection{\texorpdfstring{values()}{values()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ Catch\+::\+Generators\+::values (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ T $>$}]{values }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators_8hpp_source_l00124}{124}} of file \mbox{\hyperlink{catch__generators_8hpp_source}{catch\+\_\+generators.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__unique__ptr_8hpp_source_l00110}{Catch\+::\+Detail\+::make\+\_\+unique()}}, and \mbox{\hyperlink{catch__generators_8hpp_source_l00124}{values()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__generators_8hpp_source_l00191}{table()}}, and \mbox{\hyperlink{catch__generators_8hpp_source_l00124}{values()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespaceCatch_1_1Generators_aff55717239311a0e8352a4de5d29967f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{namespaceCatch_1_1Generators_aff55717239311a0e8352a4de5d29967f_icgraph}
+\end{center}
+\end{figure}

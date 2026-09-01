@@ -1,0 +1,18 @@
+<map id="src/catch2/internal/catch_uniform_integer_distribution.hpp" name="src/catch2/internal/catch_uniform_integer_distribution.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="150,5,322,60"/>
+<area shape="rect" id="Node000002" href="$catch__stats_8cpp.html" title=" " alt="" coords="5,115,173,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,70,119,117,116,113,185,65"/>
+<area shape="rect" id="Node000003" href="$catch__all_8hpp.html" title=" " alt="" coords="253,387,432,412"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,74,215,129,208,198,209,234,214,270,223,305,238,337,251,353,267,366,302,384,300,389,264,370,247,357,234,340,218,307,209,271,204,234,203,197,210,128,222,73"/>
+<area shape="rect" id="Node000004" href="$catch__generators__random_8hpp.html" title=" " alt="" coords="262,211,485,251"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="248,72,264,117,289,161,314,187,343,208,339,213,311,191,285,164,259,119,243,74"/>
+<area shape="rect" id="Node000007" href="$catch__uniform__floating__point__distribution_8hpp.html" title=" " alt="" coords="299,108,474,163"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="288,65,349,106,346,110,285,70"/>
+<area shape="rect" id="Node000005" href="$catch__generators__all_8hpp.html" title=" " alt="" coords="248,299,437,339"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="364,265,352,299,347,298,359,263"/>
+<area shape="rect" id="Node000006" href="$catch__generators__random_8cpp.html" title=" " alt="" coords="462,299,685,339"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="431,254,531,296,528,301,429,259"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="345,352,345,386,340,386,340,352"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="488,158,580,187,624,206,663,228,694,252,712,279,716,293,715,309,709,324,698,340,680,354,655,366,587,383,508,393,432,398,432,393,508,388,586,378,653,361,678,350,694,337,704,322,710,308,710,294,707,281,690,255,660,232,622,211,578,192,487,163"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="384,177,379,211,373,210,378,176"/>
+</map>

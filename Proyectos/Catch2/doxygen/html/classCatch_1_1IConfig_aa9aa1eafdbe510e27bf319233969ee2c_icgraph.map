@@ -1,0 +1,7 @@
+<map id="Catch::IConfig::benchmarkNoAnalysis" name="Catch::IConfig::benchmarkNoAnalysis">
+<area shape="rect" id="Node000001" title=" " alt="" coords="228,37,421,77"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1ConsoleReporter.html#aafd3aa51f37d5e11c812d499330517a9" title="Called with the benchmark results if benchmark successfully finishes." alt="" coords="5,5,180,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,45,180,40,180,35,214,39"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1ConsoleReporter.html#a6caa775343962a467d9ebbc3403fc3d3" title="Called after probe but before the user&#45;code is being benchmarked." alt="" coords="5,69,180,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,75,180,80,180,75,214,70"/>
+</map>

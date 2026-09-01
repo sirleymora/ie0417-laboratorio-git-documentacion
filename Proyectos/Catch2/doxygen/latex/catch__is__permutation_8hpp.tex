@@ -1,0 +1,42 @@
+\doxysection{src/catch2/internal/catch\+\_\+is\+\_\+permutation.hpp File Reference}
+\hypertarget{catch__is__permutation_8hpp}{}\label{catch__is__permutation_8hpp}\index{src/catch2/internal/catch\_is\_permutation.hpp@{src/catch2/internal/catch\_is\_permutation.hpp}}
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for catch\+\_\+is\+\_\+permutation.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{catch__is__permutation_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{catch__is__permutation_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Forward\+Iter , typename Sentinel , typename T , typename Comparator $>$ }\\constexpr Forward\+Iter \mbox{\hyperlink{namespaceCatch_1_1Detail_aced3033752302bba2e139995daed0c5c}{Catch\+::\+Detail\+::find\+\_\+sentinel}} (Forward\+Iter start, Sentinel sentinel, T const \&\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}, Comparator cmp)
+\item 
+{\footnotesize template$<$typename Forward\+Iter , typename Sentinel , typename T , typename Comparator $>$ }\\constexpr std\+::ptrdiff\+\_\+t \mbox{\hyperlink{namespaceCatch_1_1Detail_a9ae60a0a2aaa179277cbbd8d0d44150f}{Catch\+::\+Detail\+::count\+\_\+sentinel}} (Forward\+Iter start, Sentinel sentinel, T const \&\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}, Comparator cmp)
+\item 
+{\footnotesize template$<$typename Forward\+Iter , typename Sentinel $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$!std\+::is\+\_\+same$<$ Forward\+Iter, Sentinel $>$\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{\+::value}}, std\+::ptrdiff\+\_\+t $>$ \mbox{\hyperlink{namespaceCatch_1_1Detail_aafa792f530d01c4c949b8237cb894261}{Catch\+::\+Detail\+::sentinel\+\_\+distance}} (Forward\+Iter iter, const Sentinel sentinel)
+\item 
+{\footnotesize template$<$typename Forward\+Iter $>$ }\\constexpr std\+::ptrdiff\+\_\+t \mbox{\hyperlink{namespaceCatch_1_1Detail_ab747c473bd09bbed147ec5d2684a1bae}{Catch\+::\+Detail\+::sentinel\+\_\+distance}} (Forward\+Iter first, Forward\+Iter last)
+\item 
+{\footnotesize template$<$typename Forward\+Iter1 , typename Sentinel1 , typename Forward\+Iter2 , typename Sentinel2 , typename Comparator $>$ }\\constexpr bool \mbox{\hyperlink{namespaceCatch_1_1Detail_a9e067de6bf00906642c10dfff568a78a}{Catch\+::\+Detail\+::check\+\_\+element\+\_\+counts}} (Forward\+Iter1 first\+\_\+1, const Sentinel1 end\+\_\+1, Forward\+Iter2 first\+\_\+2, const Sentinel2 end\+\_\+2, Comparator cmp)
+\item 
+{\footnotesize template$<$typename Forward\+Iter1 , typename Sentinel1 , typename Forward\+Iter2 , typename Sentinel2 , typename Comparator $>$ }\\constexpr bool \mbox{\hyperlink{namespaceCatch_1_1Detail_a536d3d71132106b177d222e301e1dd71}{Catch\+::\+Detail\+::is\+\_\+permutation}} (Forward\+Iter1 first\+\_\+1, const Sentinel1 end\+\_\+1, Forward\+Iter2 first\+\_\+2, const Sentinel2 end\+\_\+2, Comparator cmp)
+\end{DoxyCompactItemize}

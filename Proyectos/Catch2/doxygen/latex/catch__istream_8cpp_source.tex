@@ -1,0 +1,153 @@
+\doxysection{catch\+\_\+istream.\+cpp}
+\hypertarget{catch__istream_8cpp_source}{}\label{catch__istream_8cpp_source}\index{src/catch2/internal/catch\_istream.cpp@{src/catch2/internal/catch\_istream.cpp}}
+\mbox{\hyperlink{catch__istream_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__istream_8hpp}{catch2/internal/catch\_istream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__enforce_8hpp}{catch2/internal/catch\_enforce.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__debug__console_8hpp}{catch2/internal/catch\_debug\_console.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__unique__ptr_8hpp}{catch2/internal/catch\_unique\_ptr.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__stdstreams_8hpp}{catch2/internal/catch\_stdstreams.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00018}00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IStream_a02a8837d876f3b34c1b6209c778414cb}{Catch::IStream::\string~IStream}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00022}00022\ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ WriterF,\ std::\textcolor{keywordtype}{size\_t}\ bufferSize=256>}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }StreamBufImpl\ final\ :\ \textcolor{keyword}{public}\ std::streambuf\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ data[bufferSize];}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ WriterF\ m\_writer;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ StreamBufImpl()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setp(\ data,\ data\ +\ \textcolor{keyword}{sizeof}(data)\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \string~StreamBufImpl()\ noexcept\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ StreamBufImpl::sync();}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ overflow(\ \textcolor{keywordtype}{int}\ c\ )\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sync();}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ c\ !=\ EOF\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pbase()\ ==\ epptr()\ )}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_writer(\ std::string(\ 1,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ c\ )\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sputc(\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\ c\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sync()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pbase()\ !=\ pptr()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_writer(\ std::string(\ pbase(),\ \textcolor{keyword}{static\_cast<}std::string::size\_type\textcolor{keyword}{>}(\ pptr()\ -\/\ pbase()\ )\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setp(\ pbase(),\ epptr()\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }OutputDebugWriter\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator()(\ std::string\ \textcolor{keyword}{const}\&\ str\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !str.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_aa5dcf4750ce9a854f4b74d3c952d13cc}{writeToDebugConsole}}(\ str\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }FileStream\ final\ :\ \textcolor{keyword}{public}\ IStream\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\ m\_ofs;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ FileStream(\ std::string\ \textcolor{keyword}{const}\&\ filename\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_ofs.open(\ filename.c\_str()\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\_ENFORCE}}(\ !m\_ofs.fail(),\ \textcolor{stringliteral}{"{}Unable\ to\ open\ file:\ '"{}}\ <<\ filename\ <<\ \textcolor{charliteral}{'\(\backslash\)''}\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_ofs\ <<\ std::unitbuf;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ IStream}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\&\ stream()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_ofs;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }CoutStream\ final\ :\ \textcolor{keyword}{public}\ IStream\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\ m\_os;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ the\ streambuf\ from\ cout\ up-\/front\ because}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cout\ may\ get\ redirected\ when\ running\ tests}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ CoutStream()\ :\ m\_os(\ \mbox{\hyperlink{namespaceCatch}{Catch}}::\mbox{\hyperlink{namespaceCatch_a0179d453617ba2296f2baa99a49e7264}{cout}}().rdbuf()\ )\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ IStream}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\&\ stream()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ m\_os;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isConsole()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }CerrStream\ :\ \textcolor{keyword}{public}\ IStream\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\ m\_os;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ the\ streambuf\ from\ cerr\ up-\/front\ because}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cout\ may\ get\ redirected\ when\ running\ tests}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ CerrStream():\ m\_os(\ \mbox{\hyperlink{namespaceCatch}{Catch}}::\mbox{\hyperlink{namespaceCatch_a54c1ce08041448d684ae8edc14162cd2}{cerr}}().rdbuf()\ )\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ IStream}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\&\ stream()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ m\_os;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isConsole()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }DebugOutStream\ final\ :\ \textcolor{keyword}{public}\ IStream\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::unique\_ptr<StreamBufImpl<OutputDebugWriter>>\ m\_streamBuf;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\ m\_os;}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ DebugOutStream()}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ m\_streamBuf(\ Detail::\mbox{\hyperlink{namespaceCatch_1_1Detail_a3175310a581a4d3b7bd12cf543dfa0d9}{make\_unique}}<StreamBufImpl<OutputDebugWriter>>()\ ),}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_os(\ m\_streamBuf.get()\ )}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ IStream}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\&\ stream()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ m\_os;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00129}00129\ \ \ \ \ \}\ \textcolor{comment}{//\ unnamed\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00130}00130\ \}\ \textcolor{comment}{//\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00134}\mbox{\hyperlink{namespaceCatch_a375b927ff7cc5356ff4a71626d54c83f}{00134}}\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceCatch_a375b927ff7cc5356ff4a71626d54c83f}{makeStream}}(\ std::string\ \textcolor{keyword}{const}\&\ filename\ )\ -\/>\ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail::unique\_ptr<IStream>}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ filename.empty()\ ||\ filename\ ==\ \textcolor{stringliteral}{"{}-\/"{}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Detail::make\_unique<Detail::CoutStream>();}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ filename[0]\ ==\ \textcolor{charliteral}{'\%'}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ filename\ ==\ \textcolor{stringliteral}{"{}\%debug"{}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Detail::make\_unique<Detail::DebugOutStream>();}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ filename\ ==\ \textcolor{stringliteral}{"{}\%stderr"{}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Detail::make\_unique<Detail::CerrStream>();}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ filename\ ==\ \textcolor{stringliteral}{"{}\%stdout"{}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Detail::make\_unique<Detail::CoutStream>();}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_ad9884641eb178d2628cf3ad19c394f47}{CATCH\_ERROR}}(\ \textcolor{stringliteral}{"{}Unrecognised\ stream:\ '"{}}\ <<\ filename\ <<\ \textcolor{charliteral}{'\(\backslash\)''}\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Detail::make\_unique<Detail::FileStream>(\ filename\ );}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00150}00150\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{catch__istream_8cpp_source_l00152}00152\ \}}
+
+\end{DoxyCode}

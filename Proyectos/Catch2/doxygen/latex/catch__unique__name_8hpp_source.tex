@@ -1,0 +1,39 @@
+\doxysection{catch\+\_\+unique\+\_\+name.\+hpp}
+\hypertarget{catch__unique__name_8hpp_source}{}\label{catch__unique__name_8hpp_source}\index{src/catch2/internal/catch\_unique\_name.hpp@{src/catch2/internal/catch\_unique\_name.hpp}}
+\mbox{\hyperlink{catch__unique__name_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_UNIQUE\_NAME\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_UNIQUE\_NAME\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__compiler__capabilities_8hpp}{catch2/internal/catch\_compiler\_capabilities.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__config__counter_8hpp}{catch2/internal/catch\_config\_counter.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00014}00014\ \textcolor{comment}{//\ Fixme:\ Clang\ 22\ has\ an\ annoying\ bug\ where\ the\ localized\ suppression}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ \ \ \ \ \ \ below\ does\ not\ actually\ suppress\ the\ extension\ warning\ from}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ using\ \_\_COUNTER\_\_,\ so\ we\ have\ to\ leak\ the\ suppression\ for\ the}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ \ \ \ \ \ \ whole\ TU.\ Hopefully\ Clang\ 23\ fixes\ this\ before\ full\ release.}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ \ \ \ \ \ \ As\ AppleClang\ does\ its\ own\ thing\ version-\/wise,\ we\ ignore\ it}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00019}00019\ \textcolor{comment}{//\ \ \ \ \ \ \ \ completely.}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#if\ defined(\ \_\_clang\_\_\ )\ \&\&\ (\ \_\_clang\_major\_\_\ >=\ 22\ )\ \&\&\ !defined(\ \_\_APPLE\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00021}00021\ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a2df5668ab531f6b9392c5f9ef09a6c60}{CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS}}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00024}\mbox{\hyperlink{catch__unique__name_8hpp_a7c21e89d8b7727757ce9ca2b848f1cda}{00024}}\ \textcolor{preprocessor}{\#define\ INTERNAL\_CATCH\_UNIQUE\_NAME\_LINE2(\ name,\ line\ )\ name\#\#line}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00025}\mbox{\hyperlink{catch__unique__name_8hpp_a1b51a086ea21a750bd306ac0ed4d2a95}{00025}}\ \textcolor{preprocessor}{\#define\ INTERNAL\_CATCH\_UNIQUE\_NAME\_LINE(\ name,\ line\ )\ INTERNAL\_CATCH\_UNIQUE\_NAME\_LINE2(\ name,\ line\ )}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#ifdef\ CATCH\_CONFIG\_COUNTER}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#\ \ define\ INTERNAL\_CATCH\_UNIQUE\_NAME(\ name\ )\ INTERNAL\_CATCH\_UNIQUE\_NAME\_LINE(\ name,\ \_\_COUNTER\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00030}\mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{00030}}\ \textcolor{preprocessor}{\#\ \ define\ INTERNAL\_CATCH\_UNIQUE\_NAME(\ name\ )\ INTERNAL\_CATCH\_UNIQUE\_NAME\_LINE(\ name,\ \_\_LINE\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00031}00031\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{catch__unique__name_8hpp_source_l00033}00033\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_UNIQUE\_NAME\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

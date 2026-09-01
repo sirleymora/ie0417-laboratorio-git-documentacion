@@ -1,0 +1,268 @@
+\doxysection{catch\+\_\+test\+\_\+case\+\_\+info.\+cpp}
+\hypertarget{catch__test__case__info_8cpp_source}{}\label{catch__test__case__info_8cpp_source}\index{src/catch2/catch\_test\_case\_info.cpp@{src/catch2/catch\_test\_case\_info.cpp}}
+\mbox{\hyperlink{catch__test__case__info_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__info_8hpp}{catch2/catch\_test\_case\_info.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__enforce_8hpp}{catch2/internal/catch\_enforce.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__string__manip_8hpp}{catch2/internal/catch\_string\_manip.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__case__insensitive__comparisons_8hpp}{catch2/internal/catch\_case\_insensitive\_comparisons.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__registry_8hpp}{catch2/internal/catch\_test\_registry.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00018}00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }TCP\_underlying\_type\ =\ uint8\_t;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}})\ ==\ \textcolor{keyword}{sizeof}(TCP\_underlying\_type),}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}The\ size\ of\ the\ TestCaseProperties\ is\ different\ from\ the\ assumed\ size"{}});}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\ \mbox{\hyperlink{namespaceCatch_a669c2650aec6ea2e3e0710b7fc552e68}{operator|}}(\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\ lhs,\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\ rhs)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}TCP\_underlying\_type\textcolor{keyword}{>}(lhs)\ |\ \textcolor{keyword}{static\_cast<}TCP\_underlying\_type\textcolor{keyword}{>}(rhs)}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\&\ operator|=(\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\&\ lhs,\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\ rhs)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ lhs\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}TCP\_underlying\_type\textcolor{keyword}{>}(lhs)\ |\ \textcolor{keyword}{static\_cast<}TCP\_underlying\_type\textcolor{keyword}{>}(rhs)}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lhs;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\ \mbox{\hyperlink{namespaceCatch_ad341553444c5b91882d4b52e27adaf57}{operator\&}}(\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\ lhs,\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\ rhs)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}TCP\_underlying\_type\textcolor{keyword}{>}(lhs)\ \&\ \textcolor{keyword}{static\_cast<}TCP\_underlying\_type\textcolor{keyword}{>}(rhs)}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ applies(\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\ tcp)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{static\_cast<}TCP\_underlying\_type\textcolor{keyword}{>}(\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a6adf97f83acf6453d4a6a4b1070f3754}{TestCaseProperties::None}})\ ==\ 0,}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}TestCaseProperties::None\ must\ be\ equal\ to\ 0"{}});}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tcp\ !=\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a6adf97f83acf6453d4a6a4b1070f3754}{TestCaseProperties::None}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02}{TestCaseProperties}}\ parseSpecialTag(\ StringRef\ tag\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !tag.empty()\ \&\&\ tag[0]\ ==\ \textcolor{charliteral}{'.'}\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a704ebd98fadbe40eab37deab32907fc8}{TestCaseProperties::IsHidden}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ tag\ ==\ \textcolor{stringliteral}{"{}!throws"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a83a5849d32875836435ece98f910621a}{TestCaseProperties::Throws}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ tag\ ==\ \textcolor{stringliteral}{"{}!shouldfail"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a882461edf145e1dd43623ee081cebd92}{TestCaseProperties::ShouldFail}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ tag\ ==\ \textcolor{stringliteral}{"{}!mayfail"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02ae32b66ce1369c92a2d351ae9636e6bd2}{TestCaseProperties::MayFail}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ tag\ ==\ \textcolor{stringliteral}{"{}!nonportable"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02ad26cb48423c81ccc797b8d10f8525fe5}{TestCaseProperties::NonPortable}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ tag\ ==\ \textcolor{stringliteral}{"{}!benchmark"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a74575b23d5305310e904f87eb02ff980}{TestCaseProperties::Benchmark}}\ |\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a704ebd98fadbe40eab37deab32907fc8}{TestCaseProperties::IsHidden}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a6adf97f83acf6453d4a6a4b1070f3754}{TestCaseProperties::None}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isReservedTag(\ StringRef\ tag\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ parseSpecialTag(\ tag\ )\ ==\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a6adf97f83acf6453d4a6a4b1070f3754}{TestCaseProperties::None}}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ tag.size()\ >\ 0}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ !std::isalnum(\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\textcolor{keyword}{>}(tag[0])\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ enforceNotReservedTag(\ StringRef\ tag,\ SourceLineInfo\ \textcolor{keyword}{const}\&\ \_lineInfo\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\_ENFORCE}}(\ !isReservedTag(tag),}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Tag\ name:\ ["{}}\ <<\ tag\ <<\ \textcolor{stringliteral}{"{}]\ is\ not\ allowed.\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Tag\ names\ starting\ with\ non\ alphanumeric\ characters\ are\ reserved\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_lineInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ std::string\ makeDefaultName()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Anonymous\ test\ case\ "{}}\ +\ std::to\_string(++counter);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ StringRef\ extractFilenamePart(StringRef\ filename)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lastDot\ =\ filename.size();}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lastDot\ >\ 0\ \&\&\ filename[lastDot\ -\/\ 1]\ !=\ \textcolor{charliteral}{'.'})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/lastDot;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ In\ theory\ we\ could\ have\ filename\ without\ any\ extension\ in\ it}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ lastDot\ ==\ 0\ )\ \{\ \textcolor{keywordflow}{return}\ StringRef();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/lastDot;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ nameStart\ =\ lastDot;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (nameStart\ >\ 0\ \&\&\ filename[nameStart\ -\/\ 1]\ !=\ \textcolor{charliteral}{'/'}\ \&\&\ filename[nameStart\ -\/\ 1]\ !=\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/nameStart;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ filename.substr(nameStart,\ lastDot\ -\/\ nameStart);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Returns\ the\ upper\ bound\ on\ size\ of\ extra\ tags\ ([\#file]+[.])}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ sizeOfExtraTags(StringRef\ filepath)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ [.]\ is\ 3,\ [\#]\ is\ another\ 3}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ extras\ =\ 3\ +\ 3;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ extractFilenamePart(filepath).size()\ +\ extras;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00106}00106\ \ \ \ \ \}\ \textcolor{comment}{//\ end\ unnamed\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00108}\mbox{\hyperlink{structCatch_1_1Tag_a54e22769a715c554d441e7c2d8987cc2}{00108}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_ad31a3e3a246a7ae3b28d62db42ad5837}{operator<}}(\ \ \mbox{\hyperlink{structCatch_1_1Tag}{Tag}}\ \textcolor{keyword}{const}\&\ lhs,\ \mbox{\hyperlink{structCatch_1_1Tag}{Tag}}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Detail_1_1CaseInsensitiveLess}{Detail::CaseInsensitiveLess}}\ cmp;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cmp(\ lhs.\mbox{\hyperlink{structCatch_1_1Tag_af589567e86a42fac84b69f4371b67dea}{original}},\ rhs.\mbox{\hyperlink{structCatch_1_1Tag_af589567e86a42fac84b69f4371b67dea}{original}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00112}\mbox{\hyperlink{structCatch_1_1Tag_a9c1ed766a16aeca33c8215bfebba0a7f}{00112}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_a2842e594466b16b9ca13e09077b44406}{operator==}}(\ \mbox{\hyperlink{structCatch_1_1Tag}{Tag}}\ \textcolor{keyword}{const}\&\ lhs,\ \mbox{\hyperlink{structCatch_1_1Tag}{Tag}}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Detail_1_1CaseInsensitiveEqualTo}{Detail::CaseInsensitiveEqualTo}}\ cmp;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cmp(\ lhs.\mbox{\hyperlink{structCatch_1_1Tag_af589567e86a42fac84b69f4371b67dea}{original}},\ rhs.\mbox{\hyperlink{structCatch_1_1Tag_af589567e86a42fac84b69f4371b67dea}{original}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00117}00117\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail::unique\_ptr<TestCaseInfo>}}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00118}\mbox{\hyperlink{namespaceCatch_ac0bff8ed2ec530c293ad520bf2ce7075}{00118}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_ac0bff8ed2ec530c293ad520bf2ce7075}{makeTestCaseInfo}}(\mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ \_className,}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1NameAndTags}{NameAndTags}}\ \textcolor{keyword}{const}\&\ nameAndTags,}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{SourceLineInfo}}\ \textcolor{keyword}{const}\&\ \_lineInfo\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Detail::make\_unique<TestCaseInfo>(\_className,\ nameAndTags,\ \_lineInfo);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00122}00122\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00124}\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a16f6e78e73631fe7dd4630e45ffe31b1}{00124}}\ \ \ \ \ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a16f6e78e73631fe7dd4630e45ffe31b1}{TestCaseInfo::TestCaseInfo}}(\mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ \_className,}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1NameAndTags}{NameAndTags}}\ \textcolor{keyword}{const}\&\ \_nameAndTags,}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{SourceLineInfo}}\ \textcolor{keyword}{const}\&\ \_lineInfo):}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ name(\ \_nameAndTags.name.empty()\ ?\ makeDefaultName()\ :\ \_nameAndTags.name\ ),}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ className(\ \_className\ ),}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ lineInfo(\ \_lineInfo\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00130}00130\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ originalTags\ =\ \_nameAndTags.\mbox{\hyperlink{structCatch_1_1NameAndTags_a74062ed1138834a348424eb7ed900c57}{tags}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ need\ to\ reserve\ enough\ space\ to\ store\ all\ of\ the\ tags}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (including\ optional\ hidden\ tag\ and\ filename\ tag)}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ requiredSize\ =\ originalTags.\mbox{\hyperlink{classCatch_1_1StringRef_acb22719801de2b64361b4c283080d4e5}{size}}()\ +\ sizeOfExtraTags(\_lineInfo.\mbox{\hyperlink{structCatch_1_1SourceLineInfo_ad65537703e9f08c1fa7777fbc3f0c617}{file}});}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ backingTags.reserve(requiredSize);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ cannot\ copy\ the\ tags\ directly,\ as\ we\ need\ to\ normalize}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ some\ tags,\ so\ that\ [.foo]\ is\ copied\ as\ [.][foo].}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ tagStart\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ tagEnd\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ inTag\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ idx\ =\ 0;\ idx\ <\ originalTags.\mbox{\hyperlink{classCatch_1_1StringRef_acb22719801de2b64361b4c283080d4e5}{size}}();\ ++idx)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ c\ =\ originalTags[idx];}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ \textcolor{charliteral}{'['})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\_ENFORCE}}(}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !inTag,}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Found\ '['\ inside\ a\ tag\ while\ registering\ test\ case\ '"{}}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_nameAndTags.\mbox{\hyperlink{structCatch_1_1NameAndTags_a7cbea60e0cebfa622c667008eb011420}{name}}\ <<\ \textcolor{stringliteral}{"{}'\ at\ "{}}\ <<\ \_lineInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inTag\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tagStart\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ \textcolor{charliteral}{']'})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\_ENFORCE}}(}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inTag,}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Found\ unmatched\ ']'\ while\ registering\ test\ case\ '"{}}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_nameAndTags.\mbox{\hyperlink{structCatch_1_1NameAndTags_a7cbea60e0cebfa622c667008eb011420}{name}}\ <<\ \textcolor{stringliteral}{"{}'\ at\ "{}}\ <<\ \_lineInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inTag\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tagEnd\ =\ idx;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(tagStart\ <\ tagEnd);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ need\ to\ check\ the\ tag\ for\ special\ meanings,\ copy}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ over\ to\ backing\ storage\ and\ actually\ reference\ the}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ backing\ storage\ in\ the\ saved\ tags}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ tagStr\ =\ originalTags.\mbox{\hyperlink{classCatch_1_1StringRef_aabf71767dfce1066e721456d54972bc5}{substr}}(tagStart+1,\ tagEnd\ -\/\ tagStart\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\_ENFORCE}}(\ !tagStr.\mbox{\hyperlink{classCatch_1_1StringRef_a0b4841c28cbb14ba07296964a0187023}{empty}}(),}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Found\ an\ empty\ tag\ while\ registering\ test\ case\ '"{}}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_nameAndTags.\mbox{\hyperlink{structCatch_1_1NameAndTags_a7cbea60e0cebfa622c667008eb011420}{name}}\ <<\ \textcolor{stringliteral}{"{}'\ at\ "{}}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_lineInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ enforceNotReservedTag(tagStr,\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_aa9407b7f442655b51a2aad24b3fa2fd3}{lineInfo}});}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a87c884e688d020b9939dc7ff5324c8b5}{properties}}\ |=\ parseSpecialTag(tagStr);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ When\ copying\ a\ tag\ to\ the\ backing\ storage,\ we\ need\ to}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ if\ it\ is\ a\ merged\ hide\ tag,\ such\ as\ [.foo],\ and}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ it\ is,\ we\ need\ to\ handle\ it\ as\ if\ it\ was\ [foo].}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tagStr.\mbox{\hyperlink{classCatch_1_1StringRef_acb22719801de2b64361b4c283080d4e5}{size}}()\ >\ 1\ \&\&\ tagStr[0]\ ==\ \textcolor{charliteral}{'.'})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tagStr\ =\ tagStr.\mbox{\hyperlink{classCatch_1_1StringRef_aabf71767dfce1066e721456d54972bc5}{substr}}(1,\ tagStr.\mbox{\hyperlink{classCatch_1_1StringRef_acb22719801de2b64361b4c283080d4e5}{size}}()\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ skip\ over\ dealing\ with\ the\ [.]\ tag,\ as\ we\ will\ add}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ later\ unconditionally\ and\ then\ sort\ and\ unique\ all}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ tags.}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ internalAppendTag(tagStr);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\_ENFORCE}}(\ !inTag,}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Found\ an\ unclosed\ tag\ while\ registering\ test\ case\ '"{}}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \_nameAndTags.\mbox{\hyperlink{structCatch_1_1NameAndTags_a7cbea60e0cebfa622c667008eb011420}{name}}\ <<\ \textcolor{stringliteral}{"{}'\ at\ "{}}\ <<\ \_lineInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ [.]\ if\ relevant}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a934b1a0952700743e99d62ec1731a2e2}{isHidden}}())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ internalAppendTag(\textcolor{stringliteral}{"{}."{}}\_sr);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sort\ and\ prepare\ tags}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ std::sort(begin(\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}}),\ end(\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}}));}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}}.erase(std::unique(begin(\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}}),\ end(\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}})),}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end(\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}}));}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00200}00200\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00202}\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a934b1a0952700743e99d62ec1731a2e2}{00202}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a934b1a0952700743e99d62ec1731a2e2}{TestCaseInfo::isHidden}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ applies(\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a87c884e688d020b9939dc7ff5324c8b5}{properties}}\ \&\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a704ebd98fadbe40eab37deab32907fc8}{TestCaseProperties::IsHidden}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00204}00204\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00205}\mbox{\hyperlink{structCatch_1_1TestCaseInfo_afc70d4379a2070cc22b693ffe3932c1a}{00205}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_afc70d4379a2070cc22b693ffe3932c1a}{TestCaseInfo::throws}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ applies(\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a87c884e688d020b9939dc7ff5324c8b5}{properties}}\ \&\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a83a5849d32875836435ece98f910621a}{TestCaseProperties::Throws}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00207}00207\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00208}\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a5f37291295e3a6de2dd85324c941edaf}{00208}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a5f37291295e3a6de2dd85324c941edaf}{TestCaseInfo::okToFail}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ applies(\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a87c884e688d020b9939dc7ff5324c8b5}{properties}}\ \&\ (\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a882461edf145e1dd43623ee081cebd92}{TestCaseProperties::ShouldFail}}\ |\ \mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02ae32b66ce1369c92a2d351ae9636e6bd2}{TestCaseProperties::MayFail}}\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00210}00210\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00211}\mbox{\hyperlink{structCatch_1_1TestCaseInfo_abe33d81233230cdae8afa714688e905b}{00211}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_abe33d81233230cdae8afa714688e905b}{TestCaseInfo::expectedToFail}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ applies(\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a87c884e688d020b9939dc7ff5324c8b5}{properties}}\ \&\ (\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a882461edf145e1dd43623ee081cebd92}{TestCaseProperties::ShouldFail}})\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00215}\mbox{\hyperlink{structCatch_1_1TestCaseInfo_ac1fba1f96191b764fe164a5602d9e9ab}{00215}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_ac1fba1f96191b764fe164a5602d9e9ab}{TestCaseInfo::addFilenameTag}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ std::string\ combined(\textcolor{stringliteral}{"{}\#"{}});}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ combined\ +=\ extractFilenamePart(\mbox{\hyperlink{structCatch_1_1TestCaseInfo_aa9407b7f442655b51a2aad24b3fa2fd3}{lineInfo}}.\mbox{\hyperlink{structCatch_1_1SourceLineInfo_ad65537703e9f08c1fa7777fbc3f0c617}{file}});}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ internalAppendTag(combined);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00219}00219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00221}\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a17506de67fb18e27511c17f8a81119d8}{00221}}\ \ \ \ \ std::string\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a17506de67fb18e27511c17f8a81119d8}{TestCaseInfo::tagsAsString}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ std::string\ ret;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ '['\ and\ ']'\ per\ tag}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ std::size\_t\ full\_size\ =\ 2\ *\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}}.size();}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ tag\ :\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ full\_size\ +=\ tag.original.size();}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ ret.reserve(full\_size);}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ tag\ :\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ ret.push\_back(\textcolor{charliteral}{'['});}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ ret\ +=\ tag.original;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ ret.push\_back(\textcolor{charliteral}{']'});}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00236}00236\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00238}00238\ \ \ \ \ \textcolor{keywordtype}{void}\ TestCaseInfo::internalAppendTag(\mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ tagStr)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ backingTags\ +=\ \textcolor{charliteral}{'['};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ backingStart\ =\ backingTags.size();}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ backingTags\ +=\ tagStr;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ backingEnd\ =\ backingTags.size();}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ backingTags\ +=\ \textcolor{charliteral}{']'};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}}.emplace\_back(\mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}(backingTags.c\_str()\ +\ backingStart,\ backingEnd\ -\/\ backingStart));}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00245}00245\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00247}\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a943c73b4831f37b43ae87d3ebe5c793e}{00247}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_ad31a3e3a246a7ae3b28d62db42ad5837}{operator<}}(\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo}{TestCaseInfo}}\ \textcolor{keyword}{const}\&\ lhs,\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo}{TestCaseInfo}}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ want\ to\ avoid\ redoing\ the\ string\ comparisons\ multiple\ times,}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ so\ we\ store\ the\ result\ of\ a\ three-\/way\ comparison\ before\ using}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ it\ in\ the\ actual\ comparison\ logic.}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ cmpName\ =\ lhs.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a463794e2f5cfead307c93efd134ade36}{name}}.compare(\ rhs.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a463794e2f5cfead307c93efd134ade36}{name}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ cmpName\ !=\ 0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cmpName\ <\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ cmpClassName\ =\ lhs.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a1daaddce433ef171e34bec5a4719e772}{className}}.\mbox{\hyperlink{classCatch_1_1StringRef_a4634fb03222f376c5d76e8c16f1743d1}{compare}}(\ rhs.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a1daaddce433ef171e34bec5a4719e772}{className}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ cmpClassName\ !=\ 0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cmpClassName\ <\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lhs.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}}\ <\ rhs.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}};}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00260}00260\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{catch__test__case__info_8cpp_source_l00262}00262\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+
+\end{DoxyCode}

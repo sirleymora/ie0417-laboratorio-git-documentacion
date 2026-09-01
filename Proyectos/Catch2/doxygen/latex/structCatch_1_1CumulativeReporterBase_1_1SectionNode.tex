@@ -1,0 +1,168 @@
+\doxysection{Catch\+::Cumulative\+Reporter\+Base\+::Section\+Node Struct Reference}
+\hypertarget{structCatch_1_1CumulativeReporterBase_1_1SectionNode}{}\label{structCatch_1_1CumulativeReporterBase_1_1SectionNode}\index{Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}}
+
+
+{\ttfamily \#include $<$catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp$>$}
+
+
+
+Collaboration diagram for Catch\+::Cumulative\+Reporter\+Base\+::Section\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{structCatch_1_1CumulativeReporterBase_1_1SectionNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode_adee3ee947f61300bc72266ee007cc1bd}{Section\+Node}} (\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} const \&\+\_\+stats)
+\item 
+bool \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode_aacf6c6992b62402da8f8e292c557791d}{operator==}} (\mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode}{Section\+Node}} const \&other) const
+\item 
+bool \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode_a5daafcec624e79b710ab1369759a2033}{has\+Any\+Assertions}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode_ace54e2e5f29aad1484bfe501478ef686}{stats}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode}{Section\+Node}} $>$ $>$ \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode_a2582b7ea64bdb6d780b2f53cb3d157d5}{child\+Sections}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1Detail_1_1AssertionOrBenchmarkResult}{Detail\+::\+Assertion\+Or\+Benchmark\+Result}} $>$ \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode_a0afc4cf48aa2201199a13398538e5f21}{assertions\+And\+Benchmarks}}
+\item 
+std\+::string \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode_afc6a8c08567d60bb612133632d2992a3}{std\+Out}}
+\item 
+std\+::string \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode_ae8e8c7ef27b55ef96d0f15af231fdfb8}{std\+Err}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00072}{72}} of file \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structCatch_1_1CumulativeReporterBase_1_1SectionNode_adee3ee947f61300bc72266ee007cc1bd}\label{structCatch_1_1CumulativeReporterBase_1_1SectionNode_adee3ee947f61300bc72266ee007cc1bd} 
+\index{Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}!SectionNode@{SectionNode}}
+\index{SectionNode@{SectionNode}!Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}}
+\doxysubsubsection{\texorpdfstring{SectionNode()}{SectionNode()}}
+{\footnotesize\ttfamily Catch\+::\+Cumulative\+Reporter\+Base\+::\+Section\+Node\+::\+Section\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} const \&}]{\+\_\+stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structCatch_1_1CumulativeReporterBase_1_1SectionNode_a5daafcec624e79b710ab1369759a2033}\label{structCatch_1_1CumulativeReporterBase_1_1SectionNode_a5daafcec624e79b710ab1369759a2033} 
+\index{Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}!hasAnyAssertions@{hasAnyAssertions}}
+\index{hasAnyAssertions@{hasAnyAssertions}!Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}}
+\doxysubsubsection{\texorpdfstring{hasAnyAssertions()}{hasAnyAssertions()}}
+{\footnotesize\ttfamily bool Catch\+::\+Cumulative\+Reporter\+Base\+::\+Section\+Node\+::has\+Any\+Assertions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source_l00148}{148}} of file \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00083}{assertions\+And\+Benchmarks}}.
+
+\Hypertarget{structCatch_1_1CumulativeReporterBase_1_1SectionNode_aacf6c6992b62402da8f8e292c557791d}\label{structCatch_1_1CumulativeReporterBase_1_1SectionNode_aacf6c6992b62402da8f8e292c557791d} 
+\index{Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}!operator==@{operator==}}
+\index{operator==@{operator==}!Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Catch\+::\+Cumulative\+Reporter\+Base\+::\+Section\+Node\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode}{Section\+Node}} const \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00075}{75}} of file \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__section__info_8hpp_source_l00031}{Catch\+::\+Section\+Info\+::line\+Info}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00082}{Catch\+::\+Section\+Stats\+::section\+Info}}, and \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00081}{stats}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCatch_1_1CumulativeReporterBase_1_1SectionNode_a0afc4cf48aa2201199a13398538e5f21}\label{structCatch_1_1CumulativeReporterBase_1_1SectionNode_a0afc4cf48aa2201199a13398538e5f21} 
+\index{Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}!assertionsAndBenchmarks@{assertionsAndBenchmarks}}
+\index{assertionsAndBenchmarks@{assertionsAndBenchmarks}!Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}}
+\doxysubsubsection{\texorpdfstring{assertionsAndBenchmarks}{assertionsAndBenchmarks}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classCatch_1_1Detail_1_1AssertionOrBenchmarkResult}{Detail\+::\+Assertion\+Or\+Benchmark\+Result}}$>$ Catch\+::\+Cumulative\+Reporter\+Base\+::\+Section\+Node\+::assertions\+And\+Benchmarks}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source_l00099}{Catch\+::\+Cumulative\+Reporter\+Base\+::assertion\+Ended()}}, \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source_l00148}{has\+Any\+Assertions()}}, and \mbox{\hyperlink{catch__reporter__sonarqube_8cpp_source_l00090}{Catch\+::\+Sonar\+Qube\+Reporter\+::write\+Assertions()}}.
+
+\Hypertarget{structCatch_1_1CumulativeReporterBase_1_1SectionNode_a2582b7ea64bdb6d780b2f53cb3d157d5}\label{structCatch_1_1CumulativeReporterBase_1_1SectionNode_a2582b7ea64bdb6d780b2f53cb3d157d5} 
+\index{Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}!childSections@{childSections}}
+\index{childSections@{childSections}!Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}}
+\doxysubsubsection{\texorpdfstring{childSections}{childSections}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$\mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode}{Section\+Node}}$>$ $>$ Catch\+::\+Cumulative\+Reporter\+Base\+::\+Section\+Node\+::child\+Sections}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00082}{82}} of file \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source_l00070}{Catch\+::\+Cumulative\+Reporter\+Base\+::section\+Starting()}}, and \mbox{\hyperlink{catch__reporter__sonarqube_8cpp_source_l00071}{Catch\+::\+Sonar\+Qube\+Reporter\+::write\+Section()}}.
+
+\Hypertarget{structCatch_1_1CumulativeReporterBase_1_1SectionNode_ace54e2e5f29aad1484bfe501478ef686}\label{structCatch_1_1CumulativeReporterBase_1_1SectionNode_ace54e2e5f29aad1484bfe501478ef686} 
+\index{Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}!stats@{stats}}
+\index{stats@{stats}!Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}}
+\doxysubsubsection{\texorpdfstring{stats}{stats}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} Catch\+::\+Cumulative\+Reporter\+Base\+::\+Section\+Node\+::stats}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00075}{operator==()}}, \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source_l00121}{Catch\+::\+Cumulative\+Reporter\+Base\+::section\+Ended()}}, and \mbox{\hyperlink{catch__reporter__sonarqube_8cpp_source_l00071}{Catch\+::\+Sonar\+Qube\+Reporter\+::write\+Section()}}.
+
+\Hypertarget{structCatch_1_1CumulativeReporterBase_1_1SectionNode_ae8e8c7ef27b55ef96d0f15af231fdfb8}\label{structCatch_1_1CumulativeReporterBase_1_1SectionNode_ae8e8c7ef27b55ef96d0f15af231fdfb8} 
+\index{Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}!stdErr@{stdErr}}
+\index{stdErr@{stdErr}!Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}}
+\doxysubsubsection{\texorpdfstring{stdErr}{stdErr}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Cumulative\+Reporter\+Base\+::\+Section\+Node\+::std\+Err}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source_l00128}{Catch\+::\+Cumulative\+Reporter\+Base\+::test\+Case\+Ended()}}, and \mbox{\hyperlink{catch__reporter__sonarqube_8cpp_source_l00071}{Catch\+::\+Sonar\+Qube\+Reporter\+::write\+Section()}}.
+
+\Hypertarget{structCatch_1_1CumulativeReporterBase_1_1SectionNode_afc6a8c08567d60bb612133632d2992a3}\label{structCatch_1_1CumulativeReporterBase_1_1SectionNode_afc6a8c08567d60bb612133632d2992a3} 
+\index{Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}!stdOut@{stdOut}}
+\index{stdOut@{stdOut}!Catch::CumulativeReporterBase::SectionNode@{Catch::CumulativeReporterBase::SectionNode}}
+\doxysubsubsection{\texorpdfstring{stdOut}{stdOut}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Cumulative\+Reporter\+Base\+::\+Section\+Node\+::std\+Out}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source_l00128}{Catch\+::\+Cumulative\+Reporter\+Base\+::test\+Case\+Ended()}}, and \mbox{\hyperlink{catch__reporter__sonarqube_8cpp_source_l00071}{Catch\+::\+Sonar\+Qube\+Reporter\+::write\+Section()}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__cumulative__base_8hpp}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+hpp}}\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__cumulative__base_8cpp}{catch\+\_\+reporter\+\_\+cumulative\+\_\+base.\+cpp}}\end{DoxyCompactItemize}

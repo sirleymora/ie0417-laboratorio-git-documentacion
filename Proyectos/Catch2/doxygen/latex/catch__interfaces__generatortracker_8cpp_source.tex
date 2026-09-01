@@ -1,0 +1,67 @@
+\doxysection{catch\+\_\+interfaces\+\_\+generatortracker.\+cpp}
+\hypertarget{catch__interfaces__generatortracker_8cpp_source}{}\label{catch__interfaces__generatortracker_8cpp_source}\index{src/catch2/interfaces/catch\_interfaces\_generatortracker.cpp@{src/catch2/interfaces/catch\_interfaces\_generatortracker.cpp}}
+\mbox{\hyperlink{catch__interfaces__generatortracker_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__generatortracker_8hpp}{catch2/interfaces/catch\_interfaces\_generatortracker.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__generators_8hpp}{catch2/generators/catch\_generators.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00014}00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{namespace\ }Generators\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00017}\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase_a1ea657675ef9274645608f521238ff54}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase_a1ea657675ef9274645608f521238ff54}{GeneratorUntypedBase::countedNext}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ret\ =\ next();}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ ret\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_stringReprCache.clear();}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++m\_currentElementIndex;}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ GeneratorUntypedBase::skipToNthElementImpl(\ std::size\_t\ n\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keywordtype}{size\_t}\ i\ =\ m\_currentElementIndex;\ i\ <\ n;\ ++i\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isValid\ =\ next();}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !isValid\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Generators_1_1Detail_aafeb004667a171060fc6aa2b66fc63a4}{Detail::throw\_generator\_exception}}(}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Could\ not\ jump\ to\ Nth\ element:\ not\ enough\ elements"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00036}\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase_ac9e7b95fb9cfa47098b7245ec7fa80b2}{00036}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase_ac9e7b95fb9cfa47098b7245ec7fa80b2}{GeneratorUntypedBase::skipToNthElement}}(\ std::size\_t\ n\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ n\ <\ m\_currentElementIndex\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Generators_1_1Detail_aafeb004667a171060fc6aa2b66fc63a4}{Detail::throw\_generator\_exception}}(}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Tried\ to\ jump\ generator\ backwards"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ n\ ==\ m\_currentElementIndex\ )\ \{\ \textcolor{keywordflow}{return};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ skipToNthElementImpl(n);}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fixup\ tracking\ after\ moving\ the\ generator\ forward}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ *\ Ensure\ that\ the\ correct\ element\ index\ is\ set\ after\ skipping}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ *\ Invalidate\ cache}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ m\_currentElementIndex\ =\ n;}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ m\_stringReprCache.clear();}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00051}\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase_a9c9f450ab1a1aa6ed6ae9e1bfed2e5c1}{00051}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase_a9c9f450ab1a1aa6ed6ae9e1bfed2e5c1}{GeneratorUntypedBase::currentElementAsString}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_stringReprCache.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_stringReprCache\ =\ stringifyImpl();}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_stringReprCache;}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00058}\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase_a5aba037c7ec9d7920eab1c6d663bff59}{00058}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorUntypedBase_a5aba037c7ec9d7920eab1c6d663bff59}{GeneratorUntypedBase::isFinite}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00060}00060\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Generators}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__generatortracker_8cpp_source_l00061}00061\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+
+\end{DoxyCode}

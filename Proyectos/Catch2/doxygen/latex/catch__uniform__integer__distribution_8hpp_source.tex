@@ -1,0 +1,103 @@
+\doxysection{catch\+\_\+uniform\+\_\+integer\+\_\+distribution.\+hpp}
+\hypertarget{catch__uniform__integer__distribution_8hpp_source}{}\label{catch__uniform__integer__distribution_8hpp_source}\index{src/catch2/internal/catch\_uniform\_integer\_distribution.hpp@{src/catch2/internal/catch\_uniform\_integer\_distribution.hpp}}
+\mbox{\hyperlink{catch__uniform__integer__distribution_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#ifndef\ CATCH\_UNIFORM\_INTEGER\_DISTRIBUTION\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#define\ CATCH\_UNIFORM\_INTEGER\_DISTRIBUTION\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__random__integer__helpers_8hpp}{catch2/internal/catch\_random\_integer\_helpers.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00014}00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00027}00027\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ IntegerType>}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00028}\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution}{00028}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution}{uniform\_integer\_distribution}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_integral<IntegerType>::value,\ \textcolor{stringliteral}{"{}..."{}});}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{keyword}{using\ }UnsignedIntegerType\ =\ Detail::SizedUnsignedType\_t<\textcolor{keyword}{sizeof}(IntegerType)>;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ Only\ the\ left\ bound\ is\ stored,\ and\ we\ store\ it\ converted\ to\ its}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ unsigned\ image.\ This\ avoids\ having\ to\ do\ the\ conversions\ inside}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ the\ operator(),\ at\ the\ cost\ of\ having\ to\ do\ the\ conversion\ in}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ the\ a()\ getter.\ The\ right\ bound\ is\ only\ needed\ in\ the\ b()\ getter,}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ so\ we\ recompute\ it\ there\ from\ other\ stored\ data.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00038}00038\ \ \ \ \ UnsignedIntegerType\ m\_a;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ How\ many\ different\ values\ are\ there\ in\ [a,\ b].\ a\ ==\ b\ =>\ 1,\ can\ be\ 0\ for\ distribution\ over\ all\ values\ in\ the\ type.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00041}00041\ \ \ \ \ UnsignedIntegerType\ m\_ab\_distance;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ We\ hoisted\ this\ out\ of\ the\ main\ generation\ function.\ Technically,}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ this\ means\ that\ using\ this\ distribution\ will\ be\ slower\ than\ Lemire's}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ algorithm\ if\ this\ distribution\ instance\ will\ be\ used\ only\ few\ times,}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ but\ it\ will\ be\ faster\ if\ it\ is\ used\ many\ times.\ Since\ Catch2\ uses}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ distributions\ only\ to\ implement\ random\ generators,\ we\ assume\ that\ each}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ distribution\ will\ be\ reused\ many\ times\ and\ this\ is\ an\ optimization.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00049}00049\ \ \ \ \ UnsignedIntegerType\ m\_rejection\_threshold\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ UnsignedIntegerType\ computeDistance(IntegerType\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{a}},\ IntegerType\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}{b}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ overflows\ and\ returns\ 0\ if\ a\ ==\ 0\ and\ b\ ==\ TYPE\_MAX.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ handle\ that\ later\ when\ generating\ the\ number.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ transposeTo(\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}{b}})\ -\/\ transposeTo(\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{a}})\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ UnsignedIntegerType\ computeRejectionThreshold(UnsignedIntegerType\ ab\_distance)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ distance\ ==\ 0\ means\ that\ we\ will\ return\ all\ possible\ values\ from}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ type's\ range,\ and\ that\ we\ shouldn't\ reject\ anything.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ ab\_distance\ ==\ 0\ )\ \{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\ \string~ab\_distance\ +\ 1\ )\ \%\ ab\_distance;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ UnsignedIntegerType\ transposeTo(IntegerType\ in)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Detail::transposeToNaturalOrder<IntegerType>(}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}UnsignedIntegerType\textcolor{keyword}{>}(\ in\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ IntegerType\ transposeBack(UnsignedIntegerType\ in)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}IntegerType\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::transposeToNaturalOrder<IntegerType>(in)\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00073}00073\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00074}\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{00074}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\_type}}\ =\ IntegerType;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00076}\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a0341f2f4310be1dae93eb56f64cafb0d}{00076}}\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a0341f2f4310be1dae93eb56f64cafb0d}{uniform\_integer\_distribution}}(\ IntegerType\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{a}},\ IntegerType\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}{b}}\ ):}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ m\_a(\ transposeTo(\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{a}})\ ),}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ m\_ab\_distance(\ computeDistance(\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{a}},\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}{b}})\ ),}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ m\_rejection\_threshold(\ computeRejectionThreshold(m\_ab\_distance)\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ assert(\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{a}}\ <=\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}{b}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00083}00083\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Generator>}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00084}\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a948ae913e87da05f6d89738005dac3d3}{00084}}\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\_type}}\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a948ae913e87da05f6d89738005dac3d3}{operator()}}(\ Generator\&\ g\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ All\ possible\ values\ of\ result\_type\ are\ valid.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_ab\_distance\ ==\ 0\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ transposeBack(\ Detail::fillBitsFrom<UnsignedIntegerType>(\ g\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ random\_number\ =\ Detail::fillBitsFrom<UnsignedIntegerType>(\ g\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ emul\ =\ Detail::extendedMult(\ random\_number,\ m\_ab\_distance\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Unlike\ Lemire's\ algorithm\ we\ skip\ the\ ab\_distance\ check,\ since}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ precomputed\ the\ rejection\ threshold,\ which\ is\ always\ tighter.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (emul.lower\ <\ m\_rejection\_threshold)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ random\_number\ =\ Detail::fillBitsFrom<UnsignedIntegerType>(\ g\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ emul\ =\ Detail::extendedMult(\ random\_number,\ m\_ab\_distance\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ transposeBack(m\_a\ +\ emul.upper);}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00102}\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{00102}}\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\_type}}\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a9034e51fe9b9677f7ff3741b818bf8ad}{a}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ transposeBack(m\_a);\ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00103}\mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}{00103}}\ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a81572a322638a844f7df4e923dce4950}{result\_type}}\ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution_a73bcdf8e4cab861d8908b2fe0689dcc9}{b}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ transposeBack(m\_ab\_distance\ +\ m\_a\ -\/\ 1);\ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00104}00104\ \};}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00106}00106\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__integer__distribution_8hpp_source_l00108}00108\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_UNIFORM\_INTEGER\_DISTRIBUTION\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

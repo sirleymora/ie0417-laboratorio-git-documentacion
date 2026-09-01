@@ -1,0 +1,95 @@
+\doxysection{catch\+\_\+matchers\+\_\+contains.\+hpp}
+\hypertarget{catch__matchers__contains_8hpp_source}{}\label{catch__matchers__contains_8hpp_source}\index{src/catch2/matchers/catch\_matchers\_contains.hpp@{src/catch2/matchers/catch\_matchers\_contains.hpp}}
+\mbox{\hyperlink{catch__matchers__contains_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_MATCHERS\_CONTAINS\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_MATCHERS\_CONTAINS\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__matchers__templated_8hpp}{catch2/matchers/catch\_matchers\_templated.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__move__and__forward_8hpp}{catch2/internal/catch\_move\_and\_forward.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00017}00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{namespace\ }Matchers\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Equality>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00021}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{00021}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{ContainsElementMatcher}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherGenericBase}{MatcherGenericBase}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ T\ m\_desired;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ Equality\ m\_eq;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ Equality2>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00026}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher_a68f5354f18526b6640680a72e9b518ba}{00026}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher_a68f5354f18526b6640680a72e9b518ba}{ContainsElementMatcher}}(T2\&\&\ target,\ Equality2\&\&\ predicate):}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_desired(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(target)),}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_eq(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(predicate))}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00031}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher_a72bbe5c0d4b56aab66f89b6bf6876082}{00031}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher_a72bbe5c0d4b56aab66f89b6bf6876082}{describe}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}contains\ element\ "{}}\ +\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af0ad48344ffd3f92f3568465248a9880}{Catch::Detail::stringify}}(m\_desired);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ RangeLike>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00036}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher_a490b0cfcffa970bcfae86a2b4f638e66}{00036}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher_a490b0cfcffa970bcfae86a2b4f638e66}{match}}(\ RangeLike\&\&\ \mbox{\hyperlink{catch__generators__random_8cpp_ab38c0e682ad34c4ffec39df5046d42f2}{rng}}\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\&\&\ elem\ :\ \mbox{\hyperlink{catch__generators__random_8cpp_ab38c0e682ad34c4ffec39df5046d42f2}{rng}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_eq(\ elem,\ m\_desired\ )\ )\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Matcher>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00046}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher}{00046}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher}{ContainsMatcherMatcher}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherGenericBase}{MatcherGenericBase}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ Matcher\ m\_matcher;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Note\ that\ we\ do\ a\ copy+move\ to\ avoid\ having\ to\ SFINAE\ this}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ constructor\ (and\ also\ avoid\ some\ perfect\ forwarding\ failure}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ cases)}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00052}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher_a8c00293077faab424306ba9b5b04f2ce}{00052}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher_a8c00293077faab424306ba9b5b04f2ce}{ContainsMatcherMatcher}}(Matcher\ matcher):}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matcher(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(matcher))}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ RangeLike>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00057}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher_a9e014fee5158b9de4ce60a1f54d61d12}{00057}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher_a9e014fee5158b9de4ce60a1f54d61d12}{match}}(RangeLike\&\&\ \mbox{\hyperlink{catch__generators__random_8cpp_ab38c0e682ad34c4ffec39df5046d42f2}{rng}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\&\ elem\ :\ \mbox{\hyperlink{catch__generators__random_8cpp_ab38c0e682ad34c4ffec39df5046d42f2}{rng}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_matcher.match(elem))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00066}\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher_afa3ce4d599c939937db1201f9e61ff61}{00066}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher_afa3ce4d599c939937db1201f9e61ff61}{describe}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}contains\ element\ matching\ "{}}\ +\ m\_matcher.describe();}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ std::enable\_if\_t<!Detail::is\_matcher\_v<T>,}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00078}\mbox{\hyperlink{namespaceCatch_1_1Matchers_a1e4f65df3aa5fd461e46a301655f5e46}{00078}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{ContainsElementMatcher<T,\ std::equal\_to<>}}>>\ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a1e4f65df3aa5fd461e46a301655f5e46}{Contains}}(T\&\&\ elem)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ \mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(elem),\ std::equal\_to<>\{\}\ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Matcher>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ std::enable\_if\_t<Detail::is\_matcher\_v<Matcher>,}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00085}\mbox{\hyperlink{namespaceCatch_1_1Matchers_af9c93fd22e74d63e7cb8ea358a32d5c6}{00085}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher}{ContainsMatcherMatcher<Matcher>}}>\ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a1e4f65df3aa5fd461e46a301655f5e46}{Contains}}(Matcher\&\&\ matcher)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ \mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(matcher)\ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Equality>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00095}\mbox{\hyperlink{namespaceCatch_1_1Matchers_a62142de4307ad1ac909c2c326e6cb83b}{00095}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{ContainsElementMatcher<T,\ Equality>}}\ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a1e4f65df3aa5fd461e46a301655f5e46}{Contains}}(T\&\&\ elem,\ Equality\&\&\ eq)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ \mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(elem),\ \mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(eq)\ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__contains_8hpp_source_l00102}00102\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_MATCHERS\_CONTAINS\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

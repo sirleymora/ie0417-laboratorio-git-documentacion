@@ -1,0 +1,65 @@
+\doxysection{src/catch2/internal/catch\+\_\+reporter\+\_\+spec\+\_\+parser.cpp File Reference}
+\hypertarget{catch__reporter__spec__parser_8cpp}{}\label{catch__reporter__spec__parser_8cpp}\index{src/catch2/internal/catch\_reporter\_spec\_parser.cpp@{src/catch2/internal/catch\_reporter\_spec\_parser.cpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+reporter\+\_\+spec\+\_\+parser.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+config.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for catch\+\_\+reporter\+\_\+spec\+\_\+parser.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__reporter__spec__parser_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespaceCatch_1_1Detail_a874fd7848ec5a0ef02d88c6ec37c9a03}{Catch\+::\+Detail\+::split\+Reporter\+Spec}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} reporter\+Spec)
+\begin{DoxyCompactList}\small\item\em Splits the reporter spec into reporter name and kv-\/pair options. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Optional}{Optional}}$<$ \mbox{\hyperlink{namespaceCatch_a91308e87521e370e591065a22b010025}{Colour\+Mode}} $>$ \mbox{\hyperlink{namespaceCatch_1_1Detail_a64ba838a0c2e6767d095a7a01fc07b48}{Catch\+::\+Detail\+::string\+To\+Colour\+Mode}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} colour\+Mode)
+\item 
+\mbox{\hyperlink{classCatch_1_1Optional}{Optional}}$<$ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} $>$ \mbox{\hyperlink{namespaceCatch_1_1Detail_a4fb3f00424c8e23f92f48787aff0e5e2}{Catch\+::\+Detail\+::string\+To\+Verbosity}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} verbosity)
+\item 
+bool \mbox{\hyperlink{namespaceCatch_a408299b05a1363c7cd99fb5b6c7f1e3d}{Catch\+::operator==}} (\mbox{\hyperlink{classCatch_1_1ReporterSpec}{Reporter\+Spec}} const \&lhs, \mbox{\hyperlink{classCatch_1_1ReporterSpec}{Reporter\+Spec}} const \&rhs)
+\item 
+\mbox{\hyperlink{classCatch_1_1Optional}{Optional}}$<$ \mbox{\hyperlink{classCatch_1_1ReporterSpec}{Reporter\+Spec}} $>$ \mbox{\hyperlink{namespaceCatch_ae987bd04fd59321f5183794daeffd4cf}{Catch\+::parse\+Reporter\+Spec}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} reporter\+Spec)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{catch__reporter__spec__parser_8cpp_ab44666b6e91e2bbae6bcf104d48726d6}\label{catch__reporter__spec__parser_8cpp_ab44666b6e91e2bbae6bcf104d48726d6} 
+\index{catch\_reporter\_spec\_parser.cpp@{catch\_reporter\_spec\_parser.cpp}!key@{key}}
+\index{key@{key}!catch\_reporter\_spec\_parser.cpp@{catch\_reporter\_spec\_parser.cpp}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily String\+Ref key}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source}{catch\+\_\+reporter\+\_\+spec\+\_\+parser.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00119}{Catch\+::parse\+Reporter\+Spec()}}, and \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00095}{Catch\+::\+Json\+Object\+Writer\+::write()}}.
+
+\Hypertarget{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}\label{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1} 
+\index{catch\_reporter\_spec\_parser.cpp@{catch\_reporter\_spec\_parser.cpp}!value@{value}}
+\index{value@{value}!catch\_reporter\_spec\_parser.cpp@{catch\_reporter\_spec\_parser.cpp}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily String\+Ref value}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source}{catch\+\_\+reporter\+\_\+spec\+\_\+parser.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__message_8cpp_source_l00111}{Catch\+::\+Capturer\+::capture\+Value()}}, \mbox{\hyperlink{catch__message_8hpp_source_l00091}{Catch\+::\+Capturer\+::capture\+Values()}}, \mbox{\hyperlink{catch__message_8hpp_source_l00096}{Catch\+::\+Capturer\+::capture\+Values()}}, \mbox{\hyperlink{catch__approx_8cpp_source_l00081}{Catch\+::\+String\+Maker$<$ Catch\+::\+Approx $>$\+::convert()}}, \mbox{\hyperlink{catch__tostring_8hpp_source_l00117}{Catch\+::\+String\+Maker$<$ T, typename $>$\+::convert()}}, \mbox{\hyperlink{catch__tostring_8cpp_source_l00290}{Catch\+::\+String\+Maker$<$ double $>$\+::convert()}}, \mbox{\hyperlink{catch__tostring_8cpp_source_l00284}{Catch\+::\+String\+Maker$<$ float $>$\+::convert()}}, \mbox{\hyperlink{catch__tostring_8cpp_source_l00228}{Catch\+::\+String\+Maker$<$ int $>$\+::convert()}}, \mbox{\hyperlink{catch__tostring_8cpp_source_l00231}{Catch\+::\+String\+Maker$<$ long $>$\+::convert()}}, \mbox{\hyperlink{catch__tostring_8hpp_source_l00093}{Catch\+::\+Detail\+::convert\+Unstreamable()}}, \mbox{\hyperlink{catch__is__permutation_8hpp_source_l00038}{Catch\+::\+Detail\+::count\+\_\+sentinel()}}, \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00066}{Catch\+::\+Xml\+Encode\+::encode\+To()}}, \mbox{\hyperlink{catch__is__permutation_8hpp_source_l00022}{Catch\+::\+Detail\+::find\+\_\+sentinel()}}, \mbox{\hyperlink{catch__enum__info_8cpp_source_l00041}{Catch\+::\+Detail\+::\+Enum\+Info\+::lookup()}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00212}{Catch\+::\+Generators\+::make\+Generators()}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00208}{Catch\+::\+Generators\+::make\+Generators()}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00243}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::ok()}}, \mbox{\hyperlink{catch__approx_8hpp_source_l00033}{Catch\+::\+Approx\+::operator()()}}, \mbox{\hyperlink{catch__message_8hpp_source_l00042}{Catch\+::\+Message\+Stream\+::operator$<$$<$()}}, \mbox{\hyperlink{catch__message_8hpp_source_l00057}{Catch\+::\+Message\+Builder\+::operator$<$$<$()}}, \mbox{\hyperlink{catch__reusable__string__stream_8hpp_source_l00045}{Catch\+::\+Reusable\+String\+Stream\+::operator$<$$<$()}}, \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00119}{Catch\+::parse\+Reporter\+Spec()}}, \mbox{\hyperlink{catch__matchers__predicate_8hpp_source_l00050}{Catch\+::\+Matchers\+::\+Predicate()}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00195}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Value\+Base$<$ T $>$\+::\+Result\+Value\+Base()}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00191}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Value\+Base$<$ T $>$\+::\+Result\+Value\+Base()}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00118}{Catch\+::\+Generators\+::value()}}, \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00137}{Catch\+::\+Json\+Array\+Writer\+::write()}}, \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00171}{Catch\+::\+Json\+Value\+Writer\+::write()}}, \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00167}{Catch\+::\+Json\+Value\+Writer\+::write()}}, \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00163}{Catch\+::\+Json\+Value\+Writer\+::write()}}, \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00159}{Catch\+::\+Json\+Value\+Writer\+::write()}}, \mbox{\hyperlink{catch__jsonwriter_8hpp_source_l00105}{Catch\+::\+Json\+Array\+Writer\+::write()}}, and \mbox{\hyperlink{catch__jsonwriter_8hpp_source_l00038}{Catch\+::\+Json\+Value\+Writer\+::write()}}.
+

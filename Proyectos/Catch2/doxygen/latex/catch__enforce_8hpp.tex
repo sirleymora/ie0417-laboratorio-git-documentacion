@@ -1,0 +1,104 @@
+\doxysection{src/catch2/internal/catch\+\_\+enforce.hpp File Reference}
+\hypertarget{catch__enforce_8hpp}{}\label{catch__enforce_8hpp}\index{src/catch2/internal/catch\_enforce.hpp@{src/catch2/internal/catch\_enforce.hpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+source\+\_\+line\+\_\+info.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compiler\+\_\+capabilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+reusable\+\_\+string\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+Include dependency graph for catch\+\_\+enforce.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__enforce_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__enforce_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__enforce_8hpp_a8e47cad0b28262f193e489df151fed27}{CATCH\+\_\+\+MAKE\+\_\+\+MSG}}(...)~    (\mbox{\hyperlink{classCatch_1_1ReusableStringStream}{Catch\+::\+Reusable\+String\+Stream}}() $<$$<$ \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+).str()
+\item 
+\#define \mbox{\hyperlink{catch__enforce_8hpp_af445c1e136fadba0e92f3c22d68a7641}{CATCH\+\_\+\+INTERNAL\+\_\+\+ERROR}}(...)~    \mbox{\hyperlink{namespaceCatch_a707884e681203fef6bf7dbf752532fa5}{Catch\+::throw\+\_\+logic\+\_\+error}}(\mbox{\hyperlink{catch__enforce_8hpp_a8e47cad0b28262f193e489df151fed27}{CATCH\+\_\+\+MAKE\+\_\+\+MSG}}( \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\+\_\+\+INTERNAL\+\_\+\+LINEINFO}} $<$$<$ "{}\+: Internal Catch2 error\+: "{} $<$$<$ \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+))
+\item 
+\#define \mbox{\hyperlink{catch__enforce_8hpp_ad9884641eb178d2628cf3ad19c394f47}{CATCH\+\_\+\+ERROR}}(...)~    \mbox{\hyperlink{namespaceCatch_ae67297c3e265b0fcd55de371bf408e4e}{Catch\+::throw\+\_\+domain\+\_\+error}}(\mbox{\hyperlink{catch__enforce_8hpp_a8e47cad0b28262f193e489df151fed27}{CATCH\+\_\+\+MAKE\+\_\+\+MSG}}( \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ ))
+\item 
+\#define \mbox{\hyperlink{catch__enforce_8hpp_a834a24a39cf448d5a0f812e716be1c76}{CATCH\+\_\+\+RUNTIME\+\_\+\+ERROR}}(...)~    \mbox{\hyperlink{namespaceCatch_a48d2c35022dd9d56a1b7ee78ad581eea}{Catch\+::throw\+\_\+runtime\+\_\+error}}(\mbox{\hyperlink{catch__enforce_8hpp_a8e47cad0b28262f193e489df151fed27}{CATCH\+\_\+\+MAKE\+\_\+\+MSG}}( \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ ))
+\item 
+\#define \mbox{\hyperlink{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}{CATCH\+\_\+\+ENFORCE}}(condition, ...)~    do\{ if( !(condition) ) \mbox{\hyperlink{catch__enforce_8hpp_ad9884641eb178d2628cf3ad19c394f47}{CATCH\+\_\+\+ERROR}}( \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ ); \} while(false)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Ex $>$ }\\void \mbox{\hyperlink{namespaceCatch_a11f92a284d2dc88fda13e384825c34f5}{Catch\+::throw\+\_\+exception}} (Ex const \&e)
+\item 
+void \mbox{\hyperlink{namespaceCatch_a707884e681203fef6bf7dbf752532fa5}{Catch\+::throw\+\_\+logic\+\_\+error}} (std\+::string const \&msg)
+\item 
+void \mbox{\hyperlink{namespaceCatch_ae67297c3e265b0fcd55de371bf408e4e}{Catch\+::throw\+\_\+domain\+\_\+error}} (std\+::string const \&msg)
+\item 
+void \mbox{\hyperlink{namespaceCatch_a48d2c35022dd9d56a1b7ee78ad581eea}{Catch\+::throw\+\_\+runtime\+\_\+error}} (std\+::string const \&msg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974}\label{catch__enforce_8hpp_aba552c917b9ac8604f50a914a745e974} 
+\index{catch\_enforce.hpp@{catch\_enforce.hpp}!CATCH\_ENFORCE@{CATCH\_ENFORCE}}
+\index{CATCH\_ENFORCE@{CATCH\_ENFORCE}!catch\_enforce.hpp@{catch\_enforce.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_ENFORCE}{CATCH\_ENFORCE}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+ENFORCE(\begin{DoxyParamCaption}\item[{}]{condition,  }\item[{}]{... }\end{DoxyParamCaption})~    do\{ if( !(condition) ) \mbox{\hyperlink{catch__enforce_8hpp_ad9884641eb178d2628cf3ad19c394f47}{CATCH\+\_\+\+ERROR}}( \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ ); \} while(false)}
+
+
+
+Definition at line \mbox{\hyperlink{catch__enforce_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{catch__enforce_8hpp_source}{catch\+\_\+enforce.\+hpp}}.
+
+\Hypertarget{catch__enforce_8hpp_ad9884641eb178d2628cf3ad19c394f47}\label{catch__enforce_8hpp_ad9884641eb178d2628cf3ad19c394f47} 
+\index{catch\_enforce.hpp@{catch\_enforce.hpp}!CATCH\_ERROR@{CATCH\_ERROR}}
+\index{CATCH\_ERROR@{CATCH\_ERROR}!catch\_enforce.hpp@{catch\_enforce.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_ERROR}{CATCH\_ERROR}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~    \mbox{\hyperlink{namespaceCatch_ae67297c3e265b0fcd55de371bf408e4e}{Catch\+::throw\+\_\+domain\+\_\+error}}(\mbox{\hyperlink{catch__enforce_8hpp_a8e47cad0b28262f193e489df151fed27}{CATCH\+\_\+\+MAKE\+\_\+\+MSG}}( \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ ))}
+
+
+
+Definition at line \mbox{\hyperlink{catch__enforce_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{catch__enforce_8hpp_source}{catch\+\_\+enforce.\+hpp}}.
+
+\Hypertarget{catch__enforce_8hpp_af445c1e136fadba0e92f3c22d68a7641}\label{catch__enforce_8hpp_af445c1e136fadba0e92f3c22d68a7641} 
+\index{catch\_enforce.hpp@{catch\_enforce.hpp}!CATCH\_INTERNAL\_ERROR@{CATCH\_INTERNAL\_ERROR}}
+\index{CATCH\_INTERNAL\_ERROR@{CATCH\_INTERNAL\_ERROR}!catch\_enforce.hpp@{catch\_enforce.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_ERROR}{CATCH\_INTERNAL\_ERROR}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~    \mbox{\hyperlink{namespaceCatch_a707884e681203fef6bf7dbf752532fa5}{Catch\+::throw\+\_\+logic\+\_\+error}}(\mbox{\hyperlink{catch__enforce_8hpp_a8e47cad0b28262f193e489df151fed27}{CATCH\+\_\+\+MAKE\+\_\+\+MSG}}( \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\+\_\+\+INTERNAL\+\_\+\+LINEINFO}} $<$$<$ "{}\+: Internal Catch2 error\+: "{} $<$$<$ \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+))}
+
+
+
+Definition at line \mbox{\hyperlink{catch__enforce_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{catch__enforce_8hpp_source}{catch\+\_\+enforce.\+hpp}}.
+
+\Hypertarget{catch__enforce_8hpp_a8e47cad0b28262f193e489df151fed27}\label{catch__enforce_8hpp_a8e47cad0b28262f193e489df151fed27} 
+\index{catch\_enforce.hpp@{catch\_enforce.hpp}!CATCH\_MAKE\_MSG@{CATCH\_MAKE\_MSG}}
+\index{CATCH\_MAKE\_MSG@{CATCH\_MAKE\_MSG}!catch\_enforce.hpp@{catch\_enforce.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_MAKE\_MSG}{CATCH\_MAKE\_MSG}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+MAKE\+\_\+\+MSG(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~    (\mbox{\hyperlink{classCatch_1_1ReusableStringStream}{Catch\+::\+Reusable\+String\+Stream}}() $<$$<$ \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+).str()}
+
+
+
+Definition at line \mbox{\hyperlink{catch__enforce_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{catch__enforce_8hpp_source}{catch\+\_\+enforce.\+hpp}}.
+
+\Hypertarget{catch__enforce_8hpp_a834a24a39cf448d5a0f812e716be1c76}\label{catch__enforce_8hpp_a834a24a39cf448d5a0f812e716be1c76} 
+\index{catch\_enforce.hpp@{catch\_enforce.hpp}!CATCH\_RUNTIME\_ERROR@{CATCH\_RUNTIME\_ERROR}}
+\index{CATCH\_RUNTIME\_ERROR@{CATCH\_RUNTIME\_ERROR}!catch\_enforce.hpp@{catch\_enforce.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_RUNTIME\_ERROR}{CATCH\_RUNTIME\_ERROR}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+RUNTIME\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~    \mbox{\hyperlink{namespaceCatch_a48d2c35022dd9d56a1b7ee78ad581eea}{Catch\+::throw\+\_\+runtime\+\_\+error}}(\mbox{\hyperlink{catch__enforce_8hpp_a8e47cad0b28262f193e489df151fed27}{CATCH\+\_\+\+MAKE\+\_\+\+MSG}}( \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ ))}
+
+
+
+Definition at line \mbox{\hyperlink{catch__enforce_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{catch__enforce_8hpp_source}{catch\+\_\+enforce.\+hpp}}.
+

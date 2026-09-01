@@ -1,0 +1,50 @@
+\doxysection{src/catch2/internal/catch\+\_\+random\+\_\+floating\+\_\+point\+\_\+helpers.hpp File Reference}
+\hypertarget{catch__random__floating__point__helpers_8hpp}{}\label{catch__random__floating__point__helpers_8hpp}\index{src/catch2/internal/catch\_random\_floating\_point\_helpers.hpp@{src/catch2/internal/catch\_random\_floating\_point\_helpers.hpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+polyfills.\+hpp$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for catch\+\_\+random\+\_\+floating\+\_\+point\+\_\+helpers.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__random__floating__point__helpers_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__random__floating__point__helpers_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Detail_1_1DistanceTypePicker_3_01float_01_4}{Catch\+::\+Detail\+::\+Distance\+Type\+Picker$<$ float $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Detail_1_1DistanceTypePicker_3_01double_01_4}{Catch\+::\+Detail\+::\+Distance\+Type\+Picker$<$ double $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespaceCatch_1_1Detail_a61de43d49ee0d99db6bc911d12ff44da}{Catch\+::\+Detail\+::\+Distance\+Type}} = typename \mbox{\hyperlink{structCatch_1_1Detail_1_1DistanceTypePicker}{Distance\+Type\+Picker}}$<$ T $>$\+::type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Float\+Type $>$ }\\Float\+Type \mbox{\hyperlink{namespaceCatch_1_1Detail_af908d7b7d7ea3850dba1f946209d3ec5}{Catch\+::\+Detail\+::gamma}} (Float\+Type a, Float\+Type b)
+\item 
+{\footnotesize template$<$typename Float\+Type $>$ }\\\mbox{\hyperlink{namespaceCatch_1_1Detail_a61de43d49ee0d99db6bc911d12ff44da}{Distance\+Type}}$<$ Float\+Type $>$ \mbox{\hyperlink{namespaceCatch_1_1Detail_a06518af4072fd6f895f5164a078e78fd}{Catch\+::\+Detail\+::count\+\_\+equidistant\+\_\+floats}} (Float\+Type a, Float\+Type b, Float\+Type distance)
+\end{DoxyCompactItemize}

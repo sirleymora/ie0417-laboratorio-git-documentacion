@@ -1,0 +1,600 @@
+\doxysection{Catch\+::Json\+Reporter Class Reference}
+\hypertarget{classCatch_1_1JsonReporter}{}\label{classCatch_1_1JsonReporter}\index{Catch::JsonReporter@{Catch::JsonReporter}}
+
+
+{\ttfamily \#include $<$catch\+\_\+reporter\+\_\+json.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::Json\+Reporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classCatch_1_1JsonReporter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Catch\+::Json\+Reporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JsonReporter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1JsonReporter_a1b8f15445a8917da923ca6978ec04b1b}{Json\+Reporter}} (\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&config)
+\item 
+\mbox{\hyperlink{classCatch_1_1JsonReporter_aa38014f990904c7d47c6ad48bcf9df5a}{\texorpdfstring{$\sim$}{\string~}\+Json\+Reporter}} () override
+\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_a3f80d7738e259540e247be6b93bf563c}{test\+Run\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} const \&run\+Info) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_ab3b96ce416670424aef786eb6ec2b6d4}{test\+Run\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats}} const \&run\+Stats) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_a3154fcb449ee804a6ff6b792c0ba229f}{test\+Case\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&tc\+Info) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_a8f530cf144fca44b72f4d27f20e2a3ee}{test\+Case\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&tc\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_a552d2b19ad221b9465b8d63c45fdcddc}{test\+Case\+Partial\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&tc\+Info, uint64\+\_\+t index) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_a70fde7350187d84ee1936371f84571fa}{test\+Case\+Partial\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&tc\+Stats, uint64\+\_\+t index) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_adb490c196548430f8537f54859f43ecd}{section\+Starting}} (\mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} const \&section\+Info) override
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily SECTION} is being entered. Not called for skipped sections. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_ac94e5ec308974fa1c7276e3dabbf4a0d}{section\+Ended}} (\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} const \&section\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called after a {\ttfamily SECTION} has finished running. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_a679ca2848fcb072ebf4a1e7eade9df25}{assertion\+Ended}} (\mbox{\hyperlink{structCatch_1_1AssertionStats}{Assertion\+Stats}} const \&assertion\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called after assertion was fully evaluated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_ad65773568b228fc3ad548b092ad5f42e}{benchmark\+Preparing}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} name) override
+\begin{DoxyCompactList}\small\item\em Called when user-\/code is being probed before the actual benchmark runs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_ac583e4e4029c88119d76d3cdd22e7ec0}{benchmark\+Starting}} (\mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{Benchmark\+Info}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called after probe but before the user-\/code is being benchmarked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_ac7f6d186d28b78609c54520aa2e7092d}{benchmark\+Ended}} (\mbox{\hyperlink{structCatch_1_1BenchmarkStats}{Benchmark\+Stats}}$<$$>$ const \&) override
+\begin{DoxyCompactList}\small\item\em Called with the benchmark results if benchmark successfully finishes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_a61b6a4393a44f2334f2d378b8f4adcf7}{benchmark\+Failed}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} error) override
+\begin{DoxyCompactList}\small\item\em Called if running the benchmarks fails for any reason. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_a34d8fa620de13e7dea2e96b801f51a6b}{list\+Reporters}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{Reporter\+Description}} $>$ const \&descriptions) override
+\begin{DoxyCompactList}\small\item\em Writes out information about provided reporters using reporter-\/specific format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_ae482943b40efb2496238d263bed45dcf}{list\+Listeners}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{Listener\+Description}} $>$ const \&descriptions) override
+\begin{DoxyCompactList}\small\item\em Writes out the provided listeners descriptions using reporter-\/specific format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_a9fd3c6befd2583b8ee480301606baf62}{list\+Tests}} (std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \&tests) override
+\begin{DoxyCompactList}\small\item\em Writes out information about provided tests using reporter-\/specific format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JsonReporter_ada793ec228f7f5eb52688b3776b73f3d}{list\+Tags}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1TagInfo}{Tag\+Info}} $>$ const \&tags) override
+\begin{DoxyCompactList}\small\item\em Writes out information about the provided tags using reporter-\/specific format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase}{Catch\+::\+Streaming\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a345a405dcf39e478933d45a310acc84c}{Streaming\+Reporter\+Base}} (\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&\+\_\+config)
+\item 
+\mbox{\hyperlink{classCatch_1_1StreamingReporterBase_aea3f73d04bf3d3a2f88ad25ff3370003}{\texorpdfstring{$\sim$}{\string~}\+Streaming\+Reporter\+Base}} () override
+\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a0a58760a218c47969e05aa5097e2fc04}{benchmark\+Preparing}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called when user-\/code is being probed before the actual benchmark runs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_aa7a219bb6a3b578f1feb8a352e63d247}{benchmark\+Starting}} (\mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{Benchmark\+Info}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called after probe but before the user-\/code is being benchmarked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a33ec3872d7d5b221568555ff6ac631c6}{benchmark\+Ended}} (\mbox{\hyperlink{structCatch_1_1BenchmarkStats}{Benchmark\+Stats}}$<$$>$ const \&) override
+\begin{DoxyCompactList}\small\item\em Called with the benchmark results if benchmark successfully finishes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a91ea142e8396bd3ab69b3e32b2eb513e}{benchmark\+Failed}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called if running the benchmarks fails for any reason. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_ac4fdeb6e1346d59cad24a74c3cbeef58}{fatal\+Error\+Encountered}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called if a fatal error (signal/structured exception) occurred. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_aefc11d7016246564f57f941f1ff583d9}{no\+Matching\+Test\+Cases}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called when no test cases match provided test spec. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_adfde6846b8dccfad4f0fae0ce8d11f1f}{report\+Invalid\+Test\+Spec}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called for all invalid test specs from the cli. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a5ce94d2e8b64c49e4ace01c64f249716}{test\+Run\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} const \&\+\_\+test\+Run\+Info) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a40e91b413710721143981bfd4c78a37b}{test\+Case\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&\+\_\+test\+Info) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_af6f4599ca6f53625379d1d785e856433}{test\+Case\+Partial\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&, uint64\+\_\+t) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a2138331de72f8dbae4e46cdd741f9656}{section\+Starting}} (\mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} const \&\+\_\+section\+Info) override
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily SECTION} is being entered. Not called for skipped sections. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a820fa157b402050fa1af4bdebf2b2a7c}{assertion\+Starting}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called before assertion success/failure is evaluated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a89acc09398d5b8078e3fe2ae5e61e68d}{assertion\+Ended}} (\mbox{\hyperlink{structCatch_1_1AssertionStats}{Assertion\+Stats}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called after assertion was fully evaluated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a8572eff6839988af6bf2866922d30c7b}{section\+Ended}} (\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called after a {\ttfamily SECTION} has finished running. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a8757208f79d83984ea5dae0678839df4}{test\+Case\+Partial\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&, uint64\+\_\+t) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a6aaf2ea1da223091c4d29ef1883ac5ca}{test\+Case\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_abc6e39389e0bb22fb2fce977ced959af}{test\+Run\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats}} const \&) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_aa532201eaf113730b0b16fc8710f5381}{skip\+Test}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1ReporterBase}{Catch\+::\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1ReporterBase_afe1cb76ff7af81e7c0c10108a41b90ca}{Reporter\+Base}} (\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&config)
+\item 
+\mbox{\hyperlink{classCatch_1_1ReporterBase_a4c85a61db7c1340ff05c20ddd24e7624}{\texorpdfstring{$\sim$}{\string~}\+Reporter\+Base}} () override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a6b49fcddf9430c782bf33cc7ab3b8f6a}{list\+Reporters}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{Reporter\+Description}} $>$ const \&descriptions) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a80fc94e76ca6273bde21892472cfb590}{list\+Listeners}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{Listener\+Description}} $>$ const \&descriptions) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a15ed28e8f838691c3c374027547d914b}{list\+Tests}} (std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \&tests) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a327d4a5ee9b271e19ac19951ae3cd0e1}{list\+Tags}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1TagInfo}{Tag\+Info}} $>$ const \&tags) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1IEventListener}{Catch\+::\+IEvent\+Listener}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1IEventListener_aaaa931eff91dcc54dbcbe3fc7e0d4ab8}{IEvent\+Listener}} (\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \texorpdfstring{$\ast$}{*}config)
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1IEventListener_acfa267bbb655d4530752d5ec2507b95c}{\texorpdfstring{$\sim$}{\string~}\+IEvent\+Listener}} ()
+\item 
+\mbox{\hyperlink{structCatch_1_1ReporterPreferences}{Reporter\+Preferences}} const \& \mbox{\hyperlink{classCatch_1_1IEventListener_a613b60656347b078f9a8d0385892f2d4}{get\+Preferences}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classCatch_1_1JsonReporter_a89b490cfb77edbf1a82de9c5fca6f003}{get\+Description}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase}{Catch\+::\+Streaming\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a973ae44ceadf335cd07e48cd4ea61335}{current\+Test\+Run\+Info}} \{ "{}test run has not started yet"{}\+\_\+sr \}
+\item 
+\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_af9ca5c5966f269475d9621aa5e63a111}{current\+Test\+Case\+Info}} = nullptr
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} $>$ \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a82f2a7a5dec58bc093f6ab26a9e47bd8}{m\+\_\+section\+Stack}}
+\begin{DoxyCompactList}\small\item\em Stack of all {\itshape active} sections in the {\itshape current} test case. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1ReporterBase}{Catch\+::\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1IStream}{IStream}} $>$ \mbox{\hyperlink{classCatch_1_1ReporterBase_a196cb1e3644d83f507b70baeef7edacf}{m\+\_\+wrapped\+\_\+stream}}
+\begin{DoxyCompactList}\small\item\em The stream wrapper as passed to us by outside code. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classCatch_1_1ReporterBase_a7d6ee62fccc86662adaea744c501eef8}{m\+\_\+stream}}
+\item 
+\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1ColourImpl}{Colour\+Impl}} $>$ \mbox{\hyperlink{classCatch_1_1ReporterBase_a8caa5e303effaaeec2bf8f5a2f0f65a2}{m\+\_\+colour}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structCatch_1_1Colour}{Colour} implementation this reporter was configured for. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} \mbox{\hyperlink{classCatch_1_1ReporterBase_a7bec858f36372e3fdc1caf8bb11d9b76}{m\+\_\+verbosity}}
+\begin{DoxyCompactList}\small\item\em Verbosity configured for this reporter. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classCatch_1_1ReporterBase_ac75b1716001a78104be1fd38d9844c8e}{m\+\_\+custom\+Options}}
+\begin{DoxyCompactList}\small\item\em The custom reporter options user passed down to the reporter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1IEventListener}{Catch\+::\+IEvent\+Listener}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1ReporterPreferences}{Reporter\+Preferences}} \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\+\_\+preferences}}
+\begin{DoxyCompactList}\small\item\em Derived classes can set up their preferences here. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\+\_\+config}}
+\begin{DoxyCompactList}\small\item\em The test run\textquotesingle{}s config as filled in from CLI and defaults. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{catch__reporter__json_8hpp_source}{catch\+\_\+reporter\+\_\+json.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1JsonReporter_a1b8f15445a8917da923ca6978ec04b1b}\label{classCatch_1_1JsonReporter_a1b8f15445a8917da923ca6978ec04b1b} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!JsonReporter@{JsonReporter}}
+\index{JsonReporter@{JsonReporter}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{JsonReporter()}{JsonReporter()}}
+{\footnotesize\ttfamily Catch\+::\+Json\+Reporter\+::\+Json\+Reporter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&}]{config }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__test__spec_8cpp_source_l00103}{Catch\+::\+Test\+Spec\+::has\+Filters()}}, \mbox{\hyperlink{catch__version_8cpp_source_l00038}{Catch\+::library\+Version()}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00146}{Catch\+::\+IEvent\+Listener\+::m\+\_\+config}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00144}{Catch\+::\+IEvent\+Listener\+::m\+\_\+preferences}}, \mbox{\hyperlink{catch__reporter__common__base_8hpp_source_l00035}{Catch\+::\+Reporter\+Base\+::m\+\_\+stream}}, \mbox{\hyperlink{classCatch_1_1IConfig_ad67bb593486213c6918732f73177b7a5}{Catch\+::\+IConfig\+::name()}}, \mbox{\hyperlink{classCatch_1_1IConfig_a71994ea53eb66e353e5e195088f9bad7}{Catch\+::\+IConfig\+::rng\+Seed()}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00118}{Catch\+::\+Reporter\+Preferences\+::should\+Redirect\+Std\+Out}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00121}{Catch\+::\+Reporter\+Preferences\+::should\+Report\+All\+Assertions}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00126}{Catch\+::\+Reporter\+Preferences\+::should\+Report\+All\+Assertion\+Starts}}, and \mbox{\hyperlink{classCatch_1_1IConfig_a6c021a1bf5cae58cb6c4b754af6cd4b5}{Catch\+::\+IConfig\+::test\+Spec()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JsonReporter_a1b8f15445a8917da923ca6978ec04b1b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1JsonReporter_aa38014f990904c7d47c6ad48bcf9df5a}\label{classCatch_1_1JsonReporter_aa38014f990904c7d47c6ad48bcf9df5a} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!````~JsonReporter@{\texorpdfstring{$\sim$}{\string~}JsonReporter}}
+\index{````~JsonReporter@{\texorpdfstring{$\sim$}{\string~}JsonReporter}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}JsonReporter()}{\string~JsonReporter()}}
+{\footnotesize\ttfamily Catch\+::\+Json\+Reporter\+::\texorpdfstring{$\sim$}{\string~}\+Json\+Reporter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__common__base_8hpp_source_l00035}{Catch\+::\+Reporter\+Base\+::m\+\_\+stream}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1JsonReporter_a679ca2848fcb072ebf4a1e7eade9df25}\label{classCatch_1_1JsonReporter_a679ca2848fcb072ebf4a1e7eade9df25} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!assertionEnded@{assertionEnded}}
+\index{assertionEnded@{assertionEnded}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{assertionEnded()}{assertionEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::assertion\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionStats}{Assertion\+Stats}} const \&}]{assertion\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after assertion was fully evaluated. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a43aec5f970694bd25a736e3d9871b5c4}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00287}{287}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00071}{Catch\+::\+Assertion\+Stats\+::assertion\+Result}}, \mbox{\hyperlink{catch__assertion__result_8cpp_source_l00097}{Catch\+::\+Assertion\+Result\+::get\+Source\+Info()}}, and \mbox{\hyperlink{catch__assertion__result_8cpp_source_l00041}{Catch\+::\+Assertion\+Result\+::is\+Ok()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JsonReporter_a679ca2848fcb072ebf4a1e7eade9df25_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1JsonReporter_ac7f6d186d28b78609c54520aa2e7092d}\label{classCatch_1_1JsonReporter_ac7f6d186d28b78609c54520aa2e7092d} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!benchmarkEnded@{benchmarkEnded}}
+\index{benchmarkEnded@{benchmarkEnded}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{benchmarkEnded()}{benchmarkEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::benchmark\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1BenchmarkStats}{Benchmark\+Stats}}$<$$>$ const \&}]{benchmark\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called with the benchmark results if benchmark successfully finishes. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a69d16f703f6fa505cee57d4420f56d4c}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00311}{311}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_a61b6a4393a44f2334f2d378b8f4adcf7}\label{classCatch_1_1JsonReporter_a61b6a4393a44f2334f2d378b8f4adcf7} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!benchmarkFailed@{benchmarkFailed}}
+\index{benchmarkFailed@{benchmarkFailed}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{benchmarkFailed()}{benchmarkFailed()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::benchmark\+Failed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{benchmark\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called if running the benchmarks fails for any reason. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a8698348805f39879bccdfacb4afd5095}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00312}{312}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_ad65773568b228fc3ad548b092ad5f42e}\label{classCatch_1_1JsonReporter_ad65773568b228fc3ad548b092ad5f42e} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!benchmarkPreparing@{benchmarkPreparing}}
+\index{benchmarkPreparing@{benchmarkPreparing}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{benchmarkPreparing()}{benchmarkPreparing()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::benchmark\+Preparing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{benchmark\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called when user-\/code is being probed before the actual benchmark runs. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_ac16d3fb730b139bbc1810b7e42cde5ac}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00309}{309}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_ac583e4e4029c88119d76d3cdd22e7ec0}\label{classCatch_1_1JsonReporter_ac583e4e4029c88119d76d3cdd22e7ec0} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!benchmarkStarting@{benchmarkStarting}}
+\index{benchmarkStarting@{benchmarkStarting}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{benchmarkStarting()}{benchmarkStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::benchmark\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{Benchmark\+Info}} const \&}]{benchmark\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after probe but before the user-\/code is being benchmarked. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a96e744c9c4bdbea26f16ec2f1d0090fe}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00310}{310}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_a89b490cfb77edbf1a82de9c5fca6f003}\label{classCatch_1_1JsonReporter_a89b490cfb77edbf1a82de9c5fca6f003} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Json\+Reporter\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00136}{136}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_ae482943b40efb2496238d263bed45dcf}\label{classCatch_1_1JsonReporter_ae482943b40efb2496238d263bed45dcf} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!listListeners@{listListeners}}
+\index{listListeners@{listListeners}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{listListeners()}{listListeners()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::list\+Listeners (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{Listener\+Description}} $>$ const \&}]{descriptions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes out the provided listeners descriptions using reporter-\/specific format. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_acb1f0a5480b35730183105e9f77796f6}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00326}{326}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_a34d8fa620de13e7dea2e96b801f51a6b}\label{classCatch_1_1JsonReporter_a34d8fa620de13e7dea2e96b801f51a6b} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!listReporters@{listReporters}}
+\index{listReporters@{listReporters}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{listReporters()}{listReporters()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::list\+Reporters (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{Reporter\+Description}} $>$ const \&}]{descriptions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes out information about provided reporters using reporter-\/specific format. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a7da9f6743a14db5f7e3e1c92f00c1b6b}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00314}{314}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_ada793ec228f7f5eb52688b3776b73f3d}\label{classCatch_1_1JsonReporter_ada793ec228f7f5eb52688b3776b73f3d} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!listTags@{listTags}}
+\index{listTags@{listTags}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{listTags()}{listTags()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::list\+Tags (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1TagInfo}{Tag\+Info}} $>$ const \&}]{tags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes out information about the provided tags using reporter-\/specific format. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a52536b083c74898292be38f7fb5591e1}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00363}{363}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_a9fd3c6befd2583b8ee480301606baf62}\label{classCatch_1_1JsonReporter_a9fd3c6befd2583b8ee480301606baf62} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!listTests@{listTests}}
+\index{listTests@{listTests}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{listTests()}{listTests()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::list\+Tests (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \&}]{tests }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Writes out information about provided tests using reporter-\/specific format. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a52d9cd25aaaff57d7ba044d1108b2e9e}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00339}{339}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a655d20c1ca69519ca647684edbb2db35}{Catch\+::\+High}}, \mbox{\hyperlink{catch__reporter__common__base_8hpp_source_l00039}{Catch\+::\+Reporter\+Base\+::m\+\_\+verbosity}}, and \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a960b44c579bc2f6818d2daaf9e4c16f0}{Catch\+::\+Normal}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_ac94e5ec308974fa1c7276e3dabbf4a0d}\label{classCatch_1_1JsonReporter_ac94e5ec308974fa1c7276e3dabbf4a0d} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!sectionEnded@{sectionEnded}}
+\index{sectionEnded@{sectionEnded}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{sectionEnded()}{sectionEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::section\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} const \&}]{section\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after a {\ttfamily SECTION} has finished running. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a077b6305d49853779d715777e90138bd}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00277}{277}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_adb490c196548430f8537f54859f43ecd}\label{classCatch_1_1JsonReporter_adb490c196548430f8537f54859f43ecd} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!sectionStarting@{sectionStarting}}
+\index{sectionStarting@{sectionStarting}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{sectionStarting()}{sectionStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::section\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} const \&}]{section\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called when a {\ttfamily SECTION} is being entered. Not called for skipped sections. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_aaca0feeb367dea20806972112e4846d0}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00260}{260}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__section__info_8hpp_source_l00031}{Catch\+::\+Section\+Info\+::line\+Info}}, and \mbox{\hyperlink{catch__section__info_8hpp_source_l00030}{Catch\+::\+Section\+Info\+::name}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_a8f530cf144fca44b72f4d27f20e2a3ee}\label{classCatch_1_1JsonReporter_a8f530cf144fca44b72f4d27f20e2a3ee} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!testCaseEnded@{testCaseEnded}}
+\index{testCaseEnded@{testCaseEnded}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{testCaseEnded()}{testCaseEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::test\+Case\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&}]{test\+Case\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_abe5cb0aaed8d0d5d8a42d23a7e36b667}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00197}{197}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00036}{Catch\+::\+Totals\+::assertions}}, \mbox{\hyperlink{catch__reporter__streaming__base_8hpp_source_l00053}{Catch\+::\+Streaming\+Reporter\+Base\+::test\+Case\+Ended()}}, and \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00096}{Catch\+::\+Test\+Case\+Stats\+::totals}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JsonReporter_a8f530cf144fca44b72f4d27f20e2a3ee_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1JsonReporter_a70fde7350187d84ee1936371f84571fa}\label{classCatch_1_1JsonReporter_a70fde7350187d84ee1936371f84571fa} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!testCasePartialEnded@{testCasePartialEnded}}
+\index{testCasePartialEnded@{testCasePartialEnded}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{testCasePartialEnded()}{testCasePartialEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::test\+Case\+Partial\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&}]{test\+Case\+Stats,  }\item[{uint64\+\_\+t}]{part\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a1ca022b9d648e34eaee8f772c5f4969c}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00230}{230}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00036}{Catch\+::\+Totals\+::assertions}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00098}{Catch\+::\+Test\+Case\+Stats\+::std\+Err}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00097}{Catch\+::\+Test\+Case\+Stats\+::std\+Out}}, and \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00096}{Catch\+::\+Test\+Case\+Stats\+::totals}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_a552d2b19ad221b9465b8d63c45fdcddc}\label{classCatch_1_1JsonReporter_a552d2b19ad221b9465b8d63c45fdcddc} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!testCasePartialStarting@{testCasePartialStarting}}
+\index{testCasePartialStarting@{testCasePartialStarting}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{testCasePartialStarting()}{testCasePartialStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::test\+Case\+Partial\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&}]{test\+Info,  }\item[{uint64\+\_\+t}]{part\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_aa50659430e5ba60c662ef5218e5c1e53}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00221}{221}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_a3154fcb449ee804a6ff6b792c0ba229f}\label{classCatch_1_1JsonReporter_a3154fcb449ee804a6ff6b792c0ba229f} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!testCaseStarting@{testCaseStarting}}
+\index{testCaseStarting@{testCaseStarting}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{testCaseStarting()}{testCaseStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::test\+Case\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&}]{test\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a20bdd5b474e496a1a2a0b9e6a806ca4b}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00174}{174}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00098}{Catch\+::\+Test\+Case\+Info\+::line\+Info}}, \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00089}{Catch\+::\+Test\+Case\+Info\+::name}}, \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00097}{Catch\+::\+Test\+Case\+Info\+::tags}}, and \mbox{\hyperlink{catch__reporter__streaming__base_8hpp_source_l00038}{Catch\+::\+Streaming\+Reporter\+Base\+::test\+Case\+Starting()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JsonReporter_a3154fcb449ee804a6ff6b792c0ba229f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1JsonReporter_ab3b96ce416670424aef786eb6ec2b6d4}\label{classCatch_1_1JsonReporter_ab3b96ce416670424aef786eb6ec2b6d4} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!testRunEnded@{testRunEnded}}
+\index{testRunEnded@{testRunEnded}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{testRunEnded()}{testRunEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::test\+Run\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats}} const \&}]{test\+Run\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Called once after all tests in a testing run are finished
+
+Not called if tests weren\textquotesingle{}t run (e.\+g. only listings happened) 
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a97a17235b82da761043654491db0b17c}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00036}{Catch\+::\+Totals\+::assertions}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00037}{Catch\+::\+Totals\+::test\+Cases}}, and \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00108}{Catch\+::\+Test\+Run\+Stats\+::totals}}.
+
+\Hypertarget{classCatch_1_1JsonReporter_a3f80d7738e259540e247be6b93bf563c}\label{classCatch_1_1JsonReporter_a3f80d7738e259540e247be6b93bf563c} 
+\index{Catch::JsonReporter@{Catch::JsonReporter}!testRunStarting@{testRunStarting}}
+\index{testRunStarting@{testRunStarting}!Catch::JsonReporter@{Catch::JsonReporter}}
+\doxysubsubsection{\texorpdfstring{testRunStarting()}{testRunStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Reporter\+::test\+Run\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} const \&}]{test\+Run\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Called once in a testing run before tests are started
+
+Not called if tests won\textquotesingle{}t be run (e.\+g. only listing will happen) 
+
+Implements \mbox{\hyperlink{classCatch_1_1IEventListener_a3b7a9118f5b47011216aa31424ec4982}{Catch\+::\+IEvent\+Listener}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__json_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{catch__reporter__json_8cpp_source}{catch\+\_\+reporter\+\_\+json.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__streaming__base_8cpp_source_l00015}{Catch\+::\+Streaming\+Reporter\+Base\+::test\+Run\+Starting()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JsonReporter_a3f80d7738e259540e247be6b93bf563c_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__json_8hpp}{catch\+\_\+reporter\+\_\+json.\+hpp}}\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__json_8cpp}{catch\+\_\+reporter\+\_\+json.\+cpp}}\end{DoxyCompactItemize}

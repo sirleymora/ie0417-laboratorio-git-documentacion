@@ -1,0 +1,5 @@
+<map id="Catch::TestCaseTracking::ITracker::isOpen" name="Catch::TestCaseTracking::ITracker::isOpen">
+<area shape="rect" id="Node000001" title="Returns true if tracker has started but hasn&#39;t been completed." alt="" coords="5,5,184,45"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1TestCaseTracking_1_1ITracker.html#abe7e5f4437ce1fece2a6e665942f85d3" title="Returns true if tracker run to completion (successfully or not)" alt="" coords="232,5,411,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,23,218,23,218,28,185,28"/>
+</map>

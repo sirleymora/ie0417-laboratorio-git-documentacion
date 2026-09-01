@@ -1,0 +1,151 @@
+\doxysection{Catch\+::ITransient\+Expression Class Reference}
+\hypertarget{classCatch_1_1ITransientExpression}{}\label{classCatch_1_1ITransientExpression}\index{Catch::ITransientExpression@{Catch::ITransientExpression}}
+
+
+{\ttfamily \#include $<$catch\+\_\+decomposer.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::ITransient\+Expression\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1ITransientExpression__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr auto \mbox{\hyperlink{classCatch_1_1ITransientExpression_aad59bc043e01f4e7d727d9158a846038}{is\+Binary\+Expression}} () const -\/$>$ bool
+\item 
+constexpr auto \mbox{\hyperlink{classCatch_1_1ITransientExpression_a5cd3e95366a4efb2e351aa62def0fe8e}{get\+Result}} () const -\/$>$ bool
+\item 
+virtual void \mbox{\hyperlink{classCatch_1_1ITransientExpression_aaf4838293904ee28ef9c147f9069d56d}{stream\+Reconstructed\+Expression}} (std\+::ostream \&os) const
+\begin{DoxyCompactList}\small\item\em This function {\bfseries{has}} to be overridden by the derived class. \end{DoxyCompactList}\item 
+constexpr \mbox{\hyperlink{classCatch_1_1ITransientExpression_a6cd3f868f1346293bd706578cde47873}{ITransient\+Expression}} (bool \mbox{\hyperlink{classCatch_1_1ITransientExpression_aad59bc043e01f4e7d727d9158a846038}{is\+Binary\+Expression}}, bool result)
+\item 
+constexpr \mbox{\hyperlink{classCatch_1_1ITransientExpression_afa2112610febd70d5f6563fb82b83b73}{ITransient\+Expression}} (\mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} const \&)=default
+\item 
+constexpr \mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} \& \mbox{\hyperlink{classCatch_1_1ITransientExpression_afb1ea60be183ff81fcea46f0fe0672e0}{operator=}} (\mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} const \&)=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1ITransientExpression_ab4f9ce61ed614e17b2c63e2b7c88c5fb}{\texorpdfstring{$\sim$}{\string~}\+ITransient\+Expression}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classCatch_1_1ITransientExpression_a4a5f9ba111d8832ebca336d68486f6ce}{operator$<$$<$}} (std\+::ostream \&out, \mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} const \&expr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__decomposer_8hpp_source_l00166}{166}} of file \mbox{\hyperlink{catch__decomposer_8hpp_source}{catch\+\_\+decomposer.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1ITransientExpression_ab4f9ce61ed614e17b2c63e2b7c88c5fb}\label{classCatch_1_1ITransientExpression_ab4f9ce61ed614e17b2c63e2b7c88c5fb} 
+\index{Catch::ITransientExpression@{Catch::ITransientExpression}!````~ITransientExpression@{\texorpdfstring{$\sim$}{\string~}ITransientExpression}}
+\index{````~ITransientExpression@{\texorpdfstring{$\sim$}{\string~}ITransientExpression}!Catch::ITransientExpression@{Catch::ITransientExpression}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ITransientExpression()}{\string~ITransientExpression()}}
+{\footnotesize\ttfamily Catch\+::\+ITransient\+Expression\+::\texorpdfstring{$\sim$}{\string~}\+ITransient\+Expression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+\Hypertarget{classCatch_1_1ITransientExpression_a6cd3f868f1346293bd706578cde47873}\label{classCatch_1_1ITransientExpression_a6cd3f868f1346293bd706578cde47873} 
+\index{Catch::ITransientExpression@{Catch::ITransientExpression}!ITransientExpression@{ITransientExpression}}
+\index{ITransientExpression@{ITransientExpression}!Catch::ITransientExpression@{Catch::ITransientExpression}}
+\doxysubsubsection{\texorpdfstring{ITransientExpression()}{ITransientExpression()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily constexpr Catch\+::\+ITransient\+Expression\+::\+ITransient\+Expression (\begin{DoxyParamCaption}\item[{bool}]{is\+Binary\+Expression,  }\item[{bool}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__decomposer_8hpp_source_l00179}{179}} of file \mbox{\hyperlink{catch__decomposer_8hpp_source}{catch\+\_\+decomposer.\+hpp}}.
+
+\Hypertarget{classCatch_1_1ITransientExpression_afa2112610febd70d5f6563fb82b83b73}\label{classCatch_1_1ITransientExpression_afa2112610febd70d5f6563fb82b83b73} 
+\index{Catch::ITransientExpression@{Catch::ITransientExpression}!ITransientExpression@{ITransientExpression}}
+\index{ITransientExpression@{ITransientExpression}!Catch::ITransientExpression@{Catch::ITransientExpression}}
+\doxysubsubsection{\texorpdfstring{ITransientExpression()}{ITransientExpression()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily constexpr Catch\+::\+ITransient\+Expression\+::\+ITransient\+Expression (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1ITransientExpression_a5cd3e95366a4efb2e351aa62def0fe8e}\label{classCatch_1_1ITransientExpression_a5cd3e95366a4efb2e351aa62def0fe8e} 
+\index{Catch::ITransientExpression@{Catch::ITransientExpression}!getResult@{getResult}}
+\index{getResult@{getResult}!Catch::ITransientExpression@{Catch::ITransientExpression}}
+\doxysubsubsection{\texorpdfstring{getResult()}{getResult()}}
+{\footnotesize\ttfamily constexpr auto Catch\+::\+ITransient\+Expression\+::get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const -\/$>$ bool \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__decomposer_8hpp_source_l00175}{175}} of file \mbox{\hyperlink{catch__decomposer_8hpp_source}{catch\+\_\+decomposer.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__run__context_8cpp_source_l00823}{Catch\+::\+Run\+Context\+::handle\+Expr()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1ITransientExpression_a5cd3e95366a4efb2e351aa62def0fe8e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1ITransientExpression_aad59bc043e01f4e7d727d9158a846038}\label{classCatch_1_1ITransientExpression_aad59bc043e01f4e7d727d9158a846038} 
+\index{Catch::ITransientExpression@{Catch::ITransientExpression}!isBinaryExpression@{isBinaryExpression}}
+\index{isBinaryExpression@{isBinaryExpression}!Catch::ITransientExpression@{Catch::ITransientExpression}}
+\doxysubsubsection{\texorpdfstring{isBinaryExpression()}{isBinaryExpression()}}
+{\footnotesize\ttfamily constexpr auto Catch\+::\+ITransient\+Expression\+::is\+Binary\+Expression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const -\/$>$ bool \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__decomposer_8hpp_source_l00174}{174}} of file \mbox{\hyperlink{catch__decomposer_8hpp_source}{catch\+\_\+decomposer.\+hpp}}.
+
+\Hypertarget{classCatch_1_1ITransientExpression_afb1ea60be183ff81fcea46f0fe0672e0}\label{classCatch_1_1ITransientExpression_afb1ea60be183ff81fcea46f0fe0672e0} 
+\index{Catch::ITransientExpression@{Catch::ITransientExpression}!operator=@{operator=}}
+\index{operator=@{operator=}!Catch::ITransientExpression@{Catch::ITransientExpression}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily constexpr \mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} \& Catch\+::\+ITransient\+Expression\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}, {\ttfamily [default]}}
+
+\Hypertarget{classCatch_1_1ITransientExpression_aaf4838293904ee28ef9c147f9069d56d}\label{classCatch_1_1ITransientExpression_aaf4838293904ee28ef9c147f9069d56d} 
+\index{Catch::ITransientExpression@{Catch::ITransientExpression}!streamReconstructedExpression@{streamReconstructedExpression}}
+\index{streamReconstructedExpression@{streamReconstructedExpression}!Catch::ITransientExpression@{Catch::ITransientExpression}}
+\doxysubsubsection{\texorpdfstring{streamReconstructedExpression()}{streamReconstructedExpression()}}
+{\footnotesize\ttfamily void Catch\+::\+ITransient\+Expression\+::stream\+Reconstructed\+Expression (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+This function {\bfseries{has}} to be overridden by the derived class. 
+
+
+
+Reimplemented in \mbox{\hyperlink{classCatch_1_1MatchExpr_ad3e41adb597750b2219bb37e51185629}{Catch\+::\+Match\+Expr$<$ Arg\+T, Matcher\+T $>$}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__decomposer_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{catch__decomposer_8cpp_source}{catch\+\_\+decomposer.\+cpp}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classCatch_1_1ITransientExpression_a4a5f9ba111d8832ebca336d68486f6ce}\label{classCatch_1_1ITransientExpression_a4a5f9ba111d8832ebca336d68486f6ce} 
+\index{Catch::ITransientExpression@{Catch::ITransientExpression}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Catch::ITransientExpression@{Catch::ITransientExpression}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{\mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} const \&}]{expr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__decomposer_8hpp_source_l00187}{187}} of file \mbox{\hyperlink{catch__decomposer_8hpp_source}{catch\+\_\+decomposer.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__decomposer_8hpp}{catch\+\_\+decomposer.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__decomposer_8cpp}{catch\+\_\+decomposer.\+cpp}}\end{DoxyCompactItemize}

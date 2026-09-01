@@ -1,0 +1,70 @@
+\doxysection{src/catch2/generators/catch\+\_\+generators\+\_\+random.cpp File Reference}
+\hypertarget{catch__generators__random_8cpp}{}\label{catch__generators__random_8cpp}\index{src/catch2/generators/catch\_generators\_random.cpp@{src/catch2/generators/catch\_generators\_random.cpp}}
+{\ttfamily \#include $<$catch2/generators/catch\+\_\+generators\+\_\+random.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+context.\+hpp$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+Include dependency graph for catch\+\_\+generators\+\_\+random.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__generators__random_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Generators_1_1RandomFloatingGenerator_1_1PImpl}{Catch\+::\+Generators\+::\+Random\+Floating\+Generator$<$ Float $>$\+::\+PImpl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Generators}{Catch\+::\+Generators}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Generators_1_1Detail}{Catch\+::\+Generators\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::uint32\+\_\+t \mbox{\hyperlink{namespaceCatch_1_1Generators_1_1Detail_a43ff3ca07ca525084cadb89dee13e39e}{Catch\+::\+Generators\+::\+Detail\+::get\+Seed}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1SimplePcg32}{Catch\+::\+Simple\+Pcg32}} \mbox{\hyperlink{catch__generators__random_8cpp_ab38c0e682ad34c4ffec39df5046d42f2}{rng}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ long double $>$ \mbox{\hyperlink{catch__generators__random_8cpp_aad8e4cce031c133c701797500f3d8cf6}{dist}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{catch__generators__random_8cpp_aad8e4cce031c133c701797500f3d8cf6}\label{catch__generators__random_8cpp_aad8e4cce031c133c701797500f3d8cf6} 
+\index{catch\_generators\_random.cpp@{catch\_generators\_random.cpp}!dist@{dist}}
+\index{dist@{dist}!catch\_generators\_random.cpp@{catch\_generators\_random.cpp}}
+\doxysubsubsection{\texorpdfstring{dist}{dist}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+real\+\_\+distribution$<$long double$>$ dist}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__random_8cpp_source_l00025}{25}} of file \mbox{\hyperlink{catch__generators__random_8cpp_source}{catch\+\_\+generators\+\_\+random.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__is__permutation_8hpp_source_l00054}{Catch\+::\+Detail\+::sentinel\+\_\+distance()}}.
+
+\Hypertarget{catch__generators__random_8cpp_ab38c0e682ad34c4ffec39df5046d42f2}\label{catch__generators__random_8cpp_ab38c0e682ad34c4ffec39df5046d42f2} 
+\index{catch\_generators\_random.cpp@{catch\_generators\_random.cpp}!rng@{rng}}
+\index{rng@{rng}!catch\_generators\_random.cpp@{catch\_generators\_random.cpp}}
+\doxysubsubsection{\texorpdfstring{rng}{rng}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1SimplePcg32}{Catch\+::\+Simple\+Pcg32}} rng}
+
+
+
+Definition at line \mbox{\hyperlink{catch__generators__random_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{catch__generators__random_8cpp_source}{catch\+\_\+generators\+\_\+random.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__stats_8cpp_source_l00350}{Catch\+::\+Benchmark\+::\+Detail\+::analyse\+\_\+samples()}}, \mbox{\hyperlink{catch__matchers__container__properties_8hpp_source_l00021}{Catch\+::\+Matchers\+::\+Is\+Empty\+Matcher\+::match()}}, \mbox{\hyperlink{catch__matchers__container__properties_8hpp_source_l00041}{Catch\+::\+Matchers\+::\+Has\+Size\+Matcher\+::match()}}, \mbox{\hyperlink{catch__matchers__container__properties_8hpp_source_l00062}{Catch\+::\+Matchers\+::\+Size\+Matches\+Matcher$<$ Matcher $>$\+::match()}}, \mbox{\hyperlink{catch__matchers__contains_8hpp_source_l00036}{Catch\+::\+Matchers\+::\+Contains\+Element\+Matcher$<$ T, Equality $>$\+::match()}}, \mbox{\hyperlink{catch__matchers__contains_8hpp_source_l00057}{Catch\+::\+Matchers\+::\+Contains\+Matcher\+Matcher$<$ Matcher $>$\+::match()}}, \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00030}{Catch\+::\+Matchers\+::\+All\+Match\+Matcher$<$ Matcher $>$\+::match()}}, \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00054}{Catch\+::\+Matchers\+::\+None\+Match\+Matcher$<$ Matcher $>$\+::match()}}, \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00078}{Catch\+::\+Matchers\+::\+Any\+Match\+Matcher$<$ Matcher $>$\+::match()}}, \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00094}{Catch\+::\+Matchers\+::\+All\+True\+Matcher\+::match()}}, \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00110}{Catch\+::\+Matchers\+::\+None\+True\+Matcher\+::match()}}, \mbox{\hyperlink{catch__matchers__quantifiers_8hpp_source_l00126}{Catch\+::\+Matchers\+::\+Any\+True\+Matcher\+::match()}}, \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source_l00038}{Catch\+::\+Matchers\+::\+Range\+Equals\+Matcher$<$ Target\+Range\+Like, Equality $>$\+::match()}}, and \mbox{\hyperlink{catch__matchers__range__equals_8hpp_source_l00078}{Catch\+::\+Matchers\+::\+Unordered\+Range\+Equals\+Matcher$<$ Target\+Range\+Like, Equality $>$\+::match()}}.
+

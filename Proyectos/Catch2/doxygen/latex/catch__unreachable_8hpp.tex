@@ -1,0 +1,40 @@
+\doxysection{src/catch2/internal/catch\+\_\+unreachable.hpp File Reference}
+\hypertarget{catch__unreachable_8hpp}{}\label{catch__unreachable_8hpp}\index{src/catch2/internal/catch\_unreachable.hpp@{src/catch2/internal/catch\_unreachable.hpp}}
+{\ttfamily \#include $<$exception$>$}\newline
+Include dependency graph for catch\+\_\+unreachable.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{catch__unreachable_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__unreachable_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_a1babf8feb5e4bb8fd3d79d664fecbde6}{Catch\+::\+Detail\+::\+Unreachable}} () noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Polyfill {\ttfamily std\+::unreachable}
+
+We need something like {\ttfamily std\+::unreachable} to tell the compiler that some macros, e.\+g. {\ttfamily FAIL} or {\ttfamily SKIP}, do not continue execution in normal manner, and should handle it as such, e.\+g. not warn if there is no return from non-\/void function after a {\ttfamily FAIL} or {\ttfamily SKIP}. 
+
+Definition in file \mbox{\hyperlink{catch__unreachable_8hpp_source}{catch\+\_\+unreachable.\+hpp}}.
+

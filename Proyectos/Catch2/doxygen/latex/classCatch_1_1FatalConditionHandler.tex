@@ -1,0 +1,96 @@
+\doxysection{Catch\+::Fatal\+Condition\+Handler Class Reference}
+\hypertarget{classCatch_1_1FatalConditionHandler}{}\label{classCatch_1_1FatalConditionHandler}\index{Catch::FatalConditionHandler@{Catch::FatalConditionHandler}}
+
+
+{\ttfamily \#include $<$catch\+\_\+fatal\+\_\+condition\+\_\+handler.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1FatalConditionHandler_a4c3eaa6d0ebe8eceb36c71a47f7de060}{Fatal\+Condition\+Handler}} ()
+\item 
+\mbox{\hyperlink{classCatch_1_1FatalConditionHandler_ad4092a1121a26c3fae5cac9b7ff24d8c}{\texorpdfstring{$\sim$}{\string~}\+Fatal\+Condition\+Handler}} ()
+\item 
+void \mbox{\hyperlink{classCatch_1_1FatalConditionHandler_a223969cc9e7f10f54f45bfd2348bd382}{engage}} ()
+\item 
+void \mbox{\hyperlink{classCatch_1_1FatalConditionHandler_a6e19de699ad72bd50d5bd63b9526f3d8}{disengage}} () noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper for platform-\/specific fatal error (signals/\+SEH) handlers
+
+Tries to be cooperative with other handlers, and not step over other handlers. This means that unknown structured exceptions are passed on, previous signal handlers are called, and so on.
+
+Can only be instantiated once, and assumes that once a signal is caught, the binary will end up terminating. Thus, there 
+
+Definition at line \mbox{\hyperlink{catch__fatal__condition__handler_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{catch__fatal__condition__handler_8hpp_source}{catch\+\_\+fatal\+\_\+condition\+\_\+handler.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1FatalConditionHandler_a4c3eaa6d0ebe8eceb36c71a47f7de060}\label{classCatch_1_1FatalConditionHandler_a4c3eaa6d0ebe8eceb36c71a47f7de060} 
+\index{Catch::FatalConditionHandler@{Catch::FatalConditionHandler}!FatalConditionHandler@{FatalConditionHandler}}
+\index{FatalConditionHandler@{FatalConditionHandler}!Catch::FatalConditionHandler@{Catch::FatalConditionHandler}}
+\doxysubsubsection{\texorpdfstring{FatalConditionHandler()}{FatalConditionHandler()}}
+{\footnotesize\ttfamily Catch\+::\+Fatal\+Condition\+Handler\+::\+Fatal\+Condition\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classCatch_1_1FatalConditionHandler_ad4092a1121a26c3fae5cac9b7ff24d8c}\label{classCatch_1_1FatalConditionHandler_ad4092a1121a26c3fae5cac9b7ff24d8c} 
+\index{Catch::FatalConditionHandler@{Catch::FatalConditionHandler}!````~FatalConditionHandler@{\texorpdfstring{$\sim$}{\string~}FatalConditionHandler}}
+\index{````~FatalConditionHandler@{\texorpdfstring{$\sim$}{\string~}FatalConditionHandler}!Catch::FatalConditionHandler@{Catch::FatalConditionHandler}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FatalConditionHandler()}{\string~FatalConditionHandler()}}
+{\footnotesize\ttfamily Catch\+::\+Fatal\+Condition\+Handler\+::\texorpdfstring{$\sim$}{\string~}\+Fatal\+Condition\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1FatalConditionHandler_a6e19de699ad72bd50d5bd63b9526f3d8}\label{classCatch_1_1FatalConditionHandler_a6e19de699ad72bd50d5bd63b9526f3d8} 
+\index{Catch::FatalConditionHandler@{Catch::FatalConditionHandler}!disengage@{disengage}}
+\index{disengage@{disengage}!Catch::FatalConditionHandler@{Catch::FatalConditionHandler}}
+\doxysubsubsection{\texorpdfstring{disengage()}{disengage()}}
+{\footnotesize\ttfamily void Catch\+::\+Fatal\+Condition\+Handler\+::disengage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__fatal__condition__handler_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{catch__fatal__condition__handler_8hpp_source}{catch\+\_\+fatal\+\_\+condition\+\_\+handler.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__fatal__condition__handler_8hpp_source_l00059}{Catch\+::\+Fatal\+Condition\+Handler\+Guard\+::\texorpdfstring{$\sim$}{\string~}\+Fatal\+Condition\+Handler\+Guard()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1FatalConditionHandler_a6e19de699ad72bd50d5bd63b9526f3d8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1FatalConditionHandler_a223969cc9e7f10f54f45bfd2348bd382}\label{classCatch_1_1FatalConditionHandler_a223969cc9e7f10f54f45bfd2348bd382} 
+\index{Catch::FatalConditionHandler@{Catch::FatalConditionHandler}!engage@{engage}}
+\index{engage@{engage}!Catch::FatalConditionHandler@{Catch::FatalConditionHandler}}
+\doxysubsubsection{\texorpdfstring{engage()}{engage()}}
+{\footnotesize\ttfamily void Catch\+::\+Fatal\+Condition\+Handler\+::engage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__fatal__condition__handler_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{catch__fatal__condition__handler_8hpp_source}{catch\+\_\+fatal\+\_\+condition\+\_\+handler.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__fatal__condition__handler_8hpp_source_l00055}{Catch\+::\+Fatal\+Condition\+Handler\+Guard\+::\+Fatal\+Condition\+Handler\+Guard()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1FatalConditionHandler_a223969cc9e7f10f54f45bfd2348bd382_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__fatal__condition__handler_8hpp}{catch\+\_\+fatal\+\_\+condition\+\_\+handler.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__fatal__condition__handler_8cpp}{catch\+\_\+fatal\+\_\+condition\+\_\+handler.\+cpp}}\end{DoxyCompactItemize}

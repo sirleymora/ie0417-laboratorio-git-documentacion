@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,109,124,134"/>
+<area shape="rect" id="Node000001" href="$structCatch_1_1Detail_1_1disjunction.html" title=" " alt="" coords="186,5,371,45"/>
+<area shape="poly" id="edge134_Node000000_Node000001" title=" " alt="" coords="94,99,130,76,171,55,202,43,204,48,173,60,132,81,97,103"/>
+<area shape="rect" id="Node000002" href="$structCatch_1_1Detail_1_1has__description.html" title=" " alt="" coords="172,69,385,109"/>
+<area shape="poly" id="edge135_Node000000_Node000002" title=" " alt="" coords="137,108,171,103,172,108,138,113"/>
+<area shape="rect" id="Node000003" href="$structCatch_1_1Detail_1_1is__range__impl.html" title=" " alt="" coords="193,133,364,173"/>
+<area shape="poly" id="edge136_Node000000_Node000003" title=" " alt="" coords="138,130,194,138,193,143,137,135"/>
+<area shape="rect" id="Node000005" href="$structCatch_1_1always__false.html" title=" " alt="" coords="183,198,374,223"/>
+<area shape="poly" id="edge138_Node000000_Node000005" title=" " alt="" coords="96,140,132,162,173,183,211,195,210,200,171,188,129,167,93,144"/>
+<area shape="rect" id="Node000004" href="$structCatch_1_1is__range.html" title=" " alt="" coords="433,141,593,166"/>
+<area shape="poly" id="edge137_Node000003_Node000004" title=" " alt="" coords="378,151,433,151,433,156,378,156"/>
+</map>

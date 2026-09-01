@@ -1,0 +1,84 @@
+\doxysection{catch\+\_\+debugger.\+hpp}
+\hypertarget{catch__debugger_8hpp_source}{}\label{catch__debugger_8hpp_source}\index{src/catch2/internal/catch\_debugger.hpp@{src/catch2/internal/catch\_debugger.hpp}}
+\mbox{\hyperlink{catch__debugger_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_DEBUGGER\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_DEBUGGER\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__platform_8hpp}{catch2/internal/catch\_platform.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_ab079497368fb1df25af39ad494d2a241}{isDebuggerActive}}();}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_TRAP\ )\ \&\&\ defined(\ \_\_clang\_\_\ )\ \&\&\ defined(\ \_\_has\_builtin\ )}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#\ \ \ \ if\ \_\_has\_builtin(\ \_\_builtin\_debugtrap\ )}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00019}00019\ \textcolor{preprocessor}{\#\ \ \ \ \ \ \ \ define\ CATCH\_TRAP()\ \_\_builtin\_debugtrap()}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00020}00020\ \textcolor{preprocessor}{\#\ \ \ \ endif}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_TRAP\ )\ \&\&\ defined(\ \_MSC\_VER\ )}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#\ \ \ \ define\ CATCH\_TRAP()\ \_\_debugbreak()}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_TRAP)\ }\textcolor{comment}{//\ If\ we\ couldn't\ use\ compiler-\/specific\ impl\ from\ above,\ we\ get\ into\ platform-\/specific\ options}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#ifdef\ CATCH\_PLATFORM\_MAC}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_\_i386\_\_)\ ||\ defined(\_\_x86\_64\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00031}00031\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_TRAP()\ \_\_asm\_\_("{}int\ \$3\(\backslash\)n"{}\ :\ :\ )\ }\textcolor{comment}{/*\ NOLINT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_aarch64\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00033}00033\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_TRAP()\ \_\_asm\_\_("{}.inst\ 0xd43e0000"{})}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00034}00034\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_POWERPC\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00035}00035\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_TRAP()\ \_\_asm\_\_("{}li\ r0,\ 20\(\backslash\)nsc\(\backslash\)nnop\(\backslash\)nli\ r0,\ 37\(\backslash\)nli\ r4,\ 2\(\backslash\)nsc\(\backslash\)nnop\(\backslash\)n"{}\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00036}00036\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ :\ :\ :\ "{}memory"{},"{}r0"{},"{}r3"{},"{}r4"{}\ )\ }\textcolor{comment}{/*\ NOLINT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00037}00037\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00039}00039\ \textcolor{preprocessor}{\#elif\ defined(CATCH\_PLATFORM\_IPHONE)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ use\ inline\ assembler}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00042}00042\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_\_i386\_\_)\ ||\ defined(\_\_x86\_64\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00043}00043\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_TRAP()\ \ \_\_asm\_\_("{}int\ \$3"{})}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00044}00044\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_aarch64\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00045}00045\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_TRAP()\ \ \_\_asm\_\_("{}.inst\ 0xd4200000"{})}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00046}00046\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_arm\_\_)\ \&\&\ !defined(\_\_thumb\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00047}00047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_TRAP()\ \ \_\_asm\_\_("{}.inst\ 0xe7f001f0"{})}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00048}00048\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_arm\_\_)\ \&\&\ \ defined(\_\_thumb\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00049}00049\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_TRAP()\ \ \_\_asm\_\_("{}.inst\ 0xde01"{})}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00050}00050\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00052}00052\ \textcolor{preprocessor}{\#elif\ defined(CATCH\_PLATFORM\_LINUX)\ ||\ defined(CATCH\_PLATFORM\_QNX)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ If\ we\ can\ use\ inline\ assembler,\ do\ it\ because\ this\ allows\ us\ to\ break}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//\ directly\ at\ the\ location\ of\ the\ failing\ check\ instead\ of\ breaking\ inside}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//\ raise()\ called\ from\ it,\ i.e.\ one\ stack\ frame\ below.}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00056}00056\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_\_GNUC\_\_)\ \&\&\ (defined(\_\_i386)\ ||\ defined(\_\_x86\_64))}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00057}00057\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_TRAP()\ asm\ volatile\ ("{}int\ \$3"{})\ }\textcolor{comment}{/*\ NOLINT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00058}00058\ \textcolor{preprocessor}{\ \ \ \ \#else\ }\textcolor{comment}{//\ Fall\ back\ to\ the\ generic\ way.}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00059}00059\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#include\ <signal.h>}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00061}00061\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_TRAP()\ raise(SIGTRAP)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00062}00062\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00063}00063\ \textcolor{preprocessor}{\#elif\ defined(\_\_MINGW32\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \_\_declspec(dllimport)\ \textcolor{keywordtype}{void}\ \_\_stdcall\ DebugBreak();}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00065}00065\ \textcolor{preprocessor}{\ \ \ \ \#define\ CATCH\_TRAP()\ DebugBreak()}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00066}00066\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00067}00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \string^\string^\ CATCH\_TRAP\ is\ not\ defined\ yet,\ so\ we\ define\ it}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00070}00070\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_BREAK\_INTO\_DEBUGGER)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00071}00071\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(CATCH\_TRAP)}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00072}00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_BREAK\_INTO\_DEBUGGER()\ []\{\ if(\ Catch::isDebuggerActive()\ )\ \{\ CATCH\_TRAP();\ \}\ \}()}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00073}00073\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00074}\mbox{\hyperlink{catch__debugger_8hpp_a89636e916d8b61c85c63ea5a75b1e6fd}{00074}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ CATCH\_BREAK\_INTO\_DEBUGGER()\ []\{\}()}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00075}00075\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00076}00076\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{catch__debugger_8hpp_source_l00078}00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_DEBUGGER\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

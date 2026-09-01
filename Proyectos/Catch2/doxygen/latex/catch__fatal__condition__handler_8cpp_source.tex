@@ -1,0 +1,232 @@
+\doxysection{catch\+\_\+fatal\+\_\+condition\+\_\+handler.\+cpp}
+\hypertarget{catch__fatal__condition__handler_8cpp_source}{}\label{catch__fatal__condition__handler_8cpp_source}\index{src/catch2/internal/catch\_fatal\_condition\_handler.cpp@{src/catch2/internal/catch\_fatal\_condition\_handler.cpp}}
+\mbox{\hyperlink{catch__fatal__condition__handler_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__fatal__condition__handler_8hpp}{catch2/internal/catch\_fatal\_condition\_handler.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__compiler__capabilities_8hpp}{catch2/internal/catch\_compiler\_capabilities.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__context_8hpp}{catch2/internal/catch\_context.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__enforce_8hpp}{catch2/internal/catch\_enforce.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__capture_8hpp}{catch2/interfaces/catch\_interfaces\_capture.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__windows__h__proxy_8hpp}{catch2/internal/catch\_windows\_h\_proxy.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__stdstreams_8hpp}{catch2/internal/catch\_stdstreams.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00036}00036\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00038}00038\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_CONFIG\_WINDOWS\_SEH\ )\ \&\&\ !defined(\ CATCH\_CONFIG\_POSIX\_SIGNALS\ )}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00040}00040\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ If\ neither\ SEH\ nor\ signal\ handling\ is\ required,\ the\ handler\ impls}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ do\ not\ have\ to\ do\ anything,\ and\ can\ be\ empty.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{void}\ FatalConditionHandler::engage\_platform()\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{void}\ FatalConditionHandler::disengage\_platform()\ noexcept\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1FatalConditionHandler_a4c3eaa6d0ebe8eceb36c71a47f7de060}{FatalConditionHandler::FatalConditionHandler}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1FatalConditionHandler_ad4092a1121a26c3fae5cac9b7ff24d8c}{FatalConditionHandler::\string~FatalConditionHandler}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00049}00049\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00051}00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !CATCH\_CONFIG\_WINDOWS\_SEH\ \&\&\ !CATCH\_CONFIG\_POSIX\_SIGNALS}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00053}00053\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_CONFIG\_WINDOWS\_SEH\ )\ \&\&\ defined(\ CATCH\_CONFIG\_POSIX\_SIGNALS\ )}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00054}00054\ \textcolor{preprocessor}{\#error\ "{}Inconsistent\ configuration:\ Windows'\ SEH\ handling\ and\ POSIX\ signals\ cannot\ be\ enabled\ at\ the\ same\ time"{}}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00055}00055\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_CONFIG\_WINDOWS\_SEH\ \&\&\ CATCH\_CONFIG\_POSIX\_SIGNALS}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00057}00057\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_CONFIG\_WINDOWS\_SEH\ )\ ||\ defined(\ CATCH\_CONFIG\_POSIX\_SIGNALS\ )}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00059}00059\ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{void}\ reportFatal(\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *\ \textcolor{keyword}{const}\ message\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_a8b23533de8c7d123687ac2c8d36b653a}{Catch::getCurrentContext}}().\mbox{\hyperlink{classCatch_1_1Context_af982da2ffec655cc4b95af6c86d3e2d2}{getResultCapture}}()-\/>\mbox{\hyperlink{classCatch_1_1IResultCapture_a48559e6598ba9474b903697b69c769b2}{handleFatalErrorCondition}}(\ message\ );}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{constexpr}\ std::size\_t\ minStackSizeForErrors\ =\ 32\ *\ 1024;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00069}00069\ \}\ \textcolor{comment}{//\ end\ unnamed\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00071}00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_CONFIG\_WINDOWS\_SEH\ ||\ CATCH\_CONFIG\_POSIX\_SIGNALS}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00073}00073\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_CONFIG\_WINDOWS\_SEH\ )}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00075}00075\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{struct\ }SignalDefs\ \{\ DWORD\ id;\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name;\ \};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{comment}{//\ There\ is\ no\ 1-\/1\ mapping\ between\ signals\ and\ windows\ exceptions.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ Windows\ can\ easily\ distinguish\ between\ SO\ and\ SigSegV,}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//\ but\ SigInt,\ SigTerm,\ etc\ are\ handled\ differently.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ SignalDefs\ signalDefs[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \{\ EXCEPTION\_ILLEGAL\_INSTRUCTION,\ \ \textcolor{stringliteral}{"{}SIGILL\ -\/\ Illegal\ instruction\ signal"{}}\ \},}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \{\ EXCEPTION\_STACK\_OVERFLOW,\ \textcolor{stringliteral}{"{}SIGSEGV\ -\/\ Stack\ overflow"{}}\ \},}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \{\ EXCEPTION\_ACCESS\_VIOLATION,\ \textcolor{stringliteral}{"{}SIGSEGV\ -\/\ Segmentation\ violation\ signal"{}}\ \},}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \{\ EXCEPTION\_INT\_DIVIDE\_BY\_ZERO,\ \textcolor{stringliteral}{"{}Divide\ by\ zero\ error"{}}\ \},}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00087}00087\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//\ Since\ we\ do\ not\ support\ multiple\ instantiations,\ we\ put\ these}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ into\ global\ variables\ and\ rely\ on\ cleaning\ them\ up\ in\ outlined}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//\ constructors/destructors}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keyword}{static}\ LPTOP\_LEVEL\_EXCEPTION\_FILTER\ previousTopLevelExceptionFilter\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keyword}{static}\ LONG\ CALLBACK\ topLevelExceptionFilter(PEXCEPTION\_POINTERS\ ExceptionInfo)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ def\ :\ signalDefs)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ExceptionInfo-\/>ExceptionRecord-\/>ExceptionCode\ ==\ def.id)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reportFatal(def.name);}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ a\ filter\ was\ previously\ registered,\ invoke\ it}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (previousTopLevelExceptionFilter)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ previousTopLevelExceptionFilter(ExceptionInfo);}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Otherwise,\ pass\ along\ all\ exceptions.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ stops\ us\ from\ eating\ debugger\ breaks\ etc.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ EXCEPTION\_CONTINUE\_SEARCH;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00108}00108\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{comment}{//\ For\ MSVC,\ we\ reserve\ part\ of\ the\ stack\ memory\ for\ handling}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00111}00111\ \ \ \ \ \textcolor{comment}{//\ memory\ overflow\ structured\ exception.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1FatalConditionHandler_a4c3eaa6d0ebe8eceb36c71a47f7de060}{FatalConditionHandler::FatalConditionHandler}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ ULONG\ guaranteeSize\ =\ \textcolor{keyword}{static\_cast<}ULONG\textcolor{keyword}{>}(minStackSizeForErrors);}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!SetThreadStackGuarantee(\&guaranteeSize))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ do\ not\ want\ to\ fully\ error\ out,\ because\ needing}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ stack\ reserve\ should\ be\ rare\ enough\ anyway.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_a54c1ce08041448d684ae8edc14162cd2}{Catch::cerr}}()}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Failed\ to\ reserve\ piece\ of\ stack."{}}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ Stack\ overflows\ will\ not\ be\ reported\ successfully."{}};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{comment}{//\ We\ do\ not\ attempt\ to\ unset\ the\ stack\ guarantee,\ because}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00124}00124\ \ \ \ \ \textcolor{comment}{//\ Windows\ does\ not\ support\ lowering\ the\ stack\ size\ guarantee.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00125}00125\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1FatalConditionHandler_ad4092a1121a26c3fae5cac9b7ff24d8c}{FatalConditionHandler::\string~FatalConditionHandler}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keywordtype}{void}\ FatalConditionHandler::engage\_platform()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Register\ as\ a\ the\ top\ level\ exception\ filter.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ previousTopLevelExceptionFilter\ =\ SetUnhandledExceptionFilter(topLevelExceptionFilter);}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00133}00133\ \ \ \ \ \textcolor{keywordtype}{void}\ FatalConditionHandler::disengage\_platform()\ noexcept\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SetUnhandledExceptionFilter(previousTopLevelExceptionFilter)\ !=\ topLevelExceptionFilter)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_a54c1ce08041448d684ae8edc14162cd2}{Catch::cerr}}()}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Unexpected\ SEH\ unhandled\ exception\ filter\ on\ disengage."{}}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ The\ filter\ was\ restored,\ but\ might\ be\ rolled\ back\ unexpectedly."{}};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ previousTopLevelExceptionFilter\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00142}00142\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00144}00144\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_CONFIG\_WINDOWS\_SEH}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00146}00146\ \textcolor{preprocessor}{\#if\ defined(\ CATCH\_CONFIG\_POSIX\_SIGNALS\ )}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00148}00148\ \textcolor{preprocessor}{\#include\ <signal.h>}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00150}00150\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00152}00152\ \ \ \ \ \textcolor{keyword}{struct\ }SignalDefs\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00155}00155\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ SignalDefs\ signalDefs[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \{\ SIGINT,\ \ \textcolor{stringliteral}{"{}SIGINT\ -\/\ Terminal\ interrupt\ signal"{}}\ \},}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \{\ SIGILL,\ \ \textcolor{stringliteral}{"{}SIGILL\ -\/\ Illegal\ instruction\ signal"{}}\ \},}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \{\ SIGFPE,\ \ \textcolor{stringliteral}{"{}SIGFPE\ -\/\ Floating\ point\ error\ signal"{}}\ \},}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \{\ SIGSEGV,\ \textcolor{stringliteral}{"{}SIGSEGV\ -\/\ Segmentation\ violation\ signal"{}}\ \},}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \{\ SIGTERM,\ \textcolor{stringliteral}{"{}SIGTERM\ -\/\ Termination\ request\ signal"{}}\ \},}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \{\ SIGABRT,\ \textcolor{stringliteral}{"{}SIGABRT\ -\/\ Abort\ (abnormal\ termination)\ signal"{}}\ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00164}00164\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00166}00166\ \textcolor{comment}{//\ Older\ GCCs\ trigger\ -\/Wmissing-\/field-\/initializers\ for\ T\ foo\ =\ \{\}}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00167}00167\ \textcolor{comment}{//\ which\ is\ zero\ initialization,\ but\ not\ explicit.\ We\ want\ to\ avoid}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00168}00168\ \textcolor{comment}{//\ that.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00169}00169\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00170}00170\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00171}00171\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wmissing-\/field-\/initializers"{}}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00172}00172\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00174}00174\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}*\ altStackMem\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{keyword}{static}\ std::size\_t\ altStackSize\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00176}00176\ \ \ \ \ \textcolor{keyword}{static}\ stack\_t\ oldSigStack\{\};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00177}00177\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }sigaction\ oldSigActions[sizeof(signalDefs)\ /\ sizeof(SignalDefs)]\{\};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00179}00179\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ restorePreviousSignalHandlers()\ noexcept\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ set\ signal\ handlers\ back\ to\ the\ previous\ ones.\ Hopefully}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ nobody\ overwrote\ them\ in\ the\ meantime,\ and\ doesn't\ expect}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ their\ signal\ handlers\ to\ live\ past\ ours\ given\ that\ they}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ installed\ them\ after\ ours..}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ \textcolor{keyword}{sizeof}(signalDefs)\ /\ \textcolor{keyword}{sizeof}(SignalDefs);\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ sigaction(signalDefs[i].\textcolor{keywordtype}{id},\ \&oldSigActions[i],\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Return\ the\ old\ stack}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ sigaltstack(\&oldSigStack,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00191}00191\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ handleSignal(\ \textcolor{keywordtype}{int}\ sig\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *\ name\ =\ \textcolor{stringliteral}{"{}<unknown\ signal>"{}};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ def\ :\ signalDefs)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sig\ ==\ def.id)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name\ =\ def.name;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ need\ to\ restore\ previous\ signal\ handlers\ and\ let\ them\ do}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ their\ thing,\ so\ that\ the\ users\ can\ have\ the\ debugger\ break}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ when\ a\ signal\ is\ raised,\ and\ so\ on.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ restorePreviousSignalHandlers();}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ reportFatal(\ name\ );}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ raise(\ sig\ );}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00205}00205\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00207}00207\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1FatalConditionHandler_a4c3eaa6d0ebe8eceb36c71a47f7de060}{FatalConditionHandler::FatalConditionHandler}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ assert(!altStackMem\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ initialize\ POSIX\ signal\ handler\ when\ one\ already\ exists"{}});}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (altStackSize\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ altStackSize\ =\ std::max(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(SIGSTKSZ),\ minStackSizeForErrors);}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ altStackMem\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[altStackSize]();}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00215}00215\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1FatalConditionHandler_ad4092a1121a26c3fae5cac9b7ff24d8c}{FatalConditionHandler::\string~FatalConditionHandler}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ altStackMem;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ signal\ that\ another\ instance\ can\ be\ constructed\ by\ zeroing}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ out\ the\ pointer.}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ altStackMem\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00220}00220\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00222}00222\ \ \ \ \ \textcolor{keywordtype}{void}\ FatalConditionHandler::engage\_platform()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ stack\_t\ sigStack;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ sigStack.ss\_sp\ =\ altStackMem;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ sigStack.ss\_size\ =\ altStackSize;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ sigStack.ss\_flags\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ sigaltstack(\&sigStack,\ \&oldSigStack);}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }sigaction\ sa\ =\ \{\ \};}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ sa.sa\_handler\ =\ handleSignal;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ sa.sa\_flags\ =\ SA\_ONSTACK;}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ \textcolor{keyword}{sizeof}(signalDefs)/\textcolor{keyword}{sizeof}(SignalDefs);\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ sigaction(signalDefs[i].\textcolor{keywordtype}{id},\ \&sa,\ \&oldSigActions[i]);}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00235}00235\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00237}00237\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00238}00238\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00239}00239\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00242}00242\ \ \ \ \ \textcolor{keywordtype}{void}\ FatalConditionHandler::disengage\_platform()\ noexcept\ \{}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ restorePreviousSignalHandlers();}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00244}00244\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00246}00246\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{catch__fatal__condition__handler_8cpp_source_l00248}00248\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_CONFIG\_POSIX\_SIGNALS}}
+
+\end{DoxyCode}

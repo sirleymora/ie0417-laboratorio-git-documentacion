@@ -1,0 +1,91 @@
+\doxysection{src/catch2/internal/catch\+\_\+run\+\_\+context.cpp File Reference}
+\hypertarget{catch__run__context_8cpp}{}\label{catch__run__context_8cpp}\index{src/catch2/internal/catch\_run\_context.cpp@{src/catch2/internal/catch\_run\_context.cpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+run\+\_\+context.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+user\+\_\+config.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/generators/catch\+\_\+generators\+\_\+throw.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+config.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+generatortracker.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+registry\+\_\+hub.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+reporter.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compiler\+\_\+capabilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+context.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+enforce.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+fatal\+\_\+condition\+\_\+handler.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+random\+\_\+number\+\_\+generator.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+timer.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+output\+\_\+redirect.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+assertion\+\_\+handler.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+path\+\_\+filter.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+test\+\_\+failure\+\_\+exception.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+thread\+\_\+local.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+unreachable.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+result\+\_\+type.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+test\+\_\+macros.\+hpp$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for catch\+\_\+run\+\_\+context.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__run__context_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder}{Catch\+::\+Detail\+::\+Message\+Holder}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Generators}{Catch\+::\+Generators}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_a0cbd032aa9b74a5e111bf4ad36fd4131}{Catch\+::\+Detail\+::push\+Scoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} \&\&message)
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_a8c6831d69db70015030a466c4b4a9601}{Catch\+::\+Detail\+::pop\+Scoped\+Message}} (unsigned int message\+Id)
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_a086510bcf0ad9e5402cb569d1daf5ad6}{Catch\+::\+Detail\+::emplace\+Unscoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageBuilder}{Message\+Builder}} \&\&builder)
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_ade387dabc4bb6d19bb8fbee5f4b02738}{Catch\+::\+Detail\+::add\+Unscoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} \&\&message)
+\item 
+bool \mbox{\hyperlink{namespaceCatch_1_1Detail_aa6be0da436f62ac87ca8c5ccc1b53ae3}{Catch\+::\+Detail\+::last\+Assertion\+Passed}} ()
+\item 
+void \mbox{\hyperlink{namespaceCatch_a161400810eb0995394d6d8d3cae821ad}{Catch\+::seed\+Rng}} (\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \&config)
+\item 
+unsigned int \mbox{\hyperlink{namespaceCatch_acf5ea05e942d2d7fe79111e12754ed76}{Catch\+::rng\+Seed}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}\label{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639} 
+\index{catch\_run\_context.cpp@{catch\_run\_context.cpp}!m\_generator@{m\_generator}}
+\index{m\_generator@{m\_generator}!catch\_run\_context.cpp@{catch\_run\_context.cpp}}
+\doxysubsubsection{\texorpdfstring{m\_generator}{m\_generator}}
+{\footnotesize\ttfamily Generator\+Base\+Ptr m\+\_\+generator}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00227}{Catch\+::\+Generators\+::\+Chunk\+Generator$<$ T $>$\+::\+Chunk\+Generator()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00078}{Catch\+::\+Generators\+::\+Filter\+Generator$<$ T, Predicate $>$\+::\+Filter\+Generator()}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00051}{Catch\+::\+Generators\+::\+Generator\+Wrapper$<$ T $>$\+::\+Generator\+Wrapper()}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00049}{Catch\+::\+Generators\+::\+Generator\+Wrapper$<$ T $>$\+::\+Generator\+Wrapper()}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00054}{Catch\+::\+Generators\+::\+Generator\+Wrapper$<$ T $>$\+::get()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00044}{Catch\+::\+Generators\+::\+Take\+Generator$<$ T $>$\+::get()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00092}{Catch\+::\+Generators\+::\+Filter\+Generator$<$ T, Predicate $>$\+::get()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00135}{Catch\+::\+Generators\+::\+Repeat\+Generator$<$ T $>$\+::get()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00195}{Catch\+::\+Generators\+::\+Map\+Generator$<$ T, U, Func $>$\+::get()}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00061}{Catch\+::\+Generators\+::\+Generator\+Wrapper$<$ T $>$\+::is\+Finite()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00105}{Catch\+::\+Generators\+::\+Filter\+Generator$<$ T, Predicate $>$\+::is\+Finite()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00167}{Catch\+::\+Generators\+::\+Repeat\+Generator$<$ T $>$\+::is\+Finite()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00204}{Catch\+::\+Generators\+::\+Map\+Generator$<$ T, U, Func $>$\+::is\+Finite()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00255}{Catch\+::\+Generators\+::\+Chunk\+Generator$<$ T $>$\+::is\+Finite()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00190}{Catch\+::\+Generators\+::\+Map\+Generator$<$ T, U, Func $>$\+::\+Map\+Generator()}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00057}{Catch\+::\+Generators\+::\+Generator\+Wrapper$<$ T $>$\+::next()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00047}{Catch\+::\+Generators\+::\+Take\+Generator$<$ T $>$\+::next()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00096}{Catch\+::\+Generators\+::\+Filter\+Generator$<$ T, Predicate $>$\+::next()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00143}{Catch\+::\+Generators\+::\+Repeat\+Generator$<$ T $>$\+::next()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00199}{Catch\+::\+Generators\+::\+Map\+Generator$<$ T, U, Func $>$\+::next()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00244}{Catch\+::\+Generators\+::\+Chunk\+Generator$<$ T $>$\+::next()}}, \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00125}{Catch\+::\+Generators\+::\+Repeat\+Generator$<$ T $>$\+::\+Repeat\+Generator()}}, \mbox{\hyperlink{catch__generators_8hpp_source_l00062}{Catch\+::\+Generators\+::\+Generator\+Wrapper$<$ T $>$\+::skip\+To\+Nth\+Element()}}, and \mbox{\hyperlink{catch__generators__adapters_8hpp_source_l00038}{Catch\+::\+Generators\+::\+Take\+Generator$<$ T $>$\+::\+Take\+Generator()}}.
+
+\Hypertarget{catch__run__context_8cpp_aeb614f4c598e0b11537de4a62551ad67}\label{catch__run__context_8cpp_aeb614f4c598e0b11537de4a62551ad67} 
+\index{catch\_run\_context.cpp@{catch\_run\_context.cpp}!m\_isFiltered@{m\_isFiltered}}
+\index{m\_isFiltered@{m\_isFiltered}!catch\_run\_context.cpp@{catch\_run\_context.cpp}}
+\doxysubsubsection{\texorpdfstring{m\_isFiltered}{m\_isFiltered}}
+{\footnotesize\ttfamily bool m\+\_\+is\+Filtered = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+

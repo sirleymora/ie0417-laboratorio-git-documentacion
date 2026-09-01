@@ -1,0 +1,333 @@
+\doxysection{Catch\+::Junit\+Reporter Class Reference}
+\hypertarget{classCatch_1_1JunitReporter}{}\label{classCatch_1_1JunitReporter}\index{Catch::JunitReporter@{Catch::JunitReporter}}
+
+
+{\ttfamily \#include $<$catch\+\_\+reporter\+\_\+junit.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::Junit\+Reporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{classCatch_1_1JunitReporter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Catch\+::Junit\+Reporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JunitReporter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1JunitReporter_ad367918f93081de6215d6382f4888c62}{Junit\+Reporter}} (\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&\+\_\+config)
+\item 
+void \mbox{\hyperlink{classCatch_1_1JunitReporter_a416da4586bd135749eea5adc8aa41280}{test\+Run\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} const \&run\+Info) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1JunitReporter_a1e099029f5c138d5bcda0fdd184ef3ee}{test\+Case\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&test\+Case\+Info) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JunitReporter_a8d063eed4b88fe55d13e022605a07944}{assertion\+Ended}} (\mbox{\hyperlink{structCatch_1_1AssertionStats}{Assertion\+Stats}} const \&assertion\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called after assertion was fully evaluated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JunitReporter_ad04704cfa67f64ca6bf540e9cbe108f4}{test\+Case\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&test\+Case\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1JunitReporter_a529ba203e91db27821519f8c41ac7905}{test\+Run\+Ended\+Cumulative}} () override
+\begin{DoxyCompactList}\small\item\em Customization point\+: called after last test finishes (test\+Run\+Ended has been handled) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase}{Catch\+::\+Cumulative\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_ac541e5df2233fe22de2512336d37a7ed}{Cumulative\+Reporter\+Base}} (\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&\+\_\+config)
+\item 
+\mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_ad9476055bb32f9277079eb0d232242a0}{\texorpdfstring{$\sim$}{\string~}\+Cumulative\+Reporter\+Base}} () override
+\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a075d874108f3bbf856fad28055677eb0}{benchmark\+Preparing}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called when user-\/code is being probed before the actual benchmark runs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a4dd873e4d985cd0a9480e057119e44c1}{benchmark\+Starting}} (\mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{Benchmark\+Info}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called after probe but before the user-\/code is being benchmarked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a5fc556c12d0cb76a93547614b3eb6f1b}{benchmark\+Ended}} (\mbox{\hyperlink{structCatch_1_1BenchmarkStats}{Benchmark\+Stats}}$<$$>$ const \&benchmark\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called with the benchmark results if benchmark successfully finishes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a57f40c3011212cb42c5106051813e91c}{benchmark\+Failed}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called if running the benchmarks fails for any reason. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a3db2858a3746a437a5472ed44466c978}{no\+Matching\+Test\+Cases}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called when no test cases match provided test spec. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a00592cae8f0df8086cc0aadb466d42a8}{report\+Invalid\+Test\+Spec}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called for all invalid test specs from the cli. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a8ba0b7173e169021567dc857855e5c2f}{fatal\+Error\+Encountered}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called if a fatal error (signal/structured exception) occurred. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_af0971c92ec7a5f250d69f4219763afb7}{test\+Case\+Partial\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&, uint64\+\_\+t) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_afdcaeb775e75e563cc3e5fc9ac73c547}{section\+Starting}} (\mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} const \&section\+Info) override
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily SECTION} is being entered. Not called for skipped sections. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_ad462ac437ebe3a529c8312b9da16ec9b}{assertion\+Starting}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called before assertion success/failure is evaluated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a4df3c2ab6ca05f3e049cf68a2c9151b7}{section\+Ended}} (\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} const \&section\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called after a {\ttfamily SECTION} has finished running. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a40addbab5b199e1311bef4caf4734f45}{test\+Case\+Partial\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&, uint64\+\_\+t) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a98abe4d60d22e77dfaa04cfd7b76470f}{test\+Run\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats}} const \&test\+Run\+Stats) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a7346fcf7424424604541e2b77dafd766}{skip\+Test}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1ReporterBase}{Catch\+::\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1ReporterBase_afe1cb76ff7af81e7c0c10108a41b90ca}{Reporter\+Base}} (\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&config)
+\item 
+\mbox{\hyperlink{classCatch_1_1ReporterBase_a4c85a61db7c1340ff05c20ddd24e7624}{\texorpdfstring{$\sim$}{\string~}\+Reporter\+Base}} () override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a6b49fcddf9430c782bf33cc7ab3b8f6a}{list\+Reporters}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{Reporter\+Description}} $>$ const \&descriptions) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a80fc94e76ca6273bde21892472cfb590}{list\+Listeners}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{Listener\+Description}} $>$ const \&descriptions) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a15ed28e8f838691c3c374027547d914b}{list\+Tests}} (std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \&tests) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a327d4a5ee9b271e19ac19951ae3cd0e1}{list\+Tags}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1TagInfo}{Tag\+Info}} $>$ const \&tags) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1IEventListener}{Catch\+::\+IEvent\+Listener}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1IEventListener_aaaa931eff91dcc54dbcbe3fc7e0d4ab8}{IEvent\+Listener}} (\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \texorpdfstring{$\ast$}{*}config)
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1IEventListener_acfa267bbb655d4530752d5ec2507b95c}{\texorpdfstring{$\sim$}{\string~}\+IEvent\+Listener}} ()
+\item 
+\mbox{\hyperlink{structCatch_1_1ReporterPreferences}{Reporter\+Preferences}} const \& \mbox{\hyperlink{classCatch_1_1IEventListener_a613b60656347b078f9a8d0385892f2d4}{get\+Preferences}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classCatch_1_1JunitReporter_ae5f1a7cac555d694ef27fbcc8f78d964}{get\+Description}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase}{Catch\+::\+Cumulative\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_aa9907e56ddf0f8114799f7147677dc1f}{Test\+Case\+Node}} = \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1Node}{Node}}$<$ \mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}}, \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1SectionNode}{Section\+Node}} $>$
+\item 
+using \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a6a16c07c308b268d2d88d95c520ed27c}{Test\+Run\+Node}} = \mbox{\hyperlink{structCatch_1_1CumulativeReporterBase_1_1Node}{Node}}$<$ \mbox{\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats}}, \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_aa9907e56ddf0f8114799f7147677dc1f}{Test\+Case\+Node}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase}{Catch\+::\+Cumulative\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_adb2a7d7ea4dd571f6308eec59db90dbf}{m\+\_\+should\+Store\+Succesful\+Assertions}} = true
+\begin{DoxyCompactList}\small\item\em Should the cumulative base store the assertion expansion for successful assertions? \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a321b4d5232053bdc043d2360e6020285}{m\+\_\+should\+Store\+Failed\+Assertions}} = true
+\begin{DoxyCompactList}\small\item\em Should the cumulative base store the assertion expansion for failed assertions? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a6a16c07c308b268d2d88d95c520ed27c}{Test\+Run\+Node}} $>$ \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_ab00810cee084b633c010abb5e6acc40a}{m\+\_\+test\+Run}}
+\begin{DoxyCompactList}\small\item\em The root node of the test run tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1ReporterBase}{Catch\+::\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1IStream}{IStream}} $>$ \mbox{\hyperlink{classCatch_1_1ReporterBase_a196cb1e3644d83f507b70baeef7edacf}{m\+\_\+wrapped\+\_\+stream}}
+\begin{DoxyCompactList}\small\item\em The stream wrapper as passed to us by outside code. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classCatch_1_1ReporterBase_a7d6ee62fccc86662adaea744c501eef8}{m\+\_\+stream}}
+\item 
+\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1ColourImpl}{Colour\+Impl}} $>$ \mbox{\hyperlink{classCatch_1_1ReporterBase_a8caa5e303effaaeec2bf8f5a2f0f65a2}{m\+\_\+colour}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structCatch_1_1Colour}{Colour} implementation this reporter was configured for. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} \mbox{\hyperlink{classCatch_1_1ReporterBase_a7bec858f36372e3fdc1caf8bb11d9b76}{m\+\_\+verbosity}}
+\begin{DoxyCompactList}\small\item\em Verbosity configured for this reporter. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classCatch_1_1ReporterBase_ac75b1716001a78104be1fd38d9844c8e}{m\+\_\+custom\+Options}}
+\begin{DoxyCompactList}\small\item\em The custom reporter options user passed down to the reporter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1IEventListener}{Catch\+::\+IEvent\+Listener}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1ReporterPreferences}{Reporter\+Preferences}} \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\+\_\+preferences}}
+\begin{DoxyCompactList}\small\item\em Derived classes can set up their preferences here. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\+\_\+config}}
+\begin{DoxyCompactList}\small\item\em The test run\textquotesingle{}s config as filled in from CLI and defaults. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__junit_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{catch__reporter__junit_8hpp_source}{catch\+\_\+reporter\+\_\+junit.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1JunitReporter_ad367918f93081de6215d6382f4888c62}\label{classCatch_1_1JunitReporter_ad367918f93081de6215d6382f4888c62} 
+\index{Catch::JunitReporter@{Catch::JunitReporter}!JunitReporter@{JunitReporter}}
+\index{JunitReporter@{JunitReporter}!Catch::JunitReporter@{Catch::JunitReporter}}
+\doxysubsubsection{\texorpdfstring{JunitReporter()}{JunitReporter()}}
+{\footnotesize\ttfamily Catch\+::\+Junit\+Reporter\+::\+Junit\+Reporter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&}]{\+\_\+config }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__junit_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{catch__reporter__junit_8cpp_source}{catch\+\_\+reporter\+\_\+junit.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00144}{Catch\+::\+IEvent\+Listener\+::m\+\_\+preferences}}, \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00128}{Catch\+::\+Cumulative\+Reporter\+Base\+::m\+\_\+should\+Store\+Succesful\+Assertions}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00118}{Catch\+::\+Reporter\+Preferences\+::should\+Redirect\+Std\+Out}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00121}{Catch\+::\+Reporter\+Preferences\+::should\+Report\+All\+Assertions}}, and \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00126}{Catch\+::\+Reporter\+Preferences\+::should\+Report\+All\+Assertion\+Starts}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1JunitReporter_a8d063eed4b88fe55d13e022605a07944}\label{classCatch_1_1JunitReporter_a8d063eed4b88fe55d13e022605a07944} 
+\index{Catch::JunitReporter@{Catch::JunitReporter}!assertionEnded@{assertionEnded}}
+\index{assertionEnded@{assertionEnded}!Catch::JunitReporter@{Catch::JunitReporter}}
+\doxysubsubsection{\texorpdfstring{assertionEnded()}{assertionEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Junit\+Reporter\+::assertion\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionStats}{Assertion\+Stats}} const \&}]{assertion\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after assertion was fully evaluated. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a0feaaf7d39fcb4d277146d8137af98c5}{Catch\+::\+Cumulative\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__junit_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{catch__reporter__junit_8cpp_source}{catch\+\_\+reporter\+\_\+junit.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source_l00099}{Catch\+::\+Cumulative\+Reporter\+Base\+::assertion\+Ended()}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00071}{Catch\+::\+Assertion\+Stats\+::assertion\+Result}}, \mbox{\hyperlink{catch__assertion__result_8cpp_source_l00045}{Catch\+::\+Assertion\+Result\+::get\+Result\+Type()}}, and \mbox{\hyperlink{catch__result__type_8hpp_source_l00029}{Catch\+::\+Result\+Was\+::\+Threw\+Exception}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JunitReporter_a8d063eed4b88fe55d13e022605a07944_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1JunitReporter_ae5f1a7cac555d694ef27fbcc8f78d964}\label{classCatch_1_1JunitReporter_ae5f1a7cac555d694ef27fbcc8f78d964} 
+\index{Catch::JunitReporter@{Catch::JunitReporter}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Catch::JunitReporter@{Catch::JunitReporter}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Junit\+Reporter\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__junit_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{catch__reporter__junit_8cpp_source}{catch\+\_\+reporter\+\_\+junit.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JunitReporter_ad04704cfa67f64ca6bf540e9cbe108f4}\label{classCatch_1_1JunitReporter_ad04704cfa67f64ca6bf540e9cbe108f4} 
+\index{Catch::JunitReporter@{Catch::JunitReporter}!testCaseEnded@{testCaseEnded}}
+\index{testCaseEnded@{testCaseEnded}!Catch::JunitReporter@{Catch::JunitReporter}}
+\doxysubsubsection{\texorpdfstring{testCaseEnded()}{testCaseEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Junit\+Reporter\+::test\+Case\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&}]{test\+Case\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a71d47761bf73926e3eabcf50f4edb20e}{Catch\+::\+Cumulative\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__junit_8cpp_source_l00119}{119}} of file \mbox{\hyperlink{catch__reporter__junit_8cpp_source}{catch\+\_\+reporter\+\_\+junit.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00098}{Catch\+::\+Test\+Case\+Stats\+::std\+Err}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00097}{Catch\+::\+Test\+Case\+Stats\+::std\+Out}}, and \mbox{\hyperlink{catch__reporter__cumulative__base_8cpp_source_l00128}{Catch\+::\+Cumulative\+Reporter\+Base\+::test\+Case\+Ended()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JunitReporter_ad04704cfa67f64ca6bf540e9cbe108f4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1JunitReporter_a1e099029f5c138d5bcda0fdd184ef3ee}\label{classCatch_1_1JunitReporter_a1e099029f5c138d5bcda0fdd184ef3ee} 
+\index{Catch::JunitReporter@{Catch::JunitReporter}!testCaseStarting@{testCaseStarting}}
+\index{testCaseStarting@{testCaseStarting}!Catch::JunitReporter@{Catch::JunitReporter}}
+\doxysubsubsection{\texorpdfstring{testCaseStarting()}{testCaseStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Junit\+Reporter\+::test\+Case\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&}]{test\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_afdcad0f7ae0f16fd60566bc34b52eaee}{Catch\+::\+Cumulative\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__junit_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{catch__reporter__junit_8cpp_source}{catch\+\_\+reporter\+\_\+junit.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__test__case__info_8cpp_source_l00208}{Catch\+::\+Test\+Case\+Info\+::ok\+To\+Fail()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{classCatch_1_1JunitReporter_a1e099029f5c138d5bcda0fdd184ef3ee_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1JunitReporter_a529ba203e91db27821519f8c41ac7905}\label{classCatch_1_1JunitReporter_a529ba203e91db27821519f8c41ac7905} 
+\index{Catch::JunitReporter@{Catch::JunitReporter}!testRunEndedCumulative@{testRunEndedCumulative}}
+\index{testRunEndedCumulative@{testRunEndedCumulative}!Catch::JunitReporter@{Catch::JunitReporter}}
+\doxysubsubsection{\texorpdfstring{testRunEndedCumulative()}{testRunEndedCumulative()}}
+{\footnotesize\ttfamily void Catch\+::\+Junit\+Reporter\+::test\+Run\+Ended\+Cumulative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Customization point\+: called after last test finishes (test\+Run\+Ended has been handled) 
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_ad7c42af872ba0dcc1b33bca254f6f66b}{Catch\+::\+Cumulative\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__junit_8cpp_source_l00125}{125}} of file \mbox{\hyperlink{catch__reporter__junit_8cpp_source}{catch\+\_\+reporter\+\_\+junit.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00257}{Catch\+::\+Xml\+Writer\+::end\+Element()}}, \mbox{\hyperlink{catch__timer_8cpp_source_l00032}{Catch\+::\+Timer\+::get\+Elapsed\+Seconds()}}, and \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00135}{Catch\+::\+Cumulative\+Reporter\+Base\+::m\+\_\+test\+Run}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JunitReporter_a529ba203e91db27821519f8c41ac7905_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1JunitReporter_a416da4586bd135749eea5adc8aa41280}\label{classCatch_1_1JunitReporter_a416da4586bd135749eea5adc8aa41280} 
+\index{Catch::JunitReporter@{Catch::JunitReporter}!testRunStarting@{testRunStarting}}
+\index{testRunStarting@{testRunStarting}!Catch::JunitReporter@{Catch::JunitReporter}}
+\doxysubsubsection{\texorpdfstring{testRunStarting()}{testRunStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Junit\+Reporter\+::test\+Run\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} const \&}]{test\+Run\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Called once in a testing run before tests are started
+
+Not called if tests won\textquotesingle{}t be run (e.\+g. only listing will happen) 
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1CumulativeReporterBase_a662e58abd84046ac036417d9c533e42e}{Catch\+::\+Cumulative\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__junit_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{catch__reporter__junit_8cpp_source}{catch\+\_\+reporter\+\_\+junit.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__timer_8cpp_source_l00020}{Catch\+::\+Timer\+::start()}}, \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00237}{Catch\+::\+Xml\+Writer\+::start\+Element()}}, and \mbox{\hyperlink{catch__reporter__cumulative__base_8hpp_source_l00108}{Catch\+::\+Cumulative\+Reporter\+Base\+::test\+Run\+Starting()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1JunitReporter_a416da4586bd135749eea5adc8aa41280_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__junit_8hpp}{catch\+\_\+reporter\+\_\+junit.\+hpp}}\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__junit_8cpp}{catch\+\_\+reporter\+\_\+junit.\+cpp}}\end{DoxyCompactItemize}

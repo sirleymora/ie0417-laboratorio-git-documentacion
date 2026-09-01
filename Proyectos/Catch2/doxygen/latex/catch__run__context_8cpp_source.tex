@@ -1,0 +1,973 @@
+\doxysection{catch\+\_\+run\+\_\+context.\+cpp}
+\hypertarget{catch__run__context_8cpp_source}{}\label{catch__run__context_8cpp_source}\index{src/catch2/internal/catch\_run\_context.cpp@{src/catch2/internal/catch\_run\_context.cpp}}
+\mbox{\hyperlink{catch__run__context_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__run__context_8hpp}{catch2/internal/catch\_run\_context.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <catch2/catch\_user\_config.hpp>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__generators__throw_8hpp}{catch2/generators/catch\_generators\_throw.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__config_8hpp}{catch2/interfaces/catch\_interfaces\_config.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__generatortracker_8hpp}{catch2/interfaces/catch\_interfaces\_generatortracker.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__registry__hub_8hpp}{catch2/interfaces/catch\_interfaces\_registry\_hub.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__reporter_8hpp}{catch2/interfaces/catch\_interfaces\_reporter.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__compiler__capabilities_8hpp}{catch2/internal/catch\_compiler\_capabilities.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__context_8hpp}{catch2/internal/catch\_context.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__enforce_8hpp}{catch2/internal/catch\_enforce.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__fatal__condition__handler_8hpp}{catch2/internal/catch\_fatal\_condition\_handler.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__random__number__generator_8hpp}{catch2/internal/catch\_random\_number\_generator.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__timer_8hpp}{catch2/catch\_timer.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__output__redirect_8hpp}{catch2/internal/catch\_output\_redirect.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__assertion__handler_8hpp}{catch2/internal/catch\_assertion\_handler.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__path__filter_8hpp}{catch2/internal/catch\_path\_filter.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__failure__exception_8hpp}{catch2/internal/catch\_test\_failure\_exception.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__thread__local_8hpp}{catch2/internal/catch\_thread\_local.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__unreachable_8hpp}{catch2/internal/catch\_unreachable.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__result__type_8hpp}{catch2/internal/catch\_result\_type.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__macros_8hpp}{catch2/catch\_test\_macros.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00034}00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{namespace\ }Generators\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }GeneratorTracker\ final\ :\ TestCaseTracking::TrackerBase,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IGeneratorTracker\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00040}\mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{00040}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}{GeneratorBasePtr}}\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Filtered\ generator\ has\ moved\ to\ specific\ index\ due\ to}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a\ filter,\ it\ needs\ special\ handling\ of\ \`{}countedNext()`}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00043}\mbox{\hyperlink{catch__run__context_8cpp_aeb614f4c598e0b11537de4a62551ad67}{00043}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{catch__run__context_8cpp_aeb614f4c598e0b11537de4a62551ad67}{m\_isFiltered}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GeneratorTracker(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TestCaseTracking::NameAndLocation\&\&\ nameAndLocation,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TrackerContext\&\ ctx,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ITracker*\ parent,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}{GeneratorBasePtr}}\&\&\ generator\ ):}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TrackerBase(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ nameAndLocation\ ),\ ctx,\ parent\ ),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ generator\ )\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Cannot\ create\ tracker\ without\ generator"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Handle\ potential\ filter\ and\ move\ forward\ here...}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Old\ style\ filters\ do\ not\ affect\ generators\ at\ all}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_newStyleFilters\ \&\&\ m\_allTrackerDepth\ <\ m\_filterRef-\/>size())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{filter}}\ =}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ *m\_filterRef\ )[m\_allTrackerDepth];}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generator\ cannot\ be\ un-\/entered\ the\ way\ a\ section}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ can\ be,\ so\ the\ tracker\ has\ to\ throw\ for\ a\ wrong}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ filter\ to\ stop\ the\ execution\ flow.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{filter}}.type\ ==\ \mbox{\hyperlink{structCatch_1_1PathFilter_a45f1e66d781dfec776817fbc27d294a3ad2c24d59e0baff4d0155fbdf62590867}{PathFilter::For::Section}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ want\ the\ semantics\ of\ \`{}SKIP()`,\ but\ we\ inline\ it}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ avoid\ issues\ with\ conditionally\ prefixed\ macros}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__message_8hpp_ad1f7d83040ad9b09020dc72c57019638}{INTERNAL\_CATCH\_MSG}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}SKIP"{}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa99a9169d030778cf863b92ef02a4de2c}{Catch::ResultWas::ExplicitSkip}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{Catch::ResultDisposition::Normal}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Detail_a1babf8feb5e4bb8fd3d79d664fecbde6}{Catch::Detail::Unreachable}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ '*'\ is\ the\ wildcard\ for\ "{}all\ elements\ in\ generator"{}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ used\ for\ filtering\ sections\ below\ the\ generator,\ but}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ not\ the\ generator\ itself.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{filter}}.filter\ !=\ \textcolor{stringliteral}{"{}*"{}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__run__context_8cpp_aeb614f4c598e0b11537de4a62551ad67}{m\_isFiltered}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TBD:\ We\ assume\ that\ the\ filter\ was\ validated\ as}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ number\ during\ parsing.\ We\ should\ pass\ it}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ as\ number\ from\ the\ CLI\ parser.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ targetIndex\ =\ std::stoul(\ \mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{filter}}.filter\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}-\/>skipToNthElement(\ targetIndex\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ GeneratorTracker*}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ acquire(\ TrackerContext\&\ ctx,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TestCaseTracking::NameAndLocationRef\ \textcolor{keyword}{const}\&}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nameAndLocation\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GeneratorTracker*\ tracker;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ITracker\&\ currentTracker\ =\ ctx.currentTracker();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Under\ specific\ circumstances,\ the\ generator\ we\ want}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ acquire\ is\ also\ the\ current\ tracker.\ If\ this\ is}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ case,\ we\ have\ to\ avoid\ looking\ through\ current}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ tracker's\ children,\ and\ instead\ return\ the\ current}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ tracker.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ case\ where\ this\ check\ is\ important\ is\ e.g.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ for\ (int\ i\ =\ 0;\ i\ <\ 5;\ ++i)\ \{}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ int\ n\ =\ GENERATE(1,\ 2);}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ without\ it,\ the\ code\ above\ creates\ 5\ nested\ generators.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ currentTracker.nameAndLocation()\ ==\ nameAndLocation\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ thisTracker\ =\ currentTracker.parent()-\/>findChild(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nameAndLocation\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(\ thisTracker\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(\ thisTracker-\/>isGeneratorTracker()\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracker\ =\ \textcolor{keyword}{static\_cast<}GeneratorTracker*\textcolor{keyword}{>}(\ thisTracker\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ ITracker*\ childTracker\ =}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentTracker.findChild(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nameAndLocation\ )\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(\ childTracker\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(\ childTracker-\/>isGeneratorTracker()\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracker\ =}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}GeneratorTracker*\textcolor{keyword}{>}(\ childTracker\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !tracker-\/>isComplete()\ )\ \{\ tracker-\/>open();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tracker;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TrackerBase\ interface}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isGeneratorTracker()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ close()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TrackerBase::close();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ a\ generator\ has\ a\ child\ (it\ is\ followed\ by\ a\ section)}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ none\ of\ its\ children\ have\ started,\ then\ we\ must\ wait}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ until\ later\ to\ start\ consuming\ its\ values.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ catches\ cases\ where\ \`{}GENERATE`\ is\ placed\ between\ two}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}SECTION`s.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ **The\ check\ for\ m\_children.empty\ cannot\ be\ removed**.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ doing\ so\ would\ break\ \`{}GENERATE`\ \_not\_\ followed\ by}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}SECTION`s.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ should\_wait\_for\_child\ =\ [\&]()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ children\ -\/>\ nobody\ to\ wait\ for}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_children.empty()\ )\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ at\ least\ one\ child\ started\ executing,\ don't\ wait}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ std::find\_if(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_children.begin(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_children.end(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\ \mbox{\hyperlink{namespaceCatch_1_1TestCaseTracking_a0e7d9dcda91f2aa0620e47faff3035cd}{TestCaseTracking::ITrackerPtr}}\ \textcolor{keyword}{const}\&}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracker\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ tracker-\/>hasStarted();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ )\ !=\ m\_children.end()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ children\ have\ started.\ We\ need\ to\ check\ if\ they}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \_can\_\ start,\ and\ thus\ we\ should\ wait\ for\ them,\ or}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ they\ cannot\ start\ (due\ to\ filters),\ and\ we\ shouldn't}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ wait\ for\ them}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ filters\ left\ -\/>\ no\ restrictions\ on\ running\ sections}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ childDepth\ =\ 1\ +\ (m\_newStyleFilters\ ?\ m\_allTrackerDepth\ :\ m\_sectionOnlyDepth);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ childDepth\ >=\ m\_filterRef-\/>size()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ we\ are\ using\ the\ new\ style\ filters,\ we\ need\ to\ check}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ whether\ the\ successive\ filter\ is\ for\ section\ or\ a\ generator.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_newStyleFilters}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ (*m\_filterRef)[childDepth].type\ !=\ \mbox{\hyperlink{structCatch_1_1PathFilter_a45f1e66d781dfec776817fbc27d294a3ad2c24d59e0baff4d0155fbdf62590867}{PathFilter::For::Section}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Look\ for\ any\ child\ section\ that\ could\ match\ the\ remaining\ filters}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ child\ :\ m\_children\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ child-\/>isSectionTracker()\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}SectionTracker\ const\&\textcolor{keyword}{>}(\ *child\ )}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .trimmedName()\ ==\ StringRef((*m\_filterRef)[childDepth].\mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{filter}})\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ check\ is\ a\ bit\ tricky,\ because\ m\_generator-\/>next()}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ has\ a\ side-\/effect,\ where\ it\ consumes\ generator's\ current}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ value,\ but\ we\ do\ not\ want\ to\ invoke\ the\ side-\/effect\ if}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ generator\ is\ still\ waiting\ for\ any\ child\ to\ start.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(\ m\_generator\ \&\&\ \textcolor{stringliteral}{"{}Tracker\ without\ generator"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ should\_wait\_for\_child}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ \ (\ m\_runState\ ==\ CompletedSuccessfully}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ !m\_isFiltered\ \textcolor{comment}{//\ filtered\ generators\ cannot\ meaningfully\ move\ forward,\ as\ they\ would\ get\ past\ the\ filter}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}}-\/>countedNext()\ )\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_children.clear();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_runState\ =\ Executing;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IGeneratorTracker\ interface}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ getGenerator()\ const\ -\/>\ \mbox{\hyperlink{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}{GeneratorBasePtr}}\ const\&\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__run__context_8cpp_a655e4136c819ebe8f07327e681da8639}{m\_generator}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isFilteredImpl()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__run__context_8cpp_aeb614f4c598e0b11537de4a62551ad67}{m\_isFiltered}};\ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00203}00203\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00205}00205\ \ \ \ \ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assertions\ are\ owned\ by\ the\ thread\ that\ is\ executing\ them.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ allows\ for\ lock-\/free\ progress\ in\ common\ cases\ where\ we}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ do\ not\ need\ to\ send\ the\ assertion\ events\ to\ the\ reporter.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ also\ implies\ that\ messages\ are\ owned\ by\ their\ respective}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ threads,\ and\ should\ not\ be\ shared\ across\ different\ threads.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ implies\ that\ various\ pieces\ of\ metadata\ referring\ to\ last}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assertion\ result/source\ location/message\ handling,\ etc}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ should\ also\ be\ thread\ local.\ For\ now\ we\ just\ use\ naked\ globals}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ below,\ in\ the\ future\ we\ will\ want\ to\ allocate\ piece\ of\ memory}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ from\ heap,\ to\ avoid\ consuming\ too\ much\ thread-\/local\ storage.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Note\ that\ we\ also\ don't\ want\ non-\/trivial\ the\ thread-\/local\ variables}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ below\ be\ initialized\ for\ every\ thread,\ only\ for\ those\ that\ touch}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Catch2.\ To\ make\ this\ work\ with\ both\ GCC/Clang\ and\ MSVC,\ we\ have\ to}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ them\ thread-\/local\ magic\ statics.\ (Class-\/level\ statics\ have\ the}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ desired\ semantics\ on\ GCC,\ but\ not\ on\ MSVC).}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ used\ for\ the\ "{}if"{}\ part\ of\ CHECKED\_IF/CHECKED\_ELSE}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{catch__thread__local_8hpp_a555751025ae639a3a1df3e02293c9256}{CATCH\_INTERNAL\_THREAD\_LOCAL}}\ \textcolor{keywordtype}{bool}\ g\_lastAssertionPassed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ the\ source\ location\ for\ last\ encountered\ macro.\ It\ is}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ used\ to\ provide\ the\ users\ with\ more\ precise\ location\ of\ error}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ when\ an\ unexpected\ exception/fatal\ error\ happens.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{catch__thread__local_8hpp_a555751025ae639a3a1df3e02293c9256}{CATCH\_INTERNAL\_THREAD\_LOCAL}}\ SourceLineInfo}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ g\_lastKnownLineInfo(\ \textcolor{stringliteral}{"{}DummyLocation"{}},\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(\ -\/1\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Should\ we\ clear\ message\ scopes\ before\ sending\ off\ the\ messages\ to}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reporter?\ Set\ in\ \`{}assertionPassedFastPath`\ to\ avoid\ doing\ the\ full}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ clear\ there\ for\ performance\ reasons.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{catch__thread__local_8hpp_a555751025ae639a3a1df3e02293c9256}{CATCH\_INTERNAL\_THREAD\_LOCAL}}\ \textcolor{keywordtype}{bool}\ g\_clearMessageScopes\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Holds\ the\ data\ for\ both\ scoped\ and\ unscoped\ messages\ together,}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ avoid\ issues\ where\ their\ lifetimes\ start\ in\ wrong\ order,}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ then\ are\ destroyed\ in\ wrong\ order.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00242}\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder}{00242}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder}{MessageHolder}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ actual\ message\ vector\ passed\ to\ the\ reporters}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<MessageInfo>\ messages;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IDs\ of\ messages\ from\ UNSCOPED\_X\ macros,\ which\ we\ have\ to}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remove\ manually.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<unsigned\ int>\ unscoped\_ids;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ do\ not\ need\ to\ special-\/case\ the\ unscoped\ messages\ when}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ only\ keep\ around\ the\ raw\ msg\ ids.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00252}\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a19c3c19cf82681b5461689a38f844c10}{00252}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a19c3c19cf82681b5461689a38f844c10}{\string~MessageHolder}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00254}\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a6217c5ee14a41e1b247104101eb85add}{00254}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a6217c5ee14a41e1b247104101eb85add}{addUnscopedMessage}}(\ \mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}\&\&\ info\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a4e99820ff7bbeb29acdbdbdd98adf761}{repairUnscopedMessageInvariant}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unscoped\_ids.push\_back(\ info.sequence\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ messages.push\_back(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ info\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00260}\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_ae01b37940d2dcd4e4f2c5473de021fa3}{00260}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_ae01b37940d2dcd4e4f2c5473de021fa3}{addUnscopedMessage}}(\mbox{\hyperlink{structCatch_1_1MessageBuilder}{MessageBuilder}}\&\&\ builder)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}\ info(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ builder.m\_info\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ info.\mbox{\hyperlink{structCatch_1_1MessageInfo_ab6cd06e050bf426c6577502a5c50e256}{message}}\ =\ builder.m\_stream.str();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a6217c5ee14a41e1b247104101eb85add}{addUnscopedMessage}}(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ info\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00266}\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a9e00b902f2a7f26a2a2b24b0e83cbecb}{00266}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a9e00b902f2a7f26a2a2b24b0e83cbecb}{addScopedMessage}}(\mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}\&\&\ info)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ messages.push\_back(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ info\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00270}\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_aeb1ba63432d547fd300b5ec0b0bd4734}{00270}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<MessageInfo>\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_aeb1ba63432d547fd300b5ec0b0bd4734}{getMessages}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ messages;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00274}\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_abc07f7bba276f6f5be2160be3b1619e6}{00274}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_abc07f7bba276f6f5be2160be3b1619e6}{removeMessage}}(\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ messageId\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Note:\ On\ average,\ it\ would\ probably\ be\ better\ to\ look\ for}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ the\ message\ backwards.\ However,\ we\ do\ not\ expect\ to\ have}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ to\ \ deal\ with\ more\ messages\ than\ low\ single\ digits,\ so}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ the\ improvement\ is\ tiny,\ and\ we\ would\ have\ to\ hand-\/write}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ the\ loop\ to\ avoid\ terrible\ codegen\ of\ reverse\ iterators}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ in\ debug\ mode.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ iter\ =}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::find\_if(\ messages.begin(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ messages.end(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [messageId](\ \mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}\ \textcolor{keyword}{const}\&\ msg\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ msg.sequence\ ==\ messageId;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(\ iter\ !=\ messages.end()\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Trying\ to\ remove\ non-\/existent\ message."{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ messages.erase(\ iter\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00292}\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_ac23eeaa65edbed468e48e0535d044818}{00292}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_ac23eeaa65edbed468e48e0535d044818}{removeUnscopedMessages}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ messageId\ :\ unscoped\_ids\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_abc07f7bba276f6f5be2160be3b1619e6}{removeMessage}}(\ messageId\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unscoped\_ids.clear();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\_clearMessageScopes\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00300}\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a4e99820ff7bbeb29acdbdbdd98adf761}{00300}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a4e99820ff7bbeb29acdbdbdd98adf761}{repairUnscopedMessageInvariant}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ g\_clearMessageScopes\ )\ \{\ \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_ac23eeaa65edbed468e48e0535d044818}{removeUnscopedMessages}}();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\_clearMessageScopes\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a1500dca9a578a0bd2f85771cfa3fd35d}{CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_aa0200c23b35ba2bd8ebed69a8f3c1c66}{CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ MessageHolder\&\ g\_messageHolder()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{catch__thread__local_8hpp_a555751025ae639a3a1df3e02293c9256}{CATCH\_INTERNAL\_THREAD\_LOCAL}}\ MessageHolder\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_ad9594e9891b032f0dd0279960dc861a5}{CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00315}\mbox{\hyperlink{namespaceCatch_1_1Detail_a0cbd032aa9b74a5e111bf4ad36fd4131}{00315}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_a0cbd032aa9b74a5e111bf4ad36fd4131}{pushScopedMessage}}(\ \mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}\&\&\ message\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_messageHolder().\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a9e00b902f2a7f26a2a2b24b0e83cbecb}{addScopedMessage}}(\ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ message\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00319}\mbox{\hyperlink{namespaceCatch_1_1Detail_a8c6831d69db70015030a466c4b4a9601}{00319}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_a8c6831d69db70015030a466c4b4a9601}{popScopedMessage}}(\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ messageId\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_messageHolder().removeMessage(\ messageId\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00323}\mbox{\hyperlink{namespaceCatch_1_1Detail_a086510bcf0ad9e5402cb569d1daf5ad6}{00323}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_a086510bcf0ad9e5402cb569d1daf5ad6}{emplaceUnscopedMessage}}(\ \mbox{\hyperlink{structCatch_1_1MessageBuilder}{MessageBuilder}}\&\&\ builder\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_messageHolder().addUnscopedMessage(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ builder\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00327}\mbox{\hyperlink{namespaceCatch_1_1Detail_ade387dabc4bb6d19bb8fbee5f4b02738}{00327}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ade387dabc4bb6d19bb8fbee5f4b02738}{addUnscopedMessage}}(\ \mbox{\hyperlink{structCatch_1_1MessageInfo}{MessageInfo}}\&\&\ message\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_messageHolder().addUnscopedMessage(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ message\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00331}\mbox{\hyperlink{namespaceCatch_1_1Detail_aa6be0da436f62ac87ca8c5ccc1b53ae3}{00331}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_aa6be0da436f62ac87ca8c5ccc1b53ae3}{lastAssertionPassed}}()\ \{\ \textcolor{keywordflow}{return}\ Detail::g\_lastAssertionPassed;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00333}00333\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00335}\mbox{\hyperlink{classCatch_1_1RunContext_afcd5ef4902539c14647e322233271c9d}{00335}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RunContext_a2c2886a1a1a34c1944fc5f7666ef5030}{RunContext::RunContext}}(\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}}\ \textcolor{keyword}{const}*\ \_config,\ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{IEventListenerPtr}}\&\&\ reporter)}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00336}00336\ \ \ \ \ :\ \ \ m\_runInfo(\_config-\/>name()),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ m\_config(\_config),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ m\_reporter(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(reporter)),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ m\_outputRedirect(\ \mbox{\hyperlink{namespaceCatch_ae9831933e640b35f907975c129f4763f}{makeOutputRedirect}}(\ m\_reporter-\/>getPreferences().shouldRedirectStdOut\ )\ ),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ m\_abortAfterXFailedAssertions(\ m\_config-\/>abortAfter()\ ),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ m\_reportAssertionStarting(\ m\_reporter-\/>getPreferences().shouldReportAllAssertionStarts\ ),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ m\_includeSuccessfulResults(\ m\_config-\/>includeSuccessfulResults()\ ||\ m\_reporter-\/>getPreferences().shouldReportAllAssertions\ ),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ m\_shouldDebugBreak(\ m\_config-\/>shouldDebugBreak()\ )}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00344}00344\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_aeb5fab7ca94d3e959fd7db6167caf5ee}{getCurrentMutableContext}}().\mbox{\hyperlink{classCatch_1_1Context_a43810eeee01821fe7b0f9f7f5bd9fb4c}{setResultCapture}}(\ \textcolor{keyword}{this}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a3b7a9118f5b47011216aa31424ec4982}{testRunStarting}}(m\_runInfo);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ HACK!}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ We\ need\ to\ make\ sure\ the\ underlying\ cache\ is\ initialized}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ while\ we\ are\ guaranteed\ to\ be\ running\ in\ a\ single\ thread,}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ because\ the\ initialization\ is\ not\ thread-\/safe.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReusableStringStream}{ReusableStringStream}}\ rss;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ (void)rss;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00354}00354\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00356}\mbox{\hyperlink{classCatch_1_1RunContext_afdbd4509e913e99f6dd8b678d2d9fc7e}{00356}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RunContext_afdbd4509e913e99f6dd8b678d2d9fc7e}{RunContext::\string~RunContext}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a97a17235b82da761043654491db0b17c}{testRunEnded}}(\mbox{\hyperlink{structCatch_1_1TestRunStats}{TestRunStats}}(m\_runInfo,\ m\_totals,\ \mbox{\hyperlink{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e}{aborting}}()));}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00359}00359\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00361}\mbox{\hyperlink{classCatch_1_1RunContext_a94fd3fbbba00c7ef9ac79b529a7b76c8}{00361}}\ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Totals}{Totals}}\ \mbox{\hyperlink{classCatch_1_1RunContext_a94fd3fbbba00c7ef9ac79b529a7b76c8}{RunContext::runTest}}(\mbox{\hyperlink{classCatch_1_1TestCaseHandle}{TestCaseHandle}}\ \textcolor{keyword}{const}\&\ testCase)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structCatch_1_1Totals}{Totals}}\ prevTotals\ =\ m\_totals;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ testInfo\ =\ testCase.\mbox{\hyperlink{classCatch_1_1TestCaseHandle_a9a89d26457c8585f93eb8baea0f39884}{getTestCaseInfo}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a20bdd5b474e496a1a2a0b9e6a806ca4b}{testCaseStarting}}(testInfo);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ testCase.\mbox{\hyperlink{classCatch_1_1TestCaseHandle_a7e78330f0d1a6ddbb952369bf37b1e52}{prepareTestCase}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ m\_activeTestCase\ =\ \&testCase;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1ITracker}{ITracker}}\&\ rootTracker\ =\ m\_trackerContext.\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1TrackerContext_ae9b7c019b9b562bef9b2787eff05245c}{startRun}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ assert(rootTracker.\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1ITracker_a430ff10ed229df9ba2c76927079af827}{isSectionTracker}}());}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ rootTracker.\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1ITracker_a25326aad386ae80b55489e5f24d63b89}{setFilters}}(\ \&m\_config-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a7827e5a52174c5ef024cdfe0098d81a0}{getPathFilters}}(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_config-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a7f096458f9fa6f9d1687db59bcb6e6d4}{useNewFilterBehaviour}}()\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00375}00375\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ intentionally\ only\ seed\ the\ internal\ RNG\ once\ per\ test\ case,}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ before\ it\ is\ first\ invoked.\ The\ reason\ for\ that\ is\ a\ complex}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ interplay\ of\ generator/section\ implementation\ details\ and\ the}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Random*Generator\ types.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ issue\ boils\ down\ to\ us\ needing\ to\ seed\ the\ Random*Generators}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ with\ different\ seed\ each,\ so\ that\ they\ return\ different\ sequences}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ of\ random\ numbers.\ We\ do\ this\ by\ giving\ them\ a\ number\ from\ the}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ shared\ RNG\ instance\ as\ their\ seed.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ However,\ this\ runs\ into\ an\ issue\ if\ the\ reseeding\ happens\ each}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ time\ the\ test\ case\ is\ entered\ (as\ opposed\ to\ first\ time\ only),}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ because\ multiple\ generators\ could\ get\ the\ same\ seed,\ e.g.\ in}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}\`{}\`{}cpp}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TEST\_CASE()\ \{}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ auto\ i\ =\ GENERATE(take(10,\ random(0,\ 100));}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ SECTION("{}A"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ auto\ j\ =\ GENERATE(take(10,\ random(0,\ 100));}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00395}00395\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ SECTION("{}B"{})\ \{}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ auto\ k\ =\ GENERATE(take(10,\ random(0,\ 100));}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}\`{}\`{}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \`{}i`\ and\ \`{}j`\ would\ properly\ return\ values\ from\ different\ sequences,}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ \`{}i`\ and\ \`{}k`\ would\ return\ the\ same\ sequence,\ because\ their\ seed}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ would\ be\ the\ same.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (The\ reason\ their\ seeds\ would\ be\ the\ same\ is\ that\ the\ generator}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ for\ k\ would\ be\ initialized\ when\ the\ test\ case\ is\ entered\ the\ second}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ time,\ after\ the\ shared\ RNG\ instance\ was\ reset\ to\ the\ same\ value}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ it\ had\ when\ the\ generator\ for\ i\ was\ initialized.)}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_a161400810eb0995394d6d8d3cae821ad}{seedRng}}(\ *m\_config\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00408}00408\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ uint64\_t\ testRuns\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ std::string\ redirectedCout;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00411}00411\ \ \ \ \ \ \ \ \ std::string\ redirectedCerr;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ m\_trackerContext.\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1TrackerContext_adb2be6ac725c76b23f37c7a1ff35e9c1}{startCycle}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ m\_testCaseTracker\ =\ \&\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1SectionTracker_a5c79ef577f0569578a095e566ef08fd3}{SectionTracker::acquire}}(m\_trackerContext,\ \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef}{TestCaseTracking::NameAndLocationRef}}(testInfo.name,\ testInfo.lineInfo));}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_aa50659430e5ba60c662ef5218e5c1e53}{testCasePartialStarting}}(testInfo,\ testRuns);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00418}00418\ \ \ \ \ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ beforeRunTotals\ =\ m\_totals;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ runCurrentTest();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ oneRunCout\ =\ m\_outputRedirect-\/>getStdout();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ oneRunCerr\ =\ m\_outputRedirect-\/>getStderr();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ \ \ \ \ m\_outputRedirect-\/>clearBuffers();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ \ \ redirectedCout\ +=\ oneRunCout;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \ \ \ redirectedCerr\ +=\ oneRunCerr;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ singleRunTotals\ =\ m\_totals.\mbox{\hyperlink{structCatch_1_1Totals_a1a94a654f5f3786b75695e081fc9bca2}{delta}}(beforeRunTotals);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ statsForOneRun\ =\ \mbox{\hyperlink{structCatch_1_1TestCaseStats}{TestCaseStats}}(testInfo,\ singleRunTotals,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(oneRunCout),\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(oneRunCerr),\ \mbox{\hyperlink{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e}{aborting}}());}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a1ca022b9d648e34eaee8f772c5f4969c}{testCasePartialEnded}}(statsForOneRun,\ testRuns);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ ++testRuns;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00433}00433\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (!m\_testCaseTracker-\/>\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1ITracker_a62fdfbdd6c844b32650f6b1cffe6357b}{isSuccessfullyCompleted}}()\ \&\&\ !\mbox{\hyperlink{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e}{aborting}}());}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00435}00435\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Totals}{Totals}}\ deltaTotals\ =\ m\_totals.\mbox{\hyperlink{structCatch_1_1Totals_a1a94a654f5f3786b75695e081fc9bca2}{delta}}(prevTotals);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00436}00436\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (testInfo.expectedToFail()\ \&\&\ deltaTotals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}}\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ deltaTotals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}++;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00438}00438\ \ \ \ \ \ \ \ \ \ \ \ \ deltaTotals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00439}00439\ \ \ \ \ \ \ \ \ \ \ \ \ deltaTotals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}++;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00440}00440\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00441}00441\ \ \ \ \ \ \ \ \ m\_totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}\ +=\ deltaTotals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00442}00442\ \ \ \ \ \ \ \ \ testCase.\mbox{\hyperlink{classCatch_1_1TestCaseHandle_ad243c3ac78d702cda848c909383da2d7}{tearDownTestCase}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00443}00443\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_abe5cb0aaed8d0d5d8a42d23a7e36b667}{testCaseEnded}}(\mbox{\hyperlink{structCatch_1_1TestCaseStats}{TestCaseStats}}(testInfo,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ deltaTotals,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(redirectedCout),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00446}00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(redirectedCerr),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e}{aborting}}()));}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00449}00449\ \ \ \ \ \ \ \ \ m\_activeTestCase\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00450}00450\ \ \ \ \ \ \ \ \ m\_testCaseTracker\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00451}00451\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00452}00452\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ deltaTotals;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00453}00453\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00455}00455\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00456}00456\ \ \ \ \ \textcolor{keywordtype}{void}\ RunContext::assertionEnded(\mbox{\hyperlink{classCatch_1_1AssertionResult}{AssertionResult}}\&\&\ result)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00457}00457\ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ =\ result.m\_info.lineInfo;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00458}00458\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result.getResultType()\ ==\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efae7cbe89bb9ec7ece9b44d48b63d01b63}{ResultWas::Ok}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}}++;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00460}00460\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_lastAssertionPassed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00461}00461\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (result.getResultType()\ ==\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa99a9169d030778cf863b92ef02a4de2c}{ResultWas::ExplicitSkip}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ \ \ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_a4bc5425fed9628cb30e9c4702ee75ea5}{skipped}}++;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00463}00463\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_lastAssertionPassed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00464}00464\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!result.succeeded())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_lastAssertionPassed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00466}00466\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (result.isOk())\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ m\_activeTestCase-\/>\mbox{\hyperlink{classCatch_1_1TestCaseHandle_a9a89d26457c8585f93eb8baea0f39884}{getTestCaseInfo}}().\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a5f37291295e3a6de2dd85324c941edaf}{okToFail}}()\ )\ \{\ \textcolor{comment}{//\ Read\ from\ a\ shared\ state\ established\ before\ the\ threads\ could\ start,\ this\ is\ fine}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_ad42a25fd6c31ca6c6320f4cf5e857028}{failedButOk}}++;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}++;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00472}00472\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00473}00473\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_lastAssertionPassed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00474}00474\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00475}00475\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00476}00476\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ msgHolder\ =\ Detail::g\_messageHolder();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ msgHolder.repairUnscopedMessageInvariant();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00479}00479\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ From\ here,\ we\ are\ touching\ shared\ state\ and\ need\ mutex.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00480}00480\ \ \ \ \ \ \ \ \ Detail::LockGuard\ lock(\ m\_assertionMutex\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00481}00481\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00483}00483\ \ \ \ \ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00484}00484\ \ \ \ \ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a43aec5f970694bd25a736e3d9871b5c4}{assertionEnded}}(\ AssertionStats(\ result,\ msgHolder.getMessages(),\ m\_totals\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00485}00485\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00486}00486\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00487}00487\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ result.getResultType()\ !=\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21}{ResultWas::Warning}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \ \ msgHolder.removeUnscopedMessages();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00490}00490\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00491}00491\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reset\ working\ state.\ assertion\ info\ will\ be\ reset\ after}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00492}00492\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ populateReaction\ is\ run\ if\ it\ is\ needed}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ m\_lastResult\ =\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ result\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00494}00494\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00496}\mbox{\hyperlink{classCatch_1_1RunContext_a6f98f1074edad222f8536b225f487fea}{00496}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_a6f98f1074edad222f8536b225f487fea}{RunContext::notifyAssertionStarted}}(\ \mbox{\hyperlink{structCatch_1_1AssertionInfo}{AssertionInfo}}\ \textcolor{keyword}{const}\&\ info\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_reportAssertionStarting)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Detail_1_1LockGuard}{Detail::LockGuard}}\ lock(\ m\_assertionMutex\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a739285f21094b48e665fe32610d12b4d}{assertionStarting}}(\ info\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00501}00501\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00502}00502\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00503}00503\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00504}\mbox{\hyperlink{classCatch_1_1RunContext_a19971d796dcd37a7e2410ccbeef4fdf2}{00504}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1RunContext_a19971d796dcd37a7e2410ccbeef4fdf2}{RunContext::sectionStarted}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ sectionName,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{SourceLineInfo}}\ \textcolor{keyword}{const}\&\ sectionLineInfo,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Counts}{Counts}}\&\ assertions\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1ITracker}{ITracker}}\&\ sectionTracker\ =}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00508}00508\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1SectionTracker_a5c79ef577f0569578a095e566ef08fd3}{SectionTracker::acquire}}(\ m\_trackerContext,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00509}00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef}{TestCaseTracking::NameAndLocationRef}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sectionName,\ sectionLineInfo\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00511}00511\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00512}00512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!sectionTracker.\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1ITracker_a604d759accff73c232a6a479cf852351}{isOpen}}())}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ m\_activeSections.push\_back(\&sectionTracker);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00515}00515\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SectionInfo}{SectionInfo}}\ sectionInfo(\ sectionLineInfo,\ \textcolor{keyword}{static\_cast<}std::string\textcolor{keyword}{>}(sectionName)\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00517}00517\ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ =\ sectionLineInfo;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00518}00518\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00519}00519\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00520}00520\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00521}00521\ \ \ \ \ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_aaca0feeb367dea20806972112e4846d0}{sectionStarting}}(\ sectionInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00522}00522\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00523}00523\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00524}00524\ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00525}00525\ \ \ \ \ \ \ \ \ assertions\ =\ m\_totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00528}00528\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00529}00529\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGeneratorTracker}}*}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00530}\mbox{\hyperlink{classCatch_1_1RunContext_a8ffd45dd3cd6698e6e1a1388c5f22e56}{00530}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RunContext_a8ffd45dd3cd6698e6e1a1388c5f22e56}{RunContext::acquireGeneratorTracker}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ generatorName,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00531}00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{SourceLineInfo}}\ \textcolor{keyword}{const}\&\ lineInfo\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00532}00532\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ tracker\ =\ Generators::GeneratorTracker::acquire(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00533}00533\ \ \ \ \ \ \ \ \ \ \ \ \ m\_trackerContext,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00534}00534\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocationRef}{TestCaseTracking::NameAndLocationRef}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00535}00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ generatorName,\ lineInfo\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00536}00536\ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ =\ lineInfo;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00537}00537\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tracker;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00538}00538\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00539}00539\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00540}\mbox{\hyperlink{classCatch_1_1RunContext_ab38f8e0173d9440ba144c3eeaf4affdd}{00540}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGeneratorTracker}}*\ \mbox{\hyperlink{classCatch_1_1RunContext_ab38f8e0173d9440ba144c3eeaf4affdd}{RunContext::createGeneratorTracker}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00541}00541\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ generatorName,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00542}00542\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{SourceLineInfo}}\ lineInfo,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00543}00543\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Generators::GeneratorBasePtr}}\&\&\ generator\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00544}00544\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00545}00545\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ nameAndLoc\ =\ \mbox{\hyperlink{structCatch_1_1TestCaseTracking_1_1NameAndLocation}{TestCaseTracking::NameAndLocation}}(\ \textcolor{keyword}{static\_cast<}std::string\textcolor{keyword}{>}(\ generatorName\ ),\ lineInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00546}00546\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ currentTracker\ =\ m\_trackerContext.\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1TrackerContext_a9294627e8f7cb5774cc17579f3558d0d}{currentTracker}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00547}00547\ \ \ \ \ \ \ \ \ assert(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ \ \ currentTracker.nameAndLocation()\ !=\ nameAndLoc\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00549}00549\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Trying\ to\ create\ tracker\ for\ a\ generator\ that\ already\ has\ one"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00550}00550\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00551}00551\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ newTracker\ =}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00552}00552\ \ \ \ \ \ \ \ \ \ \ \ \ Catch::Detail::make\_unique<Generators::GeneratorTracker>(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ nameAndLoc\ ),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00554}00554\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_trackerContext,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00555}00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&currentTracker,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ generator\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00557}00557\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00558}00558\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ warning\ shouldn't\ fire\ if\ the\ generator\ is\ infinite,\ **but**\ filtered\ down.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00559}00559\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_config-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a640d89e3fbefb5e2d2fc20060cded0b8}{warnAboutInfiniteGenerators}}()\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00560}00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ !newTracker-\/>m\_generator-\/>isFinite()\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ !newTracker-\/>isFiltered()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ want\ the\ semantics\ of\ \`{}FAIL()`,\ but\ we\ inline\ it}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ avoid\ issues\ with\ conditionally\ prefixed\ macros}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__message_8hpp_ad1f7d83040ad9b09020dc72c57019638}{INTERNAL\_CATCH\_MSG}}(\ \textcolor{stringliteral}{"{}FAIL"{}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efacecfc052e2499499b13304249303cc36}{Catch::ResultWas::ExplicitFailure}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00566}00566\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{Catch::ResultDisposition::Normal}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}GENERATE()\ would\ run\ infinitely"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00568}00568\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00569}00569\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00570}00570\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ returnPtr\ =\ newTracker.get();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00571}00571\ \ \ \ \ \ \ \ \ currentTracker.addChild(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ newTracker\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00572}00572\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00573}00573\ \ \ \ \ \ \ \ \ returnPtr-\/>open();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00574}00574\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ returnPtr;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00575}00575\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00577}00577\ \ \ \ \ \textcolor{keywordtype}{bool}\ RunContext::testForMissingAssertions(\mbox{\hyperlink{structCatch_1_1Counts}{Counts}}\&\ assertions)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00578}00578\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (assertions.\mbox{\hyperlink{structCatch_1_1Counts_a71bb4c4ac8e1dcb06951848f587bf591}{total}}()\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00579}00579\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00580}00580\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_config-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a75d970c495a28e46b8e9b04a1d32149f}{warnAboutMissingAssertions}}())}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00581}00581\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00582}00582\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_trackerContext.\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1TrackerContext_a9294627e8f7cb5774cc17579f3558d0d}{currentTracker}}().\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1ITracker_a157e9ca628aa9369c207c1272bd5ed30}{hasChildren}}())}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00583}00583\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00584}00584\ \ \ \ \ \ \ \ \ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}++;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00585}00585\ \ \ \ \ \ \ \ \ assertions.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}++;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00586}00586\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00587}00587\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00588}00588\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00589}\mbox{\hyperlink{classCatch_1_1RunContext_aaa2d6108bd62e4e1922645b3980f5317}{00589}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_aaa2d6108bd62e4e1922645b3980f5317}{RunContext::sectionEnded}}(\mbox{\hyperlink{structCatch_1_1SectionEndInfo}{SectionEndInfo}}\&\&\ endInfo)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00590}00590\ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00591}00591\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Counts}{Counts}}\ assertions\ =\ m\_totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}\ -\/\ endInfo.prevAssertions;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00592}00592\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ missingAssertions\ =\ testForMissingAssertions(assertions);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00593}00593\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00594}00594\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_activeSections.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00595}00595\ \ \ \ \ \ \ \ \ \ \ \ \ m\_activeSections.back()-\/>close();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00596}00596\ \ \ \ \ \ \ \ \ \ \ \ \ m\_activeSections.pop\_back();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00597}00597\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00598}00598\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00599}00599\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00600}00600\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00601}00601\ \ \ \ \ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a077b6305d49853779d715777e90138bd}{sectionEnded}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00602}00602\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SectionStats}{SectionStats}}(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ endInfo.sectionInfo\ ),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00603}00603\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assertions,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00604}00604\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ endInfo.durationInSeconds,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00605}00605\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ missingAssertions\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00606}00606\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00607}00607\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00608}00608\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00609}\mbox{\hyperlink{classCatch_1_1RunContext_adb5562e8c54c7238aa9f9103392e653a}{00609}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_adb5562e8c54c7238aa9f9103392e653a}{RunContext::sectionEndedEarly}}(\mbox{\hyperlink{structCatch_1_1SectionEndInfo}{SectionEndInfo}}\&\&\ endInfo)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00610}00610\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_unfinishedSections.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \ \ m\_activeSections.back()-\/>fail();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00612}00612\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ m\_activeSections.back()-\/>close();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00614}00614\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00615}00615\ \ \ \ \ \ \ \ \ m\_activeSections.pop\_back();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00616}00616\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00617}00617\ \ \ \ \ \ \ \ \ m\_unfinishedSections.push\_back(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(endInfo));}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00618}00618\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00619}00619\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00620}\mbox{\hyperlink{classCatch_1_1RunContext_a596ae7fdd4345a2c7dbb78b7987d883a}{00620}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_a596ae7fdd4345a2c7dbb78b7987d883a}{RunContext::benchmarkPreparing}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ name\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00621}00621\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00622}00622\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_ac16d3fb730b139bbc1810b7e42cde5ac}{benchmarkPreparing}}(\ name\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00623}00623\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00624}\mbox{\hyperlink{classCatch_1_1RunContext_a1d660c5f0374f0561f816d6b5263724a}{00624}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_a1d660c5f0374f0561f816d6b5263724a}{RunContext::benchmarkStarting}}(\ \mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{BenchmarkInfo}}\ \textcolor{keyword}{const}\&\ info\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00625}00625\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00626}00626\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a96e744c9c4bdbea26f16ec2f1d0090fe}{benchmarkStarting}}(\ info\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00627}00627\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00628}\mbox{\hyperlink{classCatch_1_1RunContext_a0e35328c06bc0300add8cdae2f438645}{00628}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_a0e35328c06bc0300add8cdae2f438645}{RunContext::benchmarkEnded}}(\ \mbox{\hyperlink{structCatch_1_1BenchmarkStats}{BenchmarkStats<>}}\ \textcolor{keyword}{const}\&\ stats\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00629}00629\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00630}00630\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a69d16f703f6fa505cee57d4420f56d4c}{benchmarkEnded}}(\ stats\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00631}00631\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00632}\mbox{\hyperlink{classCatch_1_1RunContext_a1f01c3c4ad63ba765e7ebc8965ea3725}{00632}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_a1f01c3c4ad63ba765e7ebc8965ea3725}{RunContext::benchmarkFailed}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ error\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00633}00633\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00634}00634\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a8698348805f39879bccdfacb4afd5095}{benchmarkFailed}}(\ error\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00635}00635\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00636}00636\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00637}\mbox{\hyperlink{classCatch_1_1RunContext_a60b5d026b1b2b652a15f6f6159b0f060}{00637}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1RunContext_a60b5d026b1b2b652a15f6f6159b0f060}{RunContext::getCurrentTestName}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00638}00638\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_activeTestCase}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00639}00639\ \ \ \ \ \ \ \ \ \ \ \ \ ?\ m\_activeTestCase-\/>\mbox{\hyperlink{classCatch_1_1TestCaseHandle_a9a89d26457c8585f93eb8baea0f39884}{getTestCaseInfo}}().\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a463794e2f5cfead307c93efd134ade36}{name}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00640}00640\ \ \ \ \ \ \ \ \ \ \ \ \ :\ std::string();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00641}00641\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00642}00642\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00643}\mbox{\hyperlink{classCatch_1_1RunContext_ab37e84216b0f9ede72abfe960e917e13}{00643}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCatch_1_1AssertionResult}{AssertionResult}}\ *\ \mbox{\hyperlink{classCatch_1_1RunContext_ab37e84216b0f9ede72abfe960e917e13}{RunContext::getLastResult}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00644}00644\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ m\_lastResult\ is\ updated\ inside\ the\ assertion\ slow-\/path,\ under}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00645}00645\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a\ mutex,\ so\ the\ read\ needs\ to\ happen\ under\ mutex\ as\ well.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00646}00646\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00647}00647\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TBD:\ The\ last\ result\ only\ makes\ sense\ if\ it\ is\ a\ thread-\/local}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00648}00648\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ thing,\ because\ the\ answer\ is\ different\ per\ thread,\ like}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00649}00649\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ last\ line\ info,\ whether\ last\ assertion\ passed,\ and\ so\ on.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00650}00650\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00651}00651\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ However,\ the\ last\ result\ was\ also\ never\ updated\ in\ the}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00652}00652\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ assertion\ fast\ path,\ so\ it\ was\ always\ somewhat\ broken,}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00653}00653\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ and\ since\ IResultCapture::getLastResult\ is\ deprecated,}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00654}00654\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ we\ will\ leave\ it\ as\ is,\ until\ it\ is\ finally\ removed.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00655}00655\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Detail_1_1LockGuard}{Detail::LockGuard}}\ \_(\ m\_assertionMutex\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00656}00656\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&*m\_lastResult;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00657}00657\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00658}00658\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00659}\mbox{\hyperlink{classCatch_1_1RunContext_aa3a1306cc436f9420f50d1e8766d4127}{00659}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_aa3a1306cc436f9420f50d1e8766d4127}{RunContext::exceptionEarlyReported}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00660}00660\ \ \ \ \ \ \ \ \ m\_shouldReportUnexpected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00661}00661\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00662}00662\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00663}\mbox{\hyperlink{classCatch_1_1RunContext_aba3d31f697ea63b04af7609fbcdb0c02}{00663}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_aba3d31f697ea63b04af7609fbcdb0c02}{RunContext::handleFatalErrorCondition}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ message\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00664}00664\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ lock\ only\ when\ touching\ the\ reporters\ directly,\ to\ avoid}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00665}00665\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ deadlocks\ when\ we\ call\ into\ other\ functions\ that\ also\ want}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00666}00666\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ lock\ the\ mutex\ before\ touching\ reporters.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00667}00667\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00668}00668\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ does\ mean\ that\ we\ allow\ other\ threads\ to\ run\ while\ handling}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00669}00669\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a\ fatal\ error,\ but\ this\ is\ all\ a\ best\ effort\ attempt\ anyway.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00670}00670\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00671}00671\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Detail_1_1LockGuard}{Detail::LockGuard}}\ lock(\ m\_assertionMutex\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00672}00672\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ scoped\ deactivate\ here?\ Just\ give\ up\ and\ do\ best\ effort?}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00673}00673\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ the\ deactivation\ can\ break\ things\ further,\ OTOH\ so\ can\ the}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00674}00674\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ capture}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00675}00675\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a604293e8cd25e37091594d6f30c5f54e}{scopedDeactivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00676}00676\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00677}00677\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ notify\ reporter\ that\ bad\ things\ happened}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00678}00678\ \ \ \ \ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_aefa99bd01a2b15d36f223e3a60fbd536}{fatalErrorEncountered}}(\ message\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00679}00679\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00680}00680\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00681}00681\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ rebuild\ the\ result\ -\/-\/\ the\ stringification\ itself\ can\ cause\ more\ fatal\ errors}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00682}00682\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Instead,\ fake\ a\ result\ data.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00683}00683\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionResultData}{AssertionResultData}}\ tempResult(\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa87fa1f2a2a63290b61948002e2935377}{ResultWas::FatalErrorCondition}},\ \{\ \textcolor{keyword}{false}\ \}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00684}00684\ \ \ \ \ \ \ \ \ tempResult.\mbox{\hyperlink{structCatch_1_1AssertionResultData_ac34215803c4c4a88f795879f61c1f7b4}{message}}\ =\ \textcolor{keyword}{static\_cast<}std::string\textcolor{keyword}{>}(message);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00685}00685\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1AssertionResult}{AssertionResult}}\ result(\ makeDummyAssertionInfo(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00686}00686\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ tempResult\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00687}00687\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00688}00688\ \ \ \ \ \ \ \ \ assertionEnded(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(result)\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00689}00689\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00690}00690\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00691}00691\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ At\ this\ point\ we\ touch\ sections/test\ cases\ from\ this\ thread}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00692}00692\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ try\ and\ end\ them.\ Technically\ that\ is\ not\ supported\ when}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00693}00693\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ using\ multiple\ threads,\ but\ the\ worst\ thing\ that\ can\ happen}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00694}00694\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\ that\ the\ process\ aborts\ harder\ :-\/D}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00695}00695\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Detail_1_1LockGuard}{Detail::LockGuard}}\ lock(\ m\_assertionMutex\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00696}00696\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00697}00697\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Best\ effort\ cleanup\ for\ sections\ that\ have\ not\ been\ destructed\ yet}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00698}00698\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Since\ this\ is\ a\ fatal\ error,\ we\ have\ not\ had\ and\ won't\ have\ the\ opportunity\ to\ destruct\ them\ properly}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00699}00699\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!m\_activeSections.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00700}00700\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ nl\ =\ m\_activeSections.back()-\/>nameAndLocation();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00701}00701\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SectionEndInfo}{SectionEndInfo}}\ endInfo\{\ \mbox{\hyperlink{structCatch_1_1SectionInfo}{SectionInfo}}(nl.location,\ nl.name),\ \{\},\ 0.0\ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00702}00702\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RunContext_adb5562e8c54c7238aa9f9103392e653a}{sectionEndedEarly}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(endInfo));}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00703}00703\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00704}00704\ \ \ \ \ \ \ \ \ handleUnfinishedSections();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00705}00705\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00706}00706\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recreate\ section\ for\ test\ case\ (as\ we\ will\ lose\ the\ one\ that\ was\ in\ scope)}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00707}00707\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ testCaseInfo\ =\ m\_activeTestCase-\/>\mbox{\hyperlink{classCatch_1_1TestCaseHandle_a9a89d26457c8585f93eb8baea0f39884}{getTestCaseInfo}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00708}00708\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SectionInfo}{SectionInfo}}\ testCaseSection(testCaseInfo.lineInfo,\ testCaseInfo.name);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00709}00709\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00710}00710\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Counts}{Counts}}\ assertions;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00711}00711\ \ \ \ \ \ \ \ \ assertions.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00712}00712\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SectionStats}{SectionStats}}\ testCaseSectionStats(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(testCaseSection),\ assertions,\ 0,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00713}00713\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a077b6305d49853779d715777e90138bd}{sectionEnded}}(\ testCaseSectionStats\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00714}00714\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00715}00715\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ testInfo\ =\ m\_activeTestCase-\/>\mbox{\hyperlink{classCatch_1_1TestCaseHandle_a9a89d26457c8585f93eb8baea0f39884}{getTestCaseInfo}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00716}00716\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00717}00717\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Totals}{Totals}}\ deltaTotals;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00718}00718\ \ \ \ \ \ \ \ \ deltaTotals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00719}00719\ \ \ \ \ \ \ \ \ deltaTotals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00720}00720\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_abe5cb0aaed8d0d5d8a42d23a7e36b667}{testCaseEnded}}(\mbox{\hyperlink{structCatch_1_1TestCaseStats}{TestCaseStats}}(testInfo,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00721}00721\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ deltaTotals,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00722}00722\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00723}00723\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00724}00724\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{false}));}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00725}00725\ \ \ \ \ \ \ \ \ m\_totals.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}++;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00726}00726\ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00727}00727\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a97a17235b82da761043654491db0b17c}{testRunEnded}}(\mbox{\hyperlink{structCatch_1_1TestRunStats}{TestRunStats}}(m\_runInfo,\ m\_totals,\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00728}00728\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00729}00729\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00730}00730\ \ \ \ \ \textcolor{keywordtype}{void}\ RunContext::assertionPassedFastPath(\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{SourceLineInfo}}\ lineInfo)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00731}00731\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ want\ to\ save\ the\ line\ info\ for\ better\ experience\ with\ unexpected\ assertions}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00732}00732\ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ =\ lineInfo;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00733}00733\ \ \ \ \ \ \ \ \ ++m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00734}00734\ \ \ \ \ \ \ \ \ Detail::g\_lastAssertionPassed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00735}00735\ \ \ \ \ \ \ \ \ Detail::g\_clearMessageScopes\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00736}00736\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00737}00737\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00738}00738\ \ \ \ \ \textcolor{keywordtype}{void}\ RunContext::updateTotalsFromAtomics()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00739}00739\ \ \ \ \ \ \ \ \ m\_totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}\ =\ Counts\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00740}00740\ \ \ \ \ \ \ \ \ \ \ \ \ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00741}00741\ \ \ \ \ \ \ \ \ \ \ \ \ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00742}00742\ \ \ \ \ \ \ \ \ \ \ \ \ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_ad42a25fd6c31ca6c6320f4cf5e857028}{failedButOk}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00743}00743\ \ \ \ \ \ \ \ \ \ \ \ \ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_a4bc5425fed9628cb30e9c4702ee75ea5}{skipped}},}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00744}00744\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00745}00745\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00746}00746\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00747}\mbox{\hyperlink{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e}{00747}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e}{RunContext::aborting}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00748}00748\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_atomicAssertionCount.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}\ >=\ m\_abortAfterXFailedAssertions;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00749}00749\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00750}00750\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00751}00751\ \ \ \ \ \textcolor{keywordtype}{void}\ RunContext::runCurrentTest()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00752}00752\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ testCaseInfo\ =\ m\_activeTestCase-\/>\mbox{\hyperlink{classCatch_1_1TestCaseHandle_a9a89d26457c8585f93eb8baea0f39884}{getTestCaseInfo}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00753}00753\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1SectionInfo}{SectionInfo}}\ testCaseSection(testCaseInfo.lineInfo,\ testCaseInfo.name);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00754}00754\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_aaca0feeb367dea20806972112e4846d0}{sectionStarting}}(testCaseSection);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00755}00755\ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00756}00756\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Counts}{Counts}}\ prevAssertions\ =\ m\_totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00757}00757\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ duration\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00758}00758\ \ \ \ \ \ \ \ \ m\_shouldReportUnexpected\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00759}00759\ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ =\ testCaseInfo.lineInfo;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00760}00760\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00761}00761\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Timer}{Timer}}\ timer;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00762}00762\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_ab76c2d22e571ab1a828f5c60d2f485a6}{CATCH\_TRY}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00763}00763\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00764}00764\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_\ =\ \mbox{\hyperlink{namespaceCatch_a6869418a3394de1080b85a72d73b37e2}{scopedActivate}}(\ *m\_outputRedirect\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00765}00765\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timer.\mbox{\hyperlink{classCatch_1_1Timer_a0a56e879e43f36c102bf9ea8b5fc8b72}{start}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00766}00766\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ invokeActiveTestCase();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00767}00767\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00768}00768\ \ \ \ \ \ \ \ \ \ \ \ \ duration\ =\ timer.\mbox{\hyperlink{classCatch_1_1Timer_a065e37e3c9eb16bd4dcf41971d8deedc}{getElapsedSeconds}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00769}00769\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a3caecf3cbc55848423d744df50d84d5b}{CATCH\_CATCH\_ANON}}\ (TestFailureException\&)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00770}00770\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ just\ means\ the\ test\ was\ aborted\ due\ to\ failure}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00771}00771\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a3caecf3cbc55848423d744df50d84d5b}{CATCH\_CATCH\_ANON}}\ (TestSkipException\&)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00772}00772\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ just\ means\ the\ test\ was\ explicitly\ skipped}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00773}00773\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_afa0ae14e70806dca4f8bf06d06645fa9}{CATCH\_CATCH\_ALL}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00774}00774\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Under\ CATCH\_CONFIG\_FAST\_COMPILE,\ unexpected\ exceptions\ under\ REQUIRE\ assertions}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00775}00775\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ are\ reported\ without\ translation\ at\ the\ point\ of\ origin.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00776}00776\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_shouldReportUnexpected\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00777}00777\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AssertionReaction\ dummyReaction;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00778}00778\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RunContext_a39d4a913e3ffba03f876160f56e6abcd}{handleUnexpectedInflightException}}(\ makeDummyAssertionInfo(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00779}00779\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_adafff91485eeeeb9e9333f317cc0e3b1}{translateActiveException}}(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00780}00780\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dummyReaction\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00781}00781\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00782}00782\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00783}00783\ \ \ \ \ \ \ \ \ updateTotalsFromAtomics();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00784}00784\ \ \ \ \ \ \ \ \ Counts\ assertions\ =\ m\_totals.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}\ -\/\ prevAssertions;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00785}00785\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ missingAssertions\ =\ testForMissingAssertions(assertions);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00786}00786\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00787}00787\ \ \ \ \ \ \ \ \ m\_testCaseTracker-\/>\mbox{\hyperlink{classCatch_1_1TestCaseTracking_1_1ITracker_a64d18c92b66ff001fcbdb1c3d839b2c5}{close}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00788}00788\ \ \ \ \ \ \ \ \ handleUnfinishedSections();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00789}00789\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ msgHolder\ =\ Detail::g\_messageHolder();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00790}00790\ \ \ \ \ \ \ \ \ msgHolder.removeUnscopedMessages();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00791}00791\ \ \ \ \ \ \ \ \ assert(\ msgHolder.getMessages().empty()\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00792}00792\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}There\ should\ be\ no\ leftover\ messages\ after\ the\ test\ ends"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00793}00793\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00794}00794\ \ \ \ \ \ \ \ \ SectionStats\ testCaseSectionStats(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(testCaseSection),\ assertions,\ duration,\ missingAssertions);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00795}00795\ \ \ \ \ \ \ \ \ m\_reporter-\/>\mbox{\hyperlink{classCatch_1_1IEventListener_a077b6305d49853779d715777e90138bd}{sectionEnded}}(testCaseSectionStats);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00796}00796\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00797}00797\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00798}00798\ \ \ \ \ \textcolor{keywordtype}{void}\ RunContext::invokeActiveTestCase()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00799}00799\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ need\ to\ engage\ a\ handler\ for\ signals/structured\ exceptions}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00800}00800\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ before\ running\ the\ tests\ themselves,\ or\ the\ binary\ can\ crash}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00801}00801\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ without\ failed\ test\ being\ reported.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00802}00802\ \ \ \ \ \ \ \ \ FatalConditionHandlerGuard\ \_(\&m\_fatalConditionhandler);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00803}00803\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ keep\ having\ issue\ where\ some\ compilers\ warn\ about\ an\ unused}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00804}00804\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ variable,\ even\ though\ the\ type\ has\ non-\/trivial\ constructor\ and}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00805}00805\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ destructor.\ This\ is\ annoying\ and\ ugly,\ but\ it\ makes\ them\ stfu.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00806}00806\ \ \ \ \ \ \ \ \ (void)\_;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00807}00807\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00808}00808\ \ \ \ \ \ \ \ \ m\_activeTestCase-\/>\mbox{\hyperlink{classCatch_1_1TestCaseHandle_a3ceefa8ee4fecb6aba985fb539ef94f4}{invoke}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00809}00809\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00810}00810\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00811}00811\ \ \ \ \ \textcolor{keywordtype}{void}\ RunContext::handleUnfinishedSections()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00812}00812\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ sections\ ended\ prematurely\ due\ to\ an\ exception\ we\ stored\ their}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00813}00813\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ infos\ here\ so\ we\ can\ tear\ them\ down\ outside\ the\ unwind\ process.}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00814}00814\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ it\ =\ m\_unfinishedSections.rbegin(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00815}00815\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ itEnd\ =\ m\_unfinishedSections.rend();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00816}00816\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ it\ !=\ itEnd;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00817}00817\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++it\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00818}00818\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RunContext_aaa2d6108bd62e4e1922645b3980f5317}{sectionEnded}}(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ *it\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00819}00819\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00820}00820\ \ \ \ \ \ \ \ \ m\_unfinishedSections.clear();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00821}00821\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00822}00822\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00823}\mbox{\hyperlink{classCatch_1_1RunContext_a7961fefe6147fa6b45badf462c7daea2}{00823}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_a7961fefe6147fa6b45badf462c7daea2}{RunContext::handleExpr}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00824}00824\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionInfo}{AssertionInfo}}\ \textcolor{keyword}{const}\&\ info,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00825}00825\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransientExpression}}\ \textcolor{keyword}{const}\&\ expr,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00826}00826\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionReaction}{AssertionReaction}}\&\ reaction}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00827}00827\ \ \ \ \ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00828}00828\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ negated\ =\ \mbox{\hyperlink{namespaceCatch_a6976174b3c594c40f8ed2019360b6581}{isFalseTest}}(\ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a60353b3632ab2f827162f2b2d6911073}{resultDisposition}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00829}00829\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ expr.\mbox{\hyperlink{classCatch_1_1ITransientExpression_a5cd3e95366a4efb2e351aa62def0fe8e}{getResult}}()\ !=\ negated;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00830}00830\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00831}00831\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ result\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00832}00832\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_includeSuccessfulResults)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00833}00833\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assertionPassedFastPath(info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a17bdbb404ba12658034f833be2f4c3e7}{lineInfo}});}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00834}00834\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00835}00835\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00836}00836\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reportExpr(info,\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efae7cbe89bb9ec7ece9b44d48b63d01b63}{ResultWas::Ok}},\ \&expr,\ negated);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00837}00837\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00838}00838\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00839}00839\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00840}00840\ \ \ \ \ \ \ \ \ \ \ \ \ reportExpr(info,\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa5e7126b8458dc1376ac870a719f7873f}{ResultWas::ExpressionFailed}},\ \&expr,\ negated\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00841}00841\ \ \ \ \ \ \ \ \ \ \ \ \ populateReaction(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00842}00842\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reaction,\ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a60353b3632ab2f827162f2b2d6911073}{resultDisposition}}\ \&\ \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{ResultDisposition::Normal}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00843}00843\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00844}00844\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00845}00845\ \ \ \ \ \textcolor{keywordtype}{void}\ RunContext::reportExpr(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00846}00846\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionInfo}{AssertionInfo}}\ \textcolor{keyword}{const}\ \&info,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00847}00847\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{ResultWas::OfType}}\ resultType,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00848}00848\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransientExpression}}\ \textcolor{keyword}{const}\ *expr,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00849}00849\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ negated\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00850}00850\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00851}00851\ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ =\ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a17bdbb404ba12658034f833be2f4c3e7}{lineInfo}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00852}00852\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionResultData}{AssertionResultData}}\ data(\ resultType,\ \mbox{\hyperlink{classCatch_1_1LazyExpression}{LazyExpression}}(\ negated\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00853}00853\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00854}00854\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1AssertionResult}{AssertionResult}}\ assertionResult\{\ info,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ data\ )\ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00855}00855\ \ \ \ \ \ \ \ \ assertionResult.m\_resultData.lazyExpression.m\_transientExpression\ =\ expr;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00856}00856\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00857}00857\ \ \ \ \ \ \ \ \ assertionEnded(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(assertionResult)\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00858}00858\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00859}00859\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00860}\mbox{\hyperlink{classCatch_1_1RunContext_a9d72a10bc41f636d5b2a80d25922db6d}{00860}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_a9d72a10bc41f636d5b2a80d25922db6d}{RunContext::handleMessage}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00861}00861\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionInfo}{AssertionInfo}}\ \textcolor{keyword}{const}\&\ info,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00862}00862\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{ResultWas::OfType}}\ resultType,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00863}00863\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\&\&\ message,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00864}00864\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionReaction}{AssertionReaction}}\&\ reaction}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00865}00865\ \ \ \ \ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00866}00866\ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ =\ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a17bdbb404ba12658034f833be2f4c3e7}{lineInfo}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00867}00867\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00868}00868\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionResultData}{AssertionResultData}}\ data(\ resultType,\ \mbox{\hyperlink{classCatch_1_1LazyExpression}{LazyExpression}}(\ \textcolor{keyword}{false}\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00869}00869\ \ \ \ \ \ \ \ \ data.message\ =\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ message\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00870}00870\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1AssertionResult}{AssertionResult}}\ assertionResult\{\ info,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00871}00871\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ data\ )\ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00872}00872\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00873}00873\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceCatch_a4f62175677952a64dfbc90887726180d}{isOk}}\ =\ assertionResult.isOk();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00874}00874\ \ \ \ \ \ \ \ \ assertionEnded(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(assertionResult)\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00875}00875\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !\mbox{\hyperlink{namespaceCatch_a4f62175677952a64dfbc90887726180d}{isOk}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00876}00876\ \ \ \ \ \ \ \ \ \ \ \ \ populateReaction(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00877}00877\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reaction,\ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a60353b3632ab2f827162f2b2d6911073}{resultDisposition}}\ \&\ \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{ResultDisposition::Normal}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00878}00878\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\ resultType\ ==\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa99a9169d030778cf863b92ef02a4de2c}{ResultWas::ExplicitSkip}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00879}00879\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Need\ to\ handle\ this\ explicitly,\ as\ ExplicitSkip\ is}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00880}00880\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ considered\ "{}OK"{}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00881}00881\ \ \ \ \ \ \ \ \ \ \ \ \ reaction.\mbox{\hyperlink{structCatch_1_1AssertionReaction_aad2c1008a81484ecb1619a3da29929f6}{shouldSkip}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00882}00882\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00883}00883\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00884}00884\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00885}\mbox{\hyperlink{classCatch_1_1RunContext_ae7c10a068d896a8bcb35f5f387a36d0c}{00885}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_ae7c10a068d896a8bcb35f5f387a36d0c}{RunContext::handleUnexpectedExceptionNotThrown}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00886}00886\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionInfo}{AssertionInfo}}\ \textcolor{keyword}{const}\&\ info,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00887}00887\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionReaction}{AssertionReaction}}\&\ reaction}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00888}00888\ \ \ \ \ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00889}00889\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1RunContext_ab11d6fc40a073cfb15b1beda806c63a2}{handleNonExpr}}(info,\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa8b6d3d5bc78d4e7a95543b6ecfbdb57d}{Catch::ResultWas::DidntThrowException}},\ reaction);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00890}00890\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00891}00891\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00892}\mbox{\hyperlink{classCatch_1_1RunContext_a39d4a913e3ffba03f876160f56e6abcd}{00892}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_a39d4a913e3ffba03f876160f56e6abcd}{RunContext::handleUnexpectedInflightException}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00893}00893\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionInfo}{AssertionInfo}}\ \textcolor{keyword}{const}\&\ info,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00894}00894\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\&\&\ message,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00895}00895\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionReaction}{AssertionReaction}}\&\ reaction}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00896}00896\ \ \ \ \ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00897}00897\ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ =\ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a17bdbb404ba12658034f833be2f4c3e7}{lineInfo}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00898}00898\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00899}00899\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionResultData}{AssertionResultData}}\ data(\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45}{ResultWas::ThrewException}},\ \mbox{\hyperlink{classCatch_1_1LazyExpression}{LazyExpression}}(\ \textcolor{keyword}{false}\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00900}00900\ \ \ \ \ \ \ \ \ data.message\ =\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(message);}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00901}00901\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1AssertionResult}{AssertionResult}}\ assertionResult\{\ info,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(data)\ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00902}00902\ \ \ \ \ \ \ \ \ assertionEnded(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(assertionResult)\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00903}00903\ \ \ \ \ \ \ \ \ populateReaction(\ reaction,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00904}00904\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a60353b3632ab2f827162f2b2d6911073}{resultDisposition}}\ \&\ \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{ResultDisposition::Normal}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00905}00905\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00906}00906\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00907}00907\ \ \ \ \ \textcolor{keywordtype}{void}\ RunContext::populateReaction(\ \mbox{\hyperlink{structCatch_1_1AssertionReaction}{AssertionReaction}}\&\ reaction,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00908}00908\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ has\_normal\_disposition\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00909}00909\ \ \ \ \ \ \ \ \ reaction.\mbox{\hyperlink{structCatch_1_1AssertionReaction_adcf30fb90ff20d9789df78d424652497}{shouldDebugBreak}}\ =\ m\_shouldDebugBreak;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00910}00910\ \ \ \ \ \ \ \ \ reaction.\mbox{\hyperlink{structCatch_1_1AssertionReaction_a82c8d95a2c1b6a331bde66982a8e090f}{shouldThrow}}\ =\ \mbox{\hyperlink{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e}{aborting}}()\ ||\ has\_normal\_disposition;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00911}00911\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00912}00912\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00913}00913\ \ \ \ \ AssertionInfo\ RunContext::makeDummyAssertionInfo()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00914}00914\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ testCaseJustStarted\ =}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00915}00915\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ ==}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00916}00916\ \ \ \ \ \ \ \ \ \ \ \ \ m\_activeTestCase-\/>\mbox{\hyperlink{classCatch_1_1TestCaseHandle_a9a89d26457c8585f93eb8baea0f39884}{getTestCaseInfo}}().\mbox{\hyperlink{structCatch_1_1TestCaseInfo_aa9407b7f442655b51a2aad24b3fa2fd3}{lineInfo}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00917}00917\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00918}00918\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ AssertionInfo\{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00919}00919\ \ \ \ \ \ \ \ \ \ \ \ \ testCaseJustStarted\ ?\ \textcolor{stringliteral}{"{}TEST\_CASE"{}}\_sr\ :\ StringRef(),}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00920}00920\ \ \ \ \ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00921}00921\ \ \ \ \ \ \ \ \ \ \ \ \ testCaseJustStarted\ ?\ StringRef()\ :\ \textcolor{stringliteral}{"{}\{Unknown\ expression\ after\ the\ reported\ line\}"{}}\_sr,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00922}00922\ \ \ \ \ \ \ \ \ \ \ \ \ ResultDisposition::\mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a960b44c579bc2f6818d2daaf9e4c16f0}{Normal}}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00923}00923\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00924}00924\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00925}00925\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00926}\mbox{\hyperlink{classCatch_1_1RunContext_a02d760e4eb65f612a15b74a21738616e}{00926}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_a02d760e4eb65f612a15b74a21738616e}{RunContext::handleIncomplete}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00927}00927\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionInfo}{AssertionInfo}}\ \textcolor{keyword}{const}\&\ info}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00928}00928\ \ \ \ \ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00929}00929\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::string\_literals;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00930}00930\ \ \ \ \ \ \ \ \ Detail::g\_lastKnownLineInfo\ =\ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a17bdbb404ba12658034f833be2f4c3e7}{lineInfo}};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00931}00931\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00932}00932\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionResultData}{AssertionResultData}}\ data(\ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45}{ResultWas::ThrewException}},\ \mbox{\hyperlink{classCatch_1_1LazyExpression}{LazyExpression}}(\ \textcolor{keyword}{false}\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00933}00933\ \ \ \ \ \ \ \ \ data.message\ =\ \textcolor{stringliteral}{"{}Exception\ translation\ was\ disabled\ by\ CATCH\_CONFIG\_FAST\_COMPILE"{}}s;}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00934}00934\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1AssertionResult}{AssertionResult}}\ assertionResult\{\ info,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ data\ )\ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00935}00935\ \ \ \ \ \ \ \ \ assertionEnded(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(assertionResult)\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00936}00936\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00937}00937\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00938}\mbox{\hyperlink{classCatch_1_1RunContext_ab11d6fc40a073cfb15b1beda806c63a2}{00938}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1RunContext_ab11d6fc40a073cfb15b1beda806c63a2}{RunContext::handleNonExpr}}(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00939}00939\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionInfo}{AssertionInfo}}\ \textcolor{keyword}{const}\ \&info,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00940}00940\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{ResultWas::OfType}}\ resultType,}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00941}00941\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionReaction}{AssertionReaction}}\ \&reaction}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00942}00942\ \ \ \ \ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00943}00943\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1AssertionResultData}{AssertionResultData}}\ data(\ resultType,\ \mbox{\hyperlink{classCatch_1_1LazyExpression}{LazyExpression}}(\ \textcolor{keyword}{false}\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00944}00944\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1AssertionResult}{AssertionResult}}\ assertionResult\{\ info,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ data\ )\ \};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00945}00945\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00946}00946\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceCatch_a4f62175677952a64dfbc90887726180d}{isOk}}\ =\ assertionResult.isOk();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00947}00947\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{namespaceCatch_a4f62175677952a64dfbc90887726180d}{isOk}}\ \&\&\ !m\_includeSuccessfulResults\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00948}00948\ \ \ \ \ \ \ \ \ \ \ \ \ assertionPassedFastPath(\ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a17bdbb404ba12658034f833be2f4c3e7}{lineInfo}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00949}00949\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00950}00950\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00951}00951\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00952}00952\ \ \ \ \ \ \ \ \ assertionEnded(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(assertionResult)\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00953}00953\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !\mbox{\hyperlink{namespaceCatch_a4f62175677952a64dfbc90887726180d}{isOk}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00954}00954\ \ \ \ \ \ \ \ \ \ \ \ \ populateReaction(}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00955}00955\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reaction,\ info.\mbox{\hyperlink{structCatch_1_1AssertionInfo_a60353b3632ab2f827162f2b2d6911073}{resultDisposition}}\ \&\ \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5}{ResultDisposition::Normal}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00956}00956\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00957}00957\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00958}00958\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00959}\mbox{\hyperlink{namespaceCatch_a161400810eb0995394d6d8d3cae821ad}{00959}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_a161400810eb0995394d6d8d3cae821ad}{seedRng}}(\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}}\ \textcolor{keyword}{const}\&\ config)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00960}00960\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_a95e86995bfdce76fca887634094ef2e9}{sharedRng}}().\mbox{\hyperlink{classCatch_1_1SimplePcg32_a215dac93c384973353a2b4f87f68c8bc}{seed}}(config.\mbox{\hyperlink{classCatch_1_1IConfig_a71994ea53eb66e353e5e195088f9bad7}{rngSeed}}());}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00961}00961\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00962}00962\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00963}\mbox{\hyperlink{namespaceCatch_acf5ea05e942d2d7fe79111e12754ed76}{00963}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespaceCatch_acf5ea05e942d2d7fe79111e12754ed76}{rngSeed}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00964}00964\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_a8b23533de8c7d123687ac2c8d36b653a}{getCurrentContext}}().\mbox{\hyperlink{classCatch_1_1Context_a9b9038b5e6bd8495cbb247ff8a39fc41}{getConfig}}()-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a71994ea53eb66e353e5e195088f9bad7}{rngSeed}}();}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00965}00965\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00966}00966\ }
+\DoxyCodeLine{\Hypertarget{catch__run__context_8cpp_source_l00967}00967\ \}}
+
+\end{DoxyCode}

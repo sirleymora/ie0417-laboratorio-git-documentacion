@@ -1,0 +1,9 @@
+<map id="Catch::XmlReporter::writeSourceInfo" name="Catch::XmlReporter::writeSourceInfo">
+<area shape="rect" id="Node000001" title=" " alt="" coords="203,69,352,109"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlReporter.html#abb27955d33a41ddb8d425f66664dd10e" title="Called after assertion was fully evaluated." alt="" coords="5,5,155,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,68,141,48,143,43,203,63"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlReporter.html#a06befa9cf2b661c5226317bff0f05c64" title="Called when a SECTION is being entered. Not called for skipped sections." alt="" coords="5,69,155,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,92,155,92,155,87,189,87"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlReporter.html#a1395b2efb62faaa947a42638a03be32c" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="5,133,155,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="203,116,143,136,141,131,201,111"/>
+</map>

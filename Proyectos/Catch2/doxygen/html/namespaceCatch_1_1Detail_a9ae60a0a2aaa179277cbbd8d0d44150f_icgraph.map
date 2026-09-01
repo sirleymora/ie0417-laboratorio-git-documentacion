@@ -1,0 +1,9 @@
+<map id="Catch::Detail::count_sentinel" name="Catch::Detail::count_sentinel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="721,5,872,45"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#a9e067de6bf00906642c10dfff568a78a" title=" " alt="" coords="521,5,673,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="707,28,674,28,674,23,707,23"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Detail.html#a536d3d71132106b177d222e301e1dd71" title=" " alt="" coords="261,13,473,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="508,28,474,28,474,23,508,23"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1Matchers_1_1UnorderedRangeEqualsMatcher.html#a66b4dfe1e87cf00eae7167844558e90b" title=" " alt="" coords="5,5,213,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="247,28,214,28,214,23,247,23"/>
+</map>

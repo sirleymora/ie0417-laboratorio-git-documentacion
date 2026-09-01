@@ -1,0 +1,27 @@
+<map id="Catch::ReporterBase" name="Catch::ReporterBase">
+<area shape="rect" id="Node000001" title=" " alt="" coords="213,153,368,179"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1CumulativeReporterBase.html" title=" " alt="" coords="416,55,647,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="334,146,498,78,500,83,336,151"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1StreamingReporterBase.html" title=" " alt="" coords="420,227,643,252"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="347,180,489,224,488,229,346,185"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1IEventListener.html" title=" " alt="" coords="5,153,165,179"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,163,213,163,213,169,179,169"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1JunitReporter.html" title=" " alt="" coords="716,5,868,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="612,49,724,28,725,33,613,55"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1SonarQubeReporter.html" title=" " alt="" coords="695,55,889,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="660,65,695,65,695,70,660,70"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1AutomakeReporter.html" title=" " alt="" coords="697,104,887,129"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="559,216,619,177,694,138,727,127,729,132,696,143,622,182,562,221"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1CompactReporter.html" title=" " alt="" coords="701,153,883,179"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="586,220,694,189,741,176,742,181,695,194,588,225"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1ConsoleReporter.html" title=" " alt="" coords="705,203,879,228"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="656,225,704,221,705,226,657,230"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1JsonReporter.html" title=" " alt="" coords="717,252,867,277"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="657,249,717,255,716,260,656,254"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1TAPReporter.html" title=" " alt="" coords="719,301,865,327"/>
+<area shape="poly" id="edge10_Node000006_Node000011" title=" " alt="" coords="585,254,695,287,738,299,737,304,694,293,583,259"/>
+<area shape="rect" id="Node000012" href="$classCatch_1_1TeamCityReporter.html" title=" " alt="" coords="700,351,884,376"/>
+<area shape="poly" id="edge11_Node000006_Node000012" title=" " alt="" coords="562,258,622,298,696,337,729,348,727,353,694,342,619,303,559,262"/>
+<area shape="rect" id="Node000013" href="$classCatch_1_1XmlReporter.html" title=" " alt="" coords="717,400,867,425"/>
+<area shape="poly" id="edge12_Node000006_Node000013" title=" " alt="" coords="553,261,613,324,652,358,696,386,723,398,721,402,693,391,649,362,609,328,550,265"/>
+</map>

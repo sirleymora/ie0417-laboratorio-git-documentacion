@@ -1,0 +1,21 @@
+<map id="Catch::scopedDeactivate" name="Catch::scopedDeactivate">
+<area shape="rect" id="Node000001" title=" " alt="" coords="471,237,655,262"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1RunContext.html#a0e35328c06bc0300add8cdae2f438645" title=" " alt="" coords="252,5,403,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="547,226,528,189,499,144,464,99,421,59,401,48,404,43,424,55,468,95,504,141,532,186,552,223"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1RunContext.html#a1f01c3c4ad63ba765e7ebc8965ea3725" title=" " alt="" coords="252,69,403,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="540,228,489,176,457,148,421,124,397,112,400,107,424,119,460,144,493,172,544,225"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1RunContext.html#a596ae7fdd4345a2c7dbb78b7987d883a" title=" " alt="" coords="249,133,406,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="522,233,422,188,390,176,392,171,424,183,524,228"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1RunContext.html#a1d660c5f0374f0561f816d6b5263724a" title=" " alt="" coords="252,197,403,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="457,238,402,230,403,225,457,232"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1RunContext.html#aba3d31f697ea63b04af7609fbcdb0c02" title=" " alt="" coords="232,261,423,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="457,266,423,271,423,266,457,261"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1RunContext.html#a6f98f1074edad222f8536b225f487fea" title=" " alt="" coords="244,325,411,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="524,271,424,316,392,328,390,323,422,311,522,266"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1RunContext.html#aaa2d6108bd62e4e1922645b3980f5317" title=" " alt="" coords="252,389,403,429"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="544,274,493,327,460,355,424,380,400,392,397,387,421,375,457,351,489,323,540,270"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1RunContext.html#a19971d796dcd37a7e2410ccbeef4fdf2" title=" " alt="" coords="252,453,403,493"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="552,276,532,313,504,358,468,404,424,443,404,455,401,451,421,439,464,400,499,355,528,310,547,273"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1AssertionHandler.html#a74627e1e399b026e9acbaf95ea673643" title=" " alt="" coords="5,325,184,365"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="230,348,184,348,184,343,230,343"/>
+</map>

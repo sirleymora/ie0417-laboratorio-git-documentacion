@@ -1,0 +1,126 @@
+\doxysection{Catch\+::Benchmark\+::Benchmark Struct Reference}
+\hypertarget{structCatch_1_1Benchmark_1_1Benchmark}{}\label{structCatch_1_1Benchmark_1_1Benchmark}\index{Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}}
+
+
+{\ttfamily \#include $<$catch\+\_\+benchmark.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark_a9bdbca8411c57892f7b01d6118def51c}{Benchmark}} (std\+::string \&\&benchmark\+Name)
+\item 
+{\footnotesize template$<$class FUN $>$ }\\\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark_a98bb1e62d945c13bdff3a7017ca93b14}{Benchmark}} (std\+::string \&\&benchmark\+Name, FUN \&\&func)
+\item 
+{\footnotesize template$<$typename Clock  = default\+\_\+clock$>$ }\\void \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark_aeff43305485b4ce29af38094437a8544}{run}} ()
+\item 
+{\footnotesize template$<$typename Fun , std\+::enable\+\_\+if\+\_\+t$<$!Detail\+::is\+\_\+related\+\_\+v$<$ Fun, \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark}{Benchmark}} $>$, int $>$  = 0$>$ }\\\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark}{Benchmark}} \& \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark_a8d592f11d8c9f9da369d6b53616d7414}{operator=}} (Fun func)
+\item 
+\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark_ab1626a886dbe9d109359991f7138ec05}{operator bool}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__benchmark_8hpp_source_l00124}{124}} of file \mbox{\hyperlink{catch__benchmark_8hpp_source}{catch\+\_\+benchmark.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structCatch_1_1Benchmark_1_1Benchmark_a9bdbca8411c57892f7b01d6118def51c}\label{structCatch_1_1Benchmark_1_1Benchmark_a9bdbca8411c57892f7b01d6118def51c} 
+\index{Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}!Benchmark@{Benchmark}}
+\index{Benchmark@{Benchmark}!Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}}
+\doxysubsubsection{\texorpdfstring{Benchmark()}{Benchmark()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Catch\+::\+Benchmark\+::\+Benchmark\+::\+Benchmark (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{benchmark\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__benchmark_8hpp_source_l00125}{125}} of file \mbox{\hyperlink{catch__benchmark_8hpp_source}{catch\+\_\+benchmark.\+hpp}}.
+
+\Hypertarget{structCatch_1_1Benchmark_1_1Benchmark_a98bb1e62d945c13bdff3a7017ca93b14}\label{structCatch_1_1Benchmark_1_1Benchmark_a98bb1e62d945c13bdff3a7017ca93b14} 
+\index{Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}!Benchmark@{Benchmark}}
+\index{Benchmark@{Benchmark}!Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}}
+\doxysubsubsection{\texorpdfstring{Benchmark()}{Benchmark()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class FUN $>$ \\
+Catch\+::\+Benchmark\+::\+Benchmark\+::\+Benchmark (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{benchmark\+Name,  }\item[{FUN \&\&}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__benchmark_8hpp_source_l00129}{129}} of file \mbox{\hyperlink{catch__benchmark_8hpp_source}{catch\+\_\+benchmark.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structCatch_1_1Benchmark_1_1Benchmark_ab1626a886dbe9d109359991f7138ec05}\label{structCatch_1_1Benchmark_1_1Benchmark_ab1626a886dbe9d109359991f7138ec05} 
+\index{Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily Catch\+::\+Benchmark\+::\+Benchmark\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__benchmark_8hpp_source_l00184}{184}} of file \mbox{\hyperlink{catch__benchmark_8hpp_source}{catch\+\_\+benchmark.\+hpp}}.
+
+\Hypertarget{structCatch_1_1Benchmark_1_1Benchmark_a8d592f11d8c9f9da369d6b53616d7414}\label{structCatch_1_1Benchmark_1_1Benchmark_a8d592f11d8c9f9da369d6b53616d7414} 
+\index{Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}!operator=@{operator=}}
+\index{operator=@{operator=}!Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename Fun , std\+::enable\+\_\+if\+\_\+t$<$!Detail\+::is\+\_\+related\+\_\+v$<$ Fun, \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark}{Benchmark}} $>$, int $>$  = 0$>$ \\
+\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark}{Benchmark}} \& Catch\+::\+Benchmark\+::\+Benchmark\+::operator= (\begin{DoxyParamCaption}\item[{Fun}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__benchmark_8hpp_source_l00175}{175}} of file \mbox{\hyperlink{catch__benchmark_8hpp_source}{catch\+\_\+benchmark.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__context_8hpp_source_l00030}{Catch\+::\+Context\+::get\+Config()}}, \mbox{\hyperlink{catch__context_8hpp_source_l00039}{Catch\+::get\+Current\+Context()}}, and \mbox{\hyperlink{catch__benchmark_8hpp_source_l00133}{run()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structCatch_1_1Benchmark_1_1Benchmark_a8d592f11d8c9f9da369d6b53616d7414_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{structCatch_1_1Benchmark_1_1Benchmark_aeff43305485b4ce29af38094437a8544}\label{structCatch_1_1Benchmark_1_1Benchmark_aeff43305485b4ce29af38094437a8544} 
+\index{Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}!run@{run}}
+\index{run@{run}!Catch::Benchmark::Benchmark@{Catch::Benchmark::Benchmark}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily template$<$typename Clock  = default\+\_\+clock$>$ \\
+void Catch\+::\+Benchmark\+::\+Benchmark\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__benchmark_8hpp_source_l00133}{133}} of file \mbox{\hyperlink{catch__benchmark_8hpp_source}{catch\+\_\+benchmark.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__analyse_8cpp_source_l00022}{Catch\+::\+Benchmark\+::\+Detail\+::analyse()}}, \mbox{\hyperlink{classCatch_1_1IResultCapture_a2d101e96f7001f917db6aac96e17b3a5}{Catch\+::\+IResult\+Capture\+::benchmark\+Ended()}}, \mbox{\hyperlink{classCatch_1_1IResultCapture_a68894109a49c7c6d62e583bbd6f6556b}{Catch\+::\+IResult\+Capture\+::benchmark\+Failed()}}, \mbox{\hyperlink{classCatch_1_1IResultCapture_aff96862103881a6e002066000de65ae2}{Catch\+::\+IResult\+Capture\+::benchmark\+Preparing()}}, \mbox{\hyperlink{classCatch_1_1IResultCapture_a264ae12330c74b2daae41715a30d51bf}{Catch\+::\+IResult\+Capture\+::benchmark\+Starting()}}, \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00458}{CATCH\+\_\+\+CATCH\+\_\+\+ALL}}, \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00457}{CATCH\+\_\+\+TRY}}, \mbox{\hyperlink{catch__context_8hpp_source_l00030}{Catch\+::\+Context\+::get\+Config()}}, \mbox{\hyperlink{catch__context_8hpp_source_l00039}{Catch\+::get\+Current\+Context()}}, \mbox{\hyperlink{catch__interfaces__capture_8hpp_source_l00099}{Catch\+::get\+Result\+Capture()}}, \mbox{\hyperlink{catch__estimate__clock_8hpp_source_l00102}{Catch\+::\+Benchmark\+::\+Detail\+::measure\+\_\+environment()}}, \mbox{\hyperlink{catch__registry__hub_8cpp_source_l00099}{Catch\+::translate\+Active\+Exception()}}, and \mbox{\hyperlink{catch__complete__invoke_8hpp_source_l00052}{Catch\+::\+Benchmark\+::user\+\_\+code()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__benchmark_8hpp_source_l00175}{operator=()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structCatch_1_1Benchmark_1_1Benchmark_aeff43305485b4ce29af38094437a8544_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structCatch_1_1Benchmark_1_1Benchmark_aeff43305485b4ce29af38094437a8544_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/benchmark/\mbox{\hyperlink{catch__benchmark_8hpp}{catch\+\_\+benchmark.\+hpp}}\end{DoxyCompactItemize}

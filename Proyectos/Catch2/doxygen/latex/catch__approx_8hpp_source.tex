@@ -1,0 +1,134 @@
+\doxysection{catch\+\_\+approx.\+hpp}
+\hypertarget{catch__approx_8hpp_source}{}\label{catch__approx_8hpp_source}\index{src/catch2/catch\_approx.hpp@{src/catch2/catch\_approx.hpp}}
+\mbox{\hyperlink{catch__approx_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_APPROX\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_APPROX\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__tostring_8hpp}{catch2/catch\_tostring.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00015}00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00017}\mbox{\hyperlink{classCatch_1_1Approx}{00017}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equalityComparisonImpl(\textcolor{keywordtype}{double}\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sets\ and\ validates\ the\ new\ margin\ (margin\ >=\ 0)}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setMargin(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCatch_1_1Approx_af4d5b0df9462561dacb65f19b9c770c3}{margin}});}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sets\ and\ validates\ the\ new\ epsilon\ (0\ <\ epsilon\ <\ 1)}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setEpsilon(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCatch_1_1Approx_ab9b569c030c0399a187f96e7d95e501f}{epsilon}});}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ (\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \mbox{\hyperlink{classCatch_1_1Approx_aae48202f7bf38b6e3ebfaac7ef46b7af}{custom}}();}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \mbox{\hyperlink{classCatch_1_1Approx_a517d8133c80266dae10f7a092dea7da8}{operator-\/}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00033}\mbox{\hyperlink{classCatch_1_1Approx_a64d933793282cb68a9e4934637f900fe}{00033}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \mbox{\hyperlink{classCatch_1_1Approx_a64d933793282cb68a9e4934637f900fe}{operator()}}(\ T\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ approx(\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}})\ );}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ approx.m\_epsilon\ =\ m\_epsilon;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ approx.m\_margin\ =\ m\_margin;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ approx.m\_scale\ =\ m\_scale;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ approx;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00042}\mbox{\hyperlink{classCatch_1_1Approx_a07c1b6a3fc58c7b724aa0ef082e32704}{00042}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classCatch_1_1Approx_a07c1b6a3fc58c7b724aa0ef082e32704}{Approx}}(\ T\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ ):\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}(static\_cast<double>(\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}))}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00047}\mbox{\hyperlink{classCatch_1_1Approx_ab38782a37d09b527ca5e126dbf433dda}{00047}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Approx_ab38782a37d09b527ca5e126dbf433dda}{operator\ ==\ }}(\ \textcolor{keyword}{const}\ T\&\ lhs,\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ lhs\_v\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(lhs);}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rhs.equalityComparisonImpl(lhs\_v);}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00053}\mbox{\hyperlink{classCatch_1_1Approx_a0e5ef1957d4c38d7857005909c613743}{00053}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Approx_ab38782a37d09b527ca5e126dbf433dda}{operator\ ==\ }}(\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \textcolor{keyword}{const}\&\ lhs,\ \textcolor{keyword}{const}\ T\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Approx_ab38782a37d09b527ca5e126dbf433dda}{operator==}}(\ rhs,\ lhs\ );}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00058}\mbox{\hyperlink{classCatch_1_1Approx_a29696f14ebd51887c8c88e771d12ef54}{00058}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Approx_a29696f14ebd51887c8c88e771d12ef54}{operator\ !=\ }}(\ T\ \textcolor{keyword}{const}\&\ lhs,\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{classCatch_1_1Approx_ab38782a37d09b527ca5e126dbf433dda}{operator==}}(\ lhs,\ rhs\ );}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00063}\mbox{\hyperlink{classCatch_1_1Approx_a31d62e3c35abb86cf25e02601966ca5d}{00063}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Approx_a29696f14ebd51887c8c88e771d12ef54}{operator\ !=\ }}(\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \textcolor{keyword}{const}\&\ lhs,\ T\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{classCatch_1_1Approx_ab38782a37d09b527ca5e126dbf433dda}{operator==}}(\ rhs,\ lhs\ );}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00068}\mbox{\hyperlink{classCatch_1_1Approx_a0369de03e81bc2ceaf6c9d830476bd49}{00068}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Approx_a0369de03e81bc2ceaf6c9d830476bd49}{operator\ <=\ }}(\ T\ \textcolor{keyword}{const}\&\ lhs,\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(lhs)\ <\ rhs.m\_value\ ||\ lhs\ ==\ rhs;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00073}\mbox{\hyperlink{classCatch_1_1Approx_a6040b908588745570847d7ae8483b091}{00073}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Approx_a0369de03e81bc2ceaf6c9d830476bd49}{operator\ <=\ }}(\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \textcolor{keyword}{const}\&\ lhs,\ T\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lhs.m\_value\ <\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(rhs)\ ||\ lhs\ ==\ rhs;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00078}\mbox{\hyperlink{classCatch_1_1Approx_affd27efc62be386daeecb7a09e828d44}{00078}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Approx_affd27efc62be386daeecb7a09e828d44}{operator\ >=\ }}(\ T\ \textcolor{keyword}{const}\&\ lhs,\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(lhs)\ >\ rhs.m\_value\ ||\ lhs\ ==\ rhs;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00083}\mbox{\hyperlink{classCatch_1_1Approx_a5899b8a36725406701e2ebded2971ee6}{00083}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Approx_affd27efc62be386daeecb7a09e828d44}{operator\ >=\ }}(\ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\ \textcolor{keyword}{const}\&\ lhs,\ T\ \textcolor{keyword}{const}\&\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lhs.m\_value\ >\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(rhs)\ ||\ lhs\ ==\ rhs;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00088}\mbox{\hyperlink{classCatch_1_1Approx_ab9b569c030c0399a187f96e7d95e501f}{00088}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\&\ \mbox{\hyperlink{classCatch_1_1Approx_ab9b569c030c0399a187f96e7d95e501f}{epsilon}}(\ T\ \textcolor{keyword}{const}\&\ newEpsilon\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ epsilonAsDouble\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(newEpsilon);}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ setEpsilon(epsilonAsDouble);}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00095}\mbox{\hyperlink{classCatch_1_1Approx_af4d5b0df9462561dacb65f19b9c770c3}{00095}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\&\ \mbox{\hyperlink{classCatch_1_1Approx_af4d5b0df9462561dacb65f19b9c770c3}{margin}}(\ T\ \textcolor{keyword}{const}\&\ newMargin\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ marginAsDouble\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(newMargin);}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ setMargin(marginAsDouble);}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ template\ <typename\ T,\ typename\ =\ std::enable\_if\_t<std::is\_constructible<double,\ T>::value>>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00102}\mbox{\hyperlink{classCatch_1_1Approx_a8b01c1b0697e834c6df637b5163a7dac}{00102}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Approx}{Approx}}\&\ \mbox{\hyperlink{classCatch_1_1Approx_a8b01c1b0697e834c6df637b5163a7dac}{scale}}(\ T\ \textcolor{keyword}{const}\&\ newScale\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ m\_scale\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(newScale);}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1Approx_a00b9ca1984b955801334985da44ed863}{toString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00109}00109\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_epsilon;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_margin;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_scale;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_value;}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00114}00114\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00116}00116\ \textcolor{keyword}{namespace\ }literals\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00117}00117\ \ \ \ \ Approx\ \textcolor{keyword}{operator}\ \textcolor{stringliteral}{"{}"{}}\_a(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ val);}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00118}00118\ \ \ \ \ Approx\ \textcolor{keyword}{operator}\ \textcolor{stringliteral}{"{}"{}}\_a(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ val);}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00119}00119\ \}\ \textcolor{comment}{//\ end\ namespace\ literals}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00121}00121\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00122}\mbox{\hyperlink{structCatch_1_1StringMaker_3_01Catch_1_1Approx_01_4}{00122}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCatch_1_1StringMaker}{StringMaker}}<\mbox{\hyperlink{namespaceCatch}{Catch}}::\mbox{\hyperlink{classCatch_1_1Approx}{Approx}}>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00123}00123\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{structCatch_1_1StringMaker_a209862e8b79e663c4a042f57f6de31c7}{convert}}(\mbox{\hyperlink{classCatch_1_1Approx}{Catch::Approx}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}});}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00124}00124\ \};}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00126}00126\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{catch__approx_8hpp_source_l00128}00128\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_APPROX\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

@@ -1,0 +1,48 @@
+\doxysection{catch\+\_\+polyfills.\+cpp}
+\hypertarget{catch__polyfills_8cpp_source}{}\label{catch__polyfills_8cpp_source}\index{src/catch2/internal/catch\_polyfills.cpp@{src/catch2/internal/catch\_polyfills.cpp}}
+\mbox{\hyperlink{catch__polyfills_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__polyfills_8hpp}{catch2/internal/catch\_polyfills.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__compiler__capabilities_8hpp}{catch2/internal/catch\_compiler\_capabilities.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <catch2/catch\_user\_config.hpp>}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00015}00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_CONFIG\_POLYFILL\_ISNAN)}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00018}\mbox{\hyperlink{namespaceCatch_aff37796f0f578c2816f74267e641c5f7}{00018}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_aff37796f0f578c2816f74267e641c5f7}{isnan}}(\textcolor{keywordtype}{float}\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::isnan(f);}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00021}\mbox{\hyperlink{namespaceCatch_a37d450336c237ac77721f0a3f9fb048d}{00021}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_aff37796f0f578c2816f74267e641c5f7}{isnan}}(\textcolor{keywordtype}{double}\ d)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::isnan(d);}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00023}00023\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ For\ now\ we\ only\ use\ this\ for\ embarcadero}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_aff37796f0f578c2816f74267e641c5f7}{isnan}}(\textcolor{keywordtype}{float}\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::\_isnan(f);}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_aff37796f0f578c2816f74267e641c5f7}{isnan}}(\textcolor{keywordtype}{double}\ d)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::\_isnan(d);}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00034}00034\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_CONFIG\_GLOBAL\_NEXTAFTER\ )}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00035}\mbox{\hyperlink{namespaceCatch_ae65d074e6c60320640a500d302b83bb2}{00035}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespaceCatch_ae65d074e6c60320640a500d302b83bb2}{nextafter}}(\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y\ )\ \{\ \textcolor{keywordflow}{return}\ std::nextafter(\ x,\ y\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00036}\mbox{\hyperlink{namespaceCatch_add39a699bce7f13c95616fcaa62ab7ca}{00036}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceCatch_ae65d074e6c60320640a500d302b83bb2}{nextafter}}(\ \textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y\ )\ \{\ \textcolor{keywordflow}{return}\ std::nextafter(\ x,\ y\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00037}00037\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespaceCatch_ae65d074e6c60320640a500d302b83bb2}{nextafter}}(\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y\ )\ \{\ return\ ::nextafterf(\ x,\ y\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceCatch_ae65d074e6c60320640a500d302b83bb2}{nextafter}}(\ \textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y\ )\ \{\ return\ ::nextafter(\ x,\ y\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{catch__polyfills_8cpp_source_l00042}00042\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+
+\end{DoxyCode}

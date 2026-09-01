@@ -1,0 +1,60 @@
+\doxysection{catch\+\_\+benchmark.\+cpp}
+\hypertarget{catch__benchmark_8cpp_source}{}\label{catch__benchmark_8cpp_source}\index{src/catch2/benchmark/catch\_benchmark.cpp@{src/catch2/benchmark/catch\_benchmark.cpp}}
+\mbox{\hyperlink{catch__benchmark_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__benchmark_8hpp}{catch2/benchmark/catch\_benchmark.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00015}\mbox{\hyperlink{namespaceCatch}{00015}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00016}\mbox{\hyperlink{namespaceCatch_1_1Benchmark}{00016}}\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Benchmark}{Benchmark}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00017}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00019}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a72d312389b7732ef203281ff9c320ab8}{00019}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Environment}{Environment}}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a72d312389b7732ef203281ff9c320ab8}{measure\_environment\_default}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{Detail::measure\_environment<default\_clock>}}();}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00023}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_aa2e036e0fb0cc97a778b2f87c63a5b5c}{00023}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1ExecutionPlan}{ExecutionPlan}}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_aa2e036e0fb0cc97a778b2f87c63a5b5c}{prepare\_default}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}}\&\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{cfg}},}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Environment}{Environment}}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{env}},}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1BenchmarkFunction}{BenchmarkFunction}}\&\&\ fun\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ mirrors\ Benchmark::prepare<default\_clock>(),\ but\ with\ the}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ clock\ fixed\ so\ it\ is\ instantiated\ once\ here\ in\ the\ library.}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{min\_time}}\ =\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{env}}.\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Environment_ae9a6cf5625ef688e8b2739c14e427ce8}{clock\_resolution}}.\mbox{\hyperlink{structCatch_1_1Benchmark_1_1EnvironmentEstimate_ac6170403cdd6a7fc15355cb13e4fb3dd}{mean}}\ *\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_aec277578b65b8dfb2578b4b94e0b2562}{Detail::minimum\_ticks}};}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{run\_time}}\ =\ std::max(}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{min\_time}},}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::duration\_cast<\textcolor{keyword}{decltype}(\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{min\_time}}\ )>(}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{cfg}}.benchmarkWarmupTime()\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\&\ test\ =\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{Detail::run\_for\_at\_least<default\_clock>}}(}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::duration\_cast<IDuration>(\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{run\_time}}\ ),\ 1,\ fun\ );}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{new\_iters}}\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::ceil(\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{min\_time}}\ *\ test.iterations\ /\ test.elapsed\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{new\_iters}},}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ test.elapsed\ /\ test.iterations\ *\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{new\_iters}}\ *}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{cfg}}.benchmarkSamples(),}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ fun\ ),}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::chrono::duration\_cast<FDuration>(}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{cfg}}.benchmarkWarmupTime()\ ),}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a059e0c7024cc2e0e0dfd861d875fe97d}{Detail::warmup\_iterations}}\ \};}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00046}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a900062dbfe7f0be2369ae2181ba40eef}{00046}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<FDuration>\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_a900062dbfe7f0be2369ae2181ba40eef}{run\_plan\_default}}(\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1ExecutionPlan}{ExecutionPlan}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{plan}},}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}}\&\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{cfg}},}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Environment}{Environment}}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{env}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{plan}}.run<\mbox{\hyperlink{namespaceCatch_1_1Benchmark_a2d7ad78e9ec6a877c38f29332cfd64fd}{default\_clock}}>(\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{cfg}},\ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{env}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00053}00053\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Benchmark}}
+\DoxyCodeLine{\Hypertarget{catch__benchmark_8cpp_source_l00054}00054\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+
+\end{DoxyCode}

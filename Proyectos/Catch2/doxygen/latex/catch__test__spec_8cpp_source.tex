@@ -1,0 +1,147 @@
+\doxysection{catch\+\_\+test\+\_\+spec.\+cpp}
+\hypertarget{catch__test__spec_8cpp_source}{}\label{catch__test__spec_8cpp_source}\index{src/catch2/catch\_test\_spec.cpp@{src/catch2/catch\_test\_spec.cpp}}
+\mbox{\hyperlink{catch__test__spec_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__spec_8hpp}{catch2/catch\_test\_spec.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__testcase_8hpp}{catch2/interfaces/catch\_interfaces\_testcase.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__registry__impl_8hpp}{catch2/internal/catch\_test\_case\_registry\_impl.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reusable__string__stream_8hpp}{catch2/internal/catch\_reusable\_string\_stream.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__string__manip_8hpp}{catch2/internal/catch\_string\_manip.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__info_8hpp}{catch2/catch\_test\_case\_info.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00020}00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00022}00022\ \ \ \ \ TestSpec::Pattern::Pattern(\ std::string\ \textcolor{keyword}{const}\&\ name\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00023}00023\ \ \ \ \ :\ m\_name(\ name\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00024}00024\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00026}00026\ \ \ \ \ TestSpec::Pattern::\string~Pattern()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00028}00028\ \ \ \ \ std::string\ \textcolor{keyword}{const}\&\ TestSpec::Pattern::name()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_name;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00033}00033\ \ \ \ \ TestSpec::NamePattern::NamePattern(\ std::string\ \textcolor{keyword}{const}\&\ name,\ std::string\ \textcolor{keyword}{const}\&\ filterString\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00034}00034\ \ \ \ \ :\ Pattern(\ filterString\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00035}00035\ \ \ \ \ ,\ m\_wildcardPattern(\ \mbox{\hyperlink{namespaceCatch_ac036a17412d318598ffda8e1fe7a1177}{toLower}}(\ name\ ),\ \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{CaseSensitive}}::\mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36abafd7322c6e97d25b6299b5d6fe8920b}{No}}\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00036}00036\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ TestSpec::NamePattern::matches(\ TestCaseInfo\ \textcolor{keyword}{const}\&\ testCase\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_wildcardPattern.matches(\ testCase.name\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{void}\ TestSpec::NamePattern::serializeTo(\ std::ostream\&\ out\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{charliteral}{'"{}'}\ <<\ name()\ <<\ \textcolor{charliteral}{'"{}'};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00047}00047\ \ \ \ \ TestSpec::TagPattern::TagPattern(\ std::string\ \textcolor{keyword}{const}\&\ tag,\ std::string\ \textcolor{keyword}{const}\&\ filterString\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00048}00048\ \ \ \ \ :\ Pattern(\ filterString\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00049}00049\ \ \ \ \ ,\ m\_tag(\ tag\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00050}00050\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ TestSpec::TagPattern::matches(\ TestCaseInfo\ \textcolor{keyword}{const}\&\ testCase\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::find(\ begin(\ testCase.tags\ ),}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end(\ testCase.tags\ ),}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Tag(\ m\_tag\ )\ )\ !=\ end(\ testCase.tags\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{void}\ TestSpec::TagPattern::serializeTo(\ std::ostream\&\ out\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ out\ <<\ name();}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ TestSpec::Filter::matches(\ TestCaseInfo\ \textcolor{keyword}{const}\&\ testCase\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ should\_use\ =\ !testCase.isHidden();}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ pattern\ :\ m\_required)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ should\_use\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pattern-\/>matches(testCase))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ pattern\ :\ m\_forbidden)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pattern-\/>matches(testCase))\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ should\_use;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{void}\ TestSpec::Filter::serializeTo(\ std::ostream\&\ out\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ pattern\ :\ m\_required\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !first\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ *pattern;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ pattern\ :\ m\_forbidden\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !first\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ *pattern;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00097}00097\ \ \ \ \ std::string\ TestSpec::extractFilterName(\ Filter\ \textcolor{keyword}{const}\&\ filter\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReusableStringStream}{Catch::ReusableStringStream}}\ sstr;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ sstr\ <<\ \mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{filter}};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sstr.\mbox{\hyperlink{classCatch_1_1ReusableStringStream_a3d93d9f26cddd6c5c48b6ef63c694119}{str}}();}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00103}\mbox{\hyperlink{classCatch_1_1TestSpec_ac6d69b4a19677d95e46af0467fc72ecd}{00103}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ TestSpec::hasFilters()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !m\_filters.empty();}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00105}00105\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00107}\mbox{\hyperlink{classCatch_1_1TestSpec_a2342df9eff2c7db0d26432c1ddef796f}{00107}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ TestSpec::matches(\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo}{TestCaseInfo}}\ \textcolor{keyword}{const}\&\ testCase\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::any\_of(\ m\_filters.begin(),\ m\_filters.end(),\ [\&](\ Filter\ \textcolor{keyword}{const}\&\ f\ )\{\ return\ f.matches(\ testCase\ );\ \}\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00111}\mbox{\hyperlink{classCatch_1_1TestSpec_ae62a33926c9c2c3ab5b6f27a9e7aa484}{00111}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1TestSpec_a06b08ac127c37d48a4353f34bf20c0e3}{TestSpec::Matches}}\ TestSpec::matchesByFilter(\ std::vector<TestCaseHandle>\ \textcolor{keyword}{const}\&\ testCases,\ \mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}}\ \textcolor{keyword}{const}\&\ config\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1TestSpec_a06b08ac127c37d48a4353f34bf20c0e3}{Matches}}\ matches;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ matches.reserve(\ m\_filters.size()\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ filter\ :\ m\_filters\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<TestCaseHandle\ const*>\ currentMatches;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ test\ :\ testCases\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{namespaceCatch_a12f76a88f2882e9d1d221979dec0324d}{isThrowSafe}}(\ test,\ config\ )\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ filter.matches(\ test.getTestCaseInfo()\ )\ )}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentMatches.emplace\_back(\ \&test\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ matches.push\_back(}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1TestSpec_1_1FilterMatch}{FilterMatch}}\{\ extractFilterName(\ filter\ ),\ currentMatches\ \}\ );}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ matches;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00124}00124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00126}\mbox{\hyperlink{classCatch_1_1TestSpec_ae6af81e7e267ae9a374d3f4ce0f9b88a}{00126}}\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCatch_1_1TestSpec_a8fca1c29ab3a21ea943f724ab0ecce08}{TestSpec::vectorStrings}}\&\ TestSpec::getInvalidSpecs()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_invalidSpecs;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{keywordtype}{void}\ TestSpec::serializeTo(\ std::ostream\&\ out\ )\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ filter\ :\ m\_filters\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !first\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{charliteral}{','};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ filter;}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00139}00139\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{catch__test__spec_8cpp_source_l00141}00141\ \}}
+
+\end{DoxyCode}

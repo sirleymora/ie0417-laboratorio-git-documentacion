@@ -1,0 +1,7 @@
+<map id="Catch::CumulativeReporterBase::testRunStarting" name="Catch::CumulativeReporterBase::testRunStarting">
+<area shape="rect" id="Node000001" title=" " alt="" coords="248,37,447,77"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1JunitReporter.html#a416da4586bd135749eea5adc8aa41280" title=" " alt="" coords="27,5,179,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,45,178,38,179,33,235,40"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1SonarQubeReporter.html#a58ed9dede9b58d4857567e5b9daf5837" title=" " alt="" coords="5,69,200,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,75,201,79,200,74,234,69"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Catch::StreamingReporterBase::sectionStarting" name="Catch::StreamingReporterBase::sectionStarting">
+<area shape="rect" id="Node000001" title="Called when a SECTION is being entered. Not called for skipped sections." alt="" coords="237,69,428,109"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1ConsoleReporter.html#a4827fca3e5921e571fc03e38d3cf59c9" title="Called when a SECTION is being entered. Not called for skipped sections." alt="" coords="10,5,185,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,68,171,48,172,43,246,63"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1TeamCityReporter.html#a659dbf515acee57b7e957edf2b10e2d9" title="Called when a SECTION is being entered. Not called for skipped sections." alt="" coords="5,69,189,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,92,190,92,190,87,223,87"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlReporter.html#a06befa9cf2b661c5226317bff0f05c64" title="Called when a SECTION is being entered. Not called for skipped sections." alt="" coords="23,133,172,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="246,116,172,136,171,131,245,110"/>
+</map>

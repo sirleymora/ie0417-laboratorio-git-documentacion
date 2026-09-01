@@ -1,0 +1,17 @@
+<map id="Catch::Clara::Detail::BasicResult::runtimeError" name="Catch::Clara::Detail::BasicResult::runtimeError">
+<area shape="rect" id="Node000001" title=" " alt="" coords="803,101,999,141"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Clara_1_1Detail.html#aaf5cc67b22b463d47af6e69ee31bf44e" title=" " alt="" coords="606,5,754,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="840,98,754,60,726,48,729,43,756,55,842,93"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Clara_1_1Detail.html#a91a7876e712852feaf1d1d6072216af9" title=" " alt="" coords="606,69,754,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="789,108,754,103,755,97,790,103"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1Clara_1_1Opt.html#a1e248a3d26bfd1a10fc5f3ddcf017a6c" title=" " alt="" coords="610,133,750,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="789,140,751,146,750,141,788,135"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1Clara_1_1Parser.html#ad54ad501f1c4dbc617e12a40ad7cfe66" title=" " alt="" coords="605,197,755,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="842,150,756,188,729,200,726,195,754,183,840,145"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1Session.html#af890db02c69e36356ac9f8be4084c464" title=" " alt="" coords="303,205,557,230"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="592,220,557,220,557,215,592,215"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1Session.html#a8c82b89613ebd99f1ba1a3f7b634e571" title=" " alt="" coords="108,205,255,230"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="289,220,255,220,255,215,289,215"/>
+<area shape="rect" id="Node000008" href="$catch__main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,205,60,230"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="94,220,60,220,60,215,94,215"/>
+</map>

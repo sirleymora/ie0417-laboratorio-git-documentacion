@@ -1,0 +1,17 @@
+<map id="src/catch2/internal/catch_stream_end_stop.hpp" name="src/catch2/internal/catch_stream_end_stop.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="251,5,459,45"/>
+<area shape="rect" id="Node000002" href="$catch__stringref_8hpp.html" title=" " alt="" coords="276,93,435,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="358,46,358,79,353,79,353,46"/>
+<area shape="rect" id="Node000003" href="$catch__lifetimebound_8hpp.html" title=" " alt="" coords="5,181,164,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,136,158,180,156,175,295,131"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="188,189,259,214"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="327,136,254,183,251,179,325,131"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="283,189,342,214"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="348,135,327,177,322,175,343,132"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="366,189,430,214"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="367,132,388,175,384,177,362,135"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="454,189,523,214"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="386,131,461,179,458,183,383,136"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="547,189,614,214"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="408,131,536,179,542,181,540,186,534,184,407,136"/>
+</map>

@@ -1,0 +1,42 @@
+<map id="Catch::Detail::makeExceptionHappenedString" name="Catch::Detail::makeExceptionHappenedString">
+<area shape="rect" id="Node000001" title=" " alt="" coords="731,491,945,531"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#af0ad48344ffd3f92f3568465248a9880" title=" " alt="" coords="516,498,683,523"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="717,513,683,513,683,508,717,508"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Capturer.html#a60d08e6db2e54740bb2298bbbec3bc0b" title=" " alt="" coords="261,5,441,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="596,485,592,404,585,351,574,292,558,232,535,172,505,116,466,66,439,47,443,43,470,62,510,113,540,169,563,230,580,291,590,350,597,404,601,484"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1Capturer.html#a76f2a097cfeb3042688300b81eb9bcbc" title=" " alt="" coords="5,28,185,68"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="596,484,591,409,584,361,573,308,557,254,535,201,505,153,467,112,429,98,357,84,185,60,186,55,358,79,430,93,469,107,509,149,539,198,562,252,579,306,590,360,596,409,601,484"/>
+<area shape="rect" id="Node000005" href="$namespaceCatch.html#a6dce9f6d9a416fe7a06e6394d557606a" title=" " alt="" coords="266,121,435,146"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="594,485,586,418,565,330,549,284,527,239,500,197,466,161,434,143,437,139,470,157,504,193,532,236,554,282,571,329,591,418,599,484"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1Matchers_1_1ContainsElementMatcher.html#a72bbe5c0d4b56aab66f89b6bf6876082" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="255,171,447,211"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="591,485,579,430,555,360,539,323,519,287,495,254,466,225,445,211,448,207,470,221,499,250,523,284,544,320,560,358,584,429,596,484"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1Matchers_1_1WithinAbsMatcher.html#aaea5de97f44e97d8776ca59cbb2e6445" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="250,235,451,275"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="588,486,572,443,547,389,512,335,490,310,466,289,447,277,450,272,470,285,494,306,516,332,551,387,577,441,593,484"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1Matchers_1_1RangeEqualsMatcher.html#a52431a46038c53c3e4a75ca8f48926cf" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="241,299,460,339"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="582,487,537,420,504,383,467,353,444,341,447,336,469,348,508,380,541,416,587,484"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1Matchers_1_1UnorderedRangeEqualsMatcher.html#ae95cc92197f5075be8d83c7721442923" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="239,363,462,403"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="572,491,525,453,467,417,438,405,440,400,469,412,528,449,576,487"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1Matchers_1_1RegexMatcher.html#ad12011a6c452799eb76c002b41eca643" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="236,427,465,467"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="535,497,429,469,430,464,537,492"/>
+<area shape="rect" id="Node000012" href="$classCatch_1_1Matchers_1_1VectorContainsElementMatcher.html#aba9e9deda0aecbf8ffeae026633eebb7" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="234,491,467,531"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="502,513,467,513,467,508,502,508"/>
+<area shape="rect" id="Node000013" href="$classCatch_1_1Matchers_1_1ContainsMatcher.html#a96868897b6f5aa6a775935d2ef2fe1ca" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="255,555,447,595"/>
+<area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="537,529,430,557,429,552,535,524"/>
+<area shape="rect" id="Node000014" href="$classCatch_1_1Matchers_1_1EqualsMatcher.html#af07af00c2d5553355f4476e2c3858bb4" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="235,619,466,659"/>
+<area shape="poly" id="edge14_Node000002_Node000014" title=" " alt="" coords="576,535,528,573,469,609,440,621,438,616,467,604,525,568,572,531"/>
+<area shape="rect" id="Node000015" href="$classCatch_1_1Matchers_1_1ApproxMatcher.html#a7bae09538c8109549698a70ebf810de6" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="233,683,468,723"/>
+<area shape="poly" id="edge15_Node000002_Node000015" title=" " alt="" coords="587,537,541,605,508,642,469,673,447,685,444,680,467,668,504,638,537,602,582,534"/>
+<area shape="rect" id="Node000016" href="$classCatch_1_1Matchers_1_1UnorderedEqualsMatcher.html#a15d60e576f7e137626a5950b345221a8" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="249,747,452,787"/>
+<area shape="poly" id="edge16_Node000002_Node000016" title=" " alt="" coords="593,537,577,581,551,635,516,690,494,715,470,737,450,749,447,744,466,733,490,711,512,687,547,632,572,579,588,535"/>
+<area shape="rect" id="Node000017" href="$namespaceCatch_1_1Detail.html#ac954cf158347a76a5b0c3f4fa9a9fa52" title=" " alt="" coords="249,811,452,837"/>
+<area shape="poly" id="edge17_Node000002_Node000017" title=" " alt="" coords="597,537,585,593,562,664,545,702,524,738,499,772,470,801,449,813,446,809,466,797,495,768,520,735,540,699,557,662,580,591,592,536"/>
+<area shape="rect" id="Node000018" href="$namespaceCatch.html#ae162dc66b7767a52e7e4283915fd3d9f" title=" " alt="" coords="273,861,429,886"/>
+<area shape="poly" id="edge18_Node000002_Node000018" title=" " alt="" coords="599,537,590,602,569,687,552,732,531,776,503,816,470,851,451,864,430,871,428,866,448,859,466,847,499,813,526,773,548,730,564,685,585,601,594,537"/>
+<area shape="rect" id="Node000019" href="$classCatch_1_1MatchExpr.html#ad3e41adb597750b2219bb37e51185629" title="This function has to be overridden by the derived class." alt="" coords="255,911,446,951"/>
+<area shape="poly" id="edge19_Node000002_Node000019" title=" " alt="" coords="600,538,593,610,574,707,557,759,535,811,506,859,470,901,448,916,445,911,466,897,502,855,530,808,552,758,569,706,588,609,595,537"/>
+<area shape="rect" id="Node000020" href="$classCatch_1_1Approx.html#a00b9ca1984b955801334985da44ed863" title=" " alt="" coords="265,975,437,1001"/>
+<area shape="poly" id="edge20_Node000002_Node000020" title=" " alt="" coords="602,537,600,620,594,675,584,735,568,797,544,858,512,915,470,965,439,983,436,978,466,961,508,912,539,856,563,796,579,734,589,674,594,619,596,537"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="248,37,186,43,185,37,247,32"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1ReporterBase.html#a15ed28e8f838691c3c374027547d914b" title=" " alt="" coords="18,113,173,153"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="252,136,173,136,173,131,252,131"/>
+</map>

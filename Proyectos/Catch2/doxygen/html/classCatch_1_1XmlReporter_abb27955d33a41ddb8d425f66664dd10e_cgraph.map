@@ -1,0 +1,27 @@
+<map id="Catch::XmlReporter::assertionEnded" name="Catch::XmlReporter::assertionEnded">
+<area shape="rect" id="Node000001" title="Called after assertion was fully evaluated." alt="" coords="5,202,155,242"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlWriter.html#a548009dad62cd446371e0b76775ce657" title=" " alt="" coords="211,5,430,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,201,103,165,127,122,160,78,201,41,214,34,216,39,204,45,164,82,132,125,107,168,92,203"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1IConfig.html#a2f1b0391019b9ce69921527a684eab23" title=" " alt="" coords="203,55,439,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,200,140,152,169,127,201,105,215,98,217,103,204,110,172,131,143,156,99,204"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlWriter.html#ad2fbf17f0dc39443b2db8ab614f4c625" title=" " alt="" coords="227,119,414,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="135,199,202,175,244,161,246,166,204,181,136,204"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1XmlWriter.html#a5e5190bcb1f47a76ddca863591a6cc00" title=" " alt="" coords="489,184,715,209"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="155,216,475,200,475,205,155,221"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1XmlWriter.html#aa792619a7f86dbacd35da5730a4b7b3e" title="The attribute content is XML&#45;encoded." alt="" coords="487,292,717,317"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="90,241,105,278,129,322,162,365,181,384,204,398,236,413,265,423,292,427,317,427,372,417,438,398,477,384,514,364,573,324,576,328,517,369,479,389,439,403,373,422,318,432,291,432,264,428,234,418,201,403,178,388,158,369,124,325,100,280,85,243"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1XmlReporter.html#a190d2ae83de78e06273fa476d3729771" title=" " alt="" coords="246,285,395,325"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="136,240,204,263,246,278,244,283,202,269,135,245"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1XmlWriter_1_1ScopedElement.html#ab84a69b37b367574549802f3c7972b6e" title=" " alt="" coords="227,349,415,389"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="99,240,143,288,172,313,204,334,217,341,215,346,201,339,169,317,140,292,95,244"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1XmlWriter.html#a0468b6efbc87fc9c262892a1dcd217db" title="Writes escaped text in a element." alt="" coords="501,235,703,260"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="155,223,487,239,487,244,155,228"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="415,156,526,179,525,184,413,161"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1XmlWriter.html#aba98703d9852416e237de82aed4a9c4f" title=" " alt="" coords="765,202,951,242"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="715,205,752,209,751,214,715,210"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1StringRef.html#a0b4841c28cbb14ba07296964a0187023" title=" " alt="" coords="770,267,946,292"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="717,291,756,287,756,292,718,296"/>
+<area shape="poly" id="edge10_Node000009_Node000007" title=" " alt="" coords="396,302,473,302,473,307,396,307"/>
+<area shape="poly" id="edge14_Node000011_Node000006" title=" " alt="" coords="702,235,751,230,752,235,703,240"/>
+<area shape="poly" id="edge13_Node000011_Node000008" title=" " alt="" coords="703,257,757,264,756,269,702,263"/>
+</map>

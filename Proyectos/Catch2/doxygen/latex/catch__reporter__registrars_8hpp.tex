@@ -1,0 +1,106 @@
+\doxysection{src/catch2/reporters/catch\+\_\+reporter\+\_\+registrars.hpp File Reference}
+\hypertarget{catch__reporter__registrars_8hpp}{}\label{catch__reporter__registrars_8hpp}\index{src/catch2/reporters/catch\_reporter\_registrars.hpp@{src/catch2/reporters/catch\_reporter\_registrars.hpp}}
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+reporter\+\_\+factory.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+compiler\+\_\+capabilities.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+unique\+\_\+name.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+unique\+\_\+ptr.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+void\+\_\+type.\+hpp$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for catch\+\_\+reporter\+\_\+registrars.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__reporter__registrars_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__reporter__registrars_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Detail_1_1has__description}{Catch\+::\+Detail\+::has\+\_\+description$<$ T, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Detail_1_1has__description_3_01T_00_01void__t_3_01decltype_07T_1_1getDescription_07_08_08_4_01_4}{Catch\+::\+Detail\+::has\+\_\+description$<$ T, void\+\_\+t$<$ decltype(\+T\+::get\+Description())$>$ $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1ReporterFactory}{Catch\+::\+Reporter\+Factory$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1ReporterRegistrar}{Catch\+::\+Reporter\+Registrar$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1ListenerRegistrar}{Catch\+::\+Listener\+Registrar$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__reporter__registrars_8hpp_aef63cef4e58656a109cfe1df5d59e54b}{CATCH\+\_\+\+REGISTER\+\_\+\+REPORTER}}(name,  reporter\+Type)
+\item 
+\#define \mbox{\hyperlink{catch__reporter__registrars_8hpp_ad57e50d59b9dd4f10afa62824062758b}{CATCH\+\_\+\+REGISTER\+\_\+\+LISTENER}}(listener\+Type)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_af8703a4eaf12133aa02a50dee831f2bc}{Catch\+::\+Detail\+::register\+Reporter\+Impl}} (std\+::string const \&name, \mbox{\hyperlink{namespaceCatch_ae3dfb69314dff5b79fcb517a9cb8803e}{IReporter\+Factory\+Ptr}} reporter\+Ptr)
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_aae9b0608769b42ff7bbd07687348c7e5}{Catch\+::\+Detail\+::register\+Listener\+Impl}} (\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1EventListenerFactory}{Event\+Listener\+Factory}} $>$ listener\+Factory)
+\begin{DoxyCompactList}\small\item\em Actually registers the factory, independent on listener\textquotesingle{}s concrete type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__reporter__registrars_8hpp_ad57e50d59b9dd4f10afa62824062758b}\label{catch__reporter__registrars_8hpp_ad57e50d59b9dd4f10afa62824062758b} 
+\index{catch\_reporter\_registrars.hpp@{catch\_reporter\_registrars.hpp}!CATCH\_REGISTER\_LISTENER@{CATCH\_REGISTER\_LISTENER}}
+\index{CATCH\_REGISTER\_LISTENER@{CATCH\_REGISTER\_LISTENER}!catch\_reporter\_registrars.hpp@{catch\_reporter\_registrars.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_REGISTER\_LISTENER}{CATCH\_REGISTER\_LISTENER}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+REGISTER\+\_\+\+LISTENER(\begin{DoxyParamCaption}\item[{}]{listener\+Type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ namespace\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCatch_1_1ListenerRegistrar}{Catch::ListenerRegistrar<listenerType>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}}
+\DoxyCodeLine{\mbox{\hyperlink{classCatch_1_1ListenerRegistrar}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INTERNAL\_CATCH\_UNIQUE\_NAME}}(\ catch\_internal\_RegistrarFor\ )(\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#listenerType\#\#\_catch\_sr\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__registrars_8hpp_source_l00116}{116}} of file \mbox{\hyperlink{catch__reporter__registrars_8hpp_source}{catch\+\_\+reporter\+\_\+registrars.\+hpp}}.
+
+\Hypertarget{catch__reporter__registrars_8hpp_aef63cef4e58656a109cfe1df5d59e54b}\label{catch__reporter__registrars_8hpp_aef63cef4e58656a109cfe1df5d59e54b} 
+\index{catch\_reporter\_registrars.hpp@{catch\_reporter\_registrars.hpp}!CATCH\_REGISTER\_REPORTER@{CATCH\_REGISTER\_REPORTER}}
+\index{CATCH\_REGISTER\_REPORTER@{CATCH\_REGISTER\_REPORTER}!catch\_reporter\_registrars.hpp@{catch\_reporter\_registrars.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_REGISTER\_REPORTER}{CATCH\_REGISTER\_REPORTER}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+REGISTER\+\_\+\+REPORTER(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{reporter\+Type }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ namespace\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classCatch_1_1ReporterRegistrar}{Catch::ReporterRegistrar<reporterType>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}}
+\DoxyCodeLine{\mbox{\hyperlink{classCatch_1_1ReporterRegistrar}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ INTERNAL\_CATCH\_UNIQUE\_NAME}}(\ catch\_internal\_RegistrarFor\ )(\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__compiler__capabilities_8hpp_ad9594e9891b032f0dd0279960dc861a5}{CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__registrars_8hpp_source_l00106}{106}} of file \mbox{\hyperlink{catch__reporter__registrars_8hpp_source}{catch\+\_\+reporter\+\_\+registrars.\+hpp}}.
+

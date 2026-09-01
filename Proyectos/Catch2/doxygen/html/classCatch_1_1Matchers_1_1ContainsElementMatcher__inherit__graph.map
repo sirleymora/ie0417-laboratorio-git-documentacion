@@ -1,0 +1,7 @@
+<map id="Catch::Matchers::ContainsElementMatcher&lt; T, Equality &gt;" name="Catch::Matchers::ContainsElementMatcher&lt; T, Equality &gt;">
+<area shape="rect" id="Node000001" title="Matcher for checking that an element in range is equal to specific element." alt="" coords="5,181,233,221"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Matchers_1_1MatcherGenericBase.html" title=" " alt="" coords="25,93,213,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,147,122,181,117,181,117,147"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Matchers_1_1MatcherUntypedBase.html" title=" " alt="" coords="25,5,213,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="122,59,122,93,117,93,117,59"/>
+</map>

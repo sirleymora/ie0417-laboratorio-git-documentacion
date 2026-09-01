@@ -1,0 +1,82 @@
+\doxysection{src/catch2/matchers/catch\+\_\+matchers\+\_\+templated.hpp File Reference}
+\hypertarget{catch__matchers__templated_8hpp}{}\label{catch__matchers__templated_8hpp}\index{src/catch2/matchers/catch\_matchers\_templated.hpp@{src/catch2/matchers/catch\_matchers\_templated.hpp}}
+{\ttfamily \#include $<$catch2/matchers/catch\+\_\+matchers.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+stringref.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+lifetimebound.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+logical\+\_\+traits.\+hpp$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for catch\+\_\+matchers\+\_\+templated.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers__templated_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers__templated_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherGenericBase}{Catch\+::\+Matchers\+::\+Matcher\+Generic\+Base}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Catch\+::\+Matchers\+::\+Detail\+::\+Match\+All\+Of\+Generic$<$ Matcher\+Ts $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Catch\+::\+Matchers\+::\+Detail\+::\+Match\+Any\+Of\+Generic$<$ Matcher\+Ts $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchNotOfGeneric}{Catch\+::\+Matchers\+::\+Detail\+::\+Match\+Not\+Of\+Generic$<$ Matcher\+T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers}{Catch\+::\+Matchers}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail}{Catch\+::\+Matchers\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N, std\+::size\+\_\+t M$>$ }\\constexpr std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N+M $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a308cd91d1c67c1155ce506644548297b}{Catch\+::\+Matchers\+::\+Detail\+::array\+\_\+cat}} (std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N $>$ \&\&lhs, std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, M $>$ \&\&rhs)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\constexpr std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N+1 $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a5f3c16f512864c0bcd5abdcddaae0eb8}{Catch\+::\+Matchers\+::\+Detail\+::array\+\_\+cat}} (std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N $>$ \&\&lhs, void const \texorpdfstring{$\ast$}{*}rhs)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\constexpr std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N+1 $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a03cf9bcf658d5a5df84540316afb9e8c}{Catch\+::\+Matchers\+::\+Detail\+::array\+\_\+cat}} (void const \texorpdfstring{$\ast$}{*}lhs, std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N $>$ \&\&rhs)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N, typename Arg $>$ }\\constexpr bool \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_ad9496a27e08e1ddda871bb3c1bd2e2de}{Catch\+::\+Matchers\+::\+Detail\+::match\+\_\+all\+\_\+of}} (Arg \&\&, std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N $>$ const \&, std\+::index\+\_\+sequence$<$$>$)
+\item 
+{\footnotesize template$<$typename T , typename... Matcher\+Ts, std\+::size\+\_\+t N, typename Arg , std\+::size\+\_\+t Idx, std\+::size\+\_\+t... Indices$>$ }\\constexpr bool \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a96171efb15a6dbd76d5aa9c8400ef617}{Catch\+::\+Matchers\+::\+Detail\+::match\+\_\+all\+\_\+of}} (Arg \&\&arg, std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N $>$ const \&matchers, std\+::index\+\_\+sequence$<$ Idx, Indices... $>$)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t N, typename Arg $>$ }\\constexpr bool \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a714e45287f44eb15c1267e9566f2875f}{Catch\+::\+Matchers\+::\+Detail\+::match\+\_\+any\+\_\+of}} (Arg \&\&, std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N $>$ const \&, std\+::index\+\_\+sequence$<$$>$)
+\item 
+{\footnotesize template$<$typename T , typename... Matcher\+Ts, std\+::size\+\_\+t N, typename Arg , std\+::size\+\_\+t Idx, std\+::size\+\_\+t... Indices$>$ }\\constexpr bool \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a75317ed0fe29209d62e5d40c2680ee89}{Catch\+::\+Matchers\+::\+Detail\+::match\+\_\+any\+\_\+of}} (Arg \&\&arg, std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, N $>$ const \&matchers, std\+::index\+\_\+sequence$<$ Idx, Indices... $>$)
+\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_a228a8fff5aa311bd0e3592b8cb711392}{Catch\+::\+Matchers\+::\+Detail\+::describe\+\_\+multi\+\_\+matcher}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} combine, std\+::string const \texorpdfstring{$\ast$}{*}descriptions\+\_\+begin, std\+::string const \texorpdfstring{$\ast$}{*}descriptions\+\_\+end)
+\item 
+{\footnotesize template$<$typename... Matcher\+Ts, std\+::size\+\_\+t... Idx$>$ }\\std\+::string \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_ac0a97ecaa606e48558e8d6f63fe9d0b1}{Catch\+::\+Matchers\+::\+Detail\+::describe\+\_\+multi\+\_\+matcher}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} combine, std\+::array$<$ void const \texorpdfstring{$\ast$}{*}, sizeof...(Matcher\+Ts)$>$ const \&matchers, std\+::index\+\_\+sequence$<$ Idx... $>$)
+\item 
+{\footnotesize template$<$typename Matcher\+LHS , typename Matcher\+RHS $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::are\+\_\+generic\+\_\+matchers\+\_\+v$<$ Matcher\+LHS, Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Detail\+::\+Match\+All\+Of\+Generic}}$<$ Matcher\+LHS, Matcher\+RHS $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a895ebd163ea75f218352b1a720b7570b}{Catch\+::\+Matchers\+::operator\&\&}} (Matcher\+LHS const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, Matcher\+RHS const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename Matcher\+LHS , typename Matcher\+RHS $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::are\+\_\+generic\+\_\+matchers\+\_\+v$<$ Matcher\+LHS, Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Detail\+::\+Match\+Any\+Of\+Generic}}$<$ Matcher\+LHS, Matcher\+RHS $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_ac0a9ac7d0e190f0cb5c70162cce8945f}{Catch\+::\+Matchers\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (Matcher\+LHS const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, Matcher\+RHS const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename MatcherT $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ MatcherT $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchNotOfGeneric}{Detail\+::\+Match\+Not\+Of\+Generic}}$<$ MatcherT $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a221dc13ad83e95e9aad4c6c311babac3}{Catch\+::\+Matchers\+::operator!}} (MatcherT const \&matcher \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\begin{DoxyCompactList}\small\item\em Wrap provided generic matcher in generic negator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Matcher\+LHS , typename Arg\+RHS $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+LHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Detail\+::\+Match\+All\+Of\+Generic}}$<$ Matcher\+LHS, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_aa922843a6cbb895c6809ffb536d191d8}{Catch\+::\+Matchers\+::operator\&\&}} (Matcher\+LHS const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename Arg\+LHS , typename Matcher\+RHS $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric}{Detail\+::\+Match\+All\+Of\+Generic}}$<$ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$, Matcher\+RHS $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a54c738cff4c1237ff396c7f19aa57a87}{Catch\+::\+Matchers\+::operator\&\&}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$ const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, Matcher\+RHS const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename Matcher\+LHS , typename Arg\+RHS $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+LHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Detail\+::\+Match\+Any\+Of\+Generic}}$<$ Matcher\+LHS, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a0d1d072a335833472a172e045ff3064c}{Catch\+::\+Matchers\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (Matcher\+LHS const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+RHS $>$ const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+{\footnotesize template$<$typename Arg\+LHS , typename Matcher\+RHS $>$ }\\std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+generic\+\_\+matcher\+\_\+v$<$ Matcher\+RHS $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric}{Detail\+::\+Match\+Any\+Of\+Generic}}$<$ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$, Matcher\+RHS $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a061f3488b6a696dda9d48de9afb1b475}{Catch\+::\+Matchers\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (\mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{Matcher\+Base}}$<$ Arg\+LHS $>$ const \&lhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, Matcher\+RHS const \&rhs \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\end{DoxyCompactItemize}

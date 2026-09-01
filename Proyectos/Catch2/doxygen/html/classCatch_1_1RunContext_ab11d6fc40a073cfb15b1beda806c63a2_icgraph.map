@@ -1,0 +1,13 @@
+<map id="Catch::RunContext::handleNonExpr" name="Catch::RunContext::handleNonExpr">
+<area shape="rect" id="Node000001" title=" " alt="" coords="603,117,753,157"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1AssertionHandler.html#a51e4936e3af43b74690cedae6d2e297a" title=" " alt="" coords="311,5,536,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="629,112,554,75,520,63,522,58,556,70,632,107"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1AssertionHandler.html#ab6caf765764a4064e90fce829eec201d" title=" " alt="" coords="292,85,555,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="589,128,555,124,555,119,590,123"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1AssertionHandler.html#a67a194d5518f307c4a16faa03a7f7442" title=" " alt="" coords="318,149,529,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="590,150,529,158,528,153,589,145"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1RunContext.html#ae7c10a068d896a8bcb35f5f387a36d0c" title=" " alt="" coords="308,213,539,268"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="632,166,556,203,522,216,520,211,554,198,629,161"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1AssertionHandler.html#a7764d0adb6ed5eeb10964f6abc02fab1" title=" " alt="" coords="5,213,244,268"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="294,243,244,243,244,238,294,238"/>
+</map>

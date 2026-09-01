@@ -1,0 +1,189 @@
+\doxysection{src/catch2/catch\+\_\+message.hpp File Reference}
+\hypertarget{catch__message_8hpp}{}\label{catch__message_8hpp}\index{src/catch2/catch\_message.hpp@{src/catch2/catch\_message.hpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+config\+\_\+prefix\+\_\+messages.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+result\+\_\+type.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+reusable\+\_\+string\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+stream\+\_\+end\+\_\+stop.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+message\+\_\+info.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+tostring.\+hpp$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for catch\+\_\+message.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__message_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__message_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1MessageStream}{Catch\+::\+Message\+Stream}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1MessageBuilder}{Catch\+::\+Message\+Builder}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1ScopedMessage}{Catch\+::\+Scoped\+Message}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Capturer}{Catch\+::\+Capturer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Detail}{Catch\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__message_8hpp_ad1f7d83040ad9b09020dc72c57019638}{INTERNAL\+\_\+\+CATCH\+\_\+\+MSG}}(macro\+Name,  message\+Type,  result\+Disposition, ...)
+\item 
+\#define \mbox{\hyperlink{catch__message_8hpp_ac274a4d025c0b5a07e5478cb476c8dc9}{INTERNAL\+\_\+\+CATCH\+\_\+\+CAPTURE}}(var\+Name,  macro\+Name,  scoped\+Capture, ...)
+\item 
+\#define \mbox{\hyperlink{catch__message_8hpp_ab0eb5cfab90a80f3113f0ecb65c62a1c}{INTERNAL\+\_\+\+CATCH\+\_\+\+INFO}}(macro\+Name,  log)~    const \mbox{\hyperlink{classCatch_1_1ScopedMessage}{Catch\+::\+Scoped\+Message}} \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( scoped\+Message )( \mbox{\hyperlink{structCatch_1_1MessageBuilder}{Catch\+::\+Message\+Builder}}( macro\+Name\#\#\+\_\+catch\+\_\+sr, \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\+\_\+\+INTERNAL\+\_\+\+LINEINFO}}, \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c}{Catch\+::\+Result\+Was\+::\+Info}} ) $<$$<$ log )
+\item 
+\#define \mbox{\hyperlink{catch__message_8hpp_ab268c09b68167db4b163234f9934463f}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNSCOPED\+\_\+\+INFO}}(macro\+Name,  log)~    \mbox{\hyperlink{namespaceCatch_1_1Detail_a086510bcf0ad9e5402cb569d1daf5ad6}{Catch\+::\+Detail\+::emplace\+Unscoped\+Message}}( \mbox{\hyperlink{structCatch_1_1MessageBuilder}{Catch\+::\+Message\+Builder}}( macro\+Name\#\#\+\_\+catch\+\_\+sr, \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\+\_\+\+INTERNAL\+\_\+\+LINEINFO}}, \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c}{Catch\+::\+Result\+Was\+::\+Info}} ) $<$$<$ log )
+\item 
+\#define \mbox{\hyperlink{catch__message_8hpp_a3ae64706314066fdc8b6c8029a915aa7}{INFO}}(msg)~\mbox{\hyperlink{catch__message_8hpp_ab0eb5cfab90a80f3113f0ecb65c62a1c}{INTERNAL\+\_\+\+CATCH\+\_\+\+INFO}}( "{}INFO"{}, msg )
+\item 
+\#define \mbox{\hyperlink{catch__message_8hpp_a8dd723bbdb751f1c2f3af8c4f264b7a3}{UNSCOPED\+\_\+\+INFO}}(msg)~\mbox{\hyperlink{catch__message_8hpp_ab268c09b68167db4b163234f9934463f}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNSCOPED\+\_\+\+INFO}}( "{}UNSCOPED\+\_\+\+INFO"{}, msg )
+\item 
+\#define \mbox{\hyperlink{catch__message_8hpp_a108d6c5c51dd46e82a62b262394f0242}{WARN}}(msg)~\mbox{\hyperlink{catch__message_8hpp_ad1f7d83040ad9b09020dc72c57019638}{INTERNAL\+\_\+\+CATCH\+\_\+\+MSG}}( "{}WARN"{}, \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21}{Catch\+::\+Result\+Was\+::\+Warning}}, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8aa18c94bd60c5614e17a84c2ced3bbfd5}{Catch\+::\+Result\+Disposition\+::\+Continue\+On\+Failure}}, msg )
+\item 
+\#define \mbox{\hyperlink{catch__message_8hpp_aaf9fe43c53965ff8d94bbd522fd1fd7a}{CAPTURE}}(...)~\mbox{\hyperlink{catch__message_8hpp_ac274a4d025c0b5a07e5478cb476c8dc9}{INTERNAL\+\_\+\+CATCH\+\_\+\+CAPTURE}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}(capturer), "{}CAPTURE"{}, true, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )
+\item 
+\#define \mbox{\hyperlink{catch__message_8hpp_a5112de2689e663d86fe72ea99d64c427}{UNSCOPED\+\_\+\+CAPTURE}}(...)~\mbox{\hyperlink{catch__message_8hpp_ac274a4d025c0b5a07e5478cb476c8dc9}{INTERNAL\+\_\+\+CATCH\+\_\+\+CAPTURE}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}(capturer), "{}UNSCOPED\+\_\+\+CAPTURE"{}, false, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_a0cbd032aa9b74a5e111bf4ad36fd4131}{Catch\+::\+Detail\+::push\+Scoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} \&\&message)
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_a8c6831d69db70015030a466c4b4a9601}{Catch\+::\+Detail\+::pop\+Scoped\+Message}} (unsigned int message\+Id)
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_ade387dabc4bb6d19bb8fbee5f4b02738}{Catch\+::\+Detail\+::add\+Unscoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} \&\&message)
+\item 
+void \mbox{\hyperlink{namespaceCatch_1_1Detail_a086510bcf0ad9e5402cb569d1daf5ad6}{Catch\+::\+Detail\+::emplace\+Unscoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageBuilder}{Message\+Builder}} \&\&builder)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__message_8hpp_aaf9fe43c53965ff8d94bbd522fd1fd7a}\label{catch__message_8hpp_aaf9fe43c53965ff8d94bbd522fd1fd7a} 
+\index{catch\_message.hpp@{catch\_message.hpp}!CAPTURE@{CAPTURE}}
+\index{CAPTURE@{CAPTURE}!catch\_message.hpp@{catch\_message.hpp}}
+\doxysubsubsection{\texorpdfstring{CAPTURE}{CAPTURE}}
+{\footnotesize\ttfamily \#define CAPTURE(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__message_8hpp_ac274a4d025c0b5a07e5478cb476c8dc9}{INTERNAL\+\_\+\+CATCH\+\_\+\+CAPTURE}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}(capturer), "{}CAPTURE"{}, true, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00151}{151}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+\Hypertarget{catch__message_8hpp_a3ae64706314066fdc8b6c8029a915aa7}\label{catch__message_8hpp_a3ae64706314066fdc8b6c8029a915aa7} 
+\index{catch\_message.hpp@{catch\_message.hpp}!INFO@{INFO}}
+\index{INFO@{INFO}!catch\_message.hpp@{catch\_message.hpp}}
+\doxysubsubsection{\texorpdfstring{INFO}{INFO}}
+{\footnotesize\ttfamily \#define INFO(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__message_8hpp_ab0eb5cfab90a80f3113f0ecb65c62a1c}{INTERNAL\+\_\+\+CATCH\+\_\+\+INFO}}( "{}INFO"{}, msg )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00148}{148}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+\Hypertarget{catch__message_8hpp_ac274a4d025c0b5a07e5478cb476c8dc9}\label{catch__message_8hpp_ac274a4d025c0b5a07e5478cb476c8dc9} 
+\index{catch\_message.hpp@{catch\_message.hpp}!INTERNAL\_CATCH\_CAPTURE@{INTERNAL\_CATCH\_CAPTURE}}
+\index{INTERNAL\_CATCH\_CAPTURE@{INTERNAL\_CATCH\_CAPTURE}!catch\_message.hpp@{catch\_message.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_CAPTURE}{INTERNAL\_CATCH\_CAPTURE}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+CAPTURE(\begin{DoxyParamCaption}\item[{}]{var\+Name,  }\item[{}]{macro\+Name,  }\item[{}]{scoped\+Capture,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classCatch_1_1Capturer}{Catch::Capturer}}\ varName(\ macroName\#\#\_catch\_sr,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\_INTERNAL\_LINEINFO}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c}{Catch::ResultWas::Info}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\_\_VA\_ARGS\_\_\#\#\_catch\_sr,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scopedCapture\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ varName.captureValues(\ 0,\ \_\_VA\_ARGS\_\_\ )}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00113}{113}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+\Hypertarget{catch__message_8hpp_ab0eb5cfab90a80f3113f0ecb65c62a1c}\label{catch__message_8hpp_ab0eb5cfab90a80f3113f0ecb65c62a1c} 
+\index{catch\_message.hpp@{catch\_message.hpp}!INTERNAL\_CATCH\_INFO@{INTERNAL\_CATCH\_INFO}}
+\index{INTERNAL\_CATCH\_INFO@{INTERNAL\_CATCH\_INFO}!catch\_message.hpp@{catch\_message.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_INFO}{INTERNAL\_CATCH\_INFO}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{macro\+Name,  }\item[{}]{log }\end{DoxyParamCaption})~    const \mbox{\hyperlink{classCatch_1_1ScopedMessage}{Catch\+::\+Scoped\+Message}} \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}( scoped\+Message )( \mbox{\hyperlink{structCatch_1_1MessageBuilder}{Catch\+::\+Message\+Builder}}( macro\+Name\#\#\+\_\+catch\+\_\+sr, \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\+\_\+\+INTERNAL\+\_\+\+LINEINFO}}, \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c}{Catch\+::\+Result\+Was\+::\+Info}} ) $<$$<$ log )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00122}{122}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+\Hypertarget{catch__message_8hpp_ad1f7d83040ad9b09020dc72c57019638}\label{catch__message_8hpp_ad1f7d83040ad9b09020dc72c57019638} 
+\index{catch\_message.hpp@{catch\_message.hpp}!INTERNAL\_CATCH\_MSG@{INTERNAL\_CATCH\_MSG}}
+\index{INTERNAL\_CATCH\_MSG@{INTERNAL\_CATCH\_MSG}!catch\_message.hpp@{catch\_message.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_MSG}{INTERNAL\_CATCH\_MSG}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+MSG(\begin{DoxyParamCaption}\item[{}]{macro\+Name,  }\item[{}]{message\+Type,  }\item[{}]{result\+Disposition,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1AssertionHandler}{Catch::AssertionHandler}}\ catchAssertionHandler(\ macroName\#\#\_catch\_sr,\ \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\_INTERNAL\_LINEINFO}},\ \mbox{\hyperlink{classCatch_1_1StringRef}{Catch::StringRef}}(),\ resultDisposition\ );\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ catchAssertionHandler.handleMessage(\ messageType,\ (\ \mbox{\hyperlink{structCatch_1_1MessageStream}{Catch::MessageStream}}()\ <<\ \_\_VA\_ARGS\_\_\ +\ \mbox{\hyperlink{structCatch_1_1StreamEndStop}{::Catch::StreamEndStop}}()\ ).m\_stream.str()\ );\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ catchAssertionHandler.complete();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}(\ \textcolor{keyword}{false}\ )}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00105}{105}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+\Hypertarget{catch__message_8hpp_ab268c09b68167db4b163234f9934463f}\label{catch__message_8hpp_ab268c09b68167db4b163234f9934463f} 
+\index{catch\_message.hpp@{catch\_message.hpp}!INTERNAL\_CATCH\_UNSCOPED\_INFO@{INTERNAL\_CATCH\_UNSCOPED\_INFO}}
+\index{INTERNAL\_CATCH\_UNSCOPED\_INFO@{INTERNAL\_CATCH\_UNSCOPED\_INFO}!catch\_message.hpp@{catch\_message.hpp}}
+\doxysubsubsection{\texorpdfstring{INTERNAL\_CATCH\_UNSCOPED\_INFO}{INTERNAL\_CATCH\_UNSCOPED\_INFO}}
+{\footnotesize\ttfamily \#define INTERNAL\+\_\+\+CATCH\+\_\+\+UNSCOPED\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{macro\+Name,  }\item[{}]{log }\end{DoxyParamCaption})~    \mbox{\hyperlink{namespaceCatch_1_1Detail_a086510bcf0ad9e5402cb569d1daf5ad6}{Catch\+::\+Detail\+::emplace\+Unscoped\+Message}}( \mbox{\hyperlink{structCatch_1_1MessageBuilder}{Catch\+::\+Message\+Builder}}( macro\+Name\#\#\+\_\+catch\+\_\+sr, \mbox{\hyperlink{catch__source__line__info_8hpp_abc0b2405454c51748a31e0393d9ad5d1}{CATCH\+\_\+\+INTERNAL\+\_\+\+LINEINFO}}, \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c}{Catch\+::\+Result\+Was\+::\+Info}} ) $<$$<$ log )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00126}{126}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+\Hypertarget{catch__message_8hpp_a5112de2689e663d86fe72ea99d64c427}\label{catch__message_8hpp_a5112de2689e663d86fe72ea99d64c427} 
+\index{catch\_message.hpp@{catch\_message.hpp}!UNSCOPED\_CAPTURE@{UNSCOPED\_CAPTURE}}
+\index{UNSCOPED\_CAPTURE@{UNSCOPED\_CAPTURE}!catch\_message.hpp@{catch\_message.hpp}}
+\doxysubsubsection{\texorpdfstring{UNSCOPED\_CAPTURE}{UNSCOPED\_CAPTURE}}
+{\footnotesize\ttfamily \#define UNSCOPED\+\_\+\+CAPTURE(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__message_8hpp_ac274a4d025c0b5a07e5478cb476c8dc9}{INTERNAL\+\_\+\+CATCH\+\_\+\+CAPTURE}}( \mbox{\hyperlink{catch__unique__name_8hpp_afe320ceec108fc8c160f9ac3938f1bc8}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNIQUE\+\_\+\+NAME}}(capturer), "{}UNSCOPED\+\_\+\+CAPTURE"{}, false, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+ )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00152}{152}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+\Hypertarget{catch__message_8hpp_a8dd723bbdb751f1c2f3af8c4f264b7a3}\label{catch__message_8hpp_a8dd723bbdb751f1c2f3af8c4f264b7a3} 
+\index{catch\_message.hpp@{catch\_message.hpp}!UNSCOPED\_INFO@{UNSCOPED\_INFO}}
+\index{UNSCOPED\_INFO@{UNSCOPED\_INFO}!catch\_message.hpp@{catch\_message.hpp}}
+\doxysubsubsection{\texorpdfstring{UNSCOPED\_INFO}{UNSCOPED\_INFO}}
+{\footnotesize\ttfamily \#define UNSCOPED\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__message_8hpp_ab268c09b68167db4b163234f9934463f}{INTERNAL\+\_\+\+CATCH\+\_\+\+UNSCOPED\+\_\+\+INFO}}( "{}UNSCOPED\+\_\+\+INFO"{}, msg )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00149}{149}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+\Hypertarget{catch__message_8hpp_a108d6c5c51dd46e82a62b262394f0242}\label{catch__message_8hpp_a108d6c5c51dd46e82a62b262394f0242} 
+\index{catch\_message.hpp@{catch\_message.hpp}!WARN@{WARN}}
+\index{WARN@{WARN}!catch\_message.hpp@{catch\_message.hpp}}
+\doxysubsubsection{\texorpdfstring{WARN}{WARN}}
+{\footnotesize\ttfamily \#define WARN(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})~\mbox{\hyperlink{catch__message_8hpp_ad1f7d83040ad9b09020dc72c57019638}{INTERNAL\+\_\+\+CATCH\+\_\+\+MSG}}( "{}WARN"{}, \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21}{Catch\+::\+Result\+Was\+::\+Warning}}, \mbox{\hyperlink{structCatch_1_1ResultDisposition_a3396cad6e2259af326b3aae93e23e9d8aa18c94bd60c5614e17a84c2ced3bbfd5}{Catch\+::\+Result\+Disposition\+::\+Continue\+On\+Failure}}, msg )}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00150}{150}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+

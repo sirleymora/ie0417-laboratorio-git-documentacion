@@ -1,0 +1,7 @@
+<map id="Catch::AssertionResult::getSourceInfo" name="Catch::AssertionResult::getSourceInfo">
+<area shape="rect" id="Node000001" title=" " alt="" coords="215,37,384,77"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1JsonReporter.html#a679ca2848fcb072ebf4a1e7eade9df25" title="Called after assertion was fully evaluated." alt="" coords="11,5,161,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,45,161,39,162,34,201,40"/>
+<area shape="rect" id="Node000003" href="$structCatch_1_1AssertionStats.html#a683d4c44ba214b9091cef80f4ee97967" title=" " alt="" coords="5,69,167,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,75,167,80,166,75,200,69"/>
+</map>

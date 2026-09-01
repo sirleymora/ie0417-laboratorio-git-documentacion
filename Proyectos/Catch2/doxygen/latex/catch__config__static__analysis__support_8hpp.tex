@@ -1,0 +1,28 @@
+\doxysection{src/catch2/internal/catch\+\_\+config\+\_\+static\+\_\+analysis\+\_\+support.hpp File Reference}
+\hypertarget{catch__config__static__analysis__support_8hpp}{}\label{catch__config__static__analysis__support_8hpp}\index{src/catch2/internal/catch\_config\_static\_analysis\_support.hpp@{src/catch2/internal/catch\_config\_static\_analysis\_support.hpp}}
+{\ttfamily \#include $<$catch2/catch\+\_\+user\+\_\+config.\+hpp$>$}\newline
+Include dependency graph for catch\+\_\+config\+\_\+static\+\_\+analysis\+\_\+support.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{catch__config__static__analysis__support_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__config__static__analysis__support_8hpp__dep__incl}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Detailed Description}
+Wrapper for the STATIC\+\_\+\+ANALYSIS\+\_\+\+SUPPORT configuration option
+
+Some of Catch2\textquotesingle{}s macros can be defined differently to work better with static analysis tools, like clang-\/tidy or coverity. Currently the main use case is to show that {\ttfamily SECTION}s are executed exclusively, and not all in one run of a {\ttfamily TEST\+\_\+\+CASE}. 
+
+Definition in file \mbox{\hyperlink{catch__config__static__analysis__support_8hpp_source}{catch\+\_\+config\+\_\+static\+\_\+analysis\+\_\+support.\+hpp}}.
+

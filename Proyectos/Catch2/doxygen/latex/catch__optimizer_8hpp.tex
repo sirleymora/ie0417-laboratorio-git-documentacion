@@ -1,0 +1,34 @@
+\doxysection{src/catch2/benchmark/catch\+\_\+optimizer.hpp File Reference}
+\hypertarget{catch__optimizer_8hpp}{}\label{catch__optimizer_8hpp}\index{src/catch2/benchmark/catch\_optimizer.hpp@{src/catch2/benchmark/catch\_optimizer.hpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for catch\+\_\+optimizer.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{catch__optimizer_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__optimizer_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Benchmark}{Catch\+::\+Benchmark}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceCatch_1_1Benchmark_af5d85780971e55f9337023ad04caa247}{Catch\+::\+Benchmark\+::deoptimize\+\_\+value}} (T \&\&x)
+\item 
+{\footnotesize template$<$typename Fn , typename... Args$>$ }\\auto \mbox{\hyperlink{namespaceCatch_1_1Benchmark_a9aa891ce6b44df3561292fc1a44b11fb}{Catch\+::\+Benchmark\+::invoke\+\_\+deoptimized}} (Fn \&\&fn, Args \&\&... args) -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$!std\+::is\+\_\+same$<$ void, decltype(fn(args...))$>$\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{\+::value}} $>$
+\end{DoxyCompactItemize}

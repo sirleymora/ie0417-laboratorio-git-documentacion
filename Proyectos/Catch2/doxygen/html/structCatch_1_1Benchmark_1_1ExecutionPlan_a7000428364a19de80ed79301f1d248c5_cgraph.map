@@ -1,0 +1,15 @@
+<map id="Catch::Benchmark::ExecutionPlan::run" name="Catch::Benchmark::ExecutionPlan::run">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,113,217,153"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1IConfig.html#a1634aa220fc1c822d1f4d54614443d47" title=" " alt="" coords="276,5,469,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,111,202,83,264,55,285,47,287,52,266,60,204,88,150,115"/>
+<area shape="rect" id="Node000003" href="$structCatch_1_1Benchmark_1_1Detail_1_1ChronometerModel.html#a888ac0188449f74cb7c5ffb1a9e918c8" title=" " alt="" coords="265,69,480,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,113,251,107,252,112,218,118"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#adb6f098507d08daee7e92c9ab12dab09" title=" " alt="" coords="279,157,467,197"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="218,149,265,157,264,162,217,154"/>
+<area shape="rect" id="Node000006" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#aa94892c9c8fe45c0c82bde19bf0f8667" title=" " alt="" coords="279,221,467,261"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="150,151,204,179,266,207,287,214,285,220,264,212,202,184,148,156"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="327,158,324,148,331,138,348,133,373,131,401,134,417,141,415,146,400,139,373,136,349,138,334,143,329,149,332,156"/>
+<area shape="rect" id="Node000005" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#af41e4c8ef30c33051b7330895f8effd1" title=" " alt="" coords="528,157,716,197"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="467,183,514,184,514,189,467,189"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="528,171,481,171,481,166,528,166"/>
+</map>

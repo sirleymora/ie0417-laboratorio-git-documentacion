@@ -1,0 +1,23 @@
+<map id="Catch::Singleton::getMutable" name="Catch::Singleton::getMutable">
+<area shape="rect" id="Node000001" title=" " alt="" coords="845,187,1056,212"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#a585459763f2c7610e57de2dd22dd1ad8" title=" " alt="" coords="576,129,797,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="878,186,745,157,746,152,879,181"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1ReusableStringStream.html#a9b3f8c52b0d2d63ffd825297a9c09781" title=" " alt="" coords="581,179,793,219"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="832,202,793,202,793,197,832,197"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1ReusableStringStream.html#aba9384e258a4db3178447b6a58414712" title=" " alt="" coords="581,243,793,283"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="884,218,771,246,769,241,883,213"/>
+<area shape="rect" id="Node000003" href="$structCatch_1_1AutoReg.html#a55b55f307b619aaee06f1ceb20660c08" title=" " alt="" coords="307,5,492,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="658,123,600,82,564,62,527,44,491,33,492,28,529,40,567,57,603,78,661,119"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch_1_1Detail.html#aae9b0608769b42ff7bbd07687348c7e5" title="Actually registers the factory, independent on listener&#39;s concrete type." alt="" coords="277,55,522,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="636,127,527,94,476,83,477,77,529,89,638,122"/>
+<area shape="rect" id="Node000005" href="$namespaceCatch_1_1Detail.html#af8703a4eaf12133aa02a50dee831f2bc" title=" " alt="" coords="275,104,524,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="562,134,524,130,524,125,562,128"/>
+<area shape="rect" id="Node000006" href="$namespaceCatch_1_1Detail.html#a60f033a91680546a152f5dfa4427104c" title=" " alt="" coords="271,153,528,179"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="562,155,529,158,528,153,562,150"/>
+<area shape="rect" id="Node000008" href="$structCatch_1_1RegistrarForTagAliases.html#ae4e45830e4763bcd65d55d8db9167b69" title=" " alt="" coords="292,203,507,243"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="608,161,577,170,529,192,487,206,485,201,527,188,575,165,606,156"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1Session.html#a4564992e2b028770e38a1dcc6fff8b34" title=" " alt="" coords="312,268,487,293"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="588,163,578,169,561,190,555,212,548,235,530,257,510,269,488,277,486,272,507,264,526,253,543,233,550,211,556,188,574,165,585,158"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1ExceptionTranslatorRegistrar.html#a641142ed5d0f3c6608f496a9b9c4b38b" title=" " alt="" coords="5,139,223,193"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="257,169,223,169,223,163,257,163"/>
+</map>

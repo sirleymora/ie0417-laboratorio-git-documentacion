@@ -1,0 +1,114 @@
+\doxysection{Catch\+::Xml\+Encode Class Reference}
+\hypertarget{classCatch_1_1XmlEncode}{}\label{classCatch_1_1XmlEncode}\index{Catch::XmlEncode@{Catch::XmlEncode}}
+
+
+{\ttfamily \#include $<$catch\+\_\+xmlwriter.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7a}{For\+What}} \{ \mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aafebf4db23809cd7925a3bdaaa4249de1}{For\+Text\+Nodes}}
+, \mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aa3cdd995cc66ae405a4793a98db186005}{For\+Attributes}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \mbox{\hyperlink{classCatch_1_1XmlEncode_ad9eb2aefc857d79c2cf919c080fcee37}{Xml\+Encode}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} str \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7a}{For\+What}} for\+What=\mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aafebf4db23809cd7925a3bdaaa4249de1}{For\+Text\+Nodes}})
+\item 
+void \mbox{\hyperlink{classCatch_1_1XmlEncode_a030fe9de7193fcdbdc06ade38f0113ce}{encode\+To}} (std\+::ostream \&os) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classCatch_1_1XmlEncode_a6c7a42b7cf01392f7e3d856cb72d4131}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classCatch_1_1XmlEncode}{Xml\+Encode}} const \&xml\+Encode)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper for XML-\/encoding text (escaping angle brackets, quotes, etc)
+
+Note\+: doesn\textquotesingle{}t take ownership of passed strings, and thus the encoded string must outlive the encoding instance. 
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{catch__xmlwriter_8hpp_source}{catch\+\_\+xmlwriter.\+hpp}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7a}\label{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7a} 
+\index{Catch::XmlEncode@{Catch::XmlEncode}!ForWhat@{ForWhat}}
+\index{ForWhat@{ForWhat}!Catch::XmlEncode@{Catch::XmlEncode}}
+\doxysubsubsection{\texorpdfstring{ForWhat}{ForWhat}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7a}{Catch\+::\+Xml\+Encode\+::\+For\+What}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ForTextNodes@{ForTextNodes}!Catch::XmlEncode@{Catch::XmlEncode}}\index{Catch::XmlEncode@{Catch::XmlEncode}!ForTextNodes@{ForTextNodes}}}\Hypertarget{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aafebf4db23809cd7925a3bdaaa4249de1}\label{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aafebf4db23809cd7925a3bdaaa4249de1} 
+For\+Text\+Nodes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ForAttributes@{ForAttributes}!Catch::XmlEncode@{Catch::XmlEncode}}\index{Catch::XmlEncode@{Catch::XmlEncode}!ForAttributes@{ForAttributes}}}\Hypertarget{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aa3cdd995cc66ae405a4793a98db186005}\label{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aa3cdd995cc66ae405a4793a98db186005} 
+For\+Attributes&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{catch__xmlwriter_8hpp_source}{catch\+\_\+xmlwriter.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1XmlEncode_ad9eb2aefc857d79c2cf919c080fcee37}\label{classCatch_1_1XmlEncode_ad9eb2aefc857d79c2cf919c080fcee37} 
+\index{Catch::XmlEncode@{Catch::XmlEncode}!XmlEncode@{XmlEncode}}
+\index{XmlEncode@{XmlEncode}!Catch::XmlEncode@{Catch::XmlEncode}}
+\doxysubsubsection{\texorpdfstring{XmlEncode()}{XmlEncode()}}
+{\footnotesize\ttfamily constexpr Catch\+::\+Xml\+Encode\+::\+Xml\+Encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} str}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{\mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7a}{For\+What}}}]{for\+What = {\ttfamily \mbox{\hyperlink{classCatch_1_1XmlEncode_a81ed50fe458d1aae3481781b4d599b7aafebf4db23809cd7925a3bdaaa4249de1}{For\+Text\+Nodes}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{catch__xmlwriter_8hpp_source}{catch\+\_\+xmlwriter.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1XmlEncode_a030fe9de7193fcdbdc06ade38f0113ce}\label{classCatch_1_1XmlEncode_a030fe9de7193fcdbdc06ade38f0113ce} 
+\index{Catch::XmlEncode@{Catch::XmlEncode}!encodeTo@{encodeTo}}
+\index{encodeTo@{encodeTo}!Catch::XmlEncode@{Catch::XmlEncode}}
+\doxysubsubsection{\texorpdfstring{encodeTo()}{encodeTo()}}
+{\footnotesize\ttfamily void Catch\+::\+Xml\+Encode\+::encode\+To (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{catch__xmlwriter_8cpp_source}{catch\+\_\+xmlwriter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__xmlwriter_8hpp_source_l00045}{For\+Attributes}}, \mbox{\hyperlink{catch__stringref_8hpp_source_l00078}{Catch\+::\+String\+Ref\+::size()}}, \mbox{\hyperlink{catch__stringref_8hpp_source_l00085}{Catch\+::\+String\+Ref\+::substr()}}, and \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1XmlEncode_a030fe9de7193fcdbdc06ade38f0113ce_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classCatch_1_1XmlEncode_a6c7a42b7cf01392f7e3d856cb72d4131}\label{classCatch_1_1XmlEncode_a6c7a42b7cf01392f7e3d856cb72d4131} 
+\index{Catch::XmlEncode@{Catch::XmlEncode}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Catch::XmlEncode@{Catch::XmlEncode}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classCatch_1_1XmlEncode}{Xml\+Encode}} const \&}]{xml\+Encode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00176}{176}} of file \mbox{\hyperlink{catch__xmlwriter_8cpp_source}{catch\+\_\+xmlwriter.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__xmlwriter_8hpp}{catch\+\_\+xmlwriter.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__xmlwriter_8cpp}{catch\+\_\+xmlwriter.\+cpp}}\end{DoxyCompactItemize}

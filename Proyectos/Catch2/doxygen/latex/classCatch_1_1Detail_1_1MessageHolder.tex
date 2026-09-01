@@ -1,0 +1,227 @@
+\doxysection{Catch\+::Detail\+::Message\+Holder Class Reference}
+\hypertarget{classCatch_1_1Detail_1_1MessageHolder}{}\label{classCatch_1_1Detail_1_1MessageHolder}\index{Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a19c3c19cf82681b5461689a38f844c10}{\texorpdfstring{$\sim$}{\string~}\+Message\+Holder}} ()=default
+\item 
+void \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a6217c5ee14a41e1b247104101eb85add}{add\+Unscoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} \&\&info)
+\item 
+void \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_ae01b37940d2dcd4e4f2c5473de021fa3}{add\+Unscoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageBuilder}{Message\+Builder}} \&\&builder)
+\item 
+void \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a9e00b902f2a7f26a2a2b24b0e83cbecb}{add\+Scoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} \&\&info)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} $>$ const \& \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_aeb1ba63432d547fd300b5ec0b0bd4734}{get\+Messages}} () const
+\item 
+void \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_abc07f7bba276f6f5be2160be3b1619e6}{remove\+Message}} (unsigned int message\+Id)
+\item 
+void \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_ac23eeaa65edbed468e48e0535d044818}{remove\+Unscoped\+Messages}} ()
+\item 
+void \mbox{\hyperlink{classCatch_1_1Detail_1_1MessageHolder_a4e99820ff7bbeb29acdbdbdd98adf761}{repair\+Unscoped\+Message\+Invariant}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00242}{242}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1Detail_1_1MessageHolder_a19c3c19cf82681b5461689a38f844c10}\label{classCatch_1_1Detail_1_1MessageHolder_a19c3c19cf82681b5461689a38f844c10} 
+\index{Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}!````~MessageHolder@{\texorpdfstring{$\sim$}{\string~}MessageHolder}}
+\index{````~MessageHolder@{\texorpdfstring{$\sim$}{\string~}MessageHolder}!Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MessageHolder()}{\string~MessageHolder()}}
+{\footnotesize\ttfamily Catch\+::\+Detail\+::\+Message\+Holder\+::\texorpdfstring{$\sim$}{\string~}\+Message\+Holder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1Detail_1_1MessageHolder_a9e00b902f2a7f26a2a2b24b0e83cbecb}\label{classCatch_1_1Detail_1_1MessageHolder_a9e00b902f2a7f26a2a2b24b0e83cbecb} 
+\index{Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}!addScopedMessage@{addScopedMessage}}
+\index{addScopedMessage@{addScopedMessage}!Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}}
+\doxysubsubsection{\texorpdfstring{addScopedMessage()}{addScopedMessage()}}
+{\footnotesize\ttfamily void Catch\+::\+Detail\+::\+Message\+Holder\+::add\+Scoped\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} \&\&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00266}{266}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__run__context_8cpp_source_l00315}{Catch\+::\+Detail\+::push\+Scoped\+Message()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Detail_1_1MessageHolder_a9e00b902f2a7f26a2a2b24b0e83cbecb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Detail_1_1MessageHolder_ae01b37940d2dcd4e4f2c5473de021fa3}\label{classCatch_1_1Detail_1_1MessageHolder_ae01b37940d2dcd4e4f2c5473de021fa3} 
+\index{Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}!addUnscopedMessage@{addUnscopedMessage}}
+\index{addUnscopedMessage@{addUnscopedMessage}!Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}}
+\doxysubsubsection{\texorpdfstring{addUnscopedMessage()}{addUnscopedMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Catch\+::\+Detail\+::\+Message\+Holder\+::add\+Unscoped\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1MessageBuilder}{Message\+Builder}} \&\&}]{builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00260}{260}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__run__context_8cpp_source_l00254}{add\+Unscoped\+Message()}}, \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{catch__message__info_8hpp_source_l00026}{Catch\+::\+Message\+Info\+::message}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Detail_1_1MessageHolder_ae01b37940d2dcd4e4f2c5473de021fa3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Detail_1_1MessageHolder_a6217c5ee14a41e1b247104101eb85add}\label{classCatch_1_1Detail_1_1MessageHolder_a6217c5ee14a41e1b247104101eb85add} 
+\index{Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}!addUnscopedMessage@{addUnscopedMessage}}
+\index{addUnscopedMessage@{addUnscopedMessage}!Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}}
+\doxysubsubsection{\texorpdfstring{addUnscopedMessage()}{addUnscopedMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Catch\+::\+Detail\+::\+Message\+Holder\+::add\+Unscoped\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} \&\&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00254}{254}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{catch__run__context_8cpp_source_l00300}{repair\+Unscoped\+Message\+Invariant()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__run__context_8cpp_source_l00260}{add\+Unscoped\+Message()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Detail_1_1MessageHolder_a6217c5ee14a41e1b247104101eb85add_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Detail_1_1MessageHolder_a6217c5ee14a41e1b247104101eb85add_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Detail_1_1MessageHolder_aeb1ba63432d547fd300b5ec0b0bd4734}\label{classCatch_1_1Detail_1_1MessageHolder_aeb1ba63432d547fd300b5ec0b0bd4734} 
+\index{Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}!getMessages@{getMessages}}
+\index{getMessages@{getMessages}!Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}}
+\doxysubsubsection{\texorpdfstring{getMessages()}{getMessages()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1MessageInfo}{Message\+Info}} $>$ const  \& Catch\+::\+Detail\+::\+Message\+Holder\+::get\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00270}{270}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+\Hypertarget{classCatch_1_1Detail_1_1MessageHolder_abc07f7bba276f6f5be2160be3b1619e6}\label{classCatch_1_1Detail_1_1MessageHolder_abc07f7bba276f6f5be2160be3b1619e6} 
+\index{Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}!removeMessage@{removeMessage}}
+\index{removeMessage@{removeMessage}!Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}}
+\doxysubsubsection{\texorpdfstring{removeMessage()}{removeMessage()}}
+{\footnotesize\ttfamily void Catch\+::\+Detail\+::\+Message\+Holder\+::remove\+Message (\begin{DoxyParamCaption}\item[{unsigned int}]{message\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00274}{274}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__run__context_8cpp_source_l00292}{remove\+Unscoped\+Messages()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Detail_1_1MessageHolder_abc07f7bba276f6f5be2160be3b1619e6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Detail_1_1MessageHolder_ac23eeaa65edbed468e48e0535d044818}\label{classCatch_1_1Detail_1_1MessageHolder_ac23eeaa65edbed468e48e0535d044818} 
+\index{Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}!removeUnscopedMessages@{removeUnscopedMessages}}
+\index{removeUnscopedMessages@{removeUnscopedMessages}!Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}}
+\doxysubsubsection{\texorpdfstring{removeUnscopedMessages()}{removeUnscopedMessages()}}
+{\footnotesize\ttfamily void Catch\+::\+Detail\+::\+Message\+Holder\+::remove\+Unscoped\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00292}{292}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__run__context_8cpp_source_l00274}{remove\+Message()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__run__context_8cpp_source_l00300}{repair\+Unscoped\+Message\+Invariant()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Detail_1_1MessageHolder_ac23eeaa65edbed468e48e0535d044818_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Detail_1_1MessageHolder_ac23eeaa65edbed468e48e0535d044818_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Detail_1_1MessageHolder_a4e99820ff7bbeb29acdbdbdd98adf761}\label{classCatch_1_1Detail_1_1MessageHolder_a4e99820ff7bbeb29acdbdbdd98adf761} 
+\index{Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}!repairUnscopedMessageInvariant@{repairUnscopedMessageInvariant}}
+\index{repairUnscopedMessageInvariant@{repairUnscopedMessageInvariant}!Catch::Detail::MessageHolder@{Catch::Detail::MessageHolder}}
+\doxysubsubsection{\texorpdfstring{repairUnscopedMessageInvariant()}{repairUnscopedMessageInvariant()}}
+{\footnotesize\ttfamily void Catch\+::\+Detail\+::\+Message\+Holder\+::repair\+Unscoped\+Message\+Invariant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00300}{300}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__run__context_8cpp_source_l00292}{remove\+Unscoped\+Messages()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__run__context_8cpp_source_l00254}{add\+Unscoped\+Message()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Detail_1_1MessageHolder_a4e99820ff7bbeb29acdbdbdd98adf761_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Detail_1_1MessageHolder_a4e99820ff7bbeb29acdbdbdd98adf761_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__run__context_8cpp}{catch\+\_\+run\+\_\+context.\+cpp}}\end{DoxyCompactItemize}

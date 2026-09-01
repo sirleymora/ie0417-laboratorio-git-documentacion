@@ -1,0 +1,11 @@
+<map id="Catch::StringMaker&lt; char * &gt;::convert" name="Catch::StringMaker&lt; char * &gt;::convert">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,153,63"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#a23bdcac0ef138b222c3747e2af979e9a" title="Encases `string in quotes, and optionally escapes invisibles." alt="" coords="201,23,389,63"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,41,188,41,188,46,153,46"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Detail.html#a55994724b37be409ad8185ee738a0781" title=" " alt="" coords="455,5,595,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="389,30,441,25,441,30,390,36"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1StringRef.html#aabf71767dfce1066e721456d54972bc5" title=" " alt="" coords="437,55,612,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="390,51,424,54,424,59,389,56"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1StringRef.html#a611907867225695d38198c058758c92d" title=" " alt="" coords="660,55,855,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="612,65,647,65,647,70,612,70"/>
+</map>

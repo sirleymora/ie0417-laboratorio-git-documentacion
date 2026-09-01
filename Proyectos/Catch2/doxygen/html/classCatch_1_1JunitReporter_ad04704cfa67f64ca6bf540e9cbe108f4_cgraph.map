@@ -1,0 +1,5 @@
+<map id="Catch::JunitReporter::testCaseEnded" name="Catch::JunitReporter::testCaseEnded">
+<area shape="rect" id="Node000001" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="5,5,157,45"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1CumulativeReporterBase.html#a71d47761bf73926e3eabcf50f4edb20e" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="205,5,404,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,23,192,23,192,28,157,28"/>
+</map>

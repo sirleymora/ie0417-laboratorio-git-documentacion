@@ -1,0 +1,165 @@
+\doxysection{Catch\+::Xml\+Writer\+::Scoped\+Element Class Reference}
+\hypertarget{classCatch_1_1XmlWriter_1_1ScopedElement}{}\label{classCatch_1_1XmlWriter_1_1ScopedElement}\index{Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}}
+
+
+{\ttfamily \#include $<$catch\+\_\+xmlwriter.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a10d8b9a97d73a26966b5878210a66890}{Scoped\+Element}} (\mbox{\hyperlink{classCatch_1_1XmlWriter}{Xml\+Writer}} \texorpdfstring{$\ast$}{*}writer \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{Xml\+Formatting}} fmt)
+\item 
+\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_af5889da2d2736614969a5e02686cd54a}{Scoped\+Element}} (\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Scoped\+Element}} \&\&other) noexcept
+\item 
+\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Scoped\+Element}} \& \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a3f38213b2de1e2e46130cd8d26d37ac7}{operator=}} (\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Scoped\+Element}} \&\&other) noexcept
+\item 
+\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a2b5d2b7ba641383c79675d1867789d8b}{\texorpdfstring{$\sim$}{\string~}\+Scoped\+Element}} ()
+\item 
+\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Scoped\+Element}} \& \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e}{write\+Text}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} text, \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{Xml\+Formatting}} fmt=\mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da755fee300780823fcf4df98383331745}{Xml\+Formatting\+::\+Newline}}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da497470e76a40fc53e14c0df9b4e4ec9f}{Xml\+Formatting\+::\+Indent}})
+\item 
+\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Scoped\+Element}} \& \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df}{write\+Attribute}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} name, \mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} attribute)
+\item 
+{\footnotesize template$<$typename T , typename  = typename std\+::enable\+\_\+if\+\_\+t$<$                          !std\+::is\+\_\+convertible$<$\+T, String\+Ref$>$\+::value$>$$>$ }\\\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Scoped\+Element}} \& \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement_a23311e93da810b1e57f5e02827c737f1}{write\+Attribute}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} name, T const \&attribute)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{catch__xmlwriter_8hpp_source}{catch\+\_\+xmlwriter.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1XmlWriter_1_1ScopedElement_a10d8b9a97d73a26966b5878210a66890}\label{classCatch_1_1XmlWriter_1_1ScopedElement_a10d8b9a97d73a26966b5878210a66890} 
+\index{Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}!ScopedElement@{ScopedElement}}
+\index{ScopedElement@{ScopedElement}!Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}}
+\doxysubsubsection{\texorpdfstring{ScopedElement()}{ScopedElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Catch\+::\+Xml\+Writer\+::\+Scoped\+Element\+::\+Scoped\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1XmlWriter}{Xml\+Writer}} \texorpdfstring{$\ast$}{*}writer}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{\mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{Xml\+Formatting}}}]{fmt }\end{DoxyParamCaption})}
+
+\Hypertarget{classCatch_1_1XmlWriter_1_1ScopedElement_af5889da2d2736614969a5e02686cd54a}\label{classCatch_1_1XmlWriter_1_1ScopedElement_af5889da2d2736614969a5e02686cd54a} 
+\index{Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}!ScopedElement@{ScopedElement}}
+\index{ScopedElement@{ScopedElement}!Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}}
+\doxysubsubsection{\texorpdfstring{ScopedElement()}{ScopedElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Catch\+::\+Xml\+Writer\+::\+Scoped\+Element\+::\+Scoped\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Scoped\+Element}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00186}{186}} of file \mbox{\hyperlink{catch__xmlwriter_8cpp_source}{catch\+\_\+xmlwriter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da6adf97f83acf6453d4a6a4b1070f3754}{Catch\+::\+None}}.
+
+\Hypertarget{classCatch_1_1XmlWriter_1_1ScopedElement_a2b5d2b7ba641383c79675d1867789d8b}\label{classCatch_1_1XmlWriter_1_1ScopedElement_a2b5d2b7ba641383c79675d1867789d8b} 
+\index{Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}!````~ScopedElement@{\texorpdfstring{$\sim$}{\string~}ScopedElement}}
+\index{````~ScopedElement@{\texorpdfstring{$\sim$}{\string~}ScopedElement}!Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ScopedElement()}{\string~ScopedElement()}}
+{\footnotesize\ttfamily Catch\+::\+Xml\+Writer\+::\+Scoped\+Element\+::\texorpdfstring{$\sim$}{\string~}\+Scoped\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00205}{205}} of file \mbox{\hyperlink{catch__xmlwriter_8cpp_source}{catch\+\_\+xmlwriter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00257}{Catch\+::\+Xml\+Writer\+::end\+Element()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1XmlWriter_1_1ScopedElement_a2b5d2b7ba641383c79675d1867789d8b_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1XmlWriter_1_1ScopedElement_a3f38213b2de1e2e46130cd8d26d37ac7}\label{classCatch_1_1XmlWriter_1_1ScopedElement_a3f38213b2de1e2e46130cd8d26d37ac7} 
+\index{Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}!operator=@{operator=}}
+\index{operator=@{operator=}!Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Xml\+Writer\+::\+Scoped\+Element}} \& Catch\+::\+Xml\+Writer\+::\+Scoped\+Element\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Scoped\+Element}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00193}{193}} of file \mbox{\hyperlink{catch__xmlwriter_8cpp_source}{catch\+\_\+xmlwriter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da6adf97f83acf6453d4a6a4b1070f3754}{Catch\+::\+None}}.
+
+\Hypertarget{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df}\label{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df} 
+\index{Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}!writeAttribute@{writeAttribute}}
+\index{writeAttribute@{writeAttribute}!Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}}
+\doxysubsubsection{\texorpdfstring{writeAttribute()}{writeAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Xml\+Writer\+::\+Scoped\+Element}} \& Catch\+::\+Xml\+Writer\+::\+Scoped\+Element\+::write\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{name,  }\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{attribute }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00218}{218}} of file \mbox{\hyperlink{catch__xmlwriter_8cpp_source}{catch\+\_\+xmlwriter.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00235}{Catch\+::\+Xml\+Reporter\+::benchmark\+Ended()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00172}{Catch\+::\+Xml\+Reporter\+::section\+Ended()}}, \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00190}{Catch\+::\+Xml\+Reporter\+::test\+Case\+Ended()}}, and \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00206}{Catch\+::\+Xml\+Reporter\+::test\+Run\+Ended()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1XmlWriter_1_1ScopedElement_a757b12b7a24819fb8b73871665c706df_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1XmlWriter_1_1ScopedElement_a23311e93da810b1e57f5e02827c737f1}\label{classCatch_1_1XmlWriter_1_1ScopedElement_a23311e93da810b1e57f5e02827c737f1} 
+\index{Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}!writeAttribute@{writeAttribute}}
+\index{writeAttribute@{writeAttribute}!Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}}
+\doxysubsubsection{\texorpdfstring{writeAttribute()}{writeAttribute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename  = typename std\+::enable\+\_\+if\+\_\+t$<$                          !std\+::is\+\_\+convertible$<$\+T, String\+Ref$>$\+::value$>$$>$ \\
+\mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Scoped\+Element}} \& Catch\+::\+Xml\+Writer\+::\+Scoped\+Element\+::write\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{name,  }\item[{T const \&}]{attribute }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8hpp_source_l00086}{86}} of file \mbox{\hyperlink{catch__xmlwriter_8hpp_source}{catch\+\_\+xmlwriter.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00276}{Catch\+::\+Xml\+Writer\+::write\+Attribute()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1XmlWriter_1_1ScopedElement_a23311e93da810b1e57f5e02827c737f1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e}\label{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e} 
+\index{Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}!writeText@{writeText}}
+\index{writeText@{writeText}!Catch::XmlWriter::ScopedElement@{Catch::XmlWriter::ScopedElement}}
+\doxysubsubsection{\texorpdfstring{writeText()}{writeText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1XmlWriter_1_1ScopedElement}{Xml\+Writer\+::\+Scoped\+Element}} \& Catch\+::\+Xml\+Writer\+::\+Scoped\+Element\+::write\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{text,  }\item[{\mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70d}{Xml\+Formatting}}}]{fmt = {\ttfamily \mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da755fee300780823fcf4df98383331745}{Xml\+Formatting\+::\+Newline}}~\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{namespaceCatch_ab344f54858302ff5105186e5ddf4a70da497470e76a40fc53e14c0df9b4e4ec9f}{Xml\+Formatting\+::\+Indent}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__xmlwriter_8cpp_source_l00212}{212}} of file \mbox{\hyperlink{catch__xmlwriter_8cpp_source}{catch\+\_\+xmlwriter.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00090}{Catch\+::\+Xml\+Reporter\+::assertion\+Ended()}}, and \mbox{\hyperlink{catch__reporter__xml_8cpp_source_l00190}{Catch\+::\+Xml\+Reporter\+::test\+Case\+Ended()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1XmlWriter_1_1ScopedElement_ab84a69b37b367574549802f3c7972b6e_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__xmlwriter_8hpp}{catch\+\_\+xmlwriter.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__xmlwriter_8cpp}{catch\+\_\+xmlwriter.\+cpp}}\end{DoxyCompactItemize}

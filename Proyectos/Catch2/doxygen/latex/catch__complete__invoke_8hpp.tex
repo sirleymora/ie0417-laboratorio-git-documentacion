@@ -1,0 +1,54 @@
+\doxysection{src/catch2/benchmark/detail/catch\+\_\+complete\+\_\+invoke.hpp File Reference}
+\hypertarget{catch__complete__invoke_8hpp}{}\label{catch__complete__invoke_8hpp}\index{src/catch2/benchmark/detail/catch\_complete\_invoke.hpp@{src/catch2/benchmark/detail/catch\_complete\_invoke.hpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+meta.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+Include dependency graph for catch\+\_\+complete\+\_\+invoke.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__complete__invoke_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__complete__invoke_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1CompleteType}{Catch\+::\+Benchmark\+::\+Detail\+::\+Complete\+Type$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1CompleteType_3_01void_01_4}{Catch\+::\+Benchmark\+::\+Detail\+::\+Complete\+Type$<$ void $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1CompleteType_3_01void_01_4_1_1type}{Catch\+::\+Benchmark\+::\+Detail\+::\+Complete\+Type$<$ void $>$\+::type}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1CompleteInvoker}{Catch\+::\+Benchmark\+::\+Detail\+::\+Complete\+Invoker$<$ Result $>$}}
+\item 
+struct \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1CompleteInvoker_3_01void_01_4}{Catch\+::\+Benchmark\+::\+Detail\+::\+Complete\+Invoker$<$ void $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Benchmark}{Catch\+::\+Benchmark}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail}{Catch\+::\+Benchmark\+::\+Detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{typename}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}} $>$ }\\\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{using}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_ae936589b4afb12589ac7efdd3579c81b}{Catch\+::\+Benchmark\+::\+Detail\+::\+Complete\+Type\+\_\+t}} = \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{typename}} \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1CompleteType}{Complete\+Type}}$<$ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{T}} $>$\+::type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{typename}} \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{Fun}} , typename... Args$>$ }\\\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_ae936589b4afb12589ac7efdd3579c81b}{Complete\+Type\+\_\+t}}$<$ \mbox{\hyperlink{namespaceCatch_a43e855db587c6bb81dc9208cccc9a6e9}{Function\+Return\+Type}}$<$ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{Fun}}, Args... $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_abe0ffc409d126e1e7f4573c16abcbf84}{Catch\+::\+Benchmark\+::\+Detail\+::complete\+\_\+invoke}} (\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{Fun}} \&\&fun, Args \&\&... \mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_adb6f098507d08daee7e92c9ab12dab09}{args}})
+\item 
+{\footnotesize template$<$typename Fun $>$ }\\\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_ae936589b4afb12589ac7efdd3579c81b}{Detail\+::\+Complete\+Type\+\_\+t}}$<$ \mbox{\hyperlink{namespaceCatch_a43e855db587c6bb81dc9208cccc9a6e9}{Function\+Return\+Type}}$<$ Fun $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_ab10cc5a63e65cd55178d7f1473da9f04}{Catch\+::\+Benchmark\+::user\+\_\+code}} (Fun \&\&fun)
+\end{DoxyCompactItemize}

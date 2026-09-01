@@ -1,0 +1,155 @@
+\doxysection{Catch\+::Output\+Redirect Class Reference}
+\hypertarget{classCatch_1_1OutputRedirect}{}\label{classCatch_1_1OutputRedirect}\index{Catch::OutputRedirect@{Catch::OutputRedirect}}
+
+
+{\ttfamily \#include $<$catch\+\_\+output\+\_\+redirect.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acc}{Kind}} \{ \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214accaa27697ba76452ee6f2f9bb06f7ed1b4c}{None}}
+, \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca78158060db409a0b622a79e48452e695}{Streams}}
+, \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca7f43d39e41a74e8176ff961cd7ceb61e}{File\+Descriptors}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1OutputRedirect_a3939e700b924632256bb00d18d040d38}{\texorpdfstring{$\sim$}{\string~}\+Output\+Redirect}} ()
+\item 
+virtual std\+::string \mbox{\hyperlink{classCatch_1_1OutputRedirect_abcf121998b31ab0c4b9c63d67e4ca367}{get\+Stdout}} ()=0
+\item 
+virtual std\+::string \mbox{\hyperlink{classCatch_1_1OutputRedirect_a0876af35fa944085ced1a3c5ecd44edd}{get\+Stderr}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classCatch_1_1OutputRedirect_abba69edeb694090f83e70d15ff456232}{clear\+Buffers}} ()=0
+\item 
+bool \mbox{\hyperlink{classCatch_1_1OutputRedirect_a9a5a1a582183f9866d78a875a673feb9}{is\+Active}} () const
+\item 
+void \mbox{\hyperlink{classCatch_1_1OutputRedirect_a4673969e3b9732fbbf01f138ad9bc449}{activate}} ()
+\item 
+void \mbox{\hyperlink{classCatch_1_1OutputRedirect_a4a162615185e5fc18e18f50bfe59c797}{deactivate}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__output__redirect_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{catch__output__redirect_8hpp_source}{catch\+\_\+output\+\_\+redirect.\+hpp}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acc}\label{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acc} 
+\index{Catch::OutputRedirect@{Catch::OutputRedirect}!Kind@{Kind}}
+\index{Kind@{Kind}!Catch::OutputRedirect@{Catch::OutputRedirect}}
+\doxysubsubsection{\texorpdfstring{Kind}{Kind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acc}{Catch\+::\+Output\+Redirect\+::\+Kind}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!Catch::OutputRedirect@{Catch::OutputRedirect}}\index{Catch::OutputRedirect@{Catch::OutputRedirect}!None@{None}}}\Hypertarget{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214accaa27697ba76452ee6f2f9bb06f7ed1b4c}\label{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214accaa27697ba76452ee6f2f9bb06f7ed1b4c} 
+None&No redirect (noop implementation) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Streams@{Streams}!Catch::OutputRedirect@{Catch::OutputRedirect}}\index{Catch::OutputRedirect@{Catch::OutputRedirect}!Streams@{Streams}}}\Hypertarget{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca78158060db409a0b622a79e48452e695}\label{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca78158060db409a0b622a79e48452e695} 
+Streams&Redirect std\+::cout/std\doxylink{namespaceCatch_a54c1ce08041448d684ae8edc14162cd2}{cerr}/std\doxylink{namespaceCatch_a1b2213f54e4d31a659db49827e81856b}{clog} streams internally. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FileDescriptors@{FileDescriptors}!Catch::OutputRedirect@{Catch::OutputRedirect}}\index{Catch::OutputRedirect@{Catch::OutputRedirect}!FileDescriptors@{FileDescriptors}}}\Hypertarget{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca7f43d39e41a74e8176ff961cd7ceb61e}\label{classCatch_1_1OutputRedirect_aaadeb7f106a66c1a83a5881379214acca7f43d39e41a74e8176ff961cd7ceb61e} 
+File\+Descriptors&Redirect the stdout/stderr file descriptors into files. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{catch__output__redirect_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{catch__output__redirect_8hpp_source}{catch\+\_\+output\+\_\+redirect.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1OutputRedirect_a3939e700b924632256bb00d18d040d38}\label{classCatch_1_1OutputRedirect_a3939e700b924632256bb00d18d040d38} 
+\index{Catch::OutputRedirect@{Catch::OutputRedirect}!````~OutputRedirect@{\texorpdfstring{$\sim$}{\string~}OutputRedirect}}
+\index{````~OutputRedirect@{\texorpdfstring{$\sim$}{\string~}OutputRedirect}!Catch::OutputRedirect@{Catch::OutputRedirect}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}OutputRedirect()}{\string~OutputRedirect()}}
+{\footnotesize\ttfamily Catch\+::\+Output\+Redirect\+::\texorpdfstring{$\sim$}{\string~}\+Output\+Redirect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1OutputRedirect_a4673969e3b9732fbbf01f138ad9bc449}\label{classCatch_1_1OutputRedirect_a4673969e3b9732fbbf01f138ad9bc449} 
+\index{Catch::OutputRedirect@{Catch::OutputRedirect}!activate@{activate}}
+\index{activate@{activate}!Catch::OutputRedirect@{Catch::OutputRedirect}}
+\doxysubsubsection{\texorpdfstring{activate()}{activate()}}
+{\footnotesize\ttfamily void Catch\+::\+Output\+Redirect\+::activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__output__redirect_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{catch__output__redirect_8hpp_source}{catch\+\_\+output\+\_\+redirect.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00287}{Catch\+::\+Redirect\+Guard\+::\+Redirect\+Guard()}}, and \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00302}{Catch\+::\+Redirect\+Guard\+::\texorpdfstring{$\sim$}{\string~}\+Redirect\+Guard()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1OutputRedirect_a4673969e3b9732fbbf01f138ad9bc449_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1OutputRedirect_abba69edeb694090f83e70d15ff456232}\label{classCatch_1_1OutputRedirect_abba69edeb694090f83e70d15ff456232} 
+\index{Catch::OutputRedirect@{Catch::OutputRedirect}!clearBuffers@{clearBuffers}}
+\index{clearBuffers@{clearBuffers}!Catch::OutputRedirect@{Catch::OutputRedirect}}
+\doxysubsubsection{\texorpdfstring{clearBuffers()}{clearBuffers()}}
+{\footnotesize\ttfamily virtual void Catch\+::\+Output\+Redirect\+::clear\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classCatch_1_1OutputRedirect_a4a162615185e5fc18e18f50bfe59c797}\label{classCatch_1_1OutputRedirect_a4a162615185e5fc18e18f50bfe59c797} 
+\index{Catch::OutputRedirect@{Catch::OutputRedirect}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Catch::OutputRedirect@{Catch::OutputRedirect}}
+\doxysubsubsection{\texorpdfstring{deactivate()}{deactivate()}}
+{\footnotesize\ttfamily void Catch\+::\+Output\+Redirect\+::deactivate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__output__redirect_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{catch__output__redirect_8hpp_source}{catch\+\_\+output\+\_\+redirect.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00287}{Catch\+::\+Redirect\+Guard\+::\+Redirect\+Guard()}}, and \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00302}{Catch\+::\+Redirect\+Guard\+::\texorpdfstring{$\sim$}{\string~}\+Redirect\+Guard()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1OutputRedirect_a4a162615185e5fc18e18f50bfe59c797_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1OutputRedirect_a0876af35fa944085ced1a3c5ecd44edd}\label{classCatch_1_1OutputRedirect_a0876af35fa944085ced1a3c5ecd44edd} 
+\index{Catch::OutputRedirect@{Catch::OutputRedirect}!getStderr@{getStderr}}
+\index{getStderr@{getStderr}!Catch::OutputRedirect@{Catch::OutputRedirect}}
+\doxysubsubsection{\texorpdfstring{getStderr()}{getStderr()}}
+{\footnotesize\ttfamily virtual std\+::string Catch\+::\+Output\+Redirect\+::get\+Stderr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classCatch_1_1OutputRedirect_abcf121998b31ab0c4b9c63d67e4ca367}\label{classCatch_1_1OutputRedirect_abcf121998b31ab0c4b9c63d67e4ca367} 
+\index{Catch::OutputRedirect@{Catch::OutputRedirect}!getStdout@{getStdout}}
+\index{getStdout@{getStdout}!Catch::OutputRedirect@{Catch::OutputRedirect}}
+\doxysubsubsection{\texorpdfstring{getStdout()}{getStdout()}}
+{\footnotesize\ttfamily virtual std\+::string Catch\+::\+Output\+Redirect\+::get\+Stdout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classCatch_1_1OutputRedirect_a9a5a1a582183f9866d78a875a673feb9}\label{classCatch_1_1OutputRedirect_a9a5a1a582183f9866d78a875a673feb9} 
+\index{Catch::OutputRedirect@{Catch::OutputRedirect}!isActive@{isActive}}
+\index{isActive@{isActive}!Catch::OutputRedirect@{Catch::OutputRedirect}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily bool Catch\+::\+Output\+Redirect\+::is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__output__redirect_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{catch__output__redirect_8hpp_source}{catch\+\_\+output\+\_\+redirect.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__output__redirect_8hpp}{catch\+\_\+output\+\_\+redirect.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__output__redirect_8cpp}{catch\+\_\+output\+\_\+redirect.\+cpp}}\end{DoxyCompactItemize}

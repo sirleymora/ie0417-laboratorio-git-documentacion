@@ -1,0 +1,28 @@
+<map id="src/catch2/internal/catch_xmlwriter.hpp" name="src/catch2/internal/catch_xmlwriter.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="393,5,552,45"/>
+<area shape="rect" id="Node000002" href="$catch__all_8hpp.html" title=" " alt="" coords="86,269,264,295"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="379,35,320,42,255,54,188,72,124,96,87,113,58,128,35,149,15,182,8,202,15,220,29,236,47,249,89,267,87,272,45,254,26,240,10,223,3,202,10,180,31,146,55,124,84,108,122,91,186,66,254,49,320,37,379,30"/>
+<area shape="rect" id="Node000003" href="$catch__xmlwriter_8cpp.html" title=" " alt="" coords="795,93,952,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="566,44,795,93,794,98,565,49"/>
+<area shape="rect" id="Node000004" href="$catch__reporter__junit_8hpp.html" title=" " alt="" coords="587,93,771,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="531,48,635,91,633,96,529,53"/>
+<area shape="rect" id="Node000008" href="$catch__reporter__sonarqube_8hpp.html" title=" " alt="" coords="136,93,358,133"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="411,53,297,96,295,91,409,48"/>
+<area shape="rect" id="Node000010" href="$catch__reporter__xml_8hpp.html" title=" " alt="" coords="382,93,562,133"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="475,59,475,93,470,93,470,59"/>
+<area shape="rect" id="Node000005" href="$catch__reporter__registry_8cpp.html" title=" " alt="" coords="475,181,678,221"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="647,144,601,183,597,179,644,140"/>
+<area shape="rect" id="Node000006" href="$catch__reporter__junit_8cpp.html" title=" " alt="" coords="905,181,1088,221"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="763,134,928,179,926,184,761,140"/>
+<area shape="rect" id="Node000007" href="$catch__reporters__all_8hpp.html" title=" " alt="" coords="272,181,451,221"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="597,140,432,184,430,179,595,134"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="305,229,204,272,202,267,303,224"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="333,134,505,179,504,184,332,139"/>
+<area shape="poly" id="edge11_Node000008_Node000007" title=" " alt="" coords="285,140,338,179,335,183,282,144"/>
+<area shape="rect" id="Node000009" href="$catch__reporter__sonarqube_8cpp.html" title=" " alt="" coords="25,181,248,221"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="213,144,162,183,159,179,210,140"/>
+<area shape="poly" id="edge13_Node000010_Node000005" title=" " alt="" coords="508,140,555,179,552,183,504,144"/>
+<area shape="poly" id="edge15_Node000010_Node000007" title=" " alt="" coords="439,144,388,183,385,179,435,140"/>
+<area shape="rect" id="Node000011" href="$catch__reporter__xml_8cpp.html" title=" " alt="" coords="702,181,880,221"/>
+<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="556,134,722,179,721,184,555,140"/>
+</map>

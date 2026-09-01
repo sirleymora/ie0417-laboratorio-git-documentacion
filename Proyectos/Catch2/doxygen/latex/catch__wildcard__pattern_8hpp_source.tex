@@ -1,0 +1,44 @@
+\doxysection{catch\+\_\+wildcard\+\_\+pattern.\+hpp}
+\hypertarget{catch__wildcard__pattern_8hpp_source}{}\label{catch__wildcard__pattern_8hpp_source}\index{src/catch2/internal/catch\_wildcard\_pattern.hpp@{src/catch2/internal/catch\_wildcard\_pattern.hpp}}
+\mbox{\hyperlink{catch__wildcard__pattern_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_WILDCARD\_PATTERN\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_WILDCARD\_PATTERN\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__case__sensitive_8hpp}{catch2/catch\_case\_sensitive.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00015}00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00017}\mbox{\hyperlink{classCatch_1_1WildcardPattern}{00017}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1WildcardPattern}{WildcardPattern}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ WildcardPosition\ \{}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ NoWildcard\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ WildcardAtStart\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ WildcardAtEnd\ =\ 2,}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ WildcardAtBothEnds\ =\ WildcardAtStart\ |\ WildcardAtEnd}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1WildcardPattern}{WildcardPattern}}(\ std::string\ \textcolor{keyword}{const}\&\ pattern,\ \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{CaseSensitive}}\ caseSensitivity\ );}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1WildcardPattern_ae88acde37f50f7cbec8605acf434fe85}{matches}}(\ std::string\ \textcolor{keyword}{const}\&\ str\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00030}00030\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ std::string\ normaliseString(\ std::string\ \textcolor{keyword}{const}\&\ str\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_ac881e5ba54c09673c50349dbea7fff36}{CaseSensitive}}\ m\_caseSensitivity;}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ WildcardPosition\ m\_wildcard\ =\ NoWildcard;}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ std::string\ m\_pattern;}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00035}00035\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{catch__wildcard__pattern_8hpp_source_l00038}00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_WILDCARD\_PATTERN\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

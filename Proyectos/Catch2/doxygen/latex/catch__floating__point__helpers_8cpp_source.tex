@@ -1,0 +1,49 @@
+\doxysection{catch\+\_\+floating\+\_\+point\+\_\+helpers.\+cpp}
+\hypertarget{catch__floating__point__helpers_8cpp_source}{}\label{catch__floating__point__helpers_8cpp_source}\index{src/catch2/internal/catch\_floating\_point\_helpers.cpp@{src/catch2/internal/catch\_floating\_point\_helpers.cpp}}
+\mbox{\hyperlink{catch__floating__point__helpers_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__floating__point__helpers_8hpp}{catch2/internal/catch\_floating\_point\_helpers.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00016}\mbox{\hyperlink{namespaceCatch_1_1Detail_ade51091dea188100d1c7a8acc55f5ea5}{00016}}\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ade51091dea188100d1c7a8acc55f5ea5}{convertToBits}}(\textcolor{keywordtype}{float}\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(float)\ ==\ \textcolor{keyword}{sizeof}(uint32\_t),\ \textcolor{stringliteral}{"{}Important\ ULP\ matcher\ assumption\ violated"{}});}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ i;}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ std::memcpy(\&i,\ \&f,\ \textcolor{keyword}{sizeof}(f));}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00023}\mbox{\hyperlink{namespaceCatch_1_1Detail_aa4cbea1ca1087603043d57005bbbec54}{00023}}\ \ \ \ \ \ \ \ \ uint64\_t\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ade51091dea188100d1c7a8acc55f5ea5}{convertToBits}}(\textcolor{keywordtype}{double}\ d)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(double)\ ==\ \textcolor{keyword}{sizeof}(uint64\_t),\ \textcolor{stringliteral}{"{}Important\ ULP\ matcher\ assumption\ violated"{}});}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ i;}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ std::memcpy(\&i,\ \&d,\ \textcolor{keyword}{sizeof}(d));}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#if\ defined(\ \_\_GNUC\_\_\ )\ ||\ defined(\ \_\_clang\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wfloat-\/equal"{}}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00033}00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00034}\mbox{\hyperlink{namespaceCatch_1_1Detail_a18fef8312d01399bbf5722432f099216}{00034}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_a18fef8312d01399bbf5722432f099216}{directCompare}}(\ \textcolor{keywordtype}{float}\ lhs,\ \textcolor{keywordtype}{float}\ rhs\ )\ \{\ \textcolor{keywordflow}{return}\ lhs\ ==\ rhs;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00035}\mbox{\hyperlink{namespaceCatch_1_1Detail_a4e6b189b0908b0866a4f79b5ba5f9b7d}{00035}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_a18fef8312d01399bbf5722432f099216}{directCompare}}(\ \textcolor{keywordtype}{double}\ lhs,\ \textcolor{keywordtype}{double}\ rhs\ )\ \{\ \textcolor{keywordflow}{return}\ lhs\ ==\ rhs;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00036}00036\ \textcolor{preprocessor}{\#if\ defined(\ \_\_GNUC\_\_\ )\ ||\ defined(\ \_\_clang\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00037}00037\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00038}00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00041}00041\ \ \ \ \ \}\ \textcolor{comment}{//\ end\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00042}00042\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8cpp_source_l00043}00043\ }
+
+\end{DoxyCode}

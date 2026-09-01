@@ -1,0 +1,35 @@
+\doxysection{catch\+\_\+timing.\+hpp}
+\hypertarget{catch__timing_8hpp_source}{}\label{catch__timing_8hpp_source}\index{src/catch2/benchmark/detail/catch\_timing.hpp@{src/catch2/benchmark/detail/catch\_timing.hpp}}
+\mbox{\hyperlink{catch__timing_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00008}00008\ \textcolor{comment}{//\ Adapted\ from\ donated\ nonius\ code.}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#ifndef\ CATCH\_TIMING\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#define\ CATCH\_TIMING\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__clock_8hpp}{catch2/benchmark/catch\_clock.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__complete__invoke_8hpp}{catch2/benchmark/detail/catch\_complete\_invoke.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch_aa77a3ca6aee3863fd2dc3796f129ef02a74575b23d5305310e904f87eb02ff980}{Benchmark}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Result>}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00019}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing}{00019}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing}{Timing}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00020}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing_a74fc1d5ed3eeffa372a0fca0197e1ab8}{00020}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_a29be6d86499db12d1243bbcd355e9004}{IDuration}}\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing_a74fc1d5ed3eeffa372a0fca0197e1ab8}{elapsed}};}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00021}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing_a905d86f2a0d04b324b9c9747013f5a12}{00021}}\ \ \ \ \ \ \ \ \ \ \ \ \ Result\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing_a905d86f2a0d04b324b9c9747013f5a12}{result}};}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00022}\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing_a7489a9c619f31f6bd94d88cefad9d433}{00022}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing_a7489a9c619f31f6bd94d88cefad9d433}{iterations}};}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Func,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00025}\mbox{\hyperlink{namespaceCatch_1_1Benchmark_a78b8882d96c79839eabcc1ff44daeafa}{00025}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing}{TimingOf}}\ =\ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Timing}{Timing}}<\mbox{\hyperlink{namespaceCatch_1_1Benchmark_1_1Detail_ae936589b4afb12589ac7efdd3579c81b}{Detail::CompleteType\_t}}<\mbox{\hyperlink{namespaceCatch_a43e855db587c6bb81dc9208cccc9a6e9}{FunctionReturnType}}<Func,\ Args...>>>;}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00026}00026\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ Benchmark}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00027}00027\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{catch__timing_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_TIMING\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

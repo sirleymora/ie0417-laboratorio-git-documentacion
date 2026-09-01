@@ -1,0 +1,45 @@
+\doxysection{src/catch2/matchers/catch\+\_\+matchers\+\_\+contains.hpp File Reference}
+\hypertarget{catch__matchers__contains_8hpp}{}\label{catch__matchers__contains_8hpp}\index{src/catch2/matchers/catch\_matchers\_contains.hpp@{src/catch2/matchers/catch\_matchers\_contains.hpp}}
+{\ttfamily \#include $<$catch2/matchers/catch\+\_\+matchers\+\_\+templated.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for catch\+\_\+matchers\+\_\+contains.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers__contains_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{catch__matchers__contains_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{Catch\+::\+Matchers\+::\+Contains\+Element\+Matcher$<$ T, Equality $>$}}
+\begin{DoxyCompactList}\small\item\em Matcher for checking that an element in range is equal to specific element. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher}{Catch\+::\+Matchers\+::\+Contains\+Matcher\+Matcher$<$ Matcher $>$}}
+\begin{DoxyCompactList}\small\item\em Meta-\/matcher for checking that an element in a range matches a specific matcher. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers}{Catch\+::\+Matchers}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$!Detail\+::is\+\_\+matcher\+\_\+v$<$ T $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{Contains\+Element\+Matcher}}$<$ T, std\+::equal\+\_\+to$<$$>$ $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a1e4f65df3aa5fd461e46a301655f5e46}{Catch\+::\+Matchers\+::\+Contains}} (T \&\&elem)
+\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+matcher\+\_\+v$<$ Matcher $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcherMatcher}{Contains\+Matcher\+Matcher}}$<$ Matcher $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_af9c93fd22e74d63e7cb8ea358a32d5c6}{Catch\+::\+Matchers\+::\+Contains}} (Matcher \&\&matcher)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that checks whether a range contains element matching a matcher. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Equality $>$ }\\constexpr \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsElementMatcher}{Contains\+Element\+Matcher}}$<$ T, Equality $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a62142de4307ad1ac909c2c326e6cb83b}{Catch\+::\+Matchers\+::\+Contains}} (T \&\&elem, Equality \&\&eq)
+\end{DoxyCompactItemize}

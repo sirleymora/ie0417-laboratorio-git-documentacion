@@ -1,0 +1,179 @@
+\doxysection{Catch\+::Text\+Flow\+::Ansi\+Skipping\+String Class Reference}
+\hypertarget{classCatch_1_1TextFlow_1_1AnsiSkippingString}{}\label{classCatch_1_1TextFlow_1_1AnsiSkippingString}\index{Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}}
+
+
+{\ttfamily \#include $<$catch\+\_\+textflow.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{const\+\_\+iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_a470b8ecef3aea32bf13c31a061507339}{iterator}} = \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{const\+\_\+iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_acdbf4e49261ccf517f84887155af9117}{Ansi\+Skipping\+String}} (std\+::string const \&text)
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_a79e959c20a0b3b2ca1dd2d42311fc8ec}{Ansi\+Skipping\+String}} (std\+::string \&\&text)
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_a072403aa890314916bb2a51cebc23a5b}{begin}} () const
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_a7a1c9f004114257e48213080b434f877}{end}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_ab2ec25b62b265fc4a4b58ea24c659881}{size}} () const
+\item 
+std\+::string \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_a880f3f9d550390bc19c1666947f1c408}{substring}} (\mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_a072403aa890314916bb2a51cebc23a5b}{begin}}, \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_a7a1c9f004114257e48213080b434f877}{end}}) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr char \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_ad1f1a709839396fa4204f745cd568bbc}{sentinel}} = static\+\_\+cast$<$char$>$( 0xffu )
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstraction for a string with ansi escape sequences that automatically skips over escapes when iterating. Only graphical escape sequences are considered.
+
+Internal representation\+: An escape sequence looks like \textbackslash{}033\mbox{[}39;49m We need bidirectional iteration and the unbound length of escape sequences poses a problem for operator-\/-\/ To make this work we\textquotesingle{}ll replace the last {\ttfamily m} with a 0xff (this is a codepoint that won\textquotesingle{}t have any utf-\/8 meaning). 
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classCatch_1_1TextFlow_1_1AnsiSkippingString_a470b8ecef3aea32bf13c31a061507339}\label{classCatch_1_1TextFlow_1_1AnsiSkippingString_a470b8ecef3aea32bf13c31a061507339} 
+\index{Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}!iterator@{iterator}}
+\index{iterator@{iterator}!Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_a470b8ecef3aea32bf13c31a061507339}{Catch\+::\+Text\+Flow\+::\+Ansi\+Skipping\+String\+::iterator}} =  \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{const\+\_\+iterator}}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1TextFlow_1_1AnsiSkippingString_acdbf4e49261ccf517f84887155af9117}\label{classCatch_1_1TextFlow_1_1AnsiSkippingString_acdbf4e49261ccf517f84887155af9117} 
+\index{Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}!AnsiSkippingString@{AnsiSkippingString}}
+\index{AnsiSkippingString@{AnsiSkippingString}!Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}}
+\doxysubsubsection{\texorpdfstring{AnsiSkippingString()}{AnsiSkippingString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Catch\+::\+Text\+Flow\+::\+Ansi\+Skipping\+String\+::\+Ansi\+Skipping\+String (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{catch__textflow_8cpp_source}{catch\+\_\+textflow.\+cpp}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1AnsiSkippingString_a79e959c20a0b3b2ca1dd2d42311fc8ec}\label{classCatch_1_1TextFlow_1_1AnsiSkippingString_a79e959c20a0b3b2ca1dd2d42311fc8ec} 
+\index{Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}!AnsiSkippingString@{AnsiSkippingString}}
+\index{AnsiSkippingString@{AnsiSkippingString}!Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}}
+\doxysubsubsection{\texorpdfstring{AnsiSkippingString()}{AnsiSkippingString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Catch\+::\+Text\+Flow\+::\+Ansi\+Skipping\+String\+::\+Ansi\+Skipping\+String (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8cpp_source_l00073}{73}} of file \mbox{\hyperlink{catch__textflow_8cpp_source}{catch\+\_\+textflow.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1TextFlow_1_1AnsiSkippingString_a072403aa890314916bb2a51cebc23a5b}\label{classCatch_1_1TextFlow_1_1AnsiSkippingString_a072403aa890314916bb2a51cebc23a5b} 
+\index{Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}!begin@{begin}}
+\index{begin@{begin}!Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{Ansi\+Skipping\+String\+::const\+\_\+iterator}} Catch\+::\+Text\+Flow\+::\+Ansi\+Skipping\+String\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{catch__textflow_8cpp_source}{catch\+\_\+textflow.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__textflow_8cpp_source_l00086}{substring()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TextFlow_1_1AnsiSkippingString_a072403aa890314916bb2a51cebc23a5b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TextFlow_1_1AnsiSkippingString_a7a1c9f004114257e48213080b434f877}\label{classCatch_1_1TextFlow_1_1AnsiSkippingString_a7a1c9f004114257e48213080b434f877} 
+\index{Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}!end@{end}}
+\index{end@{end}!Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{Ansi\+Skipping\+String\+::const\+\_\+iterator}} Catch\+::\+Text\+Flow\+::\+Ansi\+Skipping\+String\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{catch__textflow_8cpp_source}{catch\+\_\+textflow.\+cpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__textflow_8cpp_source_l00238}{Catch\+::\+Text\+Flow\+::\+Column\+::const\+\_\+iterator\+::const\+\_\+iterator()}}, \mbox{\hyperlink{catch__textflow_8cpp_source_l00257}{Catch\+::\+Text\+Flow\+::\+Column\+::const\+\_\+iterator\+::operator++()}}, and \mbox{\hyperlink{catch__textflow_8cpp_source_l00086}{substring()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TextFlow_1_1AnsiSkippingString_a7a1c9f004114257e48213080b434f877_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TextFlow_1_1AnsiSkippingString_ab2ec25b62b265fc4a4b58ea24c659881}\label{classCatch_1_1TextFlow_1_1AnsiSkippingString_ab2ec25b62b265fc4a4b58ea24c659881} 
+\index{Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}!size@{size}}
+\index{size@{size}!Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Catch\+::\+Text\+Flow\+::\+Ansi\+Skipping\+String\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1AnsiSkippingString_a880f3f9d550390bc19c1666947f1c408}\label{classCatch_1_1TextFlow_1_1AnsiSkippingString_a880f3f9d550390bc19c1666947f1c408} 
+\index{Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}!substring@{substring}}
+\index{substring@{substring}!Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}}
+\doxysubsubsection{\texorpdfstring{substring()}{substring()}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Text\+Flow\+::\+Ansi\+Skipping\+String\+::substring (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{const\+\_\+iterator}}}]{begin,  }\item[{\mbox{\hyperlink{classCatch_1_1TextFlow_1_1AnsiSkippingString_1_1const__iterator}{const\+\_\+iterator}}}]{end }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{catch__textflow_8cpp_source}{catch\+\_\+textflow.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__textflow_8cpp_source_l00078}{begin()}}, and \mbox{\hyperlink{catch__textflow_8cpp_source_l00082}{end()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TextFlow_1_1AnsiSkippingString_a880f3f9d550390bc19c1666947f1c408_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCatch_1_1TextFlow_1_1AnsiSkippingString_ad1f1a709839396fa4204f745cd568bbc}\label{classCatch_1_1TextFlow_1_1AnsiSkippingString_ad1f1a709839396fa4204f745cd568bbc} 
+\index{Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}!sentinel@{sentinel}}
+\index{sentinel@{sentinel}!Catch::TextFlow::AnsiSkippingString@{Catch::TextFlow::AnsiSkippingString}}
+\doxysubsubsection{\texorpdfstring{sentinel}{sentinel}}
+{\footnotesize\ttfamily constexpr char Catch\+::\+Text\+Flow\+::\+Ansi\+Skipping\+String\+::sentinel = static\+\_\+cast$<$char$>$( 0xffu )\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__textflow_8hpp}{catch\+\_\+textflow.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__textflow_8cpp}{catch\+\_\+textflow.\+cpp}}\end{DoxyCompactItemize}

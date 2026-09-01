@@ -1,0 +1,93 @@
+<map id="Catch::Matchers::MatcherUntypedBase" name="Catch::Matchers::MatcherUntypedBase">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,804,193,844"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Matchers_1_1MatcherBase.html" title=" " alt="" coords="241,142,429,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,790,159,612,197,495,239,376,281,276,318,196,323,198,285,278,244,378,202,496,164,614,112,791"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1Matchers_1_1MatcherBase.html" title=" " alt="" coords="241,389,429,429"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="113,791,166,680,239,544,280,480,317,428,321,431,285,483,244,547,171,682,118,793"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1Matchers_1_1MatcherBase.html" title=" " alt="" coords="241,557,429,597"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="127,792,313,596,317,599,131,796"/>
+<area shape="rect" id="Node000014" href="$classCatch_1_1Matchers_1_1MatcherBase.html" title=" " alt="" coords="241,743,429,783"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="189,798,257,780,259,785,191,803"/>
+<area shape="rect" id="Node000019" href="$classCatch_1_1Matchers_1_1MatcherBase.html" title=" " alt="" coords="241,864,429,904"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="193,845,257,861,255,866,191,850"/>
+<area shape="rect" id="Node000026" href="$classCatch_1_1Matchers_1_1MatcherBase.html" title=" " alt="" coords="241,942,429,997"/>
+<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="143,850,243,914,286,940,284,944,240,918,140,854"/>
+<area shape="rect" id="Node000028" href="$classCatch_1_1Matchers_1_1MatcherBase.html" title=" " alt="" coords="241,1028,429,1068"/>
+<area shape="poly" id="edge27_Node000001_Node000028" title=" " alt="" coords="121,855,170,930,204,970,243,1006,276,1026,274,1030,240,1010,200,974,166,933,116,858"/>
+<area shape="rect" id="Node000030" href="$classCatch_1_1Matchers_1_1MatcherGenericBase.html" title=" " alt="" coords="241,1547,429,1587"/>
+<area shape="poly" id="edge29_Node000001_Node000030" title=" " alt="" coords="114,856,330,1546,325,1547,109,858"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Matchers_1_1ApproxMatcher.html" title=" " alt="" coords="489,5,724,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="372,130,419,91,476,55,506,43,508,48,479,60,423,95,376,134"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1Matchers_1_1ContainsMatcher.html" title=" " alt="" coords="511,70,703,125"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="442,138,510,120,511,125,443,144"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1Matchers_1_1EqualsMatcher.html" title=" " alt="" coords="491,149,722,189"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="443,167,491,167,491,172,443,172"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1Matchers_1_1UnorderedEqualsMatcher.html" title=" " alt="" coords="495,214,718,269"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="443,195,504,211,503,217,442,200"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchAllOf.html" title=" " alt="" coords="519,293,694,333"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="387,381,476,343,519,330,520,335,478,348,389,386"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOf.html" title=" " alt="" coords="519,357,694,397"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="443,394,519,385,520,390,443,399"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchNotOf.html" title=" " alt="" coords="519,421,694,461"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="443,419,520,428,519,434,443,425"/>
+<area shape="rect" id="Node000012" href="$classCatch_1_1Matchers_1_1ExceptionMessageMatcher.html" title=" " alt="" coords="507,485,706,525"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="418,551,477,535,523,523,524,528,478,540,419,556"/>
+<area shape="rect" id="Node000013" href="$classCatch_1_1Matchers_1_1ExceptionMessageMatchesMatcher.html" title=" " alt="" coords="507,550,706,605"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="443,575,507,575,507,580,443,580"/>
+<area shape="rect" id="Node000015" href="$classCatch_1_1Matchers_1_1IsNaNMatcher.html" title=" " alt="" coords="493,629,720,654"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="369,732,418,696,476,664,516,652,517,657,478,669,420,701,372,736"/>
+<area shape="rect" id="Node000016" href="$classCatch_1_1Matchers_1_1WithinAbsMatcher.html" title=" " alt="" coords="506,679,707,719"/>
+<area shape="poly" id="edge15_Node000014_Node000016" title=" " alt="" coords="434,737,521,716,522,721,435,742"/>
+<area shape="rect" id="Node000017" href="$classCatch_1_1Matchers_1_1WithinRelMatcher.html" title=" " alt="" coords="507,743,706,783"/>
+<area shape="poly" id="edge16_Node000014_Node000017" title=" " alt="" coords="443,760,507,760,507,765,443,765"/>
+<area shape="rect" id="Node000018" href="$classCatch_1_1Matchers_1_1WithinUlpsMatcher.html" title=" " alt="" coords="503,807,710,847"/>
+<area shape="poly" id="edge17_Node000014_Node000018" title=" " alt="" coords="435,783,522,804,521,809,434,789"/>
+<area shape="rect" id="Node000020" href="$classCatch_1_1Matchers_1_1RegexMatcher.html" title=" " alt="" coords="492,871,721,897"/>
+<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="443,881,492,881,492,887,443,887"/>
+<area shape="rect" id="Node000021" href="$classCatch_1_1Matchers_1_1StringMatcherBase.html" title=" " alt="" coords="477,921,736,946"/>
+<area shape="poly" id="edge20_Node000019_Node000021" title=" " alt="" coords="443,901,537,918,536,923,442,906"/>
+<area shape="rect" id="Node000022" href="$classCatch_1_1Matchers_1_1EndsWithMatcher.html" title=" " alt="" coords="801,817,997,857"/>
+<area shape="poly" id="edge21_Node000021_Node000022" title=" " alt="" coords="713,914,735,906,749,897,758,887,768,877,783,867,811,855,813,860,785,872,771,881,762,891,752,901,737,910,714,919"/>
+<area shape="rect" id="Node000023" href="$classCatch_1_1Matchers_1_1StartsWithMatcher.html" title=" " alt="" coords="798,881,1001,921"/>
+<area shape="poly" id="edge22_Node000021_Node000023" title=" " alt="" coords="736,917,797,910,798,915,737,922"/>
+<area shape="rect" id="Node000024" href="$classCatch_1_1Matchers_1_1StringContainsMatcher.html" title=" " alt="" coords="784,945,1015,985"/>
+<area shape="poly" id="edge23_Node000021_Node000024" title=" " alt="" coords="737,945,784,950,783,955,736,950"/>
+<area shape="rect" id="Node000025" href="$classCatch_1_1Matchers_1_1StringEqualsMatcher.html" title=" " alt="" coords="791,1009,1007,1049"/>
+<area shape="poly" id="edge24_Node000021_Node000025" title=" " alt="" coords="714,947,737,956,752,966,762,976,771,986,785,995,813,1007,811,1012,783,1000,768,990,758,979,749,970,735,961,713,952"/>
+<area shape="rect" id="Node000027" href="$classCatch_1_1Matchers_1_1VectorContainsElementMatcher.html" title=" " alt="" coords="490,971,723,1011"/>
+<area shape="poly" id="edge26_Node000026_Node000027" title=" " alt="" coords="443,975,490,979,490,984,443,980"/>
+<area shape="rect" id="Node000029" href="$classCatch_1_1Matchers_1_1PredicateMatcher.html" title=" " alt="" coords="509,1035,705,1075"/>
+<area shape="poly" id="edge28_Node000028_Node000029" title=" " alt="" coords="443,1048,508,1050,508,1055,443,1053"/>
+<area shape="rect" id="Node000031" href="$classCatch_1_1Matchers_1_1AllMatchMatcher.html" title=" " alt="" coords="511,1099,703,1139"/>
+<area shape="poly" id="edge30_Node000030_Node000031" title=" " alt="" coords="335,1533,343,1454,364,1351,382,1296,406,1242,437,1192,476,1149,509,1129,512,1133,479,1153,441,1195,411,1245,387,1298,369,1352,348,1455,340,1533"/>
+<area shape="rect" id="Node000032" href="$classCatch_1_1Matchers_1_1AllTrueMatcher.html" title=" " alt="" coords="517,1163,696,1203"/>
+<area shape="poly" id="edge31_Node000030_Node000032" title=" " alt="" coords="337,1532,349,1465,373,1378,391,1333,414,1289,442,1248,476,1213,495,1200,516,1190,518,1195,497,1204,479,1217,446,1252,418,1292,396,1335,378,1380,354,1466,343,1533"/>
+<area shape="rect" id="Node000033" href="$classCatch_1_1Matchers_1_1AnyMatchMatcher.html" title=" " alt="" coords="507,1227,707,1267"/>
+<area shape="poly" id="edge32_Node000030_Node000033" title=" " alt="" coords="341,1533,356,1477,382,1407,421,1337,446,1305,476,1277,505,1260,507,1264,479,1281,450,1308,426,1340,387,1410,361,1478,346,1534"/>
+<area shape="rect" id="Node000034" href="$classCatch_1_1Matchers_1_1AnyTrueMatcher.html" title=" " alt="" coords="513,1291,700,1331"/>
+<area shape="poly" id="edge33_Node000030_Node000034" title=" " alt="" coords="346,1533,364,1489,392,1437,429,1385,451,1361,476,1340,511,1322,514,1327,479,1345,455,1365,433,1388,397,1440,369,1491,351,1535"/>
+<area shape="rect" id="Node000035" href="$classCatch_1_1Matchers_1_1ContainsElementMatcher.html" title="Matcher for checking that an element in range is equal to specific element." alt="" coords="493,1355,721,1395"/>
+<area shape="poly" id="edge34_Node000030_Node000035" title=" " alt="" coords="354,1533,404,1468,437,1433,476,1404,500,1393,502,1397,479,1409,441,1437,408,1471,358,1537"/>
+<area shape="rect" id="Node000036" href="$classCatch_1_1Matchers_1_1ContainsMatcherMatcher.html" title="Meta&#45;matcher for checking that an element in a range matches a specific matcher." alt="" coords="501,1419,712,1459"/>
+<area shape="poly" id="edge35_Node000030_Node000036" title=" " alt="" coords="369,1536,418,1501,476,1468,508,1456,510,1461,478,1473,421,1505,373,1540"/>
+<area shape="rect" id="Node000037" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric.html" title=" " alt="" coords="483,1483,731,1523"/>
+<area shape="poly" id="edge36_Node000030_Node000037" title=" " alt="" coords="434,1541,521,1520,522,1525,435,1546"/>
+<area shape="rect" id="Node000038" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric.html" title=" " alt="" coords="479,1547,735,1587"/>
+<area shape="poly" id="edge37_Node000030_Node000038" title=" " alt="" coords="443,1564,478,1564,478,1569,443,1569"/>
+<area shape="rect" id="Node000039" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchNotOfGeneric.html" title=" " alt="" coords="482,1611,731,1651"/>
+<area shape="poly" id="edge38_Node000030_Node000039" title=" " alt="" coords="435,1587,522,1608,521,1613,434,1593"/>
+<area shape="rect" id="Node000040" href="$classCatch_1_1Matchers_1_1HasSizeMatcher.html" title=" " alt="" coords="513,1675,700,1715"/>
+<area shape="poly" id="edge39_Node000030_Node000040" title=" " alt="" coords="373,1593,421,1628,478,1660,514,1673,512,1678,476,1665,418,1633,369,1597"/>
+<area shape="rect" id="Node000041" href="$classCatch_1_1Matchers_1_1IsEmptyMatcher.html" title=" " alt="" coords="513,1739,701,1779"/>
+<area shape="poly" id="edge40_Node000030_Node000041" title=" " alt="" coords="358,1597,408,1662,441,1696,479,1724,514,1740,511,1745,476,1729,437,1700,404,1666,354,1600"/>
+<area shape="rect" id="Node000042" href="$classCatch_1_1Matchers_1_1NoneMatchMatcher.html" title=" " alt="" coords="502,1803,711,1843"/>
+<area shape="poly" id="edge41_Node000030_Node000042" title=" " alt="" coords="351,1598,369,1642,397,1694,433,1745,455,1768,479,1788,503,1802,500,1807,476,1793,451,1772,429,1749,392,1696,364,1644,346,1600"/>
+<area shape="rect" id="Node000043" href="$classCatch_1_1Matchers_1_1NoneTrueMatcher.html" title=" " alt="" coords="509,1867,705,1907"/>
+<area shape="poly" id="edge42_Node000030_Node000043" title=" " alt="" coords="346,1599,361,1655,387,1724,426,1794,450,1825,479,1853,510,1870,507,1875,476,1857,446,1829,421,1797,382,1726,356,1657,341,1601"/>
+<area shape="rect" id="Node000044" href="$classCatch_1_1Matchers_1_1RangeEqualsMatcher.html" title=" " alt="" coords="497,1931,716,1986"/>
+<area shape="poly" id="edge43_Node000030_Node000044" title=" " alt="" coords="343,1600,355,1666,379,1752,397,1796,419,1840,447,1881,479,1917,499,1931,496,1935,476,1921,442,1884,415,1843,392,1799,374,1753,350,1667,338,1601"/>
+<area shape="rect" id="Node000045" href="$classCatch_1_1Matchers_1_1SizeMatchesMatcher.html" title=" " alt="" coords="498,2011,715,2051"/>
+<area shape="poly" id="edge44_Node000030_Node000045" title=" " alt="" coords="340,1600,347,1682,355,1733,367,1789,385,1845,409,1901,440,1952,479,1997,499,2011,496,2015,476,2001,436,1955,404,1903,380,1847,362,1790,349,1734,341,1682,335,1601"/>
+<area shape="rect" id="Node000046" href="$classCatch_1_1Matchers_1_1UnorderedRangeEqualsMatcher.html" title=" " alt="" coords="479,2075,734,2130"/>
+<area shape="poly" id="edge45_Node000030_Node000046" title=" " alt="" coords="339,1601,343,1692,349,1751,361,1815,379,1881,403,1946,437,2007,479,2061,494,2073,491,2077,475,2065,432,2010,399,1948,374,1883,356,1816,344,1752,337,1692,333,1601"/>
+</map>

@@ -1,0 +1,274 @@
+\doxysection{Catch\+::Text\+Flow\+::Column Class Reference}
+\hypertarget{classCatch_1_1TextFlow_1_1Column}{}\label{classCatch_1_1TextFlow_1_1Column}\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+
+
+{\ttfamily \#include $<$catch\+\_\+textflow.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_1_1const__iterator}{const\+\_\+iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_aa14d708520d6880e99957d6a50ec9a1c}{iterator}} = \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_1_1const__iterator}{const\+\_\+iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a6d9c795446ce0278a56db082fd51c5fe}{Column}} (std\+::string const \&text)
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a549b4c51b24b30e1b483a15f71823eb1}{Column}} (std\+::string \&\&text)
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \& \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf}{width}} (size\+\_\+t new\+Width) \&
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\& \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_ac94812185062ba09ba88b90fe994d276}{width}} (size\+\_\+t new\+Width) \&\&
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \& \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}{indent}} (size\+\_\+t new\+Indent) \&
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\& \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a6589080b5ad44fa431a244a0dee777f0}{indent}} (size\+\_\+t new\+Indent) \&\&
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \& \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_af0308126b67a74476e35c29c3787af8a}{initial\+Indent}} (size\+\_\+t new\+Indent) \&
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\& \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a73291b1bd659afe0874077b1aecd8522}{initial\+Indent}} (size\+\_\+t new\+Indent) \&\&
+\item 
+size\+\_\+t \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a994259efc07e61479db0acfd2f593e83}{width}} () const
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a417d055c40e1902092f3f6a891d8f849}{begin}} () const
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_1_1const__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a7ea7e687489554076edb0f716193d367}{end}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_adf5f75953d889485742ede619047a00b}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} const \&col)
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Columns}{Columns}} \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_aac7fc61bce641459cbdf8a75bc8508c0}{operator+}} (\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} const \&lhs, \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} const \&rhs)
+\item 
+\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Columns}{Columns}} \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_a9030c3f4db22e76030d8b623059daef7}{operator+}} (\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\&lhs, \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\&rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a column of text with specific width and indentation
+
+When written out to a stream, it will perform linebreaking of the provided text so that the written lines fit within target width. 
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00131}{131}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_aa14d708520d6880e99957d6a50ec9a1c}\label{classCatch_1_1TextFlow_1_1Column_aa14d708520d6880e99957d6a50ec9a1c} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!iterator@{iterator}}
+\index{iterator@{iterator}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_aa14d708520d6880e99957d6a50ec9a1c}{Catch\+::\+Text\+Flow\+::\+Column\+::iterator}} =  \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_1_1const__iterator}{const\+\_\+iterator}}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00200}{200}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_a6d9c795446ce0278a56db082fd51c5fe}\label{classCatch_1_1TextFlow_1_1Column_a6d9c795446ce0278a56db082fd51c5fe} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!Column@{Column}}
+\index{Column@{Column}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{Column()}{Column()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Catch\+::\+Text\+Flow\+::\+Column\+::\+Column (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00202}{202}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_a549b4c51b24b30e1b483a15f71823eb1}\label{classCatch_1_1TextFlow_1_1Column_a549b4c51b24b30e1b483a15f71823eb1} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!Column@{Column}}
+\index{Column@{Column}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{Column()}{Column()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Catch\+::\+Text\+Flow\+::\+Column\+::\+Column (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00203}{203}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_a417d055c40e1902092f3f6a891d8f849}\label{classCatch_1_1TextFlow_1_1Column_a417d055c40e1902092f3f6a891d8f849} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!begin@{begin}}
+\index{begin@{begin}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_1_1const__iterator}{const\+\_\+iterator}} Catch\+::\+Text\+Flow\+::\+Column\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00234}{234}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_a7ea7e687489554076edb0f716193d367}\label{classCatch_1_1TextFlow_1_1Column_a7ea7e687489554076edb0f716193d367} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!end@{end}}
+\index{end@{end}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column_1_1const__iterator}{const\+\_\+iterator}} Catch\+::\+Text\+Flow\+::\+Column\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00235}{235}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d}\label{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!indent@{indent}}
+\index{indent@{indent}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{indent()}{indent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \& Catch\+::\+Text\+Flow\+::\+Column\+::indent (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+Indent }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00216}{216}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__session_8cpp_source_l00244}{Catch\+::\+Session\+::apply\+Command\+Line()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00145}{Catch\+::default\+List\+Listeners()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00112}{Catch\+::default\+List\+Reporters()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00185}{Catch\+::default\+List\+Tags()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00234}{Catch\+::default\+List\+Tests()}}, \mbox{\hyperlink{catch__session_8cpp_source_l00192}{Catch\+::\+Session\+::\+Session()}}, and \mbox{\hyperlink{catch__clara_8cpp_source_l00336}{Catch\+::\+Clara\+::\+Parser\+::write\+To\+Stream()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TextFlow_1_1Column_a862b2b99ea409d5e5284f88b3718667d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_a6589080b5ad44fa431a244a0dee777f0}\label{classCatch_1_1TextFlow_1_1Column_a6589080b5ad44fa431a244a0dee777f0} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!indent@{indent}}
+\index{indent@{indent}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{indent()}{indent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\& Catch\+::\+Text\+Flow\+::\+Column\+::indent (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+Indent }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00220}{220}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_af0308126b67a74476e35c29c3787af8a}\label{classCatch_1_1TextFlow_1_1Column_af0308126b67a74476e35c29c3787af8a} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!initialIndent@{initialIndent}}
+\index{initialIndent@{initialIndent}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{initialIndent()}{initialIndent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \& Catch\+::\+Text\+Flow\+::\+Column\+::initial\+Indent (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+Indent }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00224}{224}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00145}{Catch\+::default\+List\+Listeners()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00112}{Catch\+::default\+List\+Reporters()}}, and \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00185}{Catch\+::default\+List\+Tags()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TextFlow_1_1Column_af0308126b67a74476e35c29c3787af8a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_a73291b1bd659afe0874077b1aecd8522}\label{classCatch_1_1TextFlow_1_1Column_a73291b1bd659afe0874077b1aecd8522} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!initialIndent@{initialIndent}}
+\index{initialIndent@{initialIndent}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{initialIndent()}{initialIndent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\& Catch\+::\+Text\+Flow\+::\+Column\+::initial\+Indent (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+Indent }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00228}{228}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_a994259efc07e61479db0acfd2f593e83}\label{classCatch_1_1TextFlow_1_1Column_a994259efc07e61479db0acfd2f593e83} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!width@{width}}
+\index{width@{width}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily size\+\_\+t Catch\+::\+Text\+Flow\+::\+Column\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00233}{233}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf}\label{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!width@{width}}
+\index{width@{width}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \& Catch\+::\+Text\+Flow\+::\+Column\+::width (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+Width }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00206}{206}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__reporter__console_8cpp_source_l00466}{Catch\+::\+Console\+Reporter\+::benchmark\+Preparing()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00145}{Catch\+::default\+List\+Listeners()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00112}{Catch\+::default\+List\+Reporters()}}, \mbox{\hyperlink{catch__reporter__helpers_8cpp_source_l00185}{Catch\+::default\+List\+Tags()}}, \mbox{\hyperlink{catch__reporter__console_8cpp_source_l00316}{Catch\+::\+Table\+Printer\+::open()}}, \mbox{\hyperlink{catch__textflow_8cpp_source_l00292}{Catch\+::\+Text\+Flow\+::\+Spacer()}}, and \mbox{\hyperlink{catch__clara_8cpp_source_l00336}{Catch\+::\+Clara\+::\+Parser\+::write\+To\+Stream()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TextFlow_1_1Column_acaa9f98359764522ef37cf86749012bf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_ac94812185062ba09ba88b90fe994d276}\label{classCatch_1_1TextFlow_1_1Column_ac94812185062ba09ba88b90fe994d276} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!width@{width}}
+\index{width@{width}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\& Catch\+::\+Text\+Flow\+::\+Column\+::width (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{new\+Width }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8hpp_source_l00211}{211}} of file \mbox{\hyperlink{catch__textflow_8hpp_source}{catch\+\_\+textflow.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_a9030c3f4db22e76030d8b623059daef7}\label{classCatch_1_1TextFlow_1_1Column_a9030c3f4db22e76030d8b623059daef7} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!operator+@{operator+}}
+\index{operator+@{operator+}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Columns}{Columns}} operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\&}]{lhs,  }\item[{\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} \&\&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8cpp_source_l00372}{372}} of file \mbox{\hyperlink{catch__textflow_8cpp_source}{catch\+\_\+textflow.\+cpp}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_aac7fc61bce641459cbdf8a75bc8508c0}\label{classCatch_1_1TextFlow_1_1Column_aac7fc61bce641459cbdf8a75bc8508c0} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!operator+@{operator+}}
+\index{operator+@{operator+}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1TextFlow_1_1Columns}{Columns}} operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} const \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8cpp_source_l00366}{366}} of file \mbox{\hyperlink{catch__textflow_8cpp_source}{catch\+\_\+textflow.\+cpp}}.
+
+\Hypertarget{classCatch_1_1TextFlow_1_1Column_adf5f75953d889485742ede619047a00b}\label{classCatch_1_1TextFlow_1_1Column_adf5f75953d889485742ede619047a00b} 
+\index{Catch::TextFlow::Column@{Catch::TextFlow::Column}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Catch::TextFlow::Column@{Catch::TextFlow::Column}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classCatch_1_1TextFlow_1_1Column}{Column}} const \&}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__textflow_8cpp_source_l00279}{279}} of file \mbox{\hyperlink{catch__textflow_8cpp_source}{catch\+\_\+textflow.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__textflow_8hpp}{catch\+\_\+textflow.\+hpp}}\end{DoxyCompactItemize}

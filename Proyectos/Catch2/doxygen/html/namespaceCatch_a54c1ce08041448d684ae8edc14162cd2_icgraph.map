@@ -1,0 +1,5 @@
+<map id="Catch::cerr" name="Catch::cerr">
+<area shape="rect" id="Node000001" title=" " alt="" coords="221,13,313,38"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1MultiReporter.html#af37d443c2494c92aca719904be1bc6a3" title="Called every time a TEST_CASE is entered, including repeats (due to sections)" alt="" coords="5,5,173,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,28,173,28,173,23,208,23"/>
+</map>

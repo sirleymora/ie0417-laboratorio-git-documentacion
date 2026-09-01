@@ -1,0 +1,8 @@
+<map id="Catch::ReusableStringStream::~ReusableStringStream" name="Catch::ReusableStringStream::~ReusableStringStream">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,217,75"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Singleton.html#a8c18286fe40405813c5bab05e20ce4f0" title=" " alt="" coords="279,5,489,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,38,277,30,278,35,218,43"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1ReusableStringStream.html#a3d93d9f26cddd6c5c48b6ef63c694119" title="Returns the serialized state." alt="" coords="265,79,503,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,67,275,74,274,80,217,72"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="340,80,331,70,336,60,354,54,384,52,423,56,434,61,437,67,433,70,430,65,422,61,384,57,355,59,339,64,336,70,344,77"/>
+</map>

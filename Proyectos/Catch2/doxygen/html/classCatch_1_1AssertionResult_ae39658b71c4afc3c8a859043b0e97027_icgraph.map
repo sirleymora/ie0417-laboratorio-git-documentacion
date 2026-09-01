@@ -1,0 +1,9 @@
+<map id="Catch::AssertionResult::isOk" name="Catch::AssertionResult::isOk">
+<area shape="rect" id="Node000001" title=" " alt="" coords="452,37,621,77"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1CumulativeReporterBase.html#a0feaaf7d39fcb4d277146d8137af98c5" title="Called after assertion was fully evaluated." alt="" coords="205,5,404,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="438,46,404,42,405,36,439,41"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1JsonReporter.html#a679ca2848fcb072ebf4a1e7eade9df25" title="Called after assertion was fully evaluated." alt="" coords="229,69,380,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="439,73,381,82,380,76,438,68"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1JunitReporter.html#a8d063eed4b88fe55d13e022605a07944" title="Called after assertion was fully evaluated." alt="" coords="5,5,157,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="192,28,158,28,158,23,192,23"/>
+</map>

@@ -1,0 +1,23 @@
+<map id="src/catch2/internal/catch_debug_console.cpp" name="src/catch2/internal/catch_debug_console.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="391,5,583,45"/>
+<area shape="rect" id="Node000002" href="$catch__debug__console_8hpp.html" title=" " alt="" coords="5,93,164,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="400,48,178,95,177,90,398,43"/>
+<area shape="rect" id="Node000004" href="$catch__config__android__logwrite_8hpp.html" title=" " alt="" coords="188,93,400,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="446,48,350,90,348,85,444,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="214,189,427,214"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="479,47,451,89,413,135,383,162,353,183,350,179,380,157,409,131,447,86,474,44"/>
+<area shape="rect" id="Node000006" href="$catch__platform_8hpp.html" title=" " alt="" coords="479,181,637,221"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="492,45,500,86,515,132,537,169,532,172,510,134,495,87,487,46"/>
+<area shape="rect" id="Node000007" href="$catch__windows__h__proxy_8hpp.html" title=" " alt="" coords="525,93,695,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="516,43,573,83,570,88,513,48"/>
+<area shape="rect" id="Node000008" href="$catch__stdstreams_8hpp.html" title=" " alt="" coords="720,93,879,133"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="557,43,719,87,717,92,555,48"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="903,101,979,126"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="584,34,730,56,812,72,892,91,901,94,900,99,891,96,811,77,729,61,583,40"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="55,189,114,214"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,134,87,175,82,175,82,134"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="302,133,315,174,310,176,297,134"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="601,135,579,171,574,168,596,132"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="767,189,831,214"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="802,134,802,175,797,175,797,134"/>
+</map>

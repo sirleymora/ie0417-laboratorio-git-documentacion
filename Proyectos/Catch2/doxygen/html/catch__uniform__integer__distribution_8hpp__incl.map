@@ -1,0 +1,13 @@
+<map id="src/catch2/internal/catch_uniform_integer_distribution.hpp" name="src/catch2/internal/catch_uniform_integer_distribution.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="93,5,265,60"/>
+<area shape="rect" id="Node000002" href="$catch__random__integer__helpers_8hpp.html" title=" " alt="" coords="71,108,286,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,60,181,94,176,94,176,60"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,196,72,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="146,150,73,191,70,187,144,146"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="97,196,167,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="170,150,148,185,144,183,165,147"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="192,196,259,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="192,147,214,183,209,185,188,150"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="283,196,375,221"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="216,146,296,187,293,192,214,150"/>
+</map>

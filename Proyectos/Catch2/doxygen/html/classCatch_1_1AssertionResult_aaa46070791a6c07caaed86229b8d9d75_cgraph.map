@@ -1,0 +1,14 @@
+<map id="Catch::AssertionResult::getExpandedExpression" name="Catch::AssertionResult::getExpandedExpression">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,83,192,123"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1AssertionResult.html#a26a777f3959353c729544cb2ace0d279" title=" " alt="" coords="255,47,425,87"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,87,241,79,242,85,193,92"/>
+<area shape="rect" id="Node000005" href="$structCatch_1_1AssertionResultData.html#a21c9d6ed92a8beaeeb229302ca8cffbb" title=" " alt="" coords="240,115,440,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="193,113,227,118,226,123,192,118"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch.html#a6976174b3c594c40f8ed2019360b6581" title=" " alt="" coords="538,5,675,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,49,524,30,525,36,425,54"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1StringRef.html#acb22719801de2b64361b4c283080d4e5" title=" " alt="" coords="527,55,687,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="425,65,513,65,513,70,425,70"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1ReusableStringStream.html#a3d93d9f26cddd6c5c48b6ef63c694119" title="Returns the serialized state." alt="" coords="488,128,725,153"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="440,135,474,135,474,141,440,140"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="564,130,555,120,560,110,577,103,607,101,645,105,655,110,658,116,654,119,651,114,643,111,607,107,578,109,563,114,560,119,568,126"/>
+</map>

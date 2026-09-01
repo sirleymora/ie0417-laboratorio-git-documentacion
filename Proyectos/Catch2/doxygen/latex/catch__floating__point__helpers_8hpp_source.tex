@@ -1,0 +1,97 @@
+\doxysection{catch\+\_\+floating\+\_\+point\+\_\+helpers.\+hpp}
+\hypertarget{catch__floating__point__helpers_8hpp_source}{}\label{catch__floating__point__helpers_8hpp_source}\index{src/catch2/internal/catch\_floating\_point\_helpers.hpp@{src/catch2/internal/catch\_floating\_point\_helpers.hpp}}
+\mbox{\hyperlink{catch__floating__point__helpers_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_FLOATING\_POINT\_HELPERS\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_FLOATING\_POINT\_HELPERS\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__polyfills_8hpp}{catch2/internal/catch\_polyfills.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00019}00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ade51091dea188100d1c7a8acc55f5ea5}{convertToBits}}(\textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ uint64\_t\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ade51091dea188100d1c7a8acc55f5ea5}{convertToBits}}(\textcolor{keywordtype}{double}\ d);}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Used\ when\ we\ know\ we\ want\ ==\ comparison\ of\ two\ doubles}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ centralize\ warning\ suppression}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_a18fef8312d01399bbf5722432f099216}{directCompare}}(\ \textcolor{keywordtype}{float}\ lhs,\ \textcolor{keywordtype}{float}\ rhs\ );}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_a18fef8312d01399bbf5722432f099216}{directCompare}}(\ \textcolor{keywordtype}{double}\ lhs,\ \textcolor{keywordtype}{double}\ rhs\ );}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00030}00030\ \ \ \ \ \}\ \textcolor{comment}{//\ end\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00034}00034\ \textcolor{preprocessor}{\#if\ defined(\ \_\_GNUC\_\_\ )\ ||\ defined(\ \_\_clang\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00035}00035\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ We\ do\ a\ bunch\ of\ direct\ compensations\ of\ floating\ point\ numbers,}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ because\ we\ know\ what\ we\ are\ doing\ and\ actually\ do\ want\ the\ direct}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ comparison\ behaviour.}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00039}00039\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wfloat-\/equal"{}}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00059}00059\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FP>}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00060}\mbox{\hyperlink{namespaceCatch_a327bb3d9916c74f41d4ae431c9819edc}{00060}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{namespaceCatch_a327bb3d9916c74f41d4ae431c9819edc}{ulpDistance}}(\ FP\ lhs,\ FP\ rhs\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ assert(\ std::numeric\_limits<FP>::is\_iec559\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ulpDistance\ assumes\ IEEE-\/754\ format\ for\ floating\ point\ types"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ assert(\ !\mbox{\hyperlink{namespaceCatch_aff37796f0f578c2816f74267e641c5f7}{Catch::isnan}}(\ lhs\ )\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Distance\ between\ NaN\ and\ number\ is\ not\ meaningful"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ assert(\ !\mbox{\hyperlink{namespaceCatch_aff37796f0f578c2816f74267e641c5f7}{Catch::isnan}}(\ rhs\ )\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Distance\ between\ NaN\ and\ number\ is\ not\ meaningful"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ want\ X\ ==\ Y\ to\ imply\ 0\ ULP\ distance\ even\ if\ X\ and\ Y\ aren't}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bit-\/equal\ (-\/0\ and\ 0),\ or\ X\ -\/\ Y\ !=\ 0\ (same\ sign\ infinities).}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ lhs\ ==\ rhs\ )\ \{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ need\ a\ properly\ typed\ positive\ zero\ for\ type\ inference.}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ FP\ positive\_zero\{\};}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ want\ to\ ensure\ that\ +/-\/\ 0\ is\ always\ represented\ as\ positive\ zero}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ lhs\ ==\ positive\_zero\ )\ \{\ lhs\ =\ positive\_zero;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ rhs\ ==\ positive\_zero\ )\ \{\ rhs\ =\ positive\_zero;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ arguments\ have\ different\ signs,\ we\ can\ handle\ them\ by\ summing}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ how\ far\ are\ they\ from\ 0\ each.}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ std::signbit(\ lhs\ )\ !=\ std::signbit(\ rhs\ )\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_a327bb3d9916c74f41d4ae431c9819edc}{ulpDistance}}(\ std::abs(\ lhs\ ),\ positive\_zero\ )\ +}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_a327bb3d9916c74f41d4ae431c9819edc}{ulpDistance}}(\ std::abs(\ rhs\ ),\ positive\_zero\ );}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ When\ both\ lhs\ and\ rhs\ are\ of\ the\ same\ sign,\ we\ can\ just}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ read\ the\ numbers\ bitwise\ as\ integers,\ and\ then\ subtract\ them}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (assuming\ IEEE).}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ uint64\_t\ lc\ =\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ade51091dea188100d1c7a8acc55f5ea5}{Detail::convertToBits}}(\ lhs\ );}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ uint64\_t\ rc\ =\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ade51091dea188100d1c7a8acc55f5ea5}{Detail::convertToBits}}(\ rhs\ );}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ ulp\ distance\ between\ two\ numbers\ is\ symmetric,\ so\ to\ avoid}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dealing\ with\ overflows\ we\ want\ the\ bigger\ converted\ number\ on\ the\ lhs}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ lc\ <\ rc\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(\ lc,\ rc\ );}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lc\ -\/\ rc;}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00101}00101\ \textcolor{preprocessor}{\#if\ defined(\ \_\_GNUC\_\_\ )\ ||\ defined(\ \_\_clang\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00102}00102\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00103}00103\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00106}00106\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{catch__floating__point__helpers_8hpp_source_l00108}00108\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_FLOATING\_POINT\_HELPERS\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

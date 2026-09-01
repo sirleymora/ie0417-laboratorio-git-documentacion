@@ -1,0 +1,149 @@
+\doxysection{Catch\+::Json\+Value\+Writer Class Reference}
+\hypertarget{classCatch_1_1JsonValueWriter}{}\label{classCatch_1_1JsonValueWriter}\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+
+
+{\ttfamily \#include $<$catch\+\_\+jsonwriter.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9a9071df8441676263b103c78aec7cff}{Json\+Value\+Writer}} (std\+::ostream \&os \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\item 
+\mbox{\hyperlink{classCatch_1_1JsonValueWriter_aaa3e8e04d831c80780ffab83d93e15ba}{Json\+Value\+Writer}} (std\+::ostream \&os \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}}, std\+::uint64\+\_\+t indent\+\_\+level)
+\item 
+\mbox{\hyperlink{classCatch_1_1JsonObjectWriter}{Json\+Object\+Writer}} \mbox{\hyperlink{classCatch_1_1JsonValueWriter_ae4b5e770f5dd1a50ed4cd91d3b82c520}{write\+Object}} () \&\&
+\item 
+\mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{Json\+Array\+Writer}} \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a6b0a406c55f14ca7c9177d8fb02583e5}{write\+Array}} () \&\&
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9839d99c5d5b5c6e3f68172d0f21119e}{write}} (T const \&\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}) \&\&
+\item 
+void \mbox{\hyperlink{classCatch_1_1JsonValueWriter_ae1b36616eecf549256c3e2003ef20c0b}{write}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}) \&\&
+\item 
+void \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a9f90b9975b779c5de4612d6f0b015d5a}{write}} (float \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}) \&\&
+\item 
+void \mbox{\hyperlink{classCatch_1_1JsonValueWriter_a4afd84c9b78990d0ab355dc63b311dca}{write}} (double \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}) \&\&
+\item 
+void \mbox{\hyperlink{classCatch_1_1JsonValueWriter_afde67123702fe0e62cea6e4861265502}{write}} (bool \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}) \&\&
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__jsonwriter_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{catch__jsonwriter_8hpp_source}{catch\+\_\+jsonwriter.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1JsonValueWriter_a9a9071df8441676263b103c78aec7cff}\label{classCatch_1_1JsonValueWriter_a9a9071df8441676263b103c78aec7cff} 
+\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}!JsonValueWriter@{JsonValueWriter}}
+\index{JsonValueWriter@{JsonValueWriter}!Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+\doxysubsubsection{\texorpdfstring{JsonValueWriter()}{JsonValueWriter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Catch\+::\+Json\+Value\+Writer\+::\+Json\+Value\+Writer (\begin{DoxyParamCaption}\item[{std\+::ostream \&os}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND }\end{DoxyParamCaption})}
+
+\Hypertarget{classCatch_1_1JsonValueWriter_aaa3e8e04d831c80780ffab83d93e15ba}\label{classCatch_1_1JsonValueWriter_aaa3e8e04d831c80780ffab83d93e15ba} 
+\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}!JsonValueWriter@{JsonValueWriter}}
+\index{JsonValueWriter@{JsonValueWriter}!Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+\doxysubsubsection{\texorpdfstring{JsonValueWriter()}{JsonValueWriter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Catch\+::\+Json\+Value\+Writer\+::\+Json\+Value\+Writer (\begin{DoxyParamCaption}\item[{std\+::ostream \&os}]{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND,  }\item[{std\+::uint64\+\_\+t}]{indent\+\_\+level }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1JsonValueWriter_afde67123702fe0e62cea6e4861265502}\label{classCatch_1_1JsonValueWriter_afde67123702fe0e62cea6e4861265502} 
+\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}!write@{write}}
+\index{write@{write}!Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Value\+Writer\+::write (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption}) \&\&}
+
+
+
+Definition at line \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00171}{171}} of file \mbox{\hyperlink{catch__jsonwriter_8cpp_source}{catch\+\_\+jsonwriter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+\Hypertarget{classCatch_1_1JsonValueWriter_a4afd84c9b78990d0ab355dc63b311dca}\label{classCatch_1_1JsonValueWriter_a4afd84c9b78990d0ab355dc63b311dca} 
+\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}!write@{write}}
+\index{write@{write}!Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Value\+Writer\+::write (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption}) \&\&}
+
+
+
+Definition at line \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00167}{167}} of file \mbox{\hyperlink{catch__jsonwriter_8cpp_source}{catch\+\_\+jsonwriter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+\Hypertarget{classCatch_1_1JsonValueWriter_a9f90b9975b779c5de4612d6f0b015d5a}\label{classCatch_1_1JsonValueWriter_a9f90b9975b779c5de4612d6f0b015d5a} 
+\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}!write@{write}}
+\index{write@{write}!Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Value\+Writer\+::write (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption}) \&\&}
+
+
+
+Definition at line \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00163}{163}} of file \mbox{\hyperlink{catch__jsonwriter_8cpp_source}{catch\+\_\+jsonwriter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+\Hypertarget{classCatch_1_1JsonValueWriter_ae1b36616eecf549256c3e2003ef20c0b}\label{classCatch_1_1JsonValueWriter_ae1b36616eecf549256c3e2003ef20c0b} 
+\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}!write@{write}}
+\index{write@{write}!Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily void Catch\+::\+Json\+Value\+Writer\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{Catch\+::\+String\+Ref}}}]{value }\end{DoxyParamCaption}) \&\&}
+
+
+
+Definition at line \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{catch__jsonwriter_8cpp_source}{catch\+\_\+jsonwriter.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+\Hypertarget{classCatch_1_1JsonValueWriter_a9839d99c5d5b5c6e3f68172d0f21119e}\label{classCatch_1_1JsonValueWriter_a9839d99c5d5b5c6e3f68172d0f21119e} 
+\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}!write@{write}}
+\index{write@{write}!Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Catch\+::\+Json\+Value\+Writer\+::write (\begin{DoxyParamCaption}\item[{T const \&}]{value }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__jsonwriter_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{catch__jsonwriter_8hpp_source}{catch\+\_\+jsonwriter.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+\Hypertarget{classCatch_1_1JsonValueWriter_a6b0a406c55f14ca7c9177d8fb02583e5}\label{classCatch_1_1JsonValueWriter_a6b0a406c55f14ca7c9177d8fb02583e5} 
+\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}!writeArray@{writeArray}}
+\index{writeArray@{writeArray}!Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+\doxysubsubsection{\texorpdfstring{writeArray()}{writeArray()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{Json\+Array\+Writer}} Catch\+::\+Json\+Value\+Writer\+::write\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\&}
+
+
+
+Definition at line \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00155}{155}} of file \mbox{\hyperlink{catch__jsonwriter_8cpp_source}{catch\+\_\+jsonwriter.\+cpp}}.
+
+\Hypertarget{classCatch_1_1JsonValueWriter_ae4b5e770f5dd1a50ed4cd91d3b82c520}\label{classCatch_1_1JsonValueWriter_ae4b5e770f5dd1a50ed4cd91d3b82c520} 
+\index{Catch::JsonValueWriter@{Catch::JsonValueWriter}!writeObject@{writeObject}}
+\index{writeObject@{writeObject}!Catch::JsonValueWriter@{Catch::JsonValueWriter}}
+\doxysubsubsection{\texorpdfstring{writeObject()}{writeObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1JsonObjectWriter}{Json\+Object\+Writer}} Catch\+::\+Json\+Value\+Writer\+::write\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\&}
+
+
+
+Definition at line \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00151}{151}} of file \mbox{\hyperlink{catch__jsonwriter_8cpp_source}{catch\+\_\+jsonwriter.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__jsonwriter_8hpp}{catch\+\_\+jsonwriter.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__jsonwriter_8cpp}{catch\+\_\+jsonwriter.\+cpp}}\end{DoxyCompactItemize}

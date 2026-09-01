@@ -1,0 +1,9 @@
+<map id="Catch::StreamingReporterBase::testCaseStarting" name="Catch::StreamingReporterBase::testCaseStarting">
+<area shape="rect" id="Node000001" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="237,69,428,109"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1JsonReporter.html#a3154fcb449ee804a6ff6b792c0ba229f" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="22,5,173,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,68,171,48,172,43,246,63"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1TeamCityReporter.html#a512e183512859522d4605fee3ad8e52b" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="5,69,189,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,92,190,92,190,87,223,87"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlReporter.html#a1395b2efb62faaa947a42638a03be32c" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="23,133,172,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="246,116,172,136,171,131,245,110"/>
+</map>

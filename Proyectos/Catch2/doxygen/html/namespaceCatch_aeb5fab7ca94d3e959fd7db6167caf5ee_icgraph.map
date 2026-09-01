@@ -1,0 +1,13 @@
+<map id="Catch::getCurrentMutableContext" name="Catch::getCurrentMutableContext">
+<area shape="rect" id="Node000001" title=" " alt="" coords="605,55,795,95"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Session.html#af890db02c69e36356ac9f8be4084c464" title=" " alt="" coords="303,5,557,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,55,557,46,496,33,497,28,558,41,599,50"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1RunContext.html#afcd5ef4902539c14647e322233271c9d" title=" " alt="" coords="355,55,505,95"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="592,78,505,78,505,73,592,73"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1Session.html#a4564992e2b028770e38a1dcc6fff8b34" title=" " alt="" coords="343,120,517,145"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="599,101,558,110,497,123,496,117,557,105,598,96"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Session.html#a8c82b89613ebd99f1ba1a3f7b634e571" title=" " alt="" coords="108,5,255,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,21,255,21,255,15,289,15"/>
+<area shape="rect" id="Node000004" href="$catch__main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

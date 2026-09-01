@@ -1,0 +1,111 @@
+\doxysection{catch\+\_\+uniform\+\_\+floating\+\_\+point\+\_\+distribution.\+hpp}
+\hypertarget{catch__uniform__floating__point__distribution_8hpp_source}{}\label{catch__uniform__floating__point__distribution_8hpp_source}\index{src/catch2/internal/catch\_uniform\_floating\_point\_distribution.hpp@{src/catch2/internal/catch\_uniform\_floating\_point\_distribution.hpp}}
+\mbox{\hyperlink{catch__uniform__floating__point__distribution_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#ifndef\ CATCH\_UNIFORM\_FLOATING\_POINT\_DISTRIBUTION\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#define\ CATCH\_UNIFORM\_FLOATING\_POINT\_DISTRIBUTION\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__random__floating__point__helpers_8hpp}{catch2/internal/catch\_random\_floating\_point\_helpers.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__uniform__integer__distribution_8hpp}{catch2/internal/catch\_uniform\_integer\_distribution.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00018}00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#if\ defined(\ \_\_GNUC\_\_\ )\ ||\ defined(\ \_\_clang\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wfloat-\/equal"{}}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ issue\ with\ overflow\ only\ happens\ with\ maximal\ ULP\ and\ HUGE}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ distance,\ e.g.\ when\ generating\ numbers\ in\ [-\/inf,\ inf]\ for\ given}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ type.\ So\ we\ only\ check\ for\ the\ largest\ possible\ ULP\ in\ the}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ type,\ and\ return\ something\ that\ does\ not\ overflow\ to\ inf\ in\ 1\ mult.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00029}\mbox{\hyperlink{namespaceCatch_1_1Detail_ae9bb68ba331f0cedfd116aa27ce0c3da}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ std::uint64\_t\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ae9bb68ba331f0cedfd116aa27ce0c3da}{calculate\_max\_steps\_in\_one\_go}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af908d7b7d7ea3850dba1f946209d3ec5}{gamma}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af908d7b7d7ea3850dba1f946209d3ec5}{gamma}}\ ==\ 1.99584030953472e+292\ )\ \{\ \textcolor{keywordflow}{return}\ 9007199254740991;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}std::uint64\_t\textcolor{keyword}{>}(\ -\/1\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00033}\mbox{\hyperlink{namespaceCatch_1_1Detail_a325de38035bdad181922fbce7ff339cb}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ std::uint32\_t\ \mbox{\hyperlink{namespaceCatch_1_1Detail_ae9bb68ba331f0cedfd116aa27ce0c3da}{calculate\_max\_steps\_in\_one\_go}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af908d7b7d7ea3850dba1f946209d3ec5}{gamma}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{namespaceCatch_1_1Detail_af908d7b7d7ea3850dba1f946209d3ec5}{gamma}}\ ==\ 2.028241e+31f\ )\ \{\ \textcolor{keywordflow}{return}\ 16777215;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}std::uint32\_t\textcolor{keyword}{>}(\ -\/1\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00037}00037\ \textcolor{preprocessor}{\#if\ defined(\ \_\_GNUC\_\_\ )\ ||\ defined(\ \_\_clang\_\_\ )}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00038}00038\ \textcolor{preprocessor}{\#\ \ \ \ pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00039}00039\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00068}00068\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ FloatType>}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00069}\mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution}{00069}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution}{uniform\_floating\_point\_distribution}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00070}00070\ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_floating\_point<FloatType>::value,\ \textcolor{stringliteral}{"{}..."{}});}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{static\_assert}(!std::is\_same<FloatType,\ long\ double>::value,}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}We\ do\ not\ support\ long\ double\ due\ to\ inconsistent\ behaviour\ between\ platforms"{}});}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{using\ }WidthType\ =\ \mbox{\hyperlink{namespaceCatch_1_1Detail_a61de43d49ee0d99db6bc911d12ff44da}{Detail::DistanceType<FloatType>}};}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00076}00076\ \ \ \ \ FloatType\ m\_a,\ m\_b;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00077}00077\ \ \ \ \ FloatType\ m\_ulp\_magnitude;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00078}00078\ \ \ \ \ WidthType\ m\_floats\_in\_range;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1uniform__integer__distribution}{uniform\_integer\_distribution<WidthType>}}\ m\_int\_dist;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//\ In\ specific\ cases,\ we\ can\ overflow\ into\ \`{}inf`\ when\ computing\ the}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ \`{}steps\ *\ g`\ offset.\ To\ avoid\ this,\ we\ don't\ offset\ by\ more\ than\ this}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ in\ one\ multiply\ +\ addition.}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00084}00084\ \ \ \ \ WidthType\ m\_max\_steps\_in\_one\_go;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//\ We\ don't\ want\ to\ do\ the\ magnitude\ check\ every\ call\ to\ \`{}operator()`}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_a\_has\_leq\_magnitude;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00088}00088\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00089}\mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a9a4000220b978914a335f1e7fd23a012}{00089}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a9a4000220b978914a335f1e7fd23a012}{result\_type}}\ =\ FloatType;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00091}\mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_aa56d7f890b098fee778ca652ca1a2a9d}{00091}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_aa56d7f890b098fee778ca652ca1a2a9d}{uniform\_floating\_point\_distribution}}(\ FloatType\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5fcfcdb244e18b39623e8fba67762e0c}{a}},\ FloatType\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_acdde30b1bfdbe5f41baf191e2ea772c8}{b}}\ ):}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ m\_a(\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5fcfcdb244e18b39623e8fba67762e0c}{a}}\ ),}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ m\_b(\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_acdde30b1bfdbe5f41baf191e2ea772c8}{b}}\ ),}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ m\_ulp\_magnitude(\ Detail::gamma(\ m\_a,\ m\_b\ )\ ),}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ m\_floats\_in\_range(\ Detail::count\_equidistant\_floats(\ m\_a,\ m\_b,\ m\_ulp\_magnitude\ )\ ),}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ m\_int\_dist(0,\ m\_floats\_in\_range),}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ m\_max\_steps\_in\_one\_go(\ Detail::calculate\_max\_steps\_in\_one\_go(m\_ulp\_magnitude)),}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ m\_a\_has\_leq\_magnitude(std::fabs(m\_a)\ <=\ std::fabs(m\_b))}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00099}00099\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ assert(\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5fcfcdb244e18b39623e8fba67762e0c}{a}}\ <=\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_acdde30b1bfdbe5f41baf191e2ea772c8}{b}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00103}00103\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Generator>}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00104}\mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5503ff4e75c828bea6170a151e57dddc}{00104}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a9a4000220b978914a335f1e7fd23a012}{result\_type}}\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5503ff4e75c828bea6170a151e57dddc}{operator()}}(\ Generator\&\ g\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ WidthType\ steps\ =\ m\_int\_dist(\ g\ );}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_a\_has\_leq\_magnitude\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ steps\ ==\ m\_floats\_in\_range\ )\ \{\ \textcolor{keywordflow}{return}\ m\_a;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_acdde30b1bfdbe5f41baf191e2ea772c8}{b}}\ =\ m\_b;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (steps\ >\ m\_max\_steps\_in\_one\_go)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_acdde30b1bfdbe5f41baf191e2ea772c8}{b}}\ -\/=\ m\_max\_steps\_in\_one\_go\ *\ m\_ulp\_magnitude;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steps\ -\/=\ m\_max\_steps\_in\_one\_go;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_acdde30b1bfdbe5f41baf191e2ea772c8}{b}}\ -\/\ steps\ *\ m\_ulp\_magnitude;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ steps\ ==\ m\_floats\_in\_range\ )\ \{\ \textcolor{keywordflow}{return}\ m\_b;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5fcfcdb244e18b39623e8fba67762e0c}{a}}\ =\ m\_a;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (steps\ >\ m\_max\_steps\_in\_one\_go)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5fcfcdb244e18b39623e8fba67762e0c}{a}}\ +=\ m\_max\_steps\_in\_one\_go\ *\ m\_ulp\_magnitude;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ steps\ -\/=\ m\_max\_steps\_in\_one\_go;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5fcfcdb244e18b39623e8fba67762e0c}{a}}\ +\ steps\ *\ m\_ulp\_magnitude;}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00125}\mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5fcfcdb244e18b39623e8fba67762e0c}{00125}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a9a4000220b978914a335f1e7fd23a012}{result\_type}}\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a5fcfcdb244e18b39623e8fba67762e0c}{a}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_a;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00126}\mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_acdde30b1bfdbe5f41baf191e2ea772c8}{00126}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_a9a4000220b978914a335f1e7fd23a012}{result\_type}}\ \mbox{\hyperlink{classCatch_1_1uniform__floating__point__distribution_acdde30b1bfdbe5f41baf191e2ea772c8}{b}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_b;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00127}00127\ \};}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00129}00129\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{catch__uniform__floating__point__distribution_8hpp_source_l00131}00131\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_UNIFORM\_FLOATING\_POINT\_DISTRIBUTION\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

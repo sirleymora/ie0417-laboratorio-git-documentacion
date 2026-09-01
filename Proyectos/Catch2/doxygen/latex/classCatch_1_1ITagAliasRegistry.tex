@@ -1,0 +1,121 @@
+\doxysection{Catch\+::ITag\+Alias\+Registry Class Reference}
+\hypertarget{classCatch_1_1ITagAliasRegistry}{}\label{classCatch_1_1ITagAliasRegistry}\index{Catch::ITagAliasRegistry@{Catch::ITagAliasRegistry}}
+
+
+{\ttfamily \#include $<$catch\+\_\+interfaces\+\_\+tag\+\_\+alias\+\_\+registry.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::ITag\+Alias\+Registry\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classCatch_1_1ITagAliasRegistry__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1ITagAliasRegistry_a016aab63b05a91530ec1d20b918ae2ee}{\texorpdfstring{$\sim$}{\string~}\+ITag\+Alias\+Registry}} ()
+\item 
+virtual \mbox{\hyperlink{structCatch_1_1TagAlias}{Tag\+Alias}} const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1ITagAliasRegistry_ab926b57c257d04f584bf7e4fa35a1884}{find}} (std\+::string const \&alias) const =0
+\item 
+virtual std\+::string \mbox{\hyperlink{classCatch_1_1ITagAliasRegistry_ae729a7532faf7466db1a157ce0395170}{expand\+Aliases}} (std\+::string const \&unexpanded\+Test\+Spec) const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classCatch_1_1ITagAliasRegistry}{ITag\+Alias\+Registry}} const \& \mbox{\hyperlink{classCatch_1_1ITagAliasRegistry_a7c4bf6e2fc52de95fb2596ba19b3bf76}{get}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__interfaces__tag__alias__registry_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{catch__interfaces__tag__alias__registry_8hpp_source}{catch\+\_\+interfaces\+\_\+tag\+\_\+alias\+\_\+registry.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1ITagAliasRegistry_a016aab63b05a91530ec1d20b918ae2ee}\label{classCatch_1_1ITagAliasRegistry_a016aab63b05a91530ec1d20b918ae2ee} 
+\index{Catch::ITagAliasRegistry@{Catch::ITagAliasRegistry}!````~ITagAliasRegistry@{\texorpdfstring{$\sim$}{\string~}ITagAliasRegistry}}
+\index{````~ITagAliasRegistry@{\texorpdfstring{$\sim$}{\string~}ITagAliasRegistry}!Catch::ITagAliasRegistry@{Catch::ITagAliasRegistry}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ITagAliasRegistry()}{\string~ITagAliasRegistry()}}
+{\footnotesize\ttfamily Catch\+::\+ITag\+Alias\+Registry\+::\texorpdfstring{$\sim$}{\string~}\+ITag\+Alias\+Registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1ITagAliasRegistry_ae729a7532faf7466db1a157ce0395170}\label{classCatch_1_1ITagAliasRegistry_ae729a7532faf7466db1a157ce0395170} 
+\index{Catch::ITagAliasRegistry@{Catch::ITagAliasRegistry}!expandAliases@{expandAliases}}
+\index{expandAliases@{expandAliases}!Catch::ITagAliasRegistry@{Catch::ITagAliasRegistry}}
+\doxysubsubsection{\texorpdfstring{expandAliases()}{expandAliases()}}
+{\footnotesize\ttfamily virtual std\+::string Catch\+::\+ITag\+Alias\+Registry\+::expand\+Aliases (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{unexpanded\+Test\+Spec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classCatch_1_1TagAliasRegistry_a721693fa58ec30ec94079368eb388802}{Catch\+::\+Tag\+Alias\+Registry}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__test__spec__parser_8cpp_source_l00019}{Catch\+::\+Test\+Spec\+Parser\+::parse()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1ITagAliasRegistry_ae729a7532faf7466db1a157ce0395170_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1ITagAliasRegistry_ab926b57c257d04f584bf7e4fa35a1884}\label{classCatch_1_1ITagAliasRegistry_ab926b57c257d04f584bf7e4fa35a1884} 
+\index{Catch::ITagAliasRegistry@{Catch::ITagAliasRegistry}!find@{find}}
+\index{find@{find}!Catch::ITagAliasRegistry@{Catch::ITagAliasRegistry}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structCatch_1_1TagAlias}{Tag\+Alias}} const  \texorpdfstring{$\ast$}{*} Catch\+::\+ITag\+Alias\+Registry\+::find (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{alias }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classCatch_1_1TagAliasRegistry_a3ac6e1870e096e6010072da60c23f89f}{Catch\+::\+Tag\+Alias\+Registry}}.
+
+\Hypertarget{classCatch_1_1ITagAliasRegistry_a7c4bf6e2fc52de95fb2596ba19b3bf76}\label{classCatch_1_1ITagAliasRegistry_a7c4bf6e2fc52de95fb2596ba19b3bf76} 
+\index{Catch::ITagAliasRegistry@{Catch::ITagAliasRegistry}!get@{get}}
+\index{get@{get}!Catch::ITagAliasRegistry@{Catch::ITagAliasRegistry}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1ITagAliasRegistry}{ITag\+Alias\+Registry}} const  \& Catch\+::\+ITag\+Alias\+Registry\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__tag__alias__registry_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{catch__tag__alias__registry_8cpp_source}{catch\+\_\+tag\+\_\+alias\+\_\+registry.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__registry__hub_8cpp_source_l00090}{Catch\+::get\+Registry\+Hub()}}, and \mbox{\hyperlink{classCatch_1_1IRegistryHub_a3fb24564dba3f679dfa58792f1e21708}{Catch\+::\+IRegistry\+Hub\+::get\+Tag\+Alias\+Registry()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00100}{Catch\+::\+Config\+::\+Config()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1ITagAliasRegistry_a7c4bf6e2fc52de95fb2596ba19b3bf76_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1ITagAliasRegistry_a7c4bf6e2fc52de95fb2596ba19b3bf76_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/interfaces/\mbox{\hyperlink{catch__interfaces__tag__alias__registry_8hpp}{catch\+\_\+interfaces\+\_\+tag\+\_\+alias\+\_\+registry.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__tag__alias__registry_8cpp}{catch\+\_\+tag\+\_\+alias\+\_\+registry.\+cpp}}\end{DoxyCompactItemize}

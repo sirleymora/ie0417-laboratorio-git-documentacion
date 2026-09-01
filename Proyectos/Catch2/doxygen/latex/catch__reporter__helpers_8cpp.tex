@@ -1,0 +1,52 @@
+\doxysection{src/catch2/reporters/catch\+\_\+reporter\+\_\+helpers.cpp File Reference}
+\hypertarget{catch__reporter__helpers_8cpp}{}\label{catch__reporter__helpers_8cpp}\index{src/catch2/reporters/catch\_reporter\_helpers.cpp@{src/catch2/reporters/catch\_reporter\_helpers.cpp}}
+{\ttfamily \#include $<$catch2/reporters/catch\+\_\+reporter\+\_\+helpers.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/interfaces/catch\+\_\+interfaces\+\_\+config.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+console\+\_\+width.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+errno\+\_\+guard.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+textflow.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+reusable\+\_\+string\+\_\+stream.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+string\+\_\+manip.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+console\+\_\+colour.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+tostring.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+test\+\_\+case\+\_\+info.\+hpp$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cfloat$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+Include dependency graph for catch\+\_\+reporter\+\_\+helpers.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__reporter__helpers_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_af65507889895c5c4b04fb831eeab2972}{Catch\+::get\+Formatted\+Duration}} (double duration)
+\item 
+bool \mbox{\hyperlink{namespaceCatch_af4e1ece5befeb3ff910c3a54ff44abb0}{Catch\+::should\+Show\+Duration}} (\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const  \&config, double duration)
+\begin{DoxyCompactList}\small\item\em Should the reporter show duration of test given current configuration? \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_ae5e405537e8a55293a1b6cad32e2cdb5}{Catch\+::serialize\+Filters}} (std\+::vector$<$ std\+::string $>$ const \&filters)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespaceCatch_a78a94236ca5f49ef11f36cf02483cb1d}{Catch\+::operator$<$$<$}} (std\+::ostream \&out, \mbox{\hyperlink{structCatch_1_1lineOfChars}{line\+Of\+Chars}} \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}})
+\item 
+void \mbox{\hyperlink{namespaceCatch_a7fc9276bf852d1625d986c0cbc3eabce}{Catch\+::default\+List\+Reporters}} (std\+::ostream \&out, std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{Reporter\+Description}} $>$ const \&descriptions, \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} verbosity)
+\item 
+void \mbox{\hyperlink{namespaceCatch_ad4043ebe446bced10d36c36c7ab9bb70}{Catch\+::default\+List\+Listeners}} (std\+::ostream \&out, std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{Listener\+Description}} $>$ const \&descriptions, \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} verbosity)
+\item 
+void \mbox{\hyperlink{namespaceCatch_a9534411fa7935dfb64da3a912f396b0d}{Catch\+::default\+List\+Tags}} (std\+::ostream \&out, std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1TagInfo}{Tag\+Info}} $>$ const \&tags, bool is\+Filtered, \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} verbosity)
+\item 
+void \mbox{\hyperlink{namespaceCatch_a6dce9f6d9a416fe7a06e6394d557606a}{Catch\+::default\+List\+Tests}} (std\+::ostream \&out, \mbox{\hyperlink{classCatch_1_1ColourImpl}{Colour\+Impl}} \texorpdfstring{$\ast$}{*}stream\+Colour, std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \&tests, bool is\+Filtered, \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} verbosity)
+\item 
+void \mbox{\hyperlink{namespaceCatch_aecf85e8927841af21b8fcd3bab31df2b}{Catch\+::print\+Test\+Run\+Totals}} (std\+::ostream \&stream, \mbox{\hyperlink{classCatch_1_1ColourImpl}{Colour\+Impl}} \&stream\+Colour, \mbox{\hyperlink{structCatch_1_1Totals}{Totals}} const \&totals)
+\end{DoxyCompactItemize}

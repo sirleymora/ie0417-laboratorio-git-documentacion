@@ -1,0 +1,141 @@
+\doxysection{Catch\+::Benchmark\+::Execution\+Plan Struct Reference}
+\hypertarget{structCatch_1_1Benchmark_1_1ExecutionPlan}{}\label{structCatch_1_1Benchmark_1_1ExecutionPlan}\index{Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}}
+
+
+{\ttfamily \#include $<$catch\+\_\+execution\+\_\+plan.\+hpp$>$}
+
+
+
+Collaboration diagram for Catch\+::Benchmark\+::Execution\+Plan\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{structCatch_1_1Benchmark_1_1ExecutionPlan__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Clock $>$ }\\std\+::vector$<$ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_af052bd0436ced4a540fdbf4da6e2ff2a}{FDuration}} $>$ \mbox{\hyperlink{structCatch_1_1Benchmark_1_1ExecutionPlan_a7000428364a19de80ed79301f1d248c5}{run}} (const \mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} \&cfg, \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Environment}{Environment}} env) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structCatch_1_1Benchmark_1_1ExecutionPlan_a2c55b05b91b158044a2966c071931492}{iterations\+\_\+per\+\_\+sample}}
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Benchmark_af052bd0436ced4a540fdbf4da6e2ff2a}{FDuration}} \mbox{\hyperlink{structCatch_1_1Benchmark_1_1ExecutionPlan_adc8d469e18d7aaad3b9414682d9ac35d}{estimated\+\_\+duration}}
+\item 
+\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1BenchmarkFunction}{Detail\+::\+Benchmark\+Function}} \mbox{\hyperlink{structCatch_1_1Benchmark_1_1ExecutionPlan_a030c66ee7ae93249110107728bac81fa}{benchmark}}
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Benchmark_af052bd0436ced4a540fdbf4da6e2ff2a}{FDuration}} \mbox{\hyperlink{structCatch_1_1Benchmark_1_1ExecutionPlan_a2bdbd553e77ec7e9e45c20e6d19bd288}{warmup\+\_\+time}}
+\item 
+int \mbox{\hyperlink{structCatch_1_1Benchmark_1_1ExecutionPlan_abbb214a372cde0cd513d3b6e581fc6b4}{warmup\+\_\+iterations}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{catch__execution__plan_8hpp_source}{catch\+\_\+execution\+\_\+plan.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structCatch_1_1Benchmark_1_1ExecutionPlan_a7000428364a19de80ed79301f1d248c5}\label{structCatch_1_1Benchmark_1_1ExecutionPlan_a7000428364a19de80ed79301f1d248c5} 
+\index{Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}!run@{run}}
+\index{run@{run}!Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily template$<$typename Clock $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{namespaceCatch_1_1Benchmark_af052bd0436ced4a540fdbf4da6e2ff2a}{FDuration}} $>$ Catch\+::\+Benchmark\+::\+Execution\+Plan\+::run (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} \&}]{cfg,  }\item[{\mbox{\hyperlink{structCatch_1_1Benchmark_1_1Environment}{Environment}}}]{env }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{catch__execution__plan_8hpp_source}{catch\+\_\+execution\+\_\+plan.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00027}{benchmark}}, \mbox{\hyperlink{classCatch_1_1IConfig_a1634aa220fc1c822d1f4d54614443d47}{Catch\+::\+IConfig\+::benchmark\+Samples()}}, \mbox{\hyperlink{catch__environment_8hpp_source_l00024}{Catch\+::\+Benchmark\+::\+Environment\+::clock\+\_\+cost}}, \mbox{\hyperlink{catch__chronometer_8hpp_source_l00035}{Catch\+::\+Benchmark\+::\+Detail\+::\+Chronometer\+Model$<$ Clock $>$\+::elapsed()}}, \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00025}{iterations\+\_\+per\+\_\+sample}}, \mbox{\hyperlink{catch__environment_8hpp_source_l00019}{Catch\+::\+Benchmark\+::\+Environment\+Estimate\+::mean}}, \mbox{\hyperlink{catch__estimate__clock_8hpp_source_l00102}{Catch\+::\+Benchmark\+::\+Detail\+::measure\+\_\+environment()}}, \mbox{\hyperlink{catch__repeat_8hpp_source_l00029}{Catch\+::\+Benchmark\+::\+Detail\+::repeat()}}, \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00029}{warmup\+\_\+iterations}}, and \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00028}{warmup\+\_\+time}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structCatch_1_1Benchmark_1_1ExecutionPlan_a7000428364a19de80ed79301f1d248c5_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCatch_1_1Benchmark_1_1ExecutionPlan_a030c66ee7ae93249110107728bac81fa}\label{structCatch_1_1Benchmark_1_1ExecutionPlan_a030c66ee7ae93249110107728bac81fa} 
+\index{Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}!benchmark@{benchmark}}
+\index{benchmark@{benchmark}!Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}}
+\doxysubsubsection{\texorpdfstring{benchmark}{benchmark}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1Benchmark_1_1Detail_1_1BenchmarkFunction}{Detail\+::\+Benchmark\+Function}} Catch\+::\+Benchmark\+::\+Execution\+Plan\+::benchmark}
+
+
+
+Definition at line \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{catch__execution__plan_8hpp_source}{catch\+\_\+execution\+\_\+plan.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00032}{run()}}.
+
+\Hypertarget{structCatch_1_1Benchmark_1_1ExecutionPlan_adc8d469e18d7aaad3b9414682d9ac35d}\label{structCatch_1_1Benchmark_1_1ExecutionPlan_adc8d469e18d7aaad3b9414682d9ac35d} 
+\index{Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}!estimated\_duration@{estimated\_duration}}
+\index{estimated\_duration@{estimated\_duration}!Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}}
+\doxysubsubsection{\texorpdfstring{estimated\_duration}{estimated\_duration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCatch_1_1Benchmark_af052bd0436ced4a540fdbf4da6e2ff2a}{FDuration}} Catch\+::\+Benchmark\+::\+Execution\+Plan\+::estimated\+\_\+duration}
+
+
+
+Definition at line \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{catch__execution__plan_8hpp_source}{catch\+\_\+execution\+\_\+plan.\+hpp}}.
+
+\Hypertarget{structCatch_1_1Benchmark_1_1ExecutionPlan_a2c55b05b91b158044a2966c071931492}\label{structCatch_1_1Benchmark_1_1ExecutionPlan_a2c55b05b91b158044a2966c071931492} 
+\index{Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}!iterations\_per\_sample@{iterations\_per\_sample}}
+\index{iterations\_per\_sample@{iterations\_per\_sample}!Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}}
+\doxysubsubsection{\texorpdfstring{iterations\_per\_sample}{iterations\_per\_sample}}
+{\footnotesize\ttfamily int Catch\+::\+Benchmark\+::\+Execution\+Plan\+::iterations\+\_\+per\+\_\+sample}
+
+
+
+Definition at line \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{catch__execution__plan_8hpp_source}{catch\+\_\+execution\+\_\+plan.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00032}{run()}}.
+
+\Hypertarget{structCatch_1_1Benchmark_1_1ExecutionPlan_abbb214a372cde0cd513d3b6e581fc6b4}\label{structCatch_1_1Benchmark_1_1ExecutionPlan_abbb214a372cde0cd513d3b6e581fc6b4} 
+\index{Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}!warmup\_iterations@{warmup\_iterations}}
+\index{warmup\_iterations@{warmup\_iterations}!Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}}
+\doxysubsubsection{\texorpdfstring{warmup\_iterations}{warmup\_iterations}}
+{\footnotesize\ttfamily int Catch\+::\+Benchmark\+::\+Execution\+Plan\+::warmup\+\_\+iterations}
+
+
+
+Definition at line \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{catch__execution__plan_8hpp_source}{catch\+\_\+execution\+\_\+plan.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00032}{run()}}.
+
+\Hypertarget{structCatch_1_1Benchmark_1_1ExecutionPlan_a2bdbd553e77ec7e9e45c20e6d19bd288}\label{structCatch_1_1Benchmark_1_1ExecutionPlan_a2bdbd553e77ec7e9e45c20e6d19bd288} 
+\index{Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}!warmup\_time@{warmup\_time}}
+\index{warmup\_time@{warmup\_time}!Catch::Benchmark::ExecutionPlan@{Catch::Benchmark::ExecutionPlan}}
+\doxysubsubsection{\texorpdfstring{warmup\_time}{warmup\_time}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCatch_1_1Benchmark_af052bd0436ced4a540fdbf4da6e2ff2a}{FDuration}} Catch\+::\+Benchmark\+::\+Execution\+Plan\+::warmup\+\_\+time}
+
+
+
+Definition at line \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{catch__execution__plan_8hpp_source}{catch\+\_\+execution\+\_\+plan.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__execution__plan_8hpp_source_l00032}{run()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/benchmark/\mbox{\hyperlink{catch__execution__plan_8hpp}{catch\+\_\+execution\+\_\+plan.\+hpp}}\end{DoxyCompactItemize}

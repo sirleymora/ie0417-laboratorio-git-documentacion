@@ -1,0 +1,338 @@
+\doxysection{src/catch2/internal/catch\+\_\+compiler\+\_\+capabilities.hpp File Reference}
+\hypertarget{catch__compiler__capabilities_8hpp}{}\label{catch__compiler__capabilities_8hpp}\index{src/catch2/internal/catch\_compiler\_capabilities.hpp@{src/catch2/internal/catch\_compiler\_capabilities.hpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+platform.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+user\+\_\+config.\+hpp$>$}\newline
+Include dependency graph for catch\+\_\+compiler\+\_\+capabilities.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__compiler__capabilities_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__compiler__capabilities_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a3c8d4b828da004fc3ad2511c1900ec19}{CATCH\+\_\+\+INTERNAL\+\_\+\+CONFIG\+\_\+\+POSIX\+\_\+\+SIGNALS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_af1d39364eef8e638ff7d96d0a47bed92}{CATCH\+\_\+\+INTERNAL\+\_\+\+CONFIG\+\_\+\+GETENV}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a48ae5ed6ff9168c5ad3d5058527fbfae}{CATCH\+\_\+\+INTERNAL\+\_\+\+CONFIG\+\_\+\+GLOBAL\+\_\+\+NEXTAFTER}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_ac5eee4f90512985d2043f971c6f08707}{CATCH\+\_\+\+CONFIG\+\_\+\+POSIX\+\_\+\+SIGNALS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a031d6a2aef5109e070f77e0d87a32b17}{CATCH\+\_\+\+CONFIG\+\_\+\+GETENV}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a5e8669f07e3db1e9e1604508689bc28a}{CATCH\+\_\+\+CONFIG\+\_\+\+CPP11\+\_\+\+TO\+\_\+\+STRING}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a893712b2ba6e7400136a0a023b12e9db}{CATCH\+\_\+\+CONFIG\+\_\+\+DISABLE\+\_\+\+EXCEPTIONS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a3271a306c531fd4a2c6c6180e4903fd9}{CATCH\+\_\+\+CONFIG\+\_\+\+GLOBAL\+\_\+\+NEXTAFTER}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_aa7ffc39ff2307d382e766a867d49b67a}{CATCH\+\_\+\+INTERNAL\+\_\+\+IGNORE\+\_\+\+BUT\+\_\+\+WARN}}(...)
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a1500dca9a578a0bd2f85771cfa3fd35d}{CATCH\+\_\+\+INTERNAL\+\_\+\+START\+\_\+\+WARNINGS\+\_\+\+SUPPRESSION}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_ad9594e9891b032f0dd0279960dc861a5}{CATCH\+\_\+\+INTERNAL\+\_\+\+STOP\+\_\+\+WARNINGS\+\_\+\+SUPPRESSION}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a89c1608a68775aca1bb7c265f7ba923a}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+PARENTHESES\+\_\+\+WARNINGS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_aa0200c23b35ba2bd8ebed69a8f3c1c66}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+GLOBALS\+\_\+\+WARNINGS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a4928300ab3058e4b594e93bf73a9a3c2}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+UNUSED\+\_\+\+RESULT}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_afd86e877ae53a18ac74078959b8af053}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+UNUSED\+\_\+\+VARIABLE\+\_\+\+WARNINGS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a4ccd8a84431fe6636f9e9ab492941491}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+USELESS\+\_\+\+CAST\+\_\+\+WARNINGS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_af9c2d6807f17109481b536551c0c10bf}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+ZERO\+\_\+\+VARIADIC\+\_\+\+WARNINGS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a10a275cf93b99d6f1246d9d9df09d1d8}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+UNUSED\+\_\+\+TEMPLATE\+\_\+\+WARNINGS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a7bc5b3c9171a2b0d9d2e23459c25d4b0}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+COMMA\+\_\+\+WARNINGS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_adcf1ca30d92d27477df5490f6568ea34}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+SHADOW\+\_\+\+WARNINGS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a2df5668ab531f6b9392c5f9ef09a6c60}{CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+COUNTER\+\_\+\+WARNINGS}}
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_ab76c2d22e571ab1a828f5c60d2f485a6}{CATCH\+\_\+\+TRY}}~if ((true))
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_afa0ae14e70806dca4f8bf06d06645fa9}{CATCH\+\_\+\+CATCH\+\_\+\+ALL}}~if ((false))
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a3caecf3cbc55848423d744df50d84d5b}{CATCH\+\_\+\+CATCH\+\_\+\+ANON}}(type)~if ((false))
+\item 
+\#define \mbox{\hyperlink{catch__compiler__capabilities_8hpp_a7a076eb1c404d5e057d159c9b271cc6f}{CATCH\+\_\+\+EXPORT}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__compiler__capabilities_8hpp_afa0ae14e70806dca4f8bf06d06645fa9}\label{catch__compiler__capabilities_8hpp_afa0ae14e70806dca4f8bf06d06645fa9} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_CATCH\_ALL@{CATCH\_CATCH\_ALL}}
+\index{CATCH\_CATCH\_ALL@{CATCH\_CATCH\_ALL}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_CATCH\_ALL}{CATCH\_CATCH\_ALL}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+CATCH\+\_\+\+ALL~if ((false))}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00458}{458}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a3caecf3cbc55848423d744df50d84d5b}\label{catch__compiler__capabilities_8hpp_a3caecf3cbc55848423d744df50d84d5b} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_CATCH\_ANON@{CATCH\_CATCH\_ANON}}
+\index{CATCH\_CATCH\_ANON@{CATCH\_CATCH\_ANON}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_CATCH\_ANON}{CATCH\_CATCH\_ANON}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+CATCH\+\_\+\+ANON(\begin{DoxyParamCaption}\item[{}]{type }\end{DoxyParamCaption})~if ((false))}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00459}{459}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a5e8669f07e3db1e9e1604508689bc28a}\label{catch__compiler__capabilities_8hpp_a5e8669f07e3db1e9e1604508689bc28a} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_CONFIG\_CPP11\_TO\_STRING@{CATCH\_CONFIG\_CPP11\_TO\_STRING}}
+\index{CATCH\_CONFIG\_CPP11\_TO\_STRING@{CATCH\_CONFIG\_CPP11\_TO\_STRING}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_CONFIG\_CPP11\_TO\_STRING}{CATCH\_CONFIG\_CPP11\_TO\_STRING}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+CONFIG\+\_\+\+CPP11\+\_\+\+TO\+\_\+\+STRING}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a893712b2ba6e7400136a0a023b12e9db}\label{catch__compiler__capabilities_8hpp_a893712b2ba6e7400136a0a023b12e9db} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_CONFIG\_DISABLE\_EXCEPTIONS@{CATCH\_CONFIG\_DISABLE\_EXCEPTIONS}}
+\index{CATCH\_CONFIG\_DISABLE\_EXCEPTIONS@{CATCH\_CONFIG\_DISABLE\_EXCEPTIONS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_CONFIG\_DISABLE\_EXCEPTIONS}{CATCH\_CONFIG\_DISABLE\_EXCEPTIONS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+CONFIG\+\_\+\+DISABLE\+\_\+\+EXCEPTIONS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00378}{378}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a031d6a2aef5109e070f77e0d87a32b17}\label{catch__compiler__capabilities_8hpp_a031d6a2aef5109e070f77e0d87a32b17} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_CONFIG\_GETENV@{CATCH\_CONFIG\_GETENV}}
+\index{CATCH\_CONFIG\_GETENV@{CATCH\_CONFIG\_GETENV}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_CONFIG\_GETENV}{CATCH\_CONFIG\_GETENV}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+CONFIG\+\_\+\+GETENV}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00343}{343}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a3271a306c531fd4a2c6c6180e4903fd9}\label{catch__compiler__capabilities_8hpp_a3271a306c531fd4a2c6c6180e4903fd9} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_CONFIG\_GLOBAL\_NEXTAFTER@{CATCH\_CONFIG\_GLOBAL\_NEXTAFTER}}
+\index{CATCH\_CONFIG\_GLOBAL\_NEXTAFTER@{CATCH\_CONFIG\_GLOBAL\_NEXTAFTER}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_CONFIG\_GLOBAL\_NEXTAFTER}{CATCH\_CONFIG\_GLOBAL\_NEXTAFTER}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+CONFIG\+\_\+\+GLOBAL\+\_\+\+NEXTAFTER}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00390}{390}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_ac5eee4f90512985d2043f971c6f08707}\label{catch__compiler__capabilities_8hpp_ac5eee4f90512985d2043f971c6f08707} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_CONFIG\_POSIX\_SIGNALS@{CATCH\_CONFIG\_POSIX\_SIGNALS}}
+\index{CATCH\_CONFIG\_POSIX\_SIGNALS@{CATCH\_CONFIG\_POSIX\_SIGNALS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_CONFIG\_POSIX\_SIGNALS}{CATCH\_CONFIG\_POSIX\_SIGNALS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+CONFIG\+\_\+\+POSIX\+\_\+\+SIGNALS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00339}{339}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}\label{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_DESTRUCTOR\_CONSTEXPR@{CATCH\_DESTRUCTOR\_CONSTEXPR}}
+\index{CATCH\_DESTRUCTOR\_CONSTEXPR@{CATCH\_DESTRUCTOR\_CONSTEXPR}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_DESTRUCTOR\_CONSTEXPR}{CATCH\_DESTRUCTOR\_CONSTEXPR}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a7a076eb1c404d5e057d159c9b271cc6f}\label{catch__compiler__capabilities_8hpp_a7a076eb1c404d5e057d159c9b271cc6f} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_EXPORT@{CATCH\_EXPORT}}
+\index{CATCH\_EXPORT@{CATCH\_EXPORT}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_EXPORT}{CATCH\_EXPORT}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+EXPORT}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00485}{485}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_af1d39364eef8e638ff7d96d0a47bed92}\label{catch__compiler__capabilities_8hpp_af1d39364eef8e638ff7d96d0a47bed92} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_CONFIG\_GETENV@{CATCH\_INTERNAL\_CONFIG\_GETENV}}
+\index{CATCH\_INTERNAL\_CONFIG\_GETENV@{CATCH\_INTERNAL\_CONFIG\_GETENV}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_CONFIG\_GETENV}{CATCH\_INTERNAL\_CONFIG\_GETENV}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+CONFIG\+\_\+\+GETENV}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00184}{184}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a48ae5ed6ff9168c5ad3d5058527fbfae}\label{catch__compiler__capabilities_8hpp_a48ae5ed6ff9168c5ad3d5058527fbfae} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_CONFIG\_GLOBAL\_NEXTAFTER@{CATCH\_INTERNAL\_CONFIG\_GLOBAL\_NEXTAFTER}}
+\index{CATCH\_INTERNAL\_CONFIG\_GLOBAL\_NEXTAFTER@{CATCH\_INTERNAL\_CONFIG\_GLOBAL\_NEXTAFTER}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_CONFIG\_GLOBAL\_NEXTAFTER}{CATCH\_INTERNAL\_CONFIG\_GLOBAL\_NEXTAFTER}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+CONFIG\+\_\+\+GLOBAL\+\_\+\+NEXTAFTER}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00293}{293}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a3c8d4b828da004fc3ad2511c1900ec19}\label{catch__compiler__capabilities_8hpp_a3c8d4b828da004fc3ad2511c1900ec19} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_CONFIG\_POSIX\_SIGNALS@{CATCH\_INTERNAL\_CONFIG\_POSIX\_SIGNALS}}
+\index{CATCH\_INTERNAL\_CONFIG\_POSIX\_SIGNALS@{CATCH\_INTERNAL\_CONFIG\_POSIX\_SIGNALS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_CONFIG\_POSIX\_SIGNALS}{CATCH\_INTERNAL\_CONFIG\_POSIX\_SIGNALS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+CONFIG\+\_\+\+POSIX\+\_\+\+SIGNALS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00174}{174}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_aa7ffc39ff2307d382e766a867d49b67a}\label{catch__compiler__capabilities_8hpp_aa7ffc39ff2307d382e766a867d49b67a} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_IGNORE\_BUT\_WARN@{CATCH\_INTERNAL\_IGNORE\_BUT\_WARN}}
+\index{CATCH\_INTERNAL\_IGNORE\_BUT\_WARN@{CATCH\_INTERNAL\_IGNORE\_BUT\_WARN}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_IGNORE\_BUT\_WARN}{CATCH\_INTERNAL\_IGNORE\_BUT\_WARN}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+IGNORE\+\_\+\+BUT\+\_\+\+WARN(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00407}{407}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a1500dca9a578a0bd2f85771cfa3fd35d}\label{catch__compiler__capabilities_8hpp_a1500dca9a578a0bd2f85771cfa3fd35d} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION@{CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION}}
+\index{CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION@{CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION}{CATCH\_INTERNAL\_START\_WARNINGS\_SUPPRESSION}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+START\+\_\+\+WARNINGS\+\_\+\+SUPPRESSION}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00413}{413}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_ad9594e9891b032f0dd0279960dc861a5}\label{catch__compiler__capabilities_8hpp_ad9594e9891b032f0dd0279960dc861a5} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION@{CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}}
+\index{CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION@{CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}{CATCH\_INTERNAL\_STOP\_WARNINGS\_SUPPRESSION}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+STOP\+\_\+\+WARNINGS\+\_\+\+SUPPRESSION}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00416}{416}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a7bc5b3c9171a2b0d9d2e23459c25d4b0}\label{catch__compiler__capabilities_8hpp_a7bc5b3c9171a2b0d9d2e23459c25d4b0} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_COMMA\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_COMMA\_WARNINGS}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_COMMA\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_COMMA\_WARNINGS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_COMMA\_WARNINGS}{CATCH\_INTERNAL\_SUPPRESS\_COMMA\_WARNINGS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+COMMA\+\_\+\+WARNINGS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00440}{440}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a2df5668ab531f6b9392c5f9ef09a6c60}\label{catch__compiler__capabilities_8hpp_a2df5668ab531f6b9392c5f9ef09a6c60} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS}{CATCH\_INTERNAL\_SUPPRESS\_COUNTER\_WARNINGS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+COUNTER\+\_\+\+WARNINGS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00446}{446}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_aa0200c23b35ba2bd8ebed69a8f3c1c66}\label{catch__compiler__capabilities_8hpp_aa0200c23b35ba2bd8ebed69a8f3c1c66} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS}{CATCH\_INTERNAL\_SUPPRESS\_GLOBALS\_WARNINGS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+GLOBALS\+\_\+\+WARNINGS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00422}{422}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a89c1608a68775aca1bb7c265f7ba923a}\label{catch__compiler__capabilities_8hpp_a89c1608a68775aca1bb7c265f7ba923a} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS}{CATCH\_INTERNAL\_SUPPRESS\_PARENTHESES\_WARNINGS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+PARENTHESES\+\_\+\+WARNINGS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00419}{419}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_adcf1ca30d92d27477df5490f6568ea34}\label{catch__compiler__capabilities_8hpp_adcf1ca30d92d27477df5490f6568ea34} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS}{CATCH\_INTERNAL\_SUPPRESS\_SHADOW\_WARNINGS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+SHADOW\+\_\+\+WARNINGS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00443}{443}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a4928300ab3058e4b594e93bf73a9a3c2}\label{catch__compiler__capabilities_8hpp_a4928300ab3058e4b594e93bf73a9a3c2} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_RESULT@{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_RESULT}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_RESULT@{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_RESULT}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_RESULT}{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_RESULT}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+UNUSED\+\_\+\+RESULT}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00425}{425}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a10a275cf93b99d6f1246d9d9df09d1d8}\label{catch__compiler__capabilities_8hpp_a10a275cf93b99d6f1246d9d9df09d1d8} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS}{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_TEMPLATE\_WARNINGS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+UNUSED\+\_\+\+TEMPLATE\+\_\+\+WARNINGS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00437}{437}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_afd86e877ae53a18ac74078959b8af053}\label{catch__compiler__capabilities_8hpp_afd86e877ae53a18ac74078959b8af053} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS}{CATCH\_INTERNAL\_SUPPRESS\_UNUSED\_VARIABLE\_WARNINGS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+UNUSED\+\_\+\+VARIABLE\+\_\+\+WARNINGS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00428}{428}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_a4ccd8a84431fe6636f9e9ab492941491}\label{catch__compiler__capabilities_8hpp_a4ccd8a84431fe6636f9e9ab492941491} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_USELESS\_CAST\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_USELESS\_CAST\_WARNINGS}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_USELESS\_CAST\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_USELESS\_CAST\_WARNINGS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_USELESS\_CAST\_WARNINGS}{CATCH\_INTERNAL\_SUPPRESS\_USELESS\_CAST\_WARNINGS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+USELESS\+\_\+\+CAST\+\_\+\+WARNINGS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00431}{431}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_af9c2d6807f17109481b536551c0c10bf}\label{catch__compiler__capabilities_8hpp_af9c2d6807f17109481b536551c0c10bf} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS}}
+\index{CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS@{CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS}{CATCH\_INTERNAL\_SUPPRESS\_ZERO\_VARIADIC\_WARNINGS}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+INTERNAL\+\_\+\+SUPPRESS\+\_\+\+ZERO\+\_\+\+VARIADIC\+\_\+\+WARNINGS}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00434}{434}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+
+\Hypertarget{catch__compiler__capabilities_8hpp_ab76c2d22e571ab1a828f5c60d2f485a6}\label{catch__compiler__capabilities_8hpp_ab76c2d22e571ab1a828f5c60d2f485a6} 
+\index{catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}!CATCH\_TRY@{CATCH\_TRY}}
+\index{CATCH\_TRY@{CATCH\_TRY}!catch\_compiler\_capabilities.hpp@{catch\_compiler\_capabilities.hpp}}
+\doxysubsubsection{\texorpdfstring{CATCH\_TRY}{CATCH\_TRY}}
+{\footnotesize\ttfamily \#define CATCH\+\_\+\+TRY~if ((true))}
+
+
+
+Definition at line \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source_l00457}{457}} of file \mbox{\hyperlink{catch__compiler__capabilities_8hpp_source}{catch\+\_\+compiler\+\_\+capabilities.\+hpp}}.
+

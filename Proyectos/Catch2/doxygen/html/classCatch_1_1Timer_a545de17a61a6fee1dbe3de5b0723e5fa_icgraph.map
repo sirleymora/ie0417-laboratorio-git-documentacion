@@ -1,0 +1,15 @@
+<map id="Catch::Timer::getElapsedMicroseconds" name="Catch::Timer::getElapsedMicroseconds">
+<area shape="rect" id="Node000001" title=" " alt="" coords="481,69,667,109"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Timer.html#a30aaf458dbb59dd8ac8971c9c62e0eac" title=" " alt="" coords="248,21,433,61"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="467,70,433,63,434,58,468,65"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1Timer.html#a065e37e3c9eb16bd4dcf41971d8deedc" title=" " alt="" coords="248,101,433,141"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="468,107,434,111,433,106,467,101"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1TeamCityReporter.html#ab2a5007071e489a4e4c8ee8e84585ef8" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="11,5,195,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="234,37,195,34,195,29,234,32"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1XmlReporter.html#ab641ec7e115cb94efa02f85e9d91de0f" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="28,69,177,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="234,110,177,102,178,97,234,104"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1JunitReporter.html#a529ba203e91db27821519f8c41ac7905" title="Customization point: called after last test finishes (testRunEnded has been handled)" alt="" coords="5,133,200,173"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="235,138,200,143,200,138,234,133"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1Section.html#aa1422edd68a77aa578b5cc6b8b69f86f" title=" " alt="" coords="11,198,194,223"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="289,150,201,188,160,200,158,195,199,183,287,145"/>
+</map>

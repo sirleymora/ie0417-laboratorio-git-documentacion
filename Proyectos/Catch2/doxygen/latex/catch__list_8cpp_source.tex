@@ -1,0 +1,126 @@
+\doxysection{catch\+\_\+list.\+cpp}
+\hypertarget{catch__list_8cpp_source}{}\label{catch__list_8cpp_source}\index{src/catch2/internal/catch\_list.cpp@{src/catch2/internal/catch\_list.cpp}}
+\mbox{\hyperlink{catch__list_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__list_8hpp}{catch2/internal/catch\_list.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__registry__hub_8hpp}{catch2/interfaces/catch\_interfaces\_registry\_hub.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__reporter_8hpp}{catch2/interfaces/catch\_interfaces\_reporter.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__reporter__factory_8hpp}{catch2/interfaces/catch\_interfaces\_reporter\_factory.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__registry__impl_8hpp}{catch2/internal/catch\_test\_case\_registry\_impl.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__registry_8hpp}{catch2/internal/catch\_reporter\_registry.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__move__and__forward_8hpp}{catch2/internal/catch\_move\_and\_forward.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__case__insensitive__comparisons_8hpp}{catch2/internal/catch\_case\_insensitive\_comparisons.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__config_8hpp}{catch2/catch\_config.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__info_8hpp}{catch2/catch\_test\_case\_info.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00020}00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ listTests(IEventListener\&\ reporter,\ IConfig\ \textcolor{keyword}{const}\&\ config)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ testSpec\ =\ config.testSpec();}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ matchedTestCases\ =\ \mbox{\hyperlink{namespaceCatch_af1944a358b260e03c6695aa7ae259c9a}{filterTests}}(\mbox{\hyperlink{namespaceCatch_aae7d61b3abc9c8d3c82407b380e6a414}{getAllTestCasesSorted}}(config),\ testSpec,\ config);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ reporter.listTests(matchedTestCases);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ listTags(IEventListener\&\ reporter,\ IConfig\ \textcolor{keyword}{const}\&\ config)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ testSpec\ =\ config.testSpec();}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<TestCaseHandle>\ matchedTestCases\ =\ \mbox{\hyperlink{namespaceCatch_af1944a358b260e03c6695aa7ae259c9a}{filterTests}}(\mbox{\hyperlink{namespaceCatch_aae7d61b3abc9c8d3c82407b380e6a414}{getAllTestCasesSorted}}(config),\ testSpec,\ config);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::map<StringRef,\ TagInfo,\ Detail::CaseInsensitiveLess>\ tagCounts;}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ testCase\ :\ matchedTestCases)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ tagName\ :\ testCase.getTestCaseInfo().tags)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ tagCounts.find(tagName.original);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ tagCounts.end())}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ it\ =\ tagCounts.insert(std::make\_pair(tagName.original,\ TagInfo())).first;}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ it-\/>second.add(tagName.original);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<TagInfo>\ infos;\ infos.reserve(tagCounts.size());}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ tagc\ :\ tagCounts)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ infos.push\_back(\mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(tagc.second));}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ reporter.listTags(infos);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ listReporters(IEventListener\&\ reporter)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ReporterDescription>\ descriptions;}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ factories\ =\ \mbox{\hyperlink{namespaceCatch_a5d328566cb8da87b48f1fac3f319ac7a}{getRegistryHub}}().\mbox{\hyperlink{classCatch_1_1IRegistryHub_aecb81b9fcf4fc3348778adc57531f079}{getReporterRegistry}}().\mbox{\hyperlink{classCatch_1_1ReporterRegistry_a4d2e80a3a3ed404006d28df69bac4239}{getFactories}}();}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ descriptions.reserve(factories.size());}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ fac\ :\ factories)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ descriptions.push\_back(\{\ fac.first,\ fac.second-\/>getDescription()\ \});}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ reporter.listReporters(descriptions);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ listListeners(IEventListener\&\ reporter)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ListenerDescription>\ descriptions;}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ factories\ =}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_a5d328566cb8da87b48f1fac3f319ac7a}{getRegistryHub}}().\mbox{\hyperlink{classCatch_1_1IRegistryHub_aecb81b9fcf4fc3348778adc57531f079}{getReporterRegistry}}().\mbox{\hyperlink{classCatch_1_1ReporterRegistry_a032d92b84a5d1aa1528bacf17737ec94}{getListeners}}();}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ descriptions.reserve(\ factories.size()\ );}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ fac\ :\ factories\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ descriptions.push\_back(\ \{\ fac-\/>getName(),\ fac-\/>getDescription()\ \}\ );}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ reporter.listListeners(\ descriptions\ );}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00076}00076\ \ \ \ \ \}\ \textcolor{comment}{//\ end\ anonymous\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00078}\mbox{\hyperlink{structCatch_1_1TagInfo_a41dd4fee3332b6455c162a5bc4819fd4}{00078}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structCatch_1_1TagInfo_a41dd4fee3332b6455c162a5bc4819fd4}{TagInfo::add}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ spelling\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ ++\mbox{\hyperlink{structCatch_1_1TagInfo_ae056c754ab1e2f1a8f175096ae5835c2}{count}};}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structCatch_1_1TagInfo_a086cba23a86af2c5f4f587bc9a07f6a7}{spellings}}.insert(\ spelling\ );}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00083}\mbox{\hyperlink{structCatch_1_1TagInfo_a383b0c3531d4822ef13991bc15a58974}{00083}}\ \ \ \ \ std::string\ \mbox{\hyperlink{structCatch_1_1TagInfo_a383b0c3531d4822ef13991bc15a58974}{TagInfo::all}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 2\ per\ tag\ for\ brackets\ '['\ and\ ']'}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size\ =\ \ \mbox{\hyperlink{structCatch_1_1TagInfo_a086cba23a86af2c5f4f587bc9a07f6a7}{spellings}}.size()\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ spelling\ :\ \mbox{\hyperlink{structCatch_1_1TagInfo_a086cba23a86af2c5f4f587bc9a07f6a7}{spellings}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ size\ +=\ spelling.size();}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ std::string\ out;\ out.reserve(size);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ spelling\ :\ \mbox{\hyperlink{structCatch_1_1TagInfo_a086cba23a86af2c5f4f587bc9a07f6a7}{spellings}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ out\ +=\ \textcolor{charliteral}{'['};}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ out\ +=\ spelling;}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ out\ +=\ \textcolor{charliteral}{']'};}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00099}\mbox{\hyperlink{namespaceCatch_a11c40de0d3593160a350d9e4323311b2}{00099}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceCatch_a11c40de0d3593160a350d9e4323311b2}{list}}(\ \mbox{\hyperlink{classCatch_1_1IEventListener}{IEventListener}}\&\ reporter,\ \mbox{\hyperlink{classCatch_1_1Config}{Config}}\ \textcolor{keyword}{const}\&\ config\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ listed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (config.\mbox{\hyperlink{classCatch_1_1Config_a4717b0c64f13c6f7dc4afdaeb396b7b9}{listTests}}())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ listed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ listTests(reporter,\ config);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (config.\mbox{\hyperlink{classCatch_1_1Config_a87797a539ff81a7c3c0b302ede7ec9d3}{listTags}}())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ listed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ listTags(reporter,\ config);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (config.\mbox{\hyperlink{classCatch_1_1Config_a4af3e61afbc5db0c2bb1138254a765ce}{listReporters}}())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ listed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ listReporters(reporter);}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ config.\mbox{\hyperlink{classCatch_1_1Config_aa9635ebb5686aa7b7a56670799f1bd55}{listListeners}}()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ listed\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ listListeners(\ reporter\ );}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ listed;}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{catch__list_8cpp_source_l00120}00120\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+
+\end{DoxyCode}

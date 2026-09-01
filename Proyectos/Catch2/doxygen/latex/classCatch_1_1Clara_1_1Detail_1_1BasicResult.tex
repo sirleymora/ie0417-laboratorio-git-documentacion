@@ -1,0 +1,383 @@
+\doxysection{Catch\+::Clara\+::Detail\+::Basic\+Result\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult}\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+
+
+{\ttfamily \#include $<$catch\+\_\+clara.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::Clara\+::Detail\+::Basic\+Result\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{classCatch_1_1Clara_1_1Detail_1_1BasicResult__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Catch\+::Clara\+::Detail\+::Basic\+Result\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{classCatch_1_1Clara_1_1Detail_1_1BasicResult__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a4fff47323e9c1d47912c8968719d97a0}{Basic\+Result}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}}$<$ U $>$ const \&other)
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a015816d63f3b71d246d95142e3223e13}{operator bool}} () const
+\item 
+auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_ac043c61d7ad6b9fe6660cb85e1380c16}{type}} () const -\/$>$ \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}}
+\item 
+auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a72212341d12d38b9ef6f8c3ecaae3d66}{error\+Message}} () const -\/$>$ std\+::string const \&
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Value\+Base$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+T const \& \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a6af8a6cea4393ec7aebfec7706451e2a}{value}} () const \&
+\item 
+T \&\& \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_ac205446a0e5a70a6d16fa497d515b83e}{value}} () \&\&
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename U $>$ }\\static auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a29bc3a3b25ac304c5d8fff1edcf11446}{ok}} (U \&\&\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a6af8a6cea4393ec7aebfec7706451e2a}{value}}) -\/$>$ \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}}
+\item 
+static auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a4d9c94c86f71eaa76356ab808a221b62}{ok}} () -\/$>$ \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}}
+\item 
+static auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_ae6c470af1becfc54d75df69104e45160}{logic\+Error}} (std\+::string \&\&message) -\/$>$ \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}}
+\item 
+static auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a8adbd2c9cd517ae768a18b9d9dca2c01}{runtime\+Error}} (std\+::string \&\&message) -\/$>$ \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a87690846616d49ba834603770909055d}{enforce\+Ok}} () const override
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a881617c5872c403eacc22966a046fc82}{Basic\+Result}} (\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}} \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_ac043c61d7ad6b9fe6660cb85e1380c16}{type}}, std\+::string \&\&message)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Value\+Base$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a8ec617ccbc34a51c245208af9b41579a}{Result\+Value\+Base}} (\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}} type)
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a5c51e56e4f6074c61c6aa5cacfa18022}{Result\+Value\+Base}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Result\+Value\+Base}} const \&other)
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a9eaf605757feed205f4fd6332a8baa1b}{Result\+Value\+Base}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Result\+Value\+Base}} \&\&other)
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a0bd390452e6412aefa0dc8d732ff52c5}{Result\+Value\+Base}} (\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}}, T const \&\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a6af8a6cea4393ec7aebfec7706451e2a}{value}})
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a3d85c7ccab03a8b20dffa2678ee8ed77}{Result\+Value\+Base}} (\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}}, T \&\&\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a6af8a6cea4393ec7aebfec7706451e2a}{value}})
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Result\+Value\+Base}} \& \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a0e5c16b22375908f71f052493deda158}{operator=}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Result\+Value\+Base}} const \&other)
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Result\+Value\+Base}} \& \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a32385a630a328ffa9891032cdf0b5e78}{operator=}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Result\+Value\+Base}} \&\&other)
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_ab06f7ed3b1956baad0ea8316991d660e}{\texorpdfstring{$\sim$}{\string~}\+Result\+Value\+Base}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase_a533f12fda5654c0f71f311877b137086}{Result\+Base}} (\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}} type)
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase_a07fecafa1021ad679bc878a4c6cbea6d}{\texorpdfstring{$\sim$}{\string~}\+Result\+Base}} ()
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase_a75a480c3898c4622db5922b5b146c006}{Result\+Base}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase}{Result\+Base}} const \&)=default
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase}{Result\+Base}} \& \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase_a761941b417b13ab165cab8f12db394f2}{operator=}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase}{Result\+Base}} const \&)=default
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase_a9971684f2626900c1ed1b9f43b8ad97a}{Result\+Base}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase}{Result\+Base}} \&\&)=default
+\item 
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase}{Result\+Base}} \& \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase_a808a79ceca2dbf83da72347994784d4f}{operator=}} (\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase}{Result\+Base}} \&\&)=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a84c9409f5c91ba6794ea9ea87a38fdf8}{m\+\_\+error\+Message}}
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}} \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult_af794d366dd0035764edf572222725eb2}{m\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Value\+Base$<$ T $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>T \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultValueBase_a468180a215cef2bd61993e560c255c3a}{m\_value}}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}} \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase_af794d366dd0035764edf572222725eb2}{m\+\_\+type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T = void$>$\newline
+class Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$}
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00233}{233}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a4fff47323e9c1d47912c8968719d97a0}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a4fff47323e9c1d47912c8968719d97a0} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!BasicResult@{BasicResult}}
+\index{BasicResult@{BasicResult}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{BasicResult()}{BasicResult()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::\+Basic\+Result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}}$<$ U $>$ const \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00236}{236}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa60852f204ed8028c1c58808b746d115}{Catch\+::\+Clara\+::\+Detail\+::\+Ok}}, and \mbox{\hyperlink{catch__clara_8hpp_source_l00259}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::type()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a4fff47323e9c1d47912c8968719d97a0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a881617c5872c403eacc22966a046fc82}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a881617c5872c403eacc22966a046fc82} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!BasicResult@{BasicResult}}
+\index{BasicResult@{BasicResult}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{BasicResult()}{BasicResult()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::\+Basic\+Result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}}}]{type,  }\item[{std\+::string \&\&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00278}{278}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__clara_8hpp_source_l00161}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::m\+\_\+type}}, and \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa60852f204ed8028c1c58808b746d115}{Catch\+::\+Clara\+::\+Detail\+::\+Ok}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a87690846616d49ba834603770909055d}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a87690846616d49ba834603770909055d} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!enforceOk@{enforceOk}}
+\index{enforceOk@{enforceOk}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{enforceOk()}{enforceOk()}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+void \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::enforce\+Ok (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1ResultBase_aa745dfcd5ea1c94e93b57e5434a34177}{Catch\+::\+Clara\+::\+Detail\+::\+Result\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00265}{265}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa50b3452a2f7b026eb9325c5df52c157}{Catch\+::\+Clara\+::\+Detail\+::\+Logic\+Error}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00161}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::m\+\_\+type}}, \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa60852f204ed8028c1c58808b746d115}{Catch\+::\+Clara\+::\+Detail\+::\+Ok}}, and \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa334b8fdd25f8fb3e632228494604ee1}{Catch\+::\+Clara\+::\+Detail\+::\+Runtime\+Error}}.
+
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a72212341d12d38b9ef6f8c3ecaae3d66}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a72212341d12d38b9ef6f8c3ecaae3d66} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!errorMessage@{errorMessage}}
+\index{errorMessage@{errorMessage}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{errorMessage()}{errorMessage()}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::error\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const -\/$>$ std\+::string const\& \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00260}{260}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__clara_8hpp_source_l00276}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::m\+\_\+error\+Message}}.
+
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_ae6c470af1becfc54d75df69104e45160}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_ae6c470af1becfc54d75df69104e45160} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!logicError@{logicError}}
+\index{logicError@{logicError}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{logicError()}{logicError()}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+static auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::logic\+Error (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{message }\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}} \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00247}{247}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa50b3452a2f7b026eb9325c5df52c157}{Catch\+::\+Clara\+::\+Detail\+::\+Logic\+Error}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__clara_8cpp_source_l00268}{Catch\+::\+Clara\+::\+Opt\+::validate()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Clara_1_1Detail_1_1BasicResult_ae6c470af1becfc54d75df69104e45160_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a4d9c94c86f71eaa76356ab808a221b62}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a4d9c94c86f71eaa76356ab808a221b62} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!ok@{ok}}
+\index{ok@{ok}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ok()}{ok()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+static auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::ok (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}} \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00246}{246}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa60852f204ed8028c1c58808b746d115}{Catch\+::\+Clara\+::\+Detail\+::\+Ok}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__clara_8cpp_source_l00123}{Catch\+::\+Clara\+::\+Detail\+::convert\+Into()}}, \mbox{\hyperlink{catch__clara_8cpp_source_l00117}{Catch\+::\+Clara\+::\+Detail\+::convert\+Into()}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00316}{Catch\+::\+Clara\+::\+Detail\+::convert\+Into()}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00408}{Catch\+::\+Clara\+::\+Detail\+::\+Lambda\+Invoker$<$ void $>$\+::invoke()}}, \mbox{\hyperlink{catch__clara_8cpp_source_l00166}{Catch\+::\+Clara\+::\+Arg\+::parse()}}, \mbox{\hyperlink{catch__clara_8cpp_source_l00217}{Catch\+::\+Clara\+::\+Opt\+::parse()}}, \mbox{\hyperlink{catch__clara_8cpp_source_l00296}{Catch\+::\+Clara\+::\+Exe\+Name\+::parse()}}, \mbox{\hyperlink{catch__clara_8cpp_source_l00395}{Catch\+::\+Clara\+::\+Parser\+::parse()}}, \mbox{\hyperlink{catch__clara_8cpp_source_l00151}{Catch\+::\+Clara\+::\+Detail\+::\+Bound\+Flag\+Ref\+::set\+Flag()}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00470}{Catch\+::\+Clara\+::\+Detail\+::\+Parser\+Base\+::validate()}}, and \mbox{\hyperlink{catch__clara_8cpp_source_l00380}{Catch\+::\+Clara\+::\+Parser\+::validate()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a4d9c94c86f71eaa76356ab808a221b62_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a29bc3a3b25ac304c5d8fff1edcf11446}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a29bc3a3b25ac304c5d8fff1edcf11446} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!ok@{ok}}
+\index{ok@{ok}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ok()}{ok()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+template$<$typename U $>$ \\
+static auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::ok (\begin{DoxyParamCaption}\item[{U \&\&}]{value }\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}} \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00243}{243}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00017}{CATCH\+\_\+\+FORWARD}}, \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa60852f204ed8028c1c58808b746d115}{Catch\+::\+Clara\+::\+Detail\+::\+Ok}}, and \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_source_l00020}{value}}.
+
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a015816d63f3b71d246d95142e3223e13}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a015816d63f3b71d246d95142e3223e13} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+\mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00256}{256}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__clara_8hpp_source_l00161}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::m\+\_\+type}}, and \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa60852f204ed8028c1c58808b746d115}{Catch\+::\+Clara\+::\+Detail\+::\+Ok}}.
+
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a8adbd2c9cd517ae768a18b9d9dca2c01}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a8adbd2c9cd517ae768a18b9d9dca2c01} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!runtimeError@{runtimeError}}
+\index{runtimeError@{runtimeError}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{runtimeError()}{runtimeError()}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+static auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::runtime\+Error (\begin{DoxyParamCaption}\item[{std\+::string \&\&}]{message }\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Basic\+Result}} \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00251}{251}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, and \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1aa334b8fdd25f8fb3e632228494604ee1}{Catch\+::\+Clara\+::\+Detail\+::\+Runtime\+Error}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__clara_8cpp_source_l00123}{Catch\+::\+Clara\+::\+Detail\+::convert\+Into()}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00316}{Catch\+::\+Clara\+::\+Detail\+::convert\+Into()}}, \mbox{\hyperlink{catch__clara_8cpp_source_l00217}{Catch\+::\+Clara\+::\+Opt\+::parse()}}, and \mbox{\hyperlink{catch__clara_8cpp_source_l00395}{Catch\+::\+Clara\+::\+Parser\+::parse()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a8adbd2c9cd517ae768a18b9d9dca2c01_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_ac043c61d7ad6b9fe6660cb85e1380c16}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_ac043c61d7ad6b9fe6660cb85e1380c16} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!type@{type}}
+\index{type@{type}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+auto \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const -\/$>$ \mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}} \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00259}{259}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__clara_8hpp_source_l00161}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::m\+\_\+type}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__clara_8hpp_source_l00236}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::\+Basic\+Result()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1Clara_1_1Detail_1_1BasicResult_ac043c61d7ad6b9fe6660cb85e1380c16_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a84c9409f5c91ba6794ea9ea87a38fdf8}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_a84c9409f5c91ba6794ea9ea87a38fdf8} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!m\_errorMessage@{m\_errorMessage}}
+\index{m\_errorMessage@{m\_errorMessage}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_errorMessage}{m\_errorMessage}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+std\+::string \mbox{\hyperlink{classCatch_1_1Clara_1_1Detail_1_1BasicResult}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result}}$<$ T $>$\+::m\+\_\+error\+Message\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00276}{276}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__clara_8hpp_source_l00260}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::error\+Message()}}.
+
+\Hypertarget{classCatch_1_1Clara_1_1Detail_1_1BasicResult_af794d366dd0035764edf572222725eb2}\label{classCatch_1_1Clara_1_1Detail_1_1BasicResult_af794d366dd0035764edf572222725eb2} 
+\index{Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}!m\_type@{m\_type}}
+\index{m\_type@{m\_type}!Catch::Clara::Detail::BasicResult$<$ T $>$@{Catch::Clara::Detail::BasicResult$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m\_type}{m\_type}}
+{\footnotesize\ttfamily template$<$typename T  = void$>$ \\
+\mbox{\hyperlink{namespaceCatch_1_1Clara_1_1Detail_a58800f68faab69c44d58b2c0038875d1}{Result\+Type}} Catch\+::\+Clara\+::\+Detail\+::\+Result\+Base\+::m\+\_\+type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__clara_8hpp_source_l00161}{161}} of file \mbox{\hyperlink{catch__clara_8hpp_source}{catch\+\_\+clara.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__clara_8hpp_source_l00278}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::\+Basic\+Result()}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00265}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::enforce\+Ok()}}, \mbox{\hyperlink{catch__clara_8hpp_source_l00256}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::operator bool()}}, and \mbox{\hyperlink{catch__clara_8hpp_source_l00259}{Catch\+::\+Clara\+::\+Detail\+::\+Basic\+Result$<$ T $>$\+::type()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__clara_8hpp}{catch\+\_\+clara.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,632 @@
+\doxysection{Catch\+::Config\+Data Struct Reference}
+\hypertarget{structCatch_1_1ConfigData}{}\label{structCatch_1_1ConfigData}\index{Catch::ConfigData@{Catch::ConfigData}}
+
+
+{\ttfamily \#include $<$catch\+\_\+config.\+hpp$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a0da0f6d493ef8f799273b4358d420a3a}{list\+Tests}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_af780422bdef8d8b905204542855cf6b3}{list\+Tags}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a4ba3618cae31b43237724f55359bfe95}{list\+Reporters}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a4c28063ebb7747e0d1292d88c6c815c5}{list\+Listeners}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_aeb091ca2df2c654caaa2ad29c14578e5}{show\+Successful\+Tests}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_afec8310b1904784edb292e143a602fba}{should\+Debug\+Break}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a6dd23f8c9d9337f46187e7dbb6a8328e}{no\+Throw}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a12535241547dfc57e6864c4fc2cd4dd9}{show\+Help}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a3c243de7a5957fa5311167039064379c}{show\+Invisibles}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a4c582987ddd060919a6fd203661f9210}{filenames\+As\+Tags}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a2cda9be1ee8b85e51c2e242330c99949}{lib\+Identify}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a1890c64c96561c11fc90b46012c7eec6}{allow\+Zero\+Tests}} = false
+\item 
+int \mbox{\hyperlink{structCatch_1_1ConfigData_a2d5505751aab745d5ae5e4ffe5c92c35}{abort\+After}} = -\/1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structCatch_1_1ConfigData_ab449e3c748282e6d6ccec1220a269e98}{rng\+Seed}} = \mbox{\hyperlink{namespaceCatch_a170bbe5db76570c4820b5e2eb260f82b}{generate\+Random\+Seed}}(\mbox{\hyperlink{namespaceCatch_a0e8d3a1107ecbaa1943e0a462db99a3da7a1920d61156abc05a60135aefe8bc67}{Generate\+From\+::\+Default}})
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a65f4744469976acf5dd53295420c080b}{rng\+Seed\+Was\+Fixed}} = false
+\item 
+unsigned int \mbox{\hyperlink{structCatch_1_1ConfigData_a8264452e6ba331c13c445bcf47604e11}{shard\+Count}} = 1
+\item 
+unsigned int \mbox{\hyperlink{structCatch_1_1ConfigData_af5907f3dac725fc180493b08b0b86e9c}{shard\+Index}} = 0
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a68cdb72e8eec907097c158e85b0047f1}{skip\+Benchmarks}} = false
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a10bfee8e127e5babfa4817553cf3ea69}{benchmark\+No\+Analysis}} = false
+\item 
+unsigned int \mbox{\hyperlink{structCatch_1_1ConfigData_ae76a7f7c5e9889f95c23f7a555000871}{benchmark\+Samples}} = 100
+\item 
+double \mbox{\hyperlink{structCatch_1_1ConfigData_ab93042534875065e313fc9c6d07555e6}{benchmark\+Confidence\+Interval}} = 0.\+95
+\item 
+unsigned int \mbox{\hyperlink{structCatch_1_1ConfigData_a45fdef92940dd2c210f80557a836f5fb}{benchmark\+Resamples}} = 100\textquotesingle{}000
+\item 
+std\+::chrono\+::milliseconds\+::rep \mbox{\hyperlink{structCatch_1_1ConfigData_a145e2b7f25cb59b3ef793720328aaaee}{benchmark\+Warmup\+Time}} = 100
+\item 
+\mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} \mbox{\hyperlink{structCatch_1_1ConfigData_ab0e6ea949455438bfdc22ed25bab12f8}{verbosity}} = \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a960b44c579bc2f6818d2daaf9e4c16f0}{Verbosity\+::\+Normal}}
+\item 
+\mbox{\hyperlink{structCatch_1_1WarnAbout_ae3dde70ef78d700ea896eb29314e0fa3}{Warn\+About\+::\+What}} \mbox{\hyperlink{structCatch_1_1ConfigData_af3a1c0b4a748b24799941b59bcd9c138}{warnings}} = \mbox{\hyperlink{structCatch_1_1WarnAbout_ae3dde70ef78d700ea896eb29314e0fa3a9ac33f9211280cca9082557329706d27}{Warn\+About\+::\+Nothing}}
+\item 
+\mbox{\hyperlink{namespaceCatch_afcb41c3350d3488c0efb02816a8867c8}{Show\+Durations}} \mbox{\hyperlink{structCatch_1_1ConfigData_a7cdef18ba0c8a052b80ac9d80949efbc}{show\+Durations}} = \mbox{\hyperlink{namespaceCatch_afcb41c3350d3488c0efb02816a8867c8a03cdfbdf8eac6fa7716a480c492f386e}{Show\+Durations\+::\+Default\+For\+Reporter}}
+\item 
+double \mbox{\hyperlink{structCatch_1_1ConfigData_acfa3ccaefe9052d32b33e224b1d45d6f}{min\+Duration}} = -\/1
+\item 
+\mbox{\hyperlink{namespaceCatch_aa820408cff40873fdf5c6662b6327100}{Test\+Run\+Order}} \mbox{\hyperlink{structCatch_1_1ConfigData_a52508e710c553a3ce0531b4a59c2f25c}{run\+Order}} = \mbox{\hyperlink{namespaceCatch_aa820408cff40873fdf5c6662b6327100ad0bcdd909ab6eff96996ccd91f90d2bb}{Test\+Run\+Order\+::\+Randomized}}
+\item 
+\mbox{\hyperlink{namespaceCatch_a91308e87521e370e591065a22b010025}{Colour\+Mode}} \mbox{\hyperlink{structCatch_1_1ConfigData_a8a617d7428797065c73b7d6585a81f77}{default\+Colour\+Mode}} = \mbox{\hyperlink{namespaceCatch_a91308e87521e370e591065a22b010025a896ac0b4a6597d34fee67269b1d50a7f}{Colour\+Mode\+::\+Platform\+Default}}
+\item 
+\mbox{\hyperlink{structCatch_1_1WaitForKeypress_a2e8c4369d0a605d64e3e83b5af3399ba}{Wait\+For\+Keypress\+::\+When}} \mbox{\hyperlink{structCatch_1_1ConfigData_a923861968eaad4d3c2ac82e514c7cc81}{wait\+For\+Keypress}} = \mbox{\hyperlink{structCatch_1_1WaitForKeypress_a2e8c4369d0a605d64e3e83b5af3399baa3a78e4f64675e7ce54ffd29e6109f1ce}{Wait\+For\+Keypress\+::\+Never}}
+\item 
+std\+::string \mbox{\hyperlink{structCatch_1_1ConfigData_ac75e1404fab69dfd7105f688179b3c46}{default\+Output\+Filename}}
+\item 
+std\+::string \mbox{\hyperlink{structCatch_1_1ConfigData_a6c62e90478bc2911d032ec54c2e9d8df}{name}}
+\item 
+std\+::string \mbox{\hyperlink{structCatch_1_1ConfigData_ac181ec69c5b6c925ac9bea9eaf7039c3}{process\+Name}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1ReporterSpec}{Reporter\+Spec}} $>$ \mbox{\hyperlink{structCatch_1_1ConfigData_a1ae8b33c7837061097b209051c287099}{reporter\+Specifications}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structCatch_1_1ConfigData_aa40b0e5d2f78a7addbd5c8d16a111840}{tests\+Or\+Tags}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1PathFilter}{Path\+Filter}} $>$ \mbox{\hyperlink{structCatch_1_1ConfigData_a076d321e7da2276af78cc47abf559607}{path\+Filters}}
+\item 
+bool \mbox{\hyperlink{structCatch_1_1ConfigData_a2c353003cddbc3a1455e63be69515ba5}{use\+New\+Path\+Filtering\+Behaviour}} = false
+\item 
+std\+::string \mbox{\hyperlink{structCatch_1_1ConfigData_a99496ed339c4ce56af5932ab876ba9d0}{premature\+Exit\+Guard\+File\+Path}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structCatch_1_1ConfigData_a2d5505751aab745d5ae5e4ffe5c92c35}\label{structCatch_1_1ConfigData_a2d5505751aab745d5ae5e4ffe5c92c35} 
+\index{Catch::ConfigData@{Catch::ConfigData}!abortAfter@{abortAfter}}
+\index{abortAfter@{abortAfter}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{abortAfter}{abortAfter}}
+{\footnotesize\ttfamily int Catch\+::\+Config\+Data\+::abort\+After = -\/1}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00064}{64}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00217}{Catch\+::\+Config\+::abort\+After()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a1890c64c96561c11fc90b46012c7eec6}\label{structCatch_1_1ConfigData_a1890c64c96561c11fc90b46012c7eec6} 
+\index{Catch::ConfigData@{Catch::ConfigData}!allowZeroTests@{allowZeroTests}}
+\index{allowZeroTests@{allowZeroTests}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{allowZeroTests}{allowZeroTests}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::allow\+Zero\+Tests = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00207}{Catch\+::\+Config\+::zero\+Tests\+Count\+As\+Success()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_ab93042534875065e313fc9c6d07555e6}\label{structCatch_1_1ConfigData_ab93042534875065e313fc9c6d07555e6} 
+\index{Catch::ConfigData@{Catch::ConfigData}!benchmarkConfidenceInterval@{benchmarkConfidenceInterval}}
+\index{benchmarkConfidenceInterval@{benchmarkConfidenceInterval}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{benchmarkConfidenceInterval}{benchmarkConfidenceInterval}}
+{\footnotesize\ttfamily double Catch\+::\+Config\+Data\+::benchmark\+Confidence\+Interval = 0.\+95}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00074}{74}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00224}{Catch\+::\+Config\+::benchmark\+Confidence\+Interval()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a10bfee8e127e5babfa4817553cf3ea69}\label{structCatch_1_1ConfigData_a10bfee8e127e5babfa4817553cf3ea69} 
+\index{Catch::ConfigData@{Catch::ConfigData}!benchmarkNoAnalysis@{benchmarkNoAnalysis}}
+\index{benchmarkNoAnalysis@{benchmarkNoAnalysis}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{benchmarkNoAnalysis}{benchmarkNoAnalysis}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::benchmark\+No\+Analysis = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00072}{72}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00222}{Catch\+::\+Config\+::benchmark\+No\+Analysis()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a45fdef92940dd2c210f80557a836f5fb}\label{structCatch_1_1ConfigData_a45fdef92940dd2c210f80557a836f5fb} 
+\index{Catch::ConfigData@{Catch::ConfigData}!benchmarkResamples@{benchmarkResamples}}
+\index{benchmarkResamples@{benchmarkResamples}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{benchmarkResamples}{benchmarkResamples}}
+{\footnotesize\ttfamily unsigned int Catch\+::\+Config\+Data\+::benchmark\+Resamples = 100\textquotesingle{}000}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00075}{75}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00225}{Catch\+::\+Config\+::benchmark\+Resamples()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_ae76a7f7c5e9889f95c23f7a555000871}\label{structCatch_1_1ConfigData_ae76a7f7c5e9889f95c23f7a555000871} 
+\index{Catch::ConfigData@{Catch::ConfigData}!benchmarkSamples@{benchmarkSamples}}
+\index{benchmarkSamples@{benchmarkSamples}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{benchmarkSamples}{benchmarkSamples}}
+{\footnotesize\ttfamily unsigned int Catch\+::\+Config\+Data\+::benchmark\+Samples = 100}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00223}{Catch\+::\+Config\+::benchmark\+Samples()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a145e2b7f25cb59b3ef793720328aaaee}\label{structCatch_1_1ConfigData_a145e2b7f25cb59b3ef793720328aaaee} 
+\index{Catch::ConfigData@{Catch::ConfigData}!benchmarkWarmupTime@{benchmarkWarmupTime}}
+\index{benchmarkWarmupTime@{benchmarkWarmupTime}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{benchmarkWarmupTime}{benchmarkWarmupTime}}
+{\footnotesize\ttfamily std\+::chrono\+::milliseconds\+::rep Catch\+::\+Config\+Data\+::benchmark\+Warmup\+Time = 100}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00076}{76}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00226}{Catch\+::\+Config\+::benchmark\+Warmup\+Time()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a8a617d7428797065c73b7d6585a81f77}\label{structCatch_1_1ConfigData_a8a617d7428797065c73b7d6585a81f77} 
+\index{Catch::ConfigData@{Catch::ConfigData}!defaultColourMode@{defaultColourMode}}
+\index{defaultColourMode@{defaultColourMode}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{defaultColourMode}{defaultColourMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCatch_a91308e87521e370e591065a22b010025}{Colour\+Mode}} Catch\+::\+Config\+Data\+::default\+Colour\+Mode = \mbox{\hyperlink{namespaceCatch_a91308e87521e370e591065a22b010025a896ac0b4a6597d34fee67269b1d50a7f}{Colour\+Mode\+::\+Platform\+Default}}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00215}{Catch\+::\+Config\+::default\+Colour\+Mode()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_ac75e1404fab69dfd7105f688179b3c46}\label{structCatch_1_1ConfigData_ac75e1404fab69dfd7105f688179b3c46} 
+\index{Catch::ConfigData@{Catch::ConfigData}!defaultOutputFilename@{defaultOutputFilename}}
+\index{defaultOutputFilename@{defaultOutputFilename}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{defaultOutputFilename}{defaultOutputFilename}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Config\+Data\+::default\+Output\+Filename}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00086}{86}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a4c582987ddd060919a6fd203661f9210}\label{structCatch_1_1ConfigData_a4c582987ddd060919a6fd203661f9210} 
+\index{Catch::ConfigData@{Catch::ConfigData}!filenamesAsTags@{filenamesAsTags}}
+\index{filenamesAsTags@{filenamesAsTags}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{filenamesAsTags}{filenamesAsTags}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::filenames\+As\+Tags = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a2cda9be1ee8b85e51c2e242330c99949}\label{structCatch_1_1ConfigData_a2cda9be1ee8b85e51c2e242330c99949} 
+\index{Catch::ConfigData@{Catch::ConfigData}!libIdentify@{libIdentify}}
+\index{libIdentify@{libIdentify}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{libIdentify}{libIdentify}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::lib\+Identify = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__session_8cpp_source_l00244}{Catch\+::\+Session\+::apply\+Command\+Line()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a4c28063ebb7747e0d1292d88c6c815c5}\label{structCatch_1_1ConfigData_a4c28063ebb7747e0d1292d88c6c815c5} 
+\index{Catch::ConfigData@{Catch::ConfigData}!listListeners@{listListeners}}
+\index{listListeners@{listListeners}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{listListeners}{listListeners}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::list\+Listeners = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00172}{Catch\+::\+Config\+::list\+Listeners()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a4ba3618cae31b43237724f55359bfe95}\label{structCatch_1_1ConfigData_a4ba3618cae31b43237724f55359bfe95} 
+\index{Catch::ConfigData@{Catch::ConfigData}!listReporters@{listReporters}}
+\index{listReporters@{listReporters}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{listReporters}{listReporters}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::list\+Reporters = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00171}{Catch\+::\+Config\+::list\+Reporters()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_af780422bdef8d8b905204542855cf6b3}\label{structCatch_1_1ConfigData_af780422bdef8d8b905204542855cf6b3} 
+\index{Catch::ConfigData@{Catch::ConfigData}!listTags@{listTags}}
+\index{listTags@{listTags}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{listTags}{listTags}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::list\+Tags = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00170}{Catch\+::\+Config\+::list\+Tags()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a0da0f6d493ef8f799273b4358d420a3a}\label{structCatch_1_1ConfigData_a0da0f6d493ef8f799273b4358d420a3a} 
+\index{Catch::ConfigData@{Catch::ConfigData}!listTests@{listTests}}
+\index{listTests@{listTests}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{listTests}{listTests}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::list\+Tests = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00169}{Catch\+::\+Config\+::list\+Tests()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_acfa3ccaefe9052d32b33e224b1d45d6f}\label{structCatch_1_1ConfigData_acfa3ccaefe9052d32b33e224b1d45d6f} 
+\index{Catch::ConfigData@{Catch::ConfigData}!minDuration@{minDuration}}
+\index{minDuration@{minDuration}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{minDuration}{minDuration}}
+{\footnotesize\ttfamily double Catch\+::\+Config\+Data\+::min\+Duration = -\/1}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00081}{81}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00209}{Catch\+::\+Config\+::min\+Duration()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a6c62e90478bc2911d032ec54c2e9d8df}\label{structCatch_1_1ConfigData_a6c62e90478bc2911d032ec54c2e9d8df} 
+\index{Catch::ConfigData@{Catch::ConfigData}!name@{name}}
+\index{name@{name}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Config\+Data\+::name}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00087}{87}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00196}{Catch\+::\+Config\+::name()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a6dd23f8c9d9337f46187e7dbb6a8328e}\label{structCatch_1_1ConfigData_a6dd23f8c9d9337f46187e7dbb6a8328e} 
+\index{Catch::ConfigData@{Catch::ConfigData}!noThrow@{noThrow}}
+\index{noThrow@{noThrow}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{noThrow}{noThrow}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::no\+Throw = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00195}{Catch\+::\+Config\+::allow\+Throws()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a076d321e7da2276af78cc47abf559607}\label{structCatch_1_1ConfigData_a076d321e7da2276af78cc47abf559607} 
+\index{Catch::ConfigData@{Catch::ConfigData}!pathFilters@{pathFilters}}
+\index{pathFilters@{pathFilters}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{pathFilters}{pathFilters}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structCatch_1_1PathFilter}{Path\+Filter}}$>$ Catch\+::\+Config\+Data\+::path\+Filters}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00092}{92}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00175}{Catch\+::\+Config\+::get\+Path\+Filters()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a99496ed339c4ce56af5932ab876ba9d0}\label{structCatch_1_1ConfigData_a99496ed339c4ce56af5932ab876ba9d0} 
+\index{Catch::ConfigData@{Catch::ConfigData}!prematureExitGuardFilePath@{prematureExitGuardFilePath}}
+\index{prematureExitGuardFilePath@{prematureExitGuardFilePath}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{prematureExitGuardFilePath}{prematureExitGuardFilePath}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Config\+Data\+::premature\+Exit\+Guard\+File\+Path}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00095}{95}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00192}{Catch\+::\+Config\+::get\+Exit\+Guard\+File\+Path()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_ac181ec69c5b6c925ac9bea9eaf7039c3}\label{structCatch_1_1ConfigData_ac181ec69c5b6c925ac9bea9eaf7039c3} 
+\index{Catch::ConfigData@{Catch::ConfigData}!processName@{processName}}
+\index{processName@{processName}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{processName}{processName}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Config\+Data\+::process\+Name}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00088}{88}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00196}{Catch\+::\+Config\+::name()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a1ae8b33c7837061097b209051c287099}\label{structCatch_1_1ConfigData_a1ae8b33c7837061097b209051c287099} 
+\index{Catch::ConfigData@{Catch::ConfigData}!reporterSpecifications@{reporterSpecifications}}
+\index{reporterSpecifications@{reporterSpecifications}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{reporterSpecifications}{reporterSpecifications}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classCatch_1_1ReporterSpec}{Reporter\+Spec}}$>$ Catch\+::\+Config\+Data\+::reporter\+Specifications}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00089}{89}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00100}{Catch\+::\+Config\+::\+Config()}}, \mbox{\hyperlink{catch__config_8cpp_source_l00178}{Catch\+::\+Config\+::get\+Reporter\+Specs()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_ab449e3c748282e6d6ccec1220a269e98}\label{structCatch_1_1ConfigData_ab449e3c748282e6d6ccec1220a269e98} 
+\index{Catch::ConfigData@{Catch::ConfigData}!rngSeed@{rngSeed}}
+\index{rngSeed@{rngSeed}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{rngSeed}{rngSeed}}
+{\footnotesize\ttfamily uint32\+\_\+t Catch\+::\+Config\+Data\+::rng\+Seed = \mbox{\hyperlink{namespaceCatch_a170bbe5db76570c4820b5e2eb260f82b}{generate\+Random\+Seed}}(\mbox{\hyperlink{namespaceCatch_a0e8d3a1107ecbaa1943e0a462db99a3da7a1920d61156abc05a60135aefe8bc67}{Generate\+From\+::\+Default}})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00211}{Catch\+::\+Config\+::rng\+Seed()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a65f4744469976acf5dd53295420c080b}\label{structCatch_1_1ConfigData_a65f4744469976acf5dd53295420c080b} 
+\index{Catch::ConfigData@{Catch::ConfigData}!rngSeedWasFixed@{rngSeedWasFixed}}
+\index{rngSeedWasFixed@{rngSeedWasFixed}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{rngSeedWasFixed}{rngSeedWasFixed}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::rng\+Seed\+Was\+Fixed = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00066}{66}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00212}{Catch\+::\+Config\+::rng\+Seed\+Was\+Fixed()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a52508e710c553a3ce0531b4a59c2f25c}\label{structCatch_1_1ConfigData_a52508e710c553a3ce0531b4a59c2f25c} 
+\index{Catch::ConfigData@{Catch::ConfigData}!runOrder@{runOrder}}
+\index{runOrder@{runOrder}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{runOrder}{runOrder}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCatch_aa820408cff40873fdf5c6662b6327100}{Test\+Run\+Order}} Catch\+::\+Config\+Data\+::run\+Order = \mbox{\hyperlink{namespaceCatch_aa820408cff40873fdf5c6662b6327100ad0bcdd909ab6eff96996ccd91f90d2bb}{Test\+Run\+Order\+::\+Randomized}}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00082}{82}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00210}{Catch\+::\+Config\+::run\+Order()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a8264452e6ba331c13c445bcf47604e11}\label{structCatch_1_1ConfigData_a8264452e6ba331c13c445bcf47604e11} 
+\index{Catch::ConfigData@{Catch::ConfigData}!shardCount@{shardCount}}
+\index{shardCount@{shardCount}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{shardCount}{shardCount}}
+{\footnotesize\ttfamily unsigned int Catch\+::\+Config\+Data\+::shard\+Count = 1}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00068}{68}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00213}{Catch\+::\+Config\+::shard\+Count()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_af5907f3dac725fc180493b08b0b86e9c}\label{structCatch_1_1ConfigData_af5907f3dac725fc180493b08b0b86e9c} 
+\index{Catch::ConfigData@{Catch::ConfigData}!shardIndex@{shardIndex}}
+\index{shardIndex@{shardIndex}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{shardIndex}{shardIndex}}
+{\footnotesize\ttfamily unsigned int Catch\+::\+Config\+Data\+::shard\+Index = 0}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00214}{Catch\+::\+Config\+::shard\+Index()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_afec8310b1904784edb292e143a602fba}\label{structCatch_1_1ConfigData_afec8310b1904784edb292e143a602fba} 
+\index{Catch::ConfigData@{Catch::ConfigData}!shouldDebugBreak@{shouldDebugBreak}}
+\index{shouldDebugBreak@{shouldDebugBreak}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{shouldDebugBreak}{shouldDebugBreak}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::should\+Debug\+Break = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00216}{Catch\+::\+Config\+::should\+Debug\+Break()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a7cdef18ba0c8a052b80ac9d80949efbc}\label{structCatch_1_1ConfigData_a7cdef18ba0c8a052b80ac9d80949efbc} 
+\index{Catch::ConfigData@{Catch::ConfigData}!showDurations@{showDurations}}
+\index{showDurations@{showDurations}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{showDurations}{showDurations}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCatch_afcb41c3350d3488c0efb02816a8867c8}{Show\+Durations}} Catch\+::\+Config\+Data\+::show\+Durations = \mbox{\hyperlink{namespaceCatch_afcb41c3350d3488c0efb02816a8867c8a03cdfbdf8eac6fa7716a480c492f386e}{Show\+Durations\+::\+Default\+For\+Reporter}}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00080}{80}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00208}{Catch\+::\+Config\+::show\+Durations()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a12535241547dfc57e6864c4fc2cd4dd9}\label{structCatch_1_1ConfigData_a12535241547dfc57e6864c4fc2cd4dd9} 
+\index{Catch::ConfigData@{Catch::ConfigData}!showHelp@{showHelp}}
+\index{showHelp@{showHelp}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{showHelp}{showHelp}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::show\+Help = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__session_8cpp_source_l00244}{Catch\+::\+Session\+::apply\+Command\+Line()}}, \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00190}{Catch\+::\+Config\+::show\+Help()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a3c243de7a5957fa5311167039064379c}\label{structCatch_1_1ConfigData_a3c243de7a5957fa5311167039064379c} 
+\index{Catch::ConfigData@{Catch::ConfigData}!showInvisibles@{showInvisibles}}
+\index{showInvisibles@{showInvisibles}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{showInvisibles}{showInvisibles}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::show\+Invisibles = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00218}{Catch\+::\+Config\+::show\+Invisibles()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_aeb091ca2df2c654caaa2ad29c14578e5}\label{structCatch_1_1ConfigData_aeb091ca2df2c654caaa2ad29c14578e5} 
+\index{Catch::ConfigData@{Catch::ConfigData}!showSuccessfulTests@{showSuccessfulTests}}
+\index{showSuccessfulTests@{showSuccessfulTests}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{showSuccessfulTests}{showSuccessfulTests}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::show\+Successful\+Tests = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00197}{Catch\+::\+Config\+::include\+Successful\+Results()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a68cdb72e8eec907097c158e85b0047f1}\label{structCatch_1_1ConfigData_a68cdb72e8eec907097c158e85b0047f1} 
+\index{Catch::ConfigData@{Catch::ConfigData}!skipBenchmarks@{skipBenchmarks}}
+\index{skipBenchmarks@{skipBenchmarks}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{skipBenchmarks}{skipBenchmarks}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::skip\+Benchmarks = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00071}{71}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00221}{Catch\+::\+Config\+::skip\+Benchmarks()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_aa40b0e5d2f78a7addbd5c8d16a111840}\label{structCatch_1_1ConfigData_aa40b0e5d2f78a7addbd5c8d16a111840} 
+\index{Catch::ConfigData@{Catch::ConfigData}!testsOrTags@{testsOrTags}}
+\index{testsOrTags@{testsOrTags}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{testsOrTags}{testsOrTags}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Catch\+::\+Config\+Data\+::tests\+Or\+Tags}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00091}{91}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__config_8cpp_source_l00100}{Catch\+::\+Config\+::\+Config()}}, \mbox{\hyperlink{catch__config_8cpp_source_l00174}{Catch\+::\+Config\+::get\+Tests\+Or\+Tags()}}, and \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a2c353003cddbc3a1455e63be69515ba5}\label{structCatch_1_1ConfigData_a2c353003cddbc3a1455e63be69515ba5} 
+\index{Catch::ConfigData@{Catch::ConfigData}!useNewPathFilteringBehaviour@{useNewPathFilteringBehaviour}}
+\index{useNewPathFilteringBehaviour@{useNewPathFilteringBehaviour}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{useNewPathFilteringBehaviour}{useNewPathFilteringBehaviour}}
+{\footnotesize\ttfamily bool Catch\+::\+Config\+Data\+::use\+New\+Path\+Filtering\+Behaviour = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00093}{93}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00176}{Catch\+::\+Config\+::use\+New\+Filter\+Behaviour()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_ab0e6ea949455438bfdc22ed25bab12f8}\label{structCatch_1_1ConfigData_ab0e6ea949455438bfdc22ed25bab12f8} 
+\index{Catch::ConfigData@{Catch::ConfigData}!verbosity@{verbosity}}
+\index{verbosity@{verbosity}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{verbosity}{verbosity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} Catch\+::\+Config\+Data\+::verbosity = \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a960b44c579bc2f6818d2daaf9e4c16f0}{Verbosity\+::\+Normal}}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00078}{78}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00219}{Catch\+::\+Config\+::verbosity()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_a923861968eaad4d3c2ac82e514c7cc81}\label{structCatch_1_1ConfigData_a923861968eaad4d3c2ac82e514c7cc81} 
+\index{Catch::ConfigData@{Catch::ConfigData}!waitForKeypress@{waitForKeypress}}
+\index{waitForKeypress@{waitForKeypress}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{waitForKeypress}{waitForKeypress}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1WaitForKeypress_a2e8c4369d0a605d64e3e83b5af3399ba}{Wait\+For\+Keypress\+::\+When}} Catch\+::\+Config\+Data\+::wait\+For\+Keypress = \mbox{\hyperlink{structCatch_1_1WaitForKeypress_a2e8c4369d0a605d64e3e83b5af3399baa3a78e4f64675e7ce54ffd29e6109f1ce}{Wait\+For\+Keypress\+::\+Never}}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00084}{84}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, and \mbox{\hyperlink{catch__session_8cpp_source_l00302}{Catch\+::\+Session\+::run()}}.
+
+\Hypertarget{structCatch_1_1ConfigData_af3a1c0b4a748b24799941b59bcd9c138}\label{structCatch_1_1ConfigData_af3a1c0b4a748b24799941b59bcd9c138} 
+\index{Catch::ConfigData@{Catch::ConfigData}!warnings@{warnings}}
+\index{warnings@{warnings}!Catch::ConfigData@{Catch::ConfigData}}
+\doxysubsubsection{\texorpdfstring{warnings}{warnings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1WarnAbout_ae3dde70ef78d700ea896eb29314e0fa3}{Warn\+About\+::\+What}} Catch\+::\+Config\+Data\+::warnings = \mbox{\hyperlink{structCatch_1_1WarnAbout_ae3dde70ef78d700ea896eb29314e0fa3a9ac33f9211280cca9082557329706d27}{Warn\+About\+::\+Nothing}}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__config_8hpp_source_l00079}{79}} of file \mbox{\hyperlink{catch__config_8hpp_source}{catch\+\_\+config.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__commandline_8cpp_source_l00024}{Catch\+::make\+Command\+Line\+Parser()}}, \mbox{\hyperlink{catch__config_8cpp_source_l00204}{Catch\+::\+Config\+::warn\+About\+Infinite\+Generators()}}, \mbox{\hyperlink{catch__config_8cpp_source_l00198}{Catch\+::\+Config\+::warn\+About\+Missing\+Assertions()}}, and \mbox{\hyperlink{catch__config_8cpp_source_l00201}{Catch\+::\+Config\+::warn\+About\+Unmatched\+Test\+Specs()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/\mbox{\hyperlink{catch__config_8hpp}{catch\+\_\+config.\+hpp}}\end{DoxyCompactItemize}

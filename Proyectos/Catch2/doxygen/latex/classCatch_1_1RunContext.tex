@@ -1,0 +1,753 @@
+\doxysection{Catch\+::Run\+Context Class Reference}
+\hypertarget{classCatch_1_1RunContext}{}\label{classCatch_1_1RunContext}\index{Catch::RunContext@{Catch::RunContext}}
+
+
+{\ttfamily \#include $<$catch\+\_\+run\+\_\+context.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::Run\+Context\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classCatch_1_1RunContext__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Catch\+::Run\+Context\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classCatch_1_1RunContext__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1RunContext_a2c2886a1a1a34c1944fc5f7666ef5030}{Run\+Context}} (\mbox{\hyperlink{classCatch_1_1RunContext}{Run\+Context}} const \&)=delete
+\item 
+\mbox{\hyperlink{classCatch_1_1RunContext}{Run\+Context}} \& \mbox{\hyperlink{classCatch_1_1RunContext_a6b403ed2e030919b001380aedc14735e}{operator=}} (\mbox{\hyperlink{classCatch_1_1RunContext}{Run\+Context}} const \&)=delete
+\item 
+\mbox{\hyperlink{classCatch_1_1RunContext_afcd5ef4902539c14647e322233271c9d}{Run\+Context}} (\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \texorpdfstring{$\ast$}{*}\+\_\+config, \mbox{\hyperlink{namespaceCatch_ae45505c15eb07c0087eba62c13a8ac71}{IEvent\+Listener\+Ptr}} \&\&reporter)
+\item 
+\mbox{\hyperlink{classCatch_1_1RunContext_afdbd4509e913e99f6dd8b678d2d9fc7e}{\texorpdfstring{$\sim$}{\string~}\+Run\+Context}} () override
+\item 
+\mbox{\hyperlink{structCatch_1_1Totals}{Totals}} \mbox{\hyperlink{classCatch_1_1RunContext_a94fd3fbbba00c7ef9ac79b529a7b76c8}{run\+Test}} (\mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} const \&test\+Case)
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_a7961fefe6147fa6b45badf462c7daea2}{handle\+Expr}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&info, \mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} const \&expr, \mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&reaction) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_a9d72a10bc41f636d5b2a80d25922db6d}{handle\+Message}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&info, \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{Result\+Was\+::\+Of\+Type}} result\+Type, std\+::string \&\&message, \mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&reaction) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_ae7c10a068d896a8bcb35f5f387a36d0c}{handle\+Unexpected\+Exception\+Not\+Thrown}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&info, \mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&reaction) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_a39d4a913e3ffba03f876160f56e6abcd}{handle\+Unexpected\+Inflight\+Exception}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&info, std\+::string \&\&message, \mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&reaction) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_a02d760e4eb65f612a15b74a21738616e}{handle\+Incomplete}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&info) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_ab11d6fc40a073cfb15b1beda806c63a2}{handle\+Non\+Expr}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&info, \mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{Result\+Was\+::\+Of\+Type}} result\+Type, \mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&reaction) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_a6f98f1074edad222f8536b225f487fea}{notify\+Assertion\+Started}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&info) override
+\item 
+bool \mbox{\hyperlink{classCatch_1_1RunContext_a19971d796dcd37a7e2410ccbeef4fdf2}{section\+Started}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} section\+Name, \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&section\+Line\+Info, \mbox{\hyperlink{structCatch_1_1Counts}{Counts}} \&assertions) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_aaa2d6108bd62e4e1922645b3980f5317}{section\+Ended}} (\mbox{\hyperlink{structCatch_1_1SectionEndInfo}{Section\+End\+Info}} \&\&end\+Info) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_adb5562e8c54c7238aa9f9103392e653a}{section\+Ended\+Early}} (\mbox{\hyperlink{structCatch_1_1SectionEndInfo}{Section\+End\+Info}} \&\&end\+Info) override
+\item 
+\mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGenerator\+Tracker}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1RunContext_a8ffd45dd3cd6698e6e1a1388c5f22e56}{acquire\+Generator\+Tracker}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} generator\+Name, \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&line\+Info) override
+\item 
+\mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGenerator\+Tracker}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1RunContext_ab38f8e0173d9440ba144c3eeaf4affdd}{create\+Generator\+Tracker}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} generator\+Name, \mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} line\+Info, \mbox{\hyperlink{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}{Generators\+::\+Generator\+Base\+Ptr}} \&\&generator) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_a596ae7fdd4345a2c7dbb78b7987d883a}{benchmark\+Preparing}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} name) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_a1d660c5f0374f0561f816d6b5263724a}{benchmark\+Starting}} (\mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{Benchmark\+Info}} const \&info) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_a0e35328c06bc0300add8cdae2f438645}{benchmark\+Ended}} (\mbox{\hyperlink{structCatch_1_1BenchmarkStats}{Benchmark\+Stats}}$<$$>$ const \&stats) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_a1f01c3c4ad63ba765e7ebc8965ea3725}{benchmark\+Failed}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} error) override
+\item 
+std\+::string \mbox{\hyperlink{classCatch_1_1RunContext_a60b5d026b1b2b652a15f6f6159b0f060}{get\+Current\+Test\+Name}} () const override
+\item 
+const \mbox{\hyperlink{classCatch_1_1AssertionResult}{Assertion\+Result}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1RunContext_ab37e84216b0f9ede72abfe960e917e13}{get\+Last\+Result}} () const override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_aa3a1306cc436f9420f50d1e8766d4127}{exception\+Early\+Reported}} () override
+\item 
+void \mbox{\hyperlink{classCatch_1_1RunContext_aba3d31f697ea63b04af7609fbcdb0c02}{handle\+Fatal\+Error\+Condition}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} message) override
+\item 
+bool \mbox{\hyperlink{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e}{aborting}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1IResultCapture}{Catch\+::\+IResult\+Capture}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1IResultCapture_a70ac2d7c143aaba84e5ce8a8dbcfdf88}{\texorpdfstring{$\sim$}{\string~}\+IResult\+Capture}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{catch__run__context_8hpp_source}{catch\+\_\+run\+\_\+context.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1RunContext_a2c2886a1a1a34c1944fc5f7666ef5030}\label{classCatch_1_1RunContext_a2c2886a1a1a34c1944fc5f7666ef5030} 
+\index{Catch::RunContext@{Catch::RunContext}!RunContext@{RunContext}}
+\index{RunContext@{RunContext}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{RunContext()}{RunContext()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Catch\+::\+Run\+Context\+::\+Run\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1RunContext}{Run\+Context}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classCatch_1_1RunContext_afcd5ef4902539c14647e322233271c9d}\label{classCatch_1_1RunContext_afcd5ef4902539c14647e322233271c9d} 
+\index{Catch::RunContext@{Catch::RunContext}!RunContext@{RunContext}}
+\index{RunContext@{RunContext}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{RunContext()}{RunContext()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Catch\+::\+Run\+Context\+::\+Run\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \texorpdfstring{$\ast$}{*}}]{\+\_\+config,  }\item[{\mbox{\hyperlink{namespaceCatch_ae45505c15eb07c0087eba62c13a8ac71}{IEvent\+Listener\+Ptr}} \&\&}]{reporter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00335}{335}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__context_8cpp_source_l00015}{Catch\+::get\+Current\+Mutable\+Context()}}, \mbox{\hyperlink{catch__context_8hpp_source_l00031}{Catch\+::\+Context\+::set\+Result\+Capture()}}, and \mbox{\hyperlink{classCatch_1_1IEventListener_a3b7a9118f5b47011216aa31424ec4982}{Catch\+::\+IEvent\+Listener\+::test\+Run\+Starting()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_afcd5ef4902539c14647e322233271c9d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_afdbd4509e913e99f6dd8b678d2d9fc7e}\label{classCatch_1_1RunContext_afdbd4509e913e99f6dd8b678d2d9fc7e} 
+\index{Catch::RunContext@{Catch::RunContext}!````~RunContext@{\texorpdfstring{$\sim$}{\string~}RunContext}}
+\index{````~RunContext@{\texorpdfstring{$\sim$}{\string~}RunContext}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RunContext()}{\string~RunContext()}}
+{\footnotesize\ttfamily Catch\+::\+Run\+Context\+::\texorpdfstring{$\sim$}{\string~}\+Run\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00356}{356}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__run__context_8cpp_source_l00747}{aborting()}}, and \mbox{\hyperlink{classCatch_1_1IEventListener_a97a17235b82da761043654491db0b17c}{Catch\+::\+IEvent\+Listener\+::test\+Run\+Ended()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classCatch_1_1RunContext_afdbd4509e913e99f6dd8b678d2d9fc7e_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e}\label{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e} 
+\index{Catch::RunContext@{Catch::RunContext}!aborting@{aborting}}
+\index{aborting@{aborting}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{aborting()}{aborting()}}
+{\footnotesize\ttfamily bool Catch\+::\+Run\+Context\+::aborting (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00747}{747}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00024}{Catch\+::\+Counts\+::failed}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__run__context_8cpp_source_l00361}{run\+Test()}}, and \mbox{\hyperlink{catch__run__context_8cpp_source_l00356}{\texorpdfstring{$\sim$}{\string~}\+Run\+Context()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classCatch_1_1RunContext_ad20434f7043d865b64d497b4373ccf8e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_a8ffd45dd3cd6698e6e1a1388c5f22e56}\label{classCatch_1_1RunContext_a8ffd45dd3cd6698e6e1a1388c5f22e56} 
+\index{Catch::RunContext@{Catch::RunContext}!acquireGeneratorTracker@{acquireGeneratorTracker}}
+\index{acquireGeneratorTracker@{acquireGeneratorTracker}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{acquireGeneratorTracker()}{acquireGeneratorTracker()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGenerator\+Tracker}} \texorpdfstring{$\ast$}{*} Catch\+::\+Run\+Context\+::acquire\+Generator\+Tracker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{generator\+Name,  }\item[{\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&}]{line\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_aa587a5e482902f91c14a4d575589fb70}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00530}{530}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+\Hypertarget{classCatch_1_1RunContext_a0e35328c06bc0300add8cdae2f438645}\label{classCatch_1_1RunContext_a0e35328c06bc0300add8cdae2f438645} 
+\index{Catch::RunContext@{Catch::RunContext}!benchmarkEnded@{benchmarkEnded}}
+\index{benchmarkEnded@{benchmarkEnded}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{benchmarkEnded()}{benchmarkEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::benchmark\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1BenchmarkStats}{Benchmark\+Stats}}$<$$>$ const \&}]{stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a2d101e96f7001f917db6aac96e17b3a5}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00628}{628}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{classCatch_1_1IEventListener_a69d16f703f6fa505cee57d4420f56d4c}{Catch\+::\+IEvent\+Listener\+::benchmark\+Ended()}}, and \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00281}{Catch\+::scoped\+Deactivate()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a0e35328c06bc0300add8cdae2f438645_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_a1f01c3c4ad63ba765e7ebc8965ea3725}\label{classCatch_1_1RunContext_a1f01c3c4ad63ba765e7ebc8965ea3725} 
+\index{Catch::RunContext@{Catch::RunContext}!benchmarkFailed@{benchmarkFailed}}
+\index{benchmarkFailed@{benchmarkFailed}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{benchmarkFailed()}{benchmarkFailed()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::benchmark\+Failed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a68894109a49c7c6d62e583bbd6f6556b}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00632}{632}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{classCatch_1_1IEventListener_a8698348805f39879bccdfacb4afd5095}{Catch\+::\+IEvent\+Listener\+::benchmark\+Failed()}}, and \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00281}{Catch\+::scoped\+Deactivate()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a1f01c3c4ad63ba765e7ebc8965ea3725_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_a596ae7fdd4345a2c7dbb78b7987d883a}\label{classCatch_1_1RunContext_a596ae7fdd4345a2c7dbb78b7987d883a} 
+\index{Catch::RunContext@{Catch::RunContext}!benchmarkPreparing@{benchmarkPreparing}}
+\index{benchmarkPreparing@{benchmarkPreparing}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{benchmarkPreparing()}{benchmarkPreparing()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::benchmark\+Preparing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_aff96862103881a6e002066000de65ae2}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00620}{620}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{classCatch_1_1IEventListener_ac16d3fb730b139bbc1810b7e42cde5ac}{Catch\+::\+IEvent\+Listener\+::benchmark\+Preparing()}}, and \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00281}{Catch\+::scoped\+Deactivate()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a596ae7fdd4345a2c7dbb78b7987d883a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_a1d660c5f0374f0561f816d6b5263724a}\label{classCatch_1_1RunContext_a1d660c5f0374f0561f816d6b5263724a} 
+\index{Catch::RunContext@{Catch::RunContext}!benchmarkStarting@{benchmarkStarting}}
+\index{benchmarkStarting@{benchmarkStarting}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{benchmarkStarting()}{benchmarkStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::benchmark\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{Benchmark\+Info}} const \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a264ae12330c74b2daae41715a30d51bf}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00624}{624}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{classCatch_1_1IEventListener_a96e744c9c4bdbea26f16ec2f1d0090fe}{Catch\+::\+IEvent\+Listener\+::benchmark\+Starting()}}, and \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00281}{Catch\+::scoped\+Deactivate()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a1d660c5f0374f0561f816d6b5263724a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_ab38f8e0173d9440ba144c3eeaf4affdd}\label{classCatch_1_1RunContext_ab38f8e0173d9440ba144c3eeaf4affdd} 
+\index{Catch::RunContext@{Catch::RunContext}!createGeneratorTracker@{createGeneratorTracker}}
+\index{createGeneratorTracker@{createGeneratorTracker}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{createGeneratorTracker()}{createGeneratorTracker()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1IGeneratorTracker}{IGenerator\+Tracker}} \texorpdfstring{$\ast$}{*} Catch\+::\+Run\+Context\+::create\+Generator\+Tracker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{generator\+Name,  }\item[{\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}}}]{line\+Info,  }\item[{\mbox{\hyperlink{namespaceCatch_1_1Generators_aacadcabd7206b5b8952274d1539aaf01}{Generators\+::\+Generator\+Base\+Ptr}} \&\&}]{generator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a347c416a766bf77cde2aa05a2a27d034}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00540}{540}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00223}{Catch\+::\+Test\+Case\+Tracking\+::\+Tracker\+Context\+::current\+Tracker()}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00025}{Catch\+::\+Result\+Was\+::\+Explicit\+Failure}}, \mbox{\hyperlink{catch__message_8hpp_source_l00105}{INTERNAL\+\_\+\+CATCH\+\_\+\+MSG}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00044}{Catch\+::\+Result\+Disposition\+::\+Normal}}, and \mbox{\hyperlink{classCatch_1_1IConfig_a640d89e3fbefb5e2d2fc20060cded0b8}{Catch\+::\+IConfig\+::warn\+About\+Infinite\+Generators()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_ab38f8e0173d9440ba144c3eeaf4affdd_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_aa3a1306cc436f9420f50d1e8766d4127}\label{classCatch_1_1RunContext_aa3a1306cc436f9420f50d1e8766d4127} 
+\index{Catch::RunContext@{Catch::RunContext}!exceptionEarlyReported@{exceptionEarlyReported}}
+\index{exceptionEarlyReported@{exceptionEarlyReported}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{exceptionEarlyReported()}{exceptionEarlyReported()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::exception\+Early\+Reported (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_ae63ecec95db4c236c63ecf616f483810}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00659}{659}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+\Hypertarget{classCatch_1_1RunContext_a60b5d026b1b2b652a15f6f6159b0f060}\label{classCatch_1_1RunContext_a60b5d026b1b2b652a15f6f6159b0f060} 
+\index{Catch::RunContext@{Catch::RunContext}!getCurrentTestName@{getCurrentTestName}}
+\index{getCurrentTestName@{getCurrentTestName}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{getCurrentTestName()}{getCurrentTestName()}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Run\+Context\+::get\+Current\+Test\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_aea1617f4a84cc648246aa3ed6918b5bf}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00637}{637}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00127}{Catch\+::\+Test\+Case\+Handle\+::get\+Test\+Case\+Info()}}, and \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00089}{Catch\+::\+Test\+Case\+Info\+::name}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a60b5d026b1b2b652a15f6f6159b0f060_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_ab37e84216b0f9ede72abfe960e917e13}\label{classCatch_1_1RunContext_ab37e84216b0f9ede72abfe960e917e13} 
+\index{Catch::RunContext@{Catch::RunContext}!getLastResult@{getLastResult}}
+\index{getLastResult@{getLastResult}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{getLastResult()}{getLastResult()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCatch_1_1AssertionResult}{Assertion\+Result}} \texorpdfstring{$\ast$}{*} Catch\+::\+Run\+Context\+::get\+Last\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a2f44f3fa0bb898ce1aef650c1e063cc9}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00643}{643}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+\Hypertarget{classCatch_1_1RunContext_a7961fefe6147fa6b45badf462c7daea2}\label{classCatch_1_1RunContext_a7961fefe6147fa6b45badf462c7daea2} 
+\index{Catch::RunContext@{Catch::RunContext}!handleExpr@{handleExpr}}
+\index{handleExpr@{handleExpr}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{handleExpr()}{handleExpr()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::handle\+Expr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&}]{info,  }\item[{\mbox{\hyperlink{classCatch_1_1ITransientExpression}{ITransient\+Expression}} const \&}]{expr,  }\item[{\mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&}]{reaction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a59a2b05391e464954575d2afb6d5d607}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00823}{823}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__result__type_8hpp_source_l00024}{Catch\+::\+Result\+Was\+::\+Expression\+Failed}}, \mbox{\hyperlink{catch__decomposer_8hpp_source_l00175}{Catch\+::\+ITransient\+Expression\+::get\+Result()}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00057}{Catch\+::is\+False\+Test()}}, \mbox{\hyperlink{catch__assertion__info_8hpp_source_l00021}{Catch\+::\+Assertion\+Info\+::line\+Info}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00044}{Catch\+::\+Result\+Disposition\+::\+Normal}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00016}{Catch\+::\+Result\+Was\+::\+Ok}}, and \mbox{\hyperlink{catch__assertion__info_8hpp_source_l00023}{Catch\+::\+Assertion\+Info\+::result\+Disposition}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__assertion__handler_8cpp_source_l00035}{Catch\+::\+Assertion\+Handler\+::handle\+Expr()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a7961fefe6147fa6b45badf462c7daea2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a7961fefe6147fa6b45badf462c7daea2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_aba3d31f697ea63b04af7609fbcdb0c02}\label{classCatch_1_1RunContext_aba3d31f697ea63b04af7609fbcdb0c02} 
+\index{Catch::RunContext@{Catch::RunContext}!handleFatalErrorCondition@{handleFatalErrorCondition}}
+\index{handleFatalErrorCondition@{handleFatalErrorCondition}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{handleFatalErrorCondition()}{handleFatalErrorCondition()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::handle\+Fatal\+Error\+Condition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a48559e6598ba9474b903697b69c769b2}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00663}{663}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00036}{Catch\+::\+Totals\+::assertions}}, \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00024}{Catch\+::\+Counts\+::failed}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00032}{Catch\+::\+Result\+Was\+::\+Fatal\+Error\+Condition}}, \mbox{\hyperlink{classCatch_1_1IEventListener_aefa99bd01a2b15d36f223e3a60fbd536}{Catch\+::\+IEvent\+Listener\+::fatal\+Error\+Encountered()}}, \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00127}{Catch\+::\+Test\+Case\+Handle\+::get\+Test\+Case\+Info()}}, \mbox{\hyperlink{catch__assertion__result_8hpp_source_l00027}{Catch\+::\+Assertion\+Result\+Data\+::message}}, \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00281}{Catch\+::scoped\+Deactivate()}}, \mbox{\hyperlink{classCatch_1_1IEventListener_a077b6305d49853779d715777e90138bd}{Catch\+::\+IEvent\+Listener\+::section\+Ended()}}, \mbox{\hyperlink{catch__run__context_8cpp_source_l00609}{section\+Ended\+Early()}}, \mbox{\hyperlink{classCatch_1_1IEventListener_abe5cb0aaed8d0d5d8a42d23a7e36b667}{Catch\+::\+IEvent\+Listener\+::test\+Case\+Ended()}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00037}{Catch\+::\+Totals\+::test\+Cases}}, and \mbox{\hyperlink{classCatch_1_1IEventListener_a97a17235b82da761043654491db0b17c}{Catch\+::\+IEvent\+Listener\+::test\+Run\+Ended()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_aba3d31f697ea63b04af7609fbcdb0c02_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_a02d760e4eb65f612a15b74a21738616e}\label{classCatch_1_1RunContext_a02d760e4eb65f612a15b74a21738616e} 
+\index{Catch::RunContext@{Catch::RunContext}!handleIncomplete@{handleIncomplete}}
+\index{handleIncomplete@{handleIncomplete}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{handleIncomplete()}{handleIncomplete()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::handle\+Incomplete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a89b89372eb09cc44f8dcad363de6157d}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00926}{926}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__assertion__info_8hpp_source_l00021}{Catch\+::\+Assertion\+Info\+::line\+Info}}, and \mbox{\hyperlink{catch__result__type_8hpp_source_l00029}{Catch\+::\+Result\+Was\+::\+Threw\+Exception}}.
+
+\Hypertarget{classCatch_1_1RunContext_a9d72a10bc41f636d5b2a80d25922db6d}\label{classCatch_1_1RunContext_a9d72a10bc41f636d5b2a80d25922db6d} 
+\index{Catch::RunContext@{Catch::RunContext}!handleMessage@{handleMessage}}
+\index{handleMessage@{handleMessage}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{handleMessage()}{handleMessage()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::handle\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&}]{info,  }\item[{\mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{Result\+Was\+::\+Of\+Type}}}]{result\+Type,  }\item[{std\+::string \&\&}]{message,  }\item[{\mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&}]{reaction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a5dd461a2beebddd4459c8267500dbfcc}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00860}{860}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00020}{Catch\+::\+Result\+Was\+::\+Explicit\+Skip}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00036}{Catch\+::is\+Ok()}}, \mbox{\hyperlink{catch__assertion__info_8hpp_source_l00021}{Catch\+::\+Assertion\+Info\+::line\+Info}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00044}{Catch\+::\+Result\+Disposition\+::\+Normal}}, \mbox{\hyperlink{catch__assertion__info_8hpp_source_l00023}{Catch\+::\+Assertion\+Info\+::result\+Disposition}}, and \mbox{\hyperlink{catch__assertion__handler_8hpp_source_l00023}{Catch\+::\+Assertion\+Reaction\+::should\+Skip}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__assertion__handler_8cpp_source_l00038}{Catch\+::\+Assertion\+Handler\+::handle\+Message()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{classCatch_1_1RunContext_a9d72a10bc41f636d5b2a80d25922db6d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a9d72a10bc41f636d5b2a80d25922db6d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_ab11d6fc40a073cfb15b1beda806c63a2}\label{classCatch_1_1RunContext_ab11d6fc40a073cfb15b1beda806c63a2} 
+\index{Catch::RunContext@{Catch::RunContext}!handleNonExpr@{handleNonExpr}}
+\index{handleNonExpr@{handleNonExpr}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{handleNonExpr()}{handleNonExpr()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::handle\+Non\+Expr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&}]{info,  }\item[{\mbox{\hyperlink{structCatch_1_1ResultWas_a624e1ee3661fcf6094ceef1f654601ef}{Result\+Was\+::\+Of\+Type}}}]{result\+Type,  }\item[{\mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&}]{reaction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_ab7dbdf8aa28427119583e24dbb302c63}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00938}{938}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00036}{Catch\+::is\+Ok()}}, \mbox{\hyperlink{catch__assertion__info_8hpp_source_l00021}{Catch\+::\+Assertion\+Info\+::line\+Info}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00044}{Catch\+::\+Result\+Disposition\+::\+Normal}}, and \mbox{\hyperlink{catch__assertion__info_8hpp_source_l00023}{Catch\+::\+Assertion\+Info\+::result\+Disposition}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__assertion__handler_8cpp_source_l00071}{Catch\+::\+Assertion\+Handler\+::handle\+Exception\+Not\+Thrown\+As\+Expected()}}, \mbox{\hyperlink{catch__assertion__handler_8cpp_source_l00068}{Catch\+::\+Assertion\+Handler\+::handle\+Exception\+Thrown\+As\+Expected()}}, \mbox{\hyperlink{catch__assertion__handler_8cpp_source_l00079}{Catch\+::\+Assertion\+Handler\+::handle\+Throwing\+Call\+Skipped()}}, and \mbox{\hyperlink{catch__run__context_8cpp_source_l00885}{handle\+Unexpected\+Exception\+Not\+Thrown()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{classCatch_1_1RunContext_ab11d6fc40a073cfb15b1beda806c63a2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_ab11d6fc40a073cfb15b1beda806c63a2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_ae7c10a068d896a8bcb35f5f387a36d0c}\label{classCatch_1_1RunContext_ae7c10a068d896a8bcb35f5f387a36d0c} 
+\index{Catch::RunContext@{Catch::RunContext}!handleUnexpectedExceptionNotThrown@{handleUnexpectedExceptionNotThrown}}
+\index{handleUnexpectedExceptionNotThrown@{handleUnexpectedExceptionNotThrown}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{handleUnexpectedExceptionNotThrown()}{handleUnexpectedExceptionNotThrown()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::handle\+Unexpected\+Exception\+Not\+Thrown (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&}]{info,  }\item[{\mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&}]{reaction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a6382ed20486e2d9a020da971c6d5c53d}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00885}{885}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__result__type_8hpp_source_l00030}{Catch\+::\+Result\+Was\+::\+Didnt\+Throw\+Exception}}, and \mbox{\hyperlink{catch__run__context_8cpp_source_l00938}{handle\+Non\+Expr()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__assertion__handler_8cpp_source_l00075}{Catch\+::\+Assertion\+Handler\+::handle\+Unexpected\+Exception\+Not\+Thrown()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_ae7c10a068d896a8bcb35f5f387a36d0c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_ae7c10a068d896a8bcb35f5f387a36d0c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_a39d4a913e3ffba03f876160f56e6abcd}\label{classCatch_1_1RunContext_a39d4a913e3ffba03f876160f56e6abcd} 
+\index{Catch::RunContext@{Catch::RunContext}!handleUnexpectedInflightException@{handleUnexpectedInflightException}}
+\index{handleUnexpectedInflightException@{handleUnexpectedInflightException}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{handleUnexpectedInflightException()}{handleUnexpectedInflightException()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::handle\+Unexpected\+Inflight\+Exception (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&}]{info,  }\item[{std\+::string \&\&}]{message,  }\item[{\mbox{\hyperlink{structCatch_1_1AssertionReaction}{Assertion\+Reaction}} \&}]{reaction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a524756bea06c8807ba08dbeb5da9c34d}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00892}{892}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__assertion__info_8hpp_source_l00021}{Catch\+::\+Assertion\+Info\+::line\+Info}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00044}{Catch\+::\+Result\+Disposition\+::\+Normal}}, \mbox{\hyperlink{catch__assertion__info_8hpp_source_l00023}{Catch\+::\+Assertion\+Info\+::result\+Disposition}}, and \mbox{\hyperlink{catch__result__type_8hpp_source_l00029}{Catch\+::\+Result\+Was\+::\+Threw\+Exception}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__assertion__handler_8cpp_source_l00064}{Catch\+::\+Assertion\+Handler\+::handle\+Unexpected\+Inflight\+Exception()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a39d4a913e3ffba03f876160f56e6abcd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_a6f98f1074edad222f8536b225f487fea}\label{classCatch_1_1RunContext_a6f98f1074edad222f8536b225f487fea} 
+\index{Catch::RunContext@{Catch::RunContext}!notifyAssertionStarted@{notifyAssertionStarted}}
+\index{notifyAssertionStarted@{notifyAssertionStarted}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{notifyAssertionStarted()}{notifyAssertionStarted()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::notify\+Assertion\+Started (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a5b31d0da45a3e45bd2a99cee7c81fbe9}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00496}{496}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{classCatch_1_1IEventListener_a739285f21094b48e665fe32610d12b4d}{Catch\+::\+IEvent\+Listener\+::assertion\+Starting()}}, and \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00281}{Catch\+::scoped\+Deactivate()}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__assertion__handler_8cpp_source_l00025}{Catch\+::\+Assertion\+Handler\+::\+Assertion\+Handler()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a6f98f1074edad222f8536b225f487fea_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a6f98f1074edad222f8536b225f487fea_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_a6b403ed2e030919b001380aedc14735e}\label{classCatch_1_1RunContext_a6b403ed2e030919b001380aedc14735e} 
+\index{Catch::RunContext@{Catch::RunContext}!operator=@{operator=}}
+\index{operator=@{operator=}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCatch_1_1RunContext}{Run\+Context}} \& Catch\+::\+Run\+Context\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1RunContext}{Run\+Context}} const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classCatch_1_1RunContext_a94fd3fbbba00c7ef9ac79b529a7b76c8}\label{classCatch_1_1RunContext_a94fd3fbbba00c7ef9ac79b529a7b76c8} 
+\index{Catch::RunContext@{Catch::RunContext}!runTest@{runTest}}
+\index{runTest@{runTest}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{runTest()}{runTest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCatch_1_1Totals}{Totals}} Catch\+::\+Run\+Context\+::run\+Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} const \&}]{test\+Case }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00361}{361}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__run__context_8cpp_source_l00747}{aborting()}}, \mbox{\hyperlink{catch__test__case__tracker_8cpp_source_l00226}{Catch\+::\+Test\+Case\+Tracking\+::\+Section\+Tracker\+::acquire()}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00036}{Catch\+::\+Totals\+::assertions}}, \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__totals_8cpp_source_l00052}{Catch\+::\+Totals\+::delta()}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00024}{Catch\+::\+Counts\+::failed}}, \mbox{\hyperlink{classCatch_1_1IConfig_a7827e5a52174c5ef024cdfe0098d81a0}{Catch\+::\+IConfig\+::get\+Path\+Filters()}}, \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00127}{Catch\+::\+Test\+Case\+Handle\+::get\+Test\+Case\+Info()}}, \mbox{\hyperlink{catch__test__case__tracker_8cpp_source_l00068}{Catch\+::\+Test\+Case\+Tracking\+::\+ITracker\+::is\+Section\+Tracker()}}, \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00135}{Catch\+::\+Test\+Case\+Tracking\+::\+ITracker\+::is\+Successfully\+Completed()}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00023}{Catch\+::\+Counts\+::passed}}, \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00115}{Catch\+::\+Test\+Case\+Handle\+::prepare\+Test\+Case()}}, \mbox{\hyperlink{catch__run__context_8cpp_source_l00959}{Catch\+::seed\+Rng()}}, \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00143}{Catch\+::\+Test\+Case\+Tracking\+::\+ITracker\+::set\+Filters()}}, \mbox{\hyperlink{catch__test__case__tracker_8hpp_source_l00216}{Catch\+::\+Test\+Case\+Tracking\+::\+Tracker\+Context\+::start\+Cycle()}}, \mbox{\hyperlink{catch__test__case__tracker_8cpp_source_l00086}{Catch\+::\+Test\+Case\+Tracking\+::\+Tracker\+Context\+::start\+Run()}}, \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00119}{Catch\+::\+Test\+Case\+Handle\+::tear\+Down\+Test\+Case()}}, \mbox{\hyperlink{classCatch_1_1IEventListener_abe5cb0aaed8d0d5d8a42d23a7e36b667}{Catch\+::\+IEvent\+Listener\+::test\+Case\+Ended()}}, \mbox{\hyperlink{classCatch_1_1IEventListener_a1ca022b9d648e34eaee8f772c5f4969c}{Catch\+::\+IEvent\+Listener\+::test\+Case\+Partial\+Ended()}}, \mbox{\hyperlink{classCatch_1_1IEventListener_aa50659430e5ba60c662ef5218e5c1e53}{Catch\+::\+IEvent\+Listener\+::test\+Case\+Partial\+Starting()}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00037}{Catch\+::\+Totals\+::test\+Cases}}, \mbox{\hyperlink{classCatch_1_1IEventListener_a20bdd5b474e496a1a2a0b9e6a806ca4b}{Catch\+::\+IEvent\+Listener\+::test\+Case\+Starting()}}, and \mbox{\hyperlink{classCatch_1_1IConfig_a7f096458f9fa6f9d1687db59bcb6e6d4}{Catch\+::\+IConfig\+::use\+New\+Filter\+Behaviour()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a94fd3fbbba00c7ef9ac79b529a7b76c8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_aaa2d6108bd62e4e1922645b3980f5317}\label{classCatch_1_1RunContext_aaa2d6108bd62e4e1922645b3980f5317} 
+\index{Catch::RunContext@{Catch::RunContext}!sectionEnded@{sectionEnded}}
+\index{sectionEnded@{sectionEnded}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{sectionEnded()}{sectionEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::section\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1SectionEndInfo}{Section\+End\+Info}} \&\&}]{end\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_a911474796a49609a26da3cb726595077}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00589}{589}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__totals_8hpp_source_l00036}{Catch\+::\+Totals\+::assertions}}, \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00281}{Catch\+::scoped\+Deactivate()}}, and \mbox{\hyperlink{classCatch_1_1IEventListener_a077b6305d49853779d715777e90138bd}{Catch\+::\+IEvent\+Listener\+::section\+Ended()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_aaa2d6108bd62e4e1922645b3980f5317_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_adb5562e8c54c7238aa9f9103392e653a}\label{classCatch_1_1RunContext_adb5562e8c54c7238aa9f9103392e653a} 
+\index{Catch::RunContext@{Catch::RunContext}!sectionEndedEarly@{sectionEndedEarly}}
+\index{sectionEndedEarly@{sectionEndedEarly}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{sectionEndedEarly()}{sectionEndedEarly()}}
+{\footnotesize\ttfamily void Catch\+::\+Run\+Context\+::section\+Ended\+Early (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1SectionEndInfo}{Section\+End\+Info}} \&\&}]{end\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_ac95c81a362630e5f80084e1a42a806d6}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00609}{609}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__run__context_8cpp_source_l00663}{handle\+Fatal\+Error\+Condition()}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_adb5562e8c54c7238aa9f9103392e653a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1RunContext_a19971d796dcd37a7e2410ccbeef4fdf2}\label{classCatch_1_1RunContext_a19971d796dcd37a7e2410ccbeef4fdf2} 
+\index{Catch::RunContext@{Catch::RunContext}!sectionStarted@{sectionStarted}}
+\index{sectionStarted@{sectionStarted}!Catch::RunContext@{Catch::RunContext}}
+\doxysubsubsection{\texorpdfstring{sectionStarted()}{sectionStarted()}}
+{\footnotesize\ttfamily bool Catch\+::\+Run\+Context\+::section\+Started (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}}]{section\+Name,  }\item[{\mbox{\hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info}} const \&}]{section\+Line\+Info,  }\item[{\mbox{\hyperlink{structCatch_1_1Counts}{Counts}} \&}]{assertions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classCatch_1_1IResultCapture_aaa54841942b2fc40e6be19b94f57f18b}{Catch\+::\+IResult\+Capture}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__run__context_8cpp_source_l00504}{504}} of file \mbox{\hyperlink{catch__run__context_8cpp_source}{catch\+\_\+run\+\_\+context.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__test__case__tracker_8cpp_source_l00226}{Catch\+::\+Test\+Case\+Tracking\+::\+Section\+Tracker\+::acquire()}}, \mbox{\hyperlink{catch__totals_8hpp_source_l00036}{Catch\+::\+Totals\+::assertions}}, \mbox{\hyperlink{catch__test__case__tracker_8cpp_source_l00071}{Catch\+::\+Test\+Case\+Tracking\+::\+ITracker\+::is\+Open()}}, \mbox{\hyperlink{catch__output__redirect_8cpp_source_l00281}{Catch\+::scoped\+Deactivate()}}, and \mbox{\hyperlink{classCatch_1_1IEventListener_aaca0feeb367dea20806972112e4846d0}{Catch\+::\+IEvent\+Listener\+::section\+Starting()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1RunContext_a19971d796dcd37a7e2410ccbeef4fdf2_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__run__context_8hpp}{catch\+\_\+run\+\_\+context.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__run__context_8cpp}{catch\+\_\+run\+\_\+context.\+cpp}}\end{DoxyCompactItemize}

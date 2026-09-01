@@ -1,0 +1,110 @@
+\doxysection{catch\+\_\+registry\+\_\+hub.\+cpp}
+\hypertarget{catch__registry__hub_8cpp_source}{}\label{catch__registry__hub_8cpp_source}\index{src/catch2/catch\_registry\_hub.cpp@{src/catch2/catch\_registry\_hub.cpp}}
+\mbox{\hyperlink{catch__registry__hub_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__registry__hub_8hpp}{catch2/interfaces/catch\_interfaces\_registry\_hub.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__context_8hpp}{catch2/internal/catch\_context.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__enforce_8hpp}{catch2/internal/catch\_enforce.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__registry__impl_8hpp}{catch2/internal/catch\_test\_case\_registry\_impl.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__registry_8hpp}{catch2/internal/catch\_reporter\_registry.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__exception__translator__registry_8hpp}{catch2/internal/catch\_exception\_translator\_registry.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__tag__alias__registry_8hpp}{catch2/internal/catch\_tag\_alias\_registry.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__startup__exception__registry_8hpp}{catch2/internal/catch\_startup\_exception\_registry.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__singletons_8hpp}{catch2/internal/catch\_singletons.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__info_8hpp}{catch2/catch\_test\_case\_info.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__noncopyable_8hpp}{catch2/internal/catch\_noncopyable.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__reporter__factory_8hpp}{catch2/interfaces/catch\_interfaces\_reporter\_factory.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__move__and__forward_8hpp}{catch2/internal/catch\_move\_and\_forward.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00025}00025\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }RegistryHub\ :\ \textcolor{keyword}{public}\ IRegistryHub,}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ IMutableRegistryHub,}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ Detail::NonCopyable\ \{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ IRegistryHub}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ RegistryHub()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ ReporterRegistry\ \textcolor{keyword}{const}\&\ getReporterRegistry()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_reporterRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ ITestCaseRegistry\ \textcolor{keyword}{const}\&\ getTestCaseRegistry()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_testCaseRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ IExceptionTranslatorRegistry\ \textcolor{keyword}{const}\&\ getExceptionTranslatorRegistry()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_exceptionTranslatorRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ ITagAliasRegistry\ \textcolor{keyword}{const}\&\ getTagAliasRegistry()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_tagAliasRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ StartupExceptionRegistry\ \textcolor{keyword}{const}\&\ getStartupExceptionRegistry()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_exceptionRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ IMutableRegistryHub}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerReporter(\ std::string\ \textcolor{keyword}{const}\&\ name,\ \mbox{\hyperlink{namespaceCatch_ae3dfb69314dff5b79fcb517a9cb8803e}{IReporterFactoryPtr}}\ factory\ )\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_reporterRegistry.registerReporter(\ name,\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(factory)\ );}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerListener(\ Detail::unique\_ptr<EventListenerFactory>\ factory\ )\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_reporterRegistry.registerListener(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(factory)\ );}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerTest(\ Detail::unique\_ptr<TestCaseInfo>\&\&\ testInfo,\ Detail::unique\_ptr<ITestInvoker>\&\&\ invoker\ )\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_testCaseRegistry.registerTest(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(testInfo),\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(invoker)\ );}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerTranslator(\ Detail::unique\_ptr<IExceptionTranslator>\&\&\ translator\ )\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_exceptionTranslatorRegistry.registerTranslator(\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(translator)\ );}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerTagAlias(\ std::string\ \textcolor{keyword}{const}\&\ alias,\ std::string\ \textcolor{keyword}{const}\&\ tag,\ SourceLineInfo\ \textcolor{keyword}{const}\&\ lineInfo\ )\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_tagAliasRegistry.add(\ alias,\ tag,\ lineInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ registerStartupException()\ noexcept\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00068}00068\ \textcolor{preprocessor}{\#if\ !defined(CATCH\_CONFIG\_DISABLE\_EXCEPTIONS)}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_exceptionRegistry.add(std::current\_exception());}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00070}00070\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{catch__enforce_8hpp_af445c1e136fadba0e92f3c22d68a7641}{CATCH\_INTERNAL\_ERROR}}(\textcolor{stringliteral}{"{}Attempted\ to\ register\ active\ exception\ under\ CATCH\_CONFIG\_DISABLE\_EXCEPTIONS!"{}});}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00072}00072\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ ITestCaseRegistry\&\ getMutableTestCaseRegistry()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_testCaseRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ TestRegistry\ m\_testCaseRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ ReporterRegistry\ m\_reporterRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ ExceptionTranslatorRegistry\ m\_exceptionTranslatorRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ TagAliasRegistry\ m\_tagAliasRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ StartupExceptionRegistry\ m\_exceptionRegistry;}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00088}\mbox{\hyperlink{namespaceCatch_af942e91344c728dbd8c9732dbf8054c9}{00088}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classCatch_1_1Singleton}{RegistryHubSingleton}}\ =\ \mbox{\hyperlink{classCatch_1_1Singleton}{Singleton<RegistryHub,\ IRegistryHub,\ IMutableRegistryHub>}};}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00090}\mbox{\hyperlink{namespaceCatch_a5d328566cb8da87b48f1fac3f319ac7a}{00090}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IRegistryHub}{IRegistryHub}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{namespaceCatch_a5d328566cb8da87b48f1fac3f319ac7a}{getRegistryHub}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Singleton_aa1b2bb002acd8838489a225dbbaf2865}{RegistryHubSingleton::get}}();}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00093}\mbox{\hyperlink{namespaceCatch_a585459763f2c7610e57de2dd22dd1ad8}{00093}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IMutableRegistryHub}{IMutableRegistryHub}}\&\ \mbox{\hyperlink{namespaceCatch_a585459763f2c7610e57de2dd22dd1ad8}{getMutableRegistryHub}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Singleton_a8c18286fe40405813c5bab05e20ce4f0}{RegistryHubSingleton::getMutable}}();}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00096}\mbox{\hyperlink{namespaceCatch_a0f78e9afdebc6d4512d18e76fbf54b8c}{00096}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceCatch_a0f78e9afdebc6d4512d18e76fbf54b8c}{cleanUp}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceCatch_a8bdb92cb53a4e016bc0dee66efd99118}{cleanupSingletons}}();}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00099}\mbox{\hyperlink{namespaceCatch_adafff91485eeeeb9e9333f317cc0e3b1}{00099}}\ \ \ \ \ std::string\ \mbox{\hyperlink{namespaceCatch_adafff91485eeeeb9e9333f317cc0e3b1}{translateActiveException}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceCatch_a5d328566cb8da87b48f1fac3f319ac7a}{getRegistryHub}}().\mbox{\hyperlink{classCatch_1_1IRegistryHub_aa97defa756fe28dd6249b19c12bbbec1}{getExceptionTranslatorRegistry}}().\mbox{\hyperlink{classCatch_1_1IExceptionTranslatorRegistry_af76ae8c331a17f2a94c9720bc0d686bb}{translateActiveException}}();}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{catch__registry__hub_8cpp_source_l00104}00104\ \}\ \textcolor{comment}{//\ end\ namespace\ Catch}}
+
+\end{DoxyCode}

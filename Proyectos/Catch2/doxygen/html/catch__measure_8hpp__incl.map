@@ -1,0 +1,20 @@
+<map id="src/catch2/benchmark/detail/catch_measure.hpp" name="src/catch2/benchmark/detail/catch_measure.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="95,5,290,45"/>
+<area shape="rect" id="Node000002" href="$catch__complete__invoke_8hpp.html" title=" " alt="" coords="135,181,341,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,45,221,133,231,167,225,169,215,134,194,46"/>
+<area shape="rect" id="Node000005" href="$catch__move__and__forward_8hpp.html" title=" " alt="" coords="5,269,188,309"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="185,47,156,106,125,182,105,256,100,255,119,180,151,104,180,45"/>
+<area shape="rect" id="Node000006" href="$catch__timing_8hpp.html" title=" " alt="" coords="231,93,413,133"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="223,43,283,83,280,88,220,48"/>
+<area shape="rect" id="Node000003" href="$catch__meta_8hpp.html" title=" " alt="" coords="212,269,371,309"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="252,220,275,256,270,259,248,223"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="208,224,141,265,138,260,206,219"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="148,357,240,383"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="269,312,221,351,217,346,266,307"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="122,307,171,346,167,351,119,312"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="305,135,268,173,264,170,301,132"/>
+<area shape="rect" id="Node000007" href="$catch__clock_8hpp.html" title=" " alt="" coords="366,181,547,221"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="353,131,417,172,414,176,350,136"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="423,277,490,302"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="459,222,459,263,454,263,454,222"/>
+</map>

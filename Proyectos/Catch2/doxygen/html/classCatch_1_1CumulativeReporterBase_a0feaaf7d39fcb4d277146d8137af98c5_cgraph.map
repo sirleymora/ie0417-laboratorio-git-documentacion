@@ -1,0 +1,22 @@
+<map id="Catch::CumulativeReporterBase::assertionEnded" name="Catch::CumulativeReporterBase::assertionEnded">
+<area shape="rect" id="Node000001" title="Called after assertion was fully evaluated." alt="" coords="5,146,204,186"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1AssertionResult.html#aaa46070791a6c07caaed86229b8d9d75" title=" " alt="" coords="252,114,439,154"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,150,238,146,239,151,205,155"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1AssertionResult.html#ae39658b71c4afc3c8a859043b0e97027" title=" " alt="" coords="261,178,430,218"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="205,177,247,182,247,188,204,182"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1AssertionResult.html#a26a777f3959353c729544cb2ace0d279" title=" " alt="" coords="508,47,677,87"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="419,111,504,88,505,94,421,117"/>
+<area shape="rect" id="Node000006" href="$structCatch_1_1AssertionResultData.html#a21c9d6ed92a8beaeeb229302ca8cffbb" title=" " alt="" coords="493,115,693,155"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="439,132,479,132,479,137,439,137"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#a6976174b3c594c40f8ed2019360b6581" title=" " alt="" coords="797,5,934,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="677,49,783,30,784,35,678,55"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1StringRef.html#acb22719801de2b64361b4c283080d4e5" title=" " alt="" coords="785,55,945,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="678,65,771,65,771,70,678,70"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1ReusableStringStream.html#a3d93d9f26cddd6c5c48b6ef63c694119" title="Returns the serialized state." alt="" coords="747,128,984,153"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="693,135,733,135,733,141,693,140"/>
+<area shape="poly" id="edge7_Node000007_Node000007" title=" " alt="" coords="822,130,812,120,817,110,835,103,865,101,904,105,915,110,919,116,914,119,911,114,903,111,865,107,836,109,820,114,817,119,825,126"/>
+<area shape="rect" id="Node000009" href="$namespaceCatch.html#a4f62175677952a64dfbc90887726180d" title=" " alt="" coords="545,183,641,208"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="430,194,531,193,531,199,430,200"/>
+<area shape="rect" id="Node000010" href="$namespaceCatch.html#a63cf8932647769fc52be1175210ed89f" title=" " alt="" coords="487,232,699,257"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="431,211,512,227,511,232,430,217"/>
+</map>

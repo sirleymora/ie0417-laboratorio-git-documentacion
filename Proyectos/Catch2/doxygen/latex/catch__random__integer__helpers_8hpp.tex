@@ -1,0 +1,52 @@
+\doxysection{src/catch2/internal/catch\+\_\+random\+\_\+integer\+\_\+helpers.hpp File Reference}
+\hypertarget{catch__random__integer__helpers_8hpp}{}\label{catch__random__integer__helpers_8hpp}\index{src/catch2/internal/catch\_random\_integer\_helpers.hpp@{src/catch2/internal/catch\_random\_integer\_helpers.hpp}}
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for catch\+\_\+random\+\_\+integer\+\_\+helpers.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__random__integer__helpers_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__random__integer__helpers_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{catch__random__integer__helpers_8hpp_ab1d9cd725d9c9eab17a8e9e1c6af1785}{Sized\+Unsigned\+Type\+Helper}}(TYPE)
+\item 
+\#define \mbox{\hyperlink{catch__random__integer__helpers_8hpp_a3b9fde7bed48606915ced702d38db7ce}{Carry\+Bits}}(x)~( x $>$$>$ 32 )
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{catch__random__integer__helpers_8hpp_a3b9fde7bed48606915ced702d38db7ce}\label{catch__random__integer__helpers_8hpp_a3b9fde7bed48606915ced702d38db7ce} 
+\index{catch\_random\_integer\_helpers.hpp@{catch\_random\_integer\_helpers.hpp}!CarryBits@{CarryBits}}
+\index{CarryBits@{CarryBits}!catch\_random\_integer\_helpers.hpp@{catch\_random\_integer\_helpers.hpp}}
+\doxysubsubsection{\texorpdfstring{CarryBits}{CarryBits}}
+{\footnotesize\ttfamily \#define Carry\+Bits(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~( x $>$$>$ 32 )}
+
+\Hypertarget{catch__random__integer__helpers_8hpp_ab1d9cd725d9c9eab17a8e9e1c6af1785}\label{catch__random__integer__helpers_8hpp_ab1d9cd725d9c9eab17a8e9e1c6af1785} 
+\index{catch\_random\_integer\_helpers.hpp@{catch\_random\_integer\_helpers.hpp}!SizedUnsignedTypeHelper@{SizedUnsignedTypeHelper}}
+\index{SizedUnsignedTypeHelper@{SizedUnsignedTypeHelper}!catch\_random\_integer\_helpers.hpp@{catch\_random\_integer\_helpers.hpp}}
+\doxysubsubsection{\texorpdfstring{SizedUnsignedTypeHelper}{SizedUnsignedTypeHelper}}
+{\footnotesize\ttfamily \#define Sized\+Unsigned\+Type\+Helper(\begin{DoxyParamCaption}\item[{}]{TYPE }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }SizedUnsignedType<sizeof(\ TYPE\ )>\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ TYPE;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}

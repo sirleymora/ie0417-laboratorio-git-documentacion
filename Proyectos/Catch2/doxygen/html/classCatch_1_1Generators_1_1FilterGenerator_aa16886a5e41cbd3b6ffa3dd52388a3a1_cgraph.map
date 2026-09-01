@@ -1,0 +1,9 @@
+<map id="Catch::Generators::FilterGenerator::FilterGenerator" name="Catch::Generators::FilterGenerator::FilterGenerator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,41,232,81"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Generators_1_1FilterGenerator.html#a02ce0839dcaa7545c55d0fe70cc50e84" title=" " alt="" coords="289,5,447,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,42,275,36,276,41,233,48"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Generators_1_1Detail.html#aafeb004667a171060fc6aa2b66fc63a4" title="Throws GeneratorException with the provided message." alt="" coords="280,70,456,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,75,267,80,266,85,232,80"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#a11f92a284d2dc88fda13e384825c34f5" title=" " alt="" coords="504,85,679,110"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="457,95,490,95,490,100,457,100"/>
+</map>

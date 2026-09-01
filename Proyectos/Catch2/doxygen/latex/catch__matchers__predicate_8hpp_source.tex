@@ -1,0 +1,60 @@
+\doxysection{catch\+\_\+matchers\+\_\+predicate.\+hpp}
+\hypertarget{catch__matchers__predicate_8hpp_source}{}\label{catch__matchers__predicate_8hpp_source}\index{src/catch2/matchers/catch\_matchers\_predicate.hpp@{src/catch2/matchers/catch\_matchers\_predicate.hpp}}
+\mbox{\hyperlink{catch__matchers__predicate_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_MATCHERS\_PREDICATE\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_MATCHERS\_PREDICATE\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__matchers_8hpp}{catch2/matchers/catch\_matchers.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__meta_8hpp}{catch2/internal/catch\_meta.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__move__and__forward_8hpp}{catch2/internal/catch\_move\_and\_forward.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00017}00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00018}00018\ \textcolor{keyword}{namespace\ }Matchers\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00020}00020\ \textcolor{keyword}{namespace\ }Detail\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00021}00021\ \ \ \ \ std::string\ \mbox{\hyperlink{namespaceCatch_1_1Matchers_1_1Detail_ab4b711a37cf459ddf7604e24c3ef2208}{finalizeDescription}}(\textcolor{keyword}{const}\ std::string\&\ desc);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00022}00022\ \}\ \textcolor{comment}{//\ namespace\ Detail}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00024}00024\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Predicate>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00025}\mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher}{00025}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher}{PredicateMatcher}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1MatcherBase}{MatcherBase}}<T>\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a88237241635f13a26fe373d2533aa6e3}{Predicate}}\ m\_predicate;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00027}00027\ \ \ \ \ std::string\ m\_description;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00028}00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00030}\mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher_a9cf2d3af8ef47a180fe5088da2484697}{00030}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher_a9cf2d3af8ef47a180fe5088da2484697}{PredicateMatcher}}(\mbox{\hyperlink{namespaceCatch_1_1Matchers_a88237241635f13a26fe373d2533aa6e3}{Predicate}}\&\&\ elem,\ std::string\ \textcolor{keyword}{const}\&\ descr)}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ :m\_predicate(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(elem)),}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ m\_description(Detail::finalizeDescription(descr))}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00033}00033\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00035}\mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher_a3f7a97d006f9703024ae7176043476b0}{00035}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher_a3f7a97d006f9703024ae7176043476b0}{match}}(\ T\ \textcolor{keyword}{const}\&\ item\ )\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_predicate(item);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00039}\mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher_a1ffa12140494d09a532ca302ebc255c7}{00039}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher_a1ffa12140494d09a532ca302ebc255c7}{describe}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_description;}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00042}00042\ \};}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Pred>}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00050}\mbox{\hyperlink{namespaceCatch_1_1Matchers_a88237241635f13a26fe373d2533aa6e3}{00050}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher}{PredicateMatcher<T,\ Pred>}}\ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a88237241635f13a26fe373d2533aa6e3}{Predicate}}(Pred\&\&\ predicate,\ std::string\ \textcolor{keyword}{const}\&\ description\ =\ \textcolor{stringliteral}{"{}"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{structCatch_1_1is__callable}{is\_callable}}<Pred(T)>\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{::value}},\ \textcolor{stringliteral}{"{}Predicate\ not\ callable\ with\ argument\ T"{}});}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_same<bool,\ FunctionReturnType<Pred,\ T>>\mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{::value}},\ \textcolor{stringliteral}{"{}Predicate\ does\ not\ return\ bool"{}});}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCatch_1_1Matchers_1_1PredicateMatcher}{PredicateMatcher<T,\ Pred>}}(\mbox{\hyperlink{catch__move__and__forward_8hpp_acedf14a4dca7fdf78bd48b59bc4d954a}{CATCH\_FORWARD}}(predicate),\ description);}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00056}00056\ \}\ \textcolor{comment}{//\ namespace\ Matchers}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00057}00057\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{catch__matchers__predicate_8hpp_source_l00059}00059\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_MATCHERS\_PREDICATE\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

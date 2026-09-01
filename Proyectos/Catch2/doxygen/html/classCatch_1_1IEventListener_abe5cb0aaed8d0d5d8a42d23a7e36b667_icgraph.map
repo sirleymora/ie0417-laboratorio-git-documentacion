@@ -1,0 +1,7 @@
+<map id="Catch::IEventListener::testCaseEnded" name="Catch::IEventListener::testCaseEnded">
+<area shape="rect" id="Node000001" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="244,37,404,77"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1RunContext.html#aba3d31f697ea63b04af7609fbcdb0c02" title=" " alt="" coords="5,5,196,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,47,196,42,197,36,231,41"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1RunContext.html#a94fd3fbbba00c7ef9ac79b529a7b76c8" title=" " alt="" coords="25,69,176,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,73,176,81,176,76,230,68"/>
+</map>

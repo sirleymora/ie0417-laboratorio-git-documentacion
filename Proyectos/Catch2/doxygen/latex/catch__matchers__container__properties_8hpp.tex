@@ -1,0 +1,46 @@
+\doxysection{src/catch2/matchers/catch\+\_\+matchers\+\_\+container\+\_\+properties.hpp File Reference}
+\hypertarget{catch__matchers__container__properties_8hpp}{}\label{catch__matchers__container__properties_8hpp}\index{src/catch2/matchers/catch\_matchers\_container\_properties.hpp@{src/catch2/matchers/catch\_matchers\_container\_properties.hpp}}
+{\ttfamily \#include $<$catch2/matchers/catch\+\_\+matchers\+\_\+templated.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+container\+\_\+nonmembers.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+Include dependency graph for catch\+\_\+matchers\+\_\+container\+\_\+properties.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers__container__properties_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers__container__properties_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1IsEmptyMatcher}{Catch\+::\+Matchers\+::\+Is\+Empty\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1HasSizeMatcher}{Catch\+::\+Matchers\+::\+Has\+Size\+Matcher}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1SizeMatchesMatcher}{Catch\+::\+Matchers\+::\+Size\+Matches\+Matcher$<$ Matcher $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers}{Catch\+::\+Matchers}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1IsEmptyMatcher}{Is\+Empty\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a1077c04ed84844005de5cba252539155}{Catch\+::\+Matchers\+::\+Is\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts empty ranges/containers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{catch__compiler__capabilities_8hpp_a41354f10a8e9c8be103cb63c75cc0940}{CATCH\+\_\+\+DESTRUCTOR\+\_\+\+CONSTEXPR}} \mbox{\hyperlink{classCatch_1_1Matchers_1_1HasSizeMatcher}{Has\+Size\+Matcher}} \mbox{\hyperlink{namespaceCatch_1_1Matchers_a26b1935b4858a41d775147a42807e419}{Catch\+::\+Matchers\+::\+Size\+Is}} (std\+::size\+\_\+t sz)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that accepts ranges/containers with specific size. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Matcher $>$ }\\constexpr std\+::enable\+\_\+if\+\_\+t$<$ Detail\+::is\+\_\+matcher\+\_\+v$<$ Matcher $>$, \mbox{\hyperlink{classCatch_1_1Matchers_1_1SizeMatchesMatcher}{Size\+Matches\+Matcher}}$<$ Matcher $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a73e95add3cfd9cf34f00056d956b19b8}{Catch\+::\+Matchers\+::\+Size\+Is}} (Matcher \&\&m)
+\end{DoxyCompactItemize}

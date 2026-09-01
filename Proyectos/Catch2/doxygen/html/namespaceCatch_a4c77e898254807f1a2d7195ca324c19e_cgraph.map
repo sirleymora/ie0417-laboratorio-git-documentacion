@@ -1,0 +1,18 @@
+<map id="Catch::handleExceptionMatchExpr" name="Catch::handleExceptionMatchExpr">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,249,106"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1AssertionHandler.html#ac061e1d051135385f450973b676b2579" title=" " alt="" coords="323,29,502,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,78,309,63,310,68,210,83"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#adafff91485eeeeb9e9333f317cc0e3b1" title=" " alt="" coords="297,109,528,134"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="250,103,284,106,284,111,249,108"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="360,30,357,20,365,10,384,5,413,3,446,5,464,13,462,18,444,11,413,8,385,10,368,15,362,21,365,28"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1ExprLhs.html#a0bcbddc42c67a4dea5fc68c4e8bcde84" title=" " alt="" coords="584,22,815,47"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="502,42,570,39,570,44,502,47"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1IRegistryHub.html#aa97defa756fe28dd6249b19c12bbbec1" title=" " alt="" coords="583,72,816,112"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="528,107,569,103,569,108,529,112"/>
+<area shape="rect" id="Node000006" href="$namespaceCatch.html#a5d328566cb8da87b48f1fac3f319ac7a" title=" " alt="" coords="615,137,783,162"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="529,130,602,137,601,142,528,135"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1IExceptionTranslatorRegistry.html#af76ae8c331a17f2a94c9720bc0d686bb" title=" " alt="" coords="576,187,823,227"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="453,132,577,171,610,180,609,185,575,176,452,137"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1Singleton.html#aa1b2bb002acd8838489a225dbbaf2865" title=" " alt="" coords="871,137,1028,162"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="783,147,857,147,857,152,783,152"/>
+</map>

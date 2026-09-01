@@ -1,0 +1,35 @@
+<map id="Catch::Detail::NonCopyable" name="Catch::Detail::NonCopyable">
+<area shape="rect" id="Node000001" title="Deriving classes become noncopyable and nonmovable." alt="" coords="5,279,207,305"/>
+<area shape="rect" id="Node000002" href="$structCatch_1_1AutoReg.html" title=" " alt="" coords="299,115,422,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,266,178,208,214,177,253,151,298,134,300,139,256,156,217,181,181,212,128,270"/>
+<area shape="rect" id="Node000003" href="$structCatch_1_1Clara_1_1Detail_1_1BoundRef.html" title=" " alt="" coords="287,165,435,205"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,270,194,243,254,216,290,203,292,208,256,221,196,248,144,275"/>
+<area shape="rect" id="Node000012" href="$classCatch_1_1IConfig.html" title=" " alt="" coords="305,230,417,255"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="185,274,304,251,305,256,186,279"/>
+<area shape="rect" id="Node000014" href="$classCatch_1_1ReusableStringStream.html" title=" " alt="" coords="255,279,467,305"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="220,289,255,289,255,295,220,295"/>
+<area shape="rect" id="Node000015" href="$classCatch_1_1Section.html" title=" " alt="" coords="303,329,418,354"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="186,305,304,328,303,333,185,310"/>
+<area shape="rect" id="Node000016" href="$classCatch_1_1Session.html" title=" " alt="" coords="302,378,419,403"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="142,309,194,338,256,364,302,378,301,383,254,369,192,342,139,314"/>
+<area shape="rect" id="Node000017" href="$structCatch_1_1TestCaseInfo.html" title=" " alt="" coords="285,427,436,453"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="130,313,184,364,218,391,256,414,286,425,284,430,254,418,215,396,180,368,126,317"/>
+<area shape="rect" id="Node000004" href="$structCatch_1_1Clara_1_1Detail_1_1BoundFlagRefBase.html" title=" " alt="" coords="519,69,672,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="446,158,466,151,557,107,559,112,468,156,448,163"/>
+<area shape="rect" id="Node000007" href="$structCatch_1_1Clara_1_1Detail_1_1BoundValueRefBase.html" title=" " alt="" coords="515,165,676,205"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="448,183,515,183,515,188,448,188"/>
+<area shape="rect" id="Node000005" href="$structCatch_1_1Clara_1_1Detail_1_1BoundFlagLambda.html" title=" " alt="" coords="724,5,912,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="678,63,747,43,749,48,680,68"/>
+<area shape="rect" id="Node000006" href="$structCatch_1_1Clara_1_1Detail_1_1BoundFlagRef.html" title=" " alt="" coords="744,69,892,109"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="686,87,744,87,744,92,686,92"/>
+<area shape="rect" id="Node000008" href="$structCatch_1_1Clara_1_1Detail_1_1BoundLambda.html" title=" " alt="" coords="738,133,898,173"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="689,169,737,162,738,167,690,174"/>
+<area shape="rect" id="Node000010" href="$structCatch_1_1Clara_1_1Detail_1_1BoundValueRef.html" title=" " alt="" coords="735,197,901,237"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="690,196,735,203,734,208,689,201"/>
+<area shape="rect" id="Node000011" href="$structCatch_1_1Clara_1_1Detail_1_1BoundValueRef_3_01std_1_1vector_3_01T_01_4_01_4.html" title=" " alt="" coords="736,262,900,317"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="662,209,677,216,725,247,751,260,749,264,723,252,675,221,659,213"/>
+<area shape="rect" id="Node000009" href="$structCatch_1_1Clara_1_1Detail_1_1BoundManyLambda.html" title=" " alt="" coords="960,133,1156,173"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="912,151,960,151,960,156,912,156"/>
+<area shape="rect" id="Node000013" href="$classCatch_1_1Config.html" title=" " alt="" coords="541,230,649,255"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="431,240,541,240,541,245,431,245"/>
+</map>

@@ -1,0 +1,61 @@
+\doxysection{catch\+\_\+reusable\+\_\+string\+\_\+stream.\+hpp}
+\hypertarget{catch__reusable__string__stream_8hpp_source}{}\label{catch__reusable__string__stream_8hpp_source}\index{src/catch2/internal/catch\_reusable\_string\_stream.hpp@{src/catch2/internal/catch\_reusable\_string\_stream.hpp}}
+\mbox{\hyperlink{catch__reusable__string__stream_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_REUSABLE\_STRING\_STREAM\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_REUSABLE\_STRING\_STREAM\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__noncopyable_8hpp}{catch2/internal/catch\_noncopyable.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <iosfwd>}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <ostream>}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00018}00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00020}\mbox{\hyperlink{classCatch_1_1ReusableStringStream}{00020}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1ReusableStringStream}{ReusableStringStream}}\ :\ \mbox{\hyperlink{classCatch_1_1Detail_1_1NonCopyable}{Detail::NonCopyable}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ std::size\_t\ m\_index;}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ std::ostream*\ m\_oss;}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReusableStringStream_a9b3f8c52b0d2d63ffd825297a9c09781}{ReusableStringStream}}();}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReusableStringStream_aba9384e258a4db3178447b6a58414712}{\string~ReusableStringStream}}();}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1ReusableStringStream_a3d93d9f26cddd6c5c48b6ef63c694119}{str}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1ReusableStringStream_a3d93d9f26cddd6c5c48b6ef63c694119}{str}}(std::string\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classCatch_1_1ReusableStringStream_a3d93d9f26cddd6c5c48b6ef63c694119}{str}});}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)\ \&\&\ !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00033}00033\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00034}00034\ \textcolor{comment}{//\ Old\ versions\ of\ GCC\ do\ not\ understand\ -\/Wnonnull-\/compare}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00035}00035\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wpragmas"{}}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00036}00036\ \textcolor{comment}{//\ Streaming\ a\ function\ pointer\ triggers\ Waddress\ and\ Wnonnull-\/compare}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00037}00037\ \textcolor{comment}{//\ on\ GCC,\ because\ it\ implicitly\ converts\ it\ to\ bool\ and\ then\ decides}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00038}00038\ \textcolor{comment}{//\ that\ the\ check\ it\ uses\ (a?\ true\ :\ false)\ is\ tautological\ and\ cannot}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00039}00039\ \textcolor{comment}{//\ be\ null...}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00040}00040\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ ignored\ "{}-\/Waddress"{}}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00041}00041\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wnonnull-\/compare"{}}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00042}00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00045}\mbox{\hyperlink{classCatch_1_1ReusableStringStream_af95f72024c082db70e5e50782e28e4f6}{00045}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classCatch_1_1ReusableStringStream_af95f72024c082db70e5e50782e28e4f6}{operator\ <<\ }}(\ T\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}}\ )\ -\/>\ \mbox{\hyperlink{classCatch_1_1ReusableStringStream}{ReusableStringStream}}\&\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ *m\_oss\ <<\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_a5dcc1560b74135e065519bc3986c14b1}{value}};}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00050}00050\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)\ \&\&\ !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00051}00051\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00052}00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00053}\mbox{\hyperlink{classCatch_1_1ReusableStringStream_a6881808c60a080d4e24a0b81c94cbf67}{00053}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classCatch_1_1ReusableStringStream_a6881808c60a080d4e24a0b81c94cbf67}{get}}()\ -\/>\ std::ostream\&\ \{\ \textcolor{keywordflow}{return}\ *m\_oss;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00054}00054\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{catch__reusable__string__stream_8hpp_source_l00057}00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_REUSABLE\_STRING\_STREAM\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

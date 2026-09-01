@@ -1,0 +1,60 @@
+\doxysection{src/catch2/generators/catch\+\_\+generators\+\_\+adapters.hpp File Reference}
+\hypertarget{catch__generators__adapters_8hpp}{}\label{catch__generators__adapters_8hpp}\index{src/catch2/generators/catch\_generators\_adapters.hpp@{src/catch2/generators/catch\_generators\_adapters.hpp}}
+{\ttfamily \#include $<$catch2/generators/catch\+\_\+generators.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+meta.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+optional.\+hpp$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+Include dependency graph for catch\+\_\+generators\+\_\+adapters.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__generators__adapters_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{catch__generators__adapters_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1TakeGenerator}{Catch\+::\+Generators\+::\+Take\+Generator$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1FilterGenerator}{Catch\+::\+Generators\+::\+Filter\+Generator$<$ T, Predicate $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1RepeatGenerator}{Catch\+::\+Generators\+::\+Repeat\+Generator$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1MapGenerator}{Catch\+::\+Generators\+::\+Map\+Generator$<$ T, U, Func $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1ChunkGenerator}{Catch\+::\+Generators\+::\+Chunk\+Generator$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Generators_1_1ConcatGenerator}{Catch\+::\+Generators\+::\+Concat\+Generator$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Generators}{Catch\+::\+Generators}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_adedfdb318219078ce9107690745d2f2f}{Catch\+::\+Generators\+::take}} (size\+\_\+t target, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename T , typename Predicate $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a4df89be8072a9685ee89b6776a54bb93}{Catch\+::\+Generators\+::filter}} (Predicate \&\&pred, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_a510cc0d72a7bab8f967827e695b981ba}{Catch\+::\+Generators\+::repeat}} (size\+\_\+t repeats, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename Func , typename U , typename T  = Function\+Return\+Type$<$\+Func, U$>$$>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_af33fd06c51ac9173c3bee2ddee2559a6}{Catch\+::\+Generators\+::map}} (Func \&\&function, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ U $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_acb4654b4e840e438e3bc204ac4d8e157}{Catch\+::\+Generators\+::chunk}} (size\+\_\+t size, \mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator)
+\item 
+{\footnotesize template$<$typename T , typename... Generators$>$ }\\\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \mbox{\hyperlink{namespaceCatch_1_1Generators_aaf0dfc5b95d3f6b735fdca37574dd11c}{Catch\+::\+Generators\+::cat}} (\mbox{\hyperlink{classCatch_1_1Generators_1_1GeneratorWrapper}{Generator\+Wrapper}}$<$ T $>$ \&\&generator, \mbox{\hyperlink{classCatch_1_1Generators_1_1Generators}{Generators}} \&\&... generators)
+\end{DoxyCompactItemize}

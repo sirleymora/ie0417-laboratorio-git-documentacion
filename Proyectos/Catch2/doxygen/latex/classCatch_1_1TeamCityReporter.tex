@@ -1,0 +1,344 @@
+\doxysection{Catch\+::Team\+City\+Reporter Class Reference}
+\hypertarget{classCatch_1_1TeamCityReporter}{}\label{classCatch_1_1TeamCityReporter}\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+
+
+{\ttfamily \#include $<$catch\+\_\+reporter\+\_\+teamcity.\+hpp$>$}
+
+
+
+Inheritance diagram for Catch\+::Team\+City\+Reporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{classCatch_1_1TeamCityReporter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Catch\+::Team\+City\+Reporter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TeamCityReporter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1TeamCityReporter_a6615be434bfb0425be9946587ea2d2be}{Team\+City\+Reporter}} (\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&\+\_\+config)
+\item 
+\mbox{\hyperlink{classCatch_1_1TeamCityReporter_a7bd00b5071587e659bb4c7de14dd5d81}{\texorpdfstring{$\sim$}{\string~}\+Team\+City\+Reporter}} () override
+\item 
+void \mbox{\hyperlink{classCatch_1_1TeamCityReporter_ae731dcb9e0c15a7eee21ad598d946366}{test\+Run\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} const \&run\+Info) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1TeamCityReporter_a688a8e9723e5e2befed53ec50a7cafb3}{test\+Run\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats}} const \&run\+Stats) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1TeamCityReporter_a29962bc7bae0f48e5d3e24ef2b28d901}{assertion\+Ended}} (\mbox{\hyperlink{structCatch_1_1AssertionStats}{Assertion\+Stats}} const \&assertion\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called after assertion was fully evaluated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1TeamCityReporter_a659dbf515acee57b7e957edf2b10e2d9}{section\+Starting}} (\mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} const \&section\+Info) override
+\begin{DoxyCompactList}\small\item\em Called when a {\ttfamily SECTION} is being entered. Not called for skipped sections. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1TeamCityReporter_a512e183512859522d4605fee3ad8e52b}{test\+Case\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&test\+Info) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1TeamCityReporter_ab2a5007071e489a4e4c8ee8e84585ef8}{test\+Case\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&test\+Case\+Stats) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase}{Catch\+::\+Streaming\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a345a405dcf39e478933d45a310acc84c}{Streaming\+Reporter\+Base}} (\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&\+\_\+config)
+\item 
+\mbox{\hyperlink{classCatch_1_1StreamingReporterBase_aea3f73d04bf3d3a2f88ad25ff3370003}{\texorpdfstring{$\sim$}{\string~}\+Streaming\+Reporter\+Base}} () override
+\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a0a58760a218c47969e05aa5097e2fc04}{benchmark\+Preparing}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called when user-\/code is being probed before the actual benchmark runs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_aa7a219bb6a3b578f1feb8a352e63d247}{benchmark\+Starting}} (\mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{Benchmark\+Info}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called after probe but before the user-\/code is being benchmarked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a33ec3872d7d5b221568555ff6ac631c6}{benchmark\+Ended}} (\mbox{\hyperlink{structCatch_1_1BenchmarkStats}{Benchmark\+Stats}}$<$$>$ const \&) override
+\begin{DoxyCompactList}\small\item\em Called with the benchmark results if benchmark successfully finishes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a91ea142e8396bd3ab69b3e32b2eb513e}{benchmark\+Failed}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called if running the benchmarks fails for any reason. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_ac4fdeb6e1346d59cad24a74c3cbeef58}{fatal\+Error\+Encountered}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called if a fatal error (signal/structured exception) occurred. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_aefc11d7016246564f57f941f1ff583d9}{no\+Matching\+Test\+Cases}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called when no test cases match provided test spec. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_adfde6846b8dccfad4f0fae0ce8d11f1f}{report\+Invalid\+Test\+Spec}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}}) override
+\begin{DoxyCompactList}\small\item\em Called for all invalid test specs from the cli. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_af6f4599ca6f53625379d1d785e856433}{test\+Case\+Partial\+Starting}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&, uint64\+\_\+t) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a820fa157b402050fa1af4bdebf2b2a7c}{assertion\+Starting}} (\mbox{\hyperlink{structCatch_1_1AssertionInfo}{Assertion\+Info}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called before assertion success/failure is evaluated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a8572eff6839988af6bf2866922d30c7b}{section\+Ended}} (\mbox{\hyperlink{structCatch_1_1SectionStats}{Section\+Stats}} const \&) override
+\begin{DoxyCompactList}\small\item\em Called after a {\ttfamily SECTION} has finished running. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a8757208f79d83984ea5dae0678839df4}{test\+Case\+Partial\+Ended}} (\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&, uint64\+\_\+t) override
+\begin{DoxyCompactList}\small\item\em Called {\itshape every time} a TEST\+\_\+\+CASE is entered, including repeats (due to sections) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_aa532201eaf113730b0b16fc8710f5381}{skip\+Test}} (\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1ReporterBase}{Catch\+::\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1ReporterBase_afe1cb76ff7af81e7c0c10108a41b90ca}{Reporter\+Base}} (\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&config)
+\item 
+\mbox{\hyperlink{classCatch_1_1ReporterBase_a4c85a61db7c1340ff05c20ddd24e7624}{\texorpdfstring{$\sim$}{\string~}\+Reporter\+Base}} () override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a6b49fcddf9430c782bf33cc7ab3b8f6a}{list\+Reporters}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ReporterDescription}{Reporter\+Description}} $>$ const \&descriptions) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a80fc94e76ca6273bde21892472cfb590}{list\+Listeners}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1ListenerDescription}{Listener\+Description}} $>$ const \&descriptions) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a15ed28e8f838691c3c374027547d914b}{list\+Tests}} (std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1TestCaseHandle}{Test\+Case\+Handle}} $>$ const \&tests) override
+\item 
+void \mbox{\hyperlink{classCatch_1_1ReporterBase_a327d4a5ee9b271e19ac19951ae3cd0e1}{list\+Tags}} (std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1TagInfo}{Tag\+Info}} $>$ const \&tags) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classCatch_1_1IEventListener}{Catch\+::\+IEvent\+Listener}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1IEventListener_aaaa931eff91dcc54dbcbe3fc7e0d4ab8}{IEvent\+Listener}} (\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const \texorpdfstring{$\ast$}{*}config)
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1IEventListener_acfa267bbb655d4530752d5ec2507b95c}{\texorpdfstring{$\sim$}{\string~}\+IEvent\+Listener}} ()
+\item 
+\mbox{\hyperlink{structCatch_1_1ReporterPreferences}{Reporter\+Preferences}} const \& \mbox{\hyperlink{classCatch_1_1IEventListener_a613b60656347b078f9a8d0385892f2d4}{get\+Preferences}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classCatch_1_1TeamCityReporter_a921cf51e7fee24327bec724c4f5361e0}{get\+Description}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase}{Catch\+::\+Streaming\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a973ae44ceadf335cd07e48cd4ea61335}{current\+Test\+Run\+Info}} \{ "{}test run has not started yet"{}\+\_\+sr \}
+\item 
+\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_af9ca5c5966f269475d9621aa5e63a111}{current\+Test\+Case\+Info}} = nullptr
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} $>$ \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a82f2a7a5dec58bc093f6ab26a9e47bd8}{m\+\_\+section\+Stack}}
+\begin{DoxyCompactList}\small\item\em Stack of all {\itshape active} sections in the {\itshape current} test case. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1ReporterBase}{Catch\+::\+Reporter\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1IStream}{IStream}} $>$ \mbox{\hyperlink{classCatch_1_1ReporterBase_a196cb1e3644d83f507b70baeef7edacf}{m\+\_\+wrapped\+\_\+stream}}
+\begin{DoxyCompactList}\small\item\em The stream wrapper as passed to us by outside code. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{classCatch_1_1ReporterBase_a7d6ee62fccc86662adaea744c501eef8}{m\+\_\+stream}}
+\item 
+\mbox{\hyperlink{classCatch_1_1Detail_1_1unique__ptr}{Detail\+::unique\+\_\+ptr}}$<$ \mbox{\hyperlink{classCatch_1_1ColourImpl}{Colour\+Impl}} $>$ \mbox{\hyperlink{classCatch_1_1ReporterBase_a8caa5e303effaaeec2bf8f5a2f0f65a2}{m\+\_\+colour}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structCatch_1_1Colour}{Colour} implementation this reporter was configured for. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737}{Verbosity}} \mbox{\hyperlink{classCatch_1_1ReporterBase_a7bec858f36372e3fdc1caf8bb11d9b76}{m\+\_\+verbosity}}
+\begin{DoxyCompactList}\small\item\em Verbosity configured for this reporter. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classCatch_1_1ReporterBase_ac75b1716001a78104be1fd38d9844c8e}{m\+\_\+custom\+Options}}
+\begin{DoxyCompactList}\small\item\em The custom reporter options user passed down to the reporter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classCatch_1_1IEventListener}{Catch\+::\+IEvent\+Listener}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structCatch_1_1ReporterPreferences}{Reporter\+Preferences}} \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\+\_\+preferences}}
+\begin{DoxyCompactList}\small\item\em Derived classes can set up their preferences here. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1IConfig}{IConfig}} const  \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\+\_\+config}}
+\begin{DoxyCompactList}\small\item\em The test run\textquotesingle{}s config as filled in from CLI and defaults. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__teamcity_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{catch__reporter__teamcity_8hpp_source}{catch\+\_\+reporter\+\_\+teamcity.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1TeamCityReporter_a6615be434bfb0425be9946587ea2d2be}\label{classCatch_1_1TeamCityReporter_a6615be434bfb0425be9946587ea2d2be} 
+\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}!TeamCityReporter@{TeamCityReporter}}
+\index{TeamCityReporter@{TeamCityReporter}!Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+\doxysubsubsection{\texorpdfstring{TeamCityReporter()}{TeamCityReporter()}}
+{\footnotesize\ttfamily Catch\+::\+Team\+City\+Reporter\+::\+Team\+City\+Reporter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1ReporterConfig}{Reporter\+Config}} \&\&}]{\+\_\+config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__teamcity_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{catch__reporter__teamcity_8hpp_source}{catch\+\_\+reporter\+\_\+teamcity.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00144}{Catch\+::\+IEvent\+Listener\+::m\+\_\+preferences}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00118}{Catch\+::\+Reporter\+Preferences\+::should\+Redirect\+Std\+Out}}, and \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00126}{Catch\+::\+Reporter\+Preferences\+::should\+Report\+All\+Assertion\+Starts}}.
+
+\Hypertarget{classCatch_1_1TeamCityReporter_a7bd00b5071587e659bb4c7de14dd5d81}\label{classCatch_1_1TeamCityReporter_a7bd00b5071587e659bb4c7de14dd5d81} 
+\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}!````~TeamCityReporter@{\texorpdfstring{$\sim$}{\string~}TeamCityReporter}}
+\index{````~TeamCityReporter@{\texorpdfstring{$\sim$}{\string~}TeamCityReporter}!Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TeamCityReporter()}{\string~TeamCityReporter()}}
+{\footnotesize\ttfamily Catch\+::\+Team\+City\+Reporter\+::\texorpdfstring{$\sim$}{\string~}\+Team\+City\+Reporter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1TeamCityReporter_a29962bc7bae0f48e5d3e24ef2b28d901}\label{classCatch_1_1TeamCityReporter_a29962bc7bae0f48e5d3e24ef2b28d901} 
+\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}!assertionEnded@{assertionEnded}}
+\index{assertionEnded@{assertionEnded}!Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+\doxysubsubsection{\texorpdfstring{assertionEnded()}{assertionEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Team\+City\+Reporter\+::assertion\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1AssertionStats}{Assertion\+Stats}} const \&}]{assertion\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called after assertion was fully evaluated. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a89acc09398d5b8078e3fe2ae5e61e68d}{Catch\+::\+Streaming\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source}{catch\+\_\+reporter\+\_\+teamcity.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00071}{Catch\+::\+Assertion\+Stats\+::assertion\+Result}}, \mbox{\hyperlink{catch__enforce_8hpp_source_l00044}{CATCH\+\_\+\+ERROR}}, \mbox{\hyperlink{catch__reporter__streaming__base_8hpp_source_l00065}{Catch\+::\+Streaming\+Reporter\+Base\+::current\+Test\+Case\+Info}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00030}{Catch\+::\+Result\+Was\+::\+Didnt\+Throw\+Exception}}, \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00020}{escape}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00027}{Catch\+::\+Result\+Was\+::\+Exception}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00025}{Catch\+::\+Result\+Was\+::\+Explicit\+Failure}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00020}{Catch\+::\+Result\+Was\+::\+Explicit\+Skip}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00024}{Catch\+::\+Result\+Was\+::\+Expression\+Failed}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00022}{Catch\+::\+Result\+Was\+::\+Failure\+Bit}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00032}{Catch\+::\+Result\+Was\+::\+Fatal\+Error\+Condition}}, \mbox{\hyperlink{catch__reusable__string__stream_8hpp_source_l00053}{Catch\+::\+Reusable\+String\+Stream\+::get()}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00017}{Catch\+::\+Result\+Was\+::\+Info}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00072}{Catch\+::\+Assertion\+Stats\+::info\+Messages}}, \mbox{\hyperlink{catch__reporter__common__base_8hpp_source_l00035}{Catch\+::\+Reporter\+Base\+::m\+\_\+stream}}, \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00089}{Catch\+::\+Test\+Case\+Info\+::name}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00016}{Catch\+::\+Result\+Was\+::\+Ok}}, \mbox{\hyperlink{catch__test__case__info_8cpp_source_l00208}{Catch\+::\+Test\+Case\+Info\+::ok\+To\+Fail()}}, \mbox{\hyperlink{catch__reusable__string__stream_8cpp_source_l00061}{Catch\+::\+Reusable\+String\+Stream\+::str()}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00029}{Catch\+::\+Result\+Was\+::\+Threw\+Exception}}, \mbox{\hyperlink{catch__result__type_8hpp_source_l00015}{Catch\+::\+Result\+Was\+::\+Unknown}}, and \mbox{\hyperlink{catch__result__type_8hpp_source_l00018}{Catch\+::\+Result\+Was\+::\+Warning}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TeamCityReporter_a29962bc7bae0f48e5d3e24ef2b28d901_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TeamCityReporter_a921cf51e7fee24327bec724c4f5361e0}\label{classCatch_1_1TeamCityReporter_a921cf51e7fee24327bec724c4f5361e0} 
+\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily static std\+::string Catch\+::\+Team\+City\+Reporter\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__teamcity_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{catch__reporter__teamcity_8hpp_source}{catch\+\_\+reporter\+\_\+teamcity.\+hpp}}.
+
+\Hypertarget{classCatch_1_1TeamCityReporter_a659dbf515acee57b7e957edf2b10e2d9}\label{classCatch_1_1TeamCityReporter_a659dbf515acee57b7e957edf2b10e2d9} 
+\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}!sectionStarting@{sectionStarting}}
+\index{sectionStarting@{sectionStarting}!Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+\doxysubsubsection{\texorpdfstring{sectionStarting()}{sectionStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Team\+City\+Reporter\+::section\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1SectionInfo}{Section\+Info}} const \&}]{section\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called when a {\ttfamily SECTION} is being entered. Not called for skipped sections. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a2138331de72f8dbae4e46cdd741f9656}{Catch\+::\+Streaming\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__teamcity_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{catch__reporter__teamcity_8hpp_source}{catch\+\_\+reporter\+\_\+teamcity.\+hpp}}.
+
+
+
+References \mbox{\hyperlink{catch__reporter__streaming__base_8hpp_source_l00042}{Catch\+::\+Streaming\+Reporter\+Base\+::section\+Starting()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TeamCityReporter_a659dbf515acee57b7e957edf2b10e2d9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TeamCityReporter_ab2a5007071e489a4e4c8ee8e84585ef8}\label{classCatch_1_1TeamCityReporter_ab2a5007071e489a4e4c8ee8e84585ef8} 
+\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}!testCaseEnded@{testCaseEnded}}
+\index{testCaseEnded@{testCaseEnded}!Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+\doxysubsubsection{\texorpdfstring{testCaseEnded()}{testCaseEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Team\+City\+Reporter\+::test\+Case\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseStats}{Test\+Case\+Stats}} const \&}]{test\+Case\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a6aaf2ea1da223091c4d29ef1883ac5ca}{Catch\+::\+Streaming\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source}{catch\+\_\+reporter\+\_\+teamcity.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00020}{escape}}, \mbox{\hyperlink{catch__timer_8cpp_source_l00029}{Catch\+::\+Timer\+::get\+Elapsed\+Milliseconds()}}, \mbox{\hyperlink{catch__reporter__common__base_8hpp_source_l00035}{Catch\+::\+Reporter\+Base\+::m\+\_\+stream}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00098}{Catch\+::\+Test\+Case\+Stats\+::std\+Err}}, \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00097}{Catch\+::\+Test\+Case\+Stats\+::std\+Out}}, \mbox{\hyperlink{catch__reporter__streaming__base_8hpp_source_l00053}{Catch\+::\+Streaming\+Reporter\+Base\+::test\+Case\+Ended()}}, and \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00095}{Catch\+::\+Test\+Case\+Stats\+::test\+Info}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TeamCityReporter_ab2a5007071e489a4e4c8ee8e84585ef8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TeamCityReporter_a512e183512859522d4605fee3ad8e52b}\label{classCatch_1_1TeamCityReporter_a512e183512859522d4605fee3ad8e52b} 
+\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}!testCaseStarting@{testCaseStarting}}
+\index{testCaseStarting@{testCaseStarting}!Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+\doxysubsubsection{\texorpdfstring{testCaseStarting()}{testCaseStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Team\+City\+Reporter\+::test\+Case\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestCaseInfo}{Test\+Case\+Info}} const \&}]{test\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called {\itshape once} for each TEST\+\_\+\+CASE, no matter how many times it is entered. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a40e91b413710721143981bfd4c78a37b}{Catch\+::\+Streaming\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source}{catch\+\_\+reporter\+\_\+teamcity.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00020}{escape}}, \mbox{\hyperlink{catch__reporter__common__base_8hpp_source_l00035}{Catch\+::\+Reporter\+Base\+::m\+\_\+stream}}, \mbox{\hyperlink{catch__test__case__info_8hpp_source_l00089}{Catch\+::\+Test\+Case\+Info\+::name}}, \mbox{\hyperlink{catch__timer_8cpp_source_l00020}{Catch\+::\+Timer\+::start()}}, and \mbox{\hyperlink{catch__reporter__streaming__base_8hpp_source_l00038}{Catch\+::\+Streaming\+Reporter\+Base\+::test\+Case\+Starting()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1TeamCityReporter_a512e183512859522d4605fee3ad8e52b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1TeamCityReporter_a688a8e9723e5e2befed53ec50a7cafb3}\label{classCatch_1_1TeamCityReporter_a688a8e9723e5e2befed53ec50a7cafb3} 
+\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}!testRunEnded@{testRunEnded}}
+\index{testRunEnded@{testRunEnded}!Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+\doxysubsubsection{\texorpdfstring{testRunEnded()}{testRunEnded()}}
+{\footnotesize\ttfamily void Catch\+::\+Team\+City\+Reporter\+::test\+Run\+Ended (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestRunStats}{Test\+Run\+Stats}} const \&}]{test\+Run\+Stats }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Called once after all tests in a testing run are finished
+
+Not called if tests weren\textquotesingle{}t run (e.\+g. only listings happened) 
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_abc6e39389e0bb22fb2fce977ced959af}{Catch\+::\+Streaming\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source}{catch\+\_\+reporter\+\_\+teamcity.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00020}{escape}}, \mbox{\hyperlink{catch__reporter__common__base_8hpp_source_l00035}{Catch\+::\+Reporter\+Base\+::m\+\_\+stream}}, \mbox{\hyperlink{catch__test__run__info_8hpp_source_l00017}{Catch\+::\+Test\+Run\+Info\+::name}}, and \mbox{\hyperlink{catch__interfaces__reporter_8hpp_source_l00107}{Catch\+::\+Test\+Run\+Stats\+::run\+Info}}.
+
+\Hypertarget{classCatch_1_1TeamCityReporter_ae731dcb9e0c15a7eee21ad598d946366}\label{classCatch_1_1TeamCityReporter_ae731dcb9e0c15a7eee21ad598d946366} 
+\index{Catch::TeamCityReporter@{Catch::TeamCityReporter}!testRunStarting@{testRunStarting}}
+\index{testRunStarting@{testRunStarting}!Catch::TeamCityReporter@{Catch::TeamCityReporter}}
+\doxysubsubsection{\texorpdfstring{testRunStarting()}{testRunStarting()}}
+{\footnotesize\ttfamily void Catch\+::\+Team\+City\+Reporter\+::test\+Run\+Starting (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1TestRunInfo}{Test\+Run\+Info}} const \&}]{test\+Run\+Info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Called once in a testing run before tests are started
+
+Not called if tests won\textquotesingle{}t be run (e.\+g. only listing will happen) 
+
+Reimplemented from \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a5ce94d2e8b64c49e4ace01c64f249716}{Catch\+::\+Streaming\+Reporter\+Base}}.
+
+
+
+Definition at line \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{catch__reporter__teamcity_8cpp_source}{catch\+\_\+reporter\+\_\+teamcity.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__jsonwriter_8cpp_source_l00020}{escape}}, \mbox{\hyperlink{catch__reporter__common__base_8hpp_source_l00035}{Catch\+::\+Reporter\+Base\+::m\+\_\+stream}}, and \mbox{\hyperlink{catch__test__run__info_8hpp_source_l00017}{Catch\+::\+Test\+Run\+Info\+::name}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__teamcity_8hpp}{catch\+\_\+reporter\+\_\+teamcity.\+hpp}}\item 
+src/catch2/reporters/\mbox{\hyperlink{catch__reporter__teamcity_8cpp}{catch\+\_\+reporter\+\_\+teamcity.\+cpp}}\end{DoxyCompactItemize}

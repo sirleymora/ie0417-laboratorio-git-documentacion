@@ -1,0 +1,8 @@
+<map id="Catch::Clara::Opt::getHelpColumns" name="Catch::Clara::Opt::getHelpColumns">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,145,75"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1StringRef.html#a0b4841c28cbb14ba07296964a0187023" title=" " alt="" coords="224,5,400,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,42,217,30,218,35,146,47"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1ReusableStringStream.html#a3d93d9f26cddd6c5c48b6ef63c694119" title="Returns the serialized state." alt="" coords="193,79,431,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,63,215,74,214,79,145,69"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="274,80,266,70,270,60,286,54,312,52,345,56,358,65,354,70,343,61,312,57,287,59,273,64,271,70,278,77"/>
+</map>

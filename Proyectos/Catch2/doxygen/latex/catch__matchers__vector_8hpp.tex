@@ -1,0 +1,54 @@
+\doxysection{src/catch2/matchers/catch\+\_\+matchers\+\_\+vector.hpp File Reference}
+\hypertarget{catch__matchers__vector_8hpp}{}\label{catch__matchers__vector_8hpp}\index{src/catch2/matchers/catch\_matchers\_vector.hpp@{src/catch2/matchers/catch\_matchers\_vector.hpp}}
+{\ttfamily \#include $<$catch2/matchers/catch\+\_\+matchers.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/catch\+\_\+approx.\+hpp$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for catch\+\_\+matchers\+\_\+vector.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__matchers__vector_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{catch__matchers__vector_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher}{Catch\+::\+Matchers\+::\+Vector\+Contains\+Element\+Matcher$<$ T, Alloc $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher}{Catch\+::\+Matchers\+::\+Contains\+Matcher$<$ T, Alloc\+Comp, Alloc\+Match $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher}{Catch\+::\+Matchers\+::\+Equals\+Matcher$<$ T, Alloc\+Comp, Alloc\+Match $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{Catch\+::\+Matchers\+::\+Approx\+Matcher$<$ T, Alloc\+Comp, Alloc\+Match $>$}}
+\item 
+class \mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher}{Catch\+::\+Matchers\+::\+Unordered\+Equals\+Matcher$<$ T, Alloc\+Comp, Alloc\+Match $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch_1_1Matchers}{Catch\+::\+Matchers}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1ContainsMatcher}{Contains\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_ae26fd1f942722526c95b93af5b29e285}{Catch\+::\+Matchers\+::\+Contains}} (std\+::vector$<$ T, Alloc\+Comp $>$ const \&comparator)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that contain all elements in {\ttfamily comparator} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Alloc  = std\+::allocator$<$\+T$>$$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1VectorContainsElementMatcher}{Vector\+Contains\+Element\+Matcher}}$<$ T, Alloc $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a677dc421d43495081c61501d63a3d7aa}{Catch\+::\+Matchers\+::\+Vector\+Contains}} (T const \&comparator)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that contain {\ttfamily comparator} as an element. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1EqualsMatcher}{Equals\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a044fadf0c182c7674da1ee7d7a14a2af}{Catch\+::\+Matchers\+::\+Equals}} (std\+::vector$<$ T, Alloc\+Comp $>$ const \&comparator)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that are exactly equal to {\ttfamily comparator} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1ApproxMatcher}{Approx\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a9f3b477eb84f043a6f954e26f511e8ab}{Catch\+::\+Matchers\+::\+Approx}} (std\+::vector$<$ T, Alloc\+Comp $>$ const \&comparator)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that {\ttfamily comparator} as an element. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Alloc\+Comp  = std\+::allocator$<$\+T$>$, typename Alloc\+Match  = Alloc\+Comp$>$ }\\\mbox{\hyperlink{classCatch_1_1Matchers_1_1UnorderedEqualsMatcher}{Unordered\+Equals\+Matcher}}$<$ T, Alloc\+Comp, Alloc\+Match $>$ \mbox{\hyperlink{namespaceCatch_1_1Matchers_a40531208875e65d9d4c7b4094a23ead1}{Catch\+::\+Matchers\+::\+Unordered\+Equals}} (std\+::vector$<$ T, Alloc\+Comp $>$ const \&target)
+\begin{DoxyCompactList}\small\item\em Creates a matcher that matches vectors that is equal to {\ttfamily target} modulo permutation. \end{DoxyCompactList}\end{DoxyCompactItemize}

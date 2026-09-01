@@ -1,0 +1,51 @@
+\doxysection{src/catch2/internal/catch\+\_\+string\+\_\+manip.cpp File Reference}
+\hypertarget{catch__string__manip_8cpp}{}\label{catch__string__manip_8cpp}\index{src/catch2/internal/catch\_string\_manip.cpp@{src/catch2/internal/catch\_string\_manip.cpp}}
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+move\+\_\+and\+\_\+forward.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+string\+\_\+manip.\+hpp$>$}\newline
+{\ttfamily \#include $<$catch2/internal/catch\+\_\+stringref.\+hpp$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for catch\+\_\+string\+\_\+manip.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{catch__string__manip_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceCatch}{Catch}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceCatch_a695f62327be0676e046291eeaae15110}{Catch\+::starts\+With}} (std\+::string const \&s, std\+::string const \&prefix)
+\item 
+bool \mbox{\hyperlink{namespaceCatch_aa77a782fac38c4f6417a7af909e8b29c}{Catch\+::starts\+With}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} s, char prefix)
+\item 
+bool \mbox{\hyperlink{namespaceCatch_ada025504f627feaf9ac68ca391515dff}{Catch\+::ends\+With}} (std\+::string const \&s, std\+::string const \&suffix)
+\item 
+bool \mbox{\hyperlink{namespaceCatch_afd801a3e33fd7a8b91ded0d02747a93f}{Catch\+::ends\+With}} (std\+::string const \&s, char suffix)
+\item 
+bool \mbox{\hyperlink{namespaceCatch_aa52974b0e426e7e2fbd725a900e9c36e}{Catch\+::contains}} (std\+::string const \&s, std\+::string const \&infix)
+\item 
+void \mbox{\hyperlink{namespaceCatch_a0760dbe87d090a55a35414db57d272c4}{Catch\+::to\+Lower\+In\+Place}} (std\+::string \&s)
+\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_ac036a17412d318598ffda8e1fe7a1177}{Catch\+::to\+Lower}} (std\+::string const \&s)
+\item 
+char \mbox{\hyperlink{namespaceCatch_ad2b13ec5c5220e066b6fe7ba7a82db9d}{Catch\+::to\+Lower}} (char c)
+\item 
+std\+::string \mbox{\hyperlink{namespaceCatch_aea28035c2fa625ced568c1765e82a3bc}{Catch\+::trim}} (std\+::string const  \&str)
+\begin{DoxyCompactList}\small\item\em Returns a new string without whitespace at the start/end. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} \mbox{\hyperlink{namespaceCatch_a925a6f9707b30d784e254e63e8722569}{Catch\+::trim}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} ref \mbox{\hyperlink{catch__lifetimebound_8hpp_a2086d29160b2a204059fae5a01281a6b}{CATCH\+\_\+\+ATTR\+\_\+\+LIFETIMEBOUND}})
+\begin{DoxyCompactList}\small\item\em Returns a substring of the original ref without whitespace. Beware lifetimes! \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceCatch_afe4e6770da547e43e9e4eeaa05f946ea}{Catch\+::replace\+In\+Place}} (std\+::string \&str, std\+::string const \&replace\+This, std\+::string const \&with\+This)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} $>$ \mbox{\hyperlink{namespaceCatch_a678e3c779388970bb3ec5802245f93d7}{Catch\+::split\+String\+Ref}} (\mbox{\hyperlink{classCatch_1_1StringRef}{String\+Ref}} str, char delimiter)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespaceCatch_a27d46b1ac4a1956660e4e9361c4835b8}{Catch\+::operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classCatch_1_1pluralise}{pluralise}} const \&pluraliser)
+\end{DoxyCompactItemize}

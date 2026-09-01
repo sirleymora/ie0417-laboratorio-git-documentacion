@@ -1,0 +1,60 @@
+\doxysection{Catch\+::IStream Class Reference}
+\hypertarget{classCatch_1_1IStream}{}\label{classCatch_1_1IStream}\index{Catch::IStream@{Catch::IStream}}
+
+
+{\ttfamily \#include $<$catch\+\_\+istream.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCatch_1_1IStream_a02a8837d876f3b34c1b6209c778414cb}{\texorpdfstring{$\sim$}{\string~}\+IStream}} ()
+\item 
+virtual std\+::ostream \& \mbox{\hyperlink{classCatch_1_1IStream_a328ca443583218350028f6d5bef9fb5a}{stream}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{classCatch_1_1IStream_a60a6fae56c60dab1d00073ef686a0d65}{is\+Console}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__istream_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{catch__istream_8hpp_source}{catch\+\_\+istream.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1IStream_a02a8837d876f3b34c1b6209c778414cb}\label{classCatch_1_1IStream_a02a8837d876f3b34c1b6209c778414cb} 
+\index{Catch::IStream@{Catch::IStream}!````~IStream@{\texorpdfstring{$\sim$}{\string~}IStream}}
+\index{````~IStream@{\texorpdfstring{$\sim$}{\string~}IStream}!Catch::IStream@{Catch::IStream}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IStream()}{\string~IStream()}}
+{\footnotesize\ttfamily Catch\+::\+IStream\+::\texorpdfstring{$\sim$}{\string~}\+IStream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCatch_1_1IStream_a60a6fae56c60dab1d00073ef686a0d65}\label{classCatch_1_1IStream_a60a6fae56c60dab1d00073ef686a0d65} 
+\index{Catch::IStream@{Catch::IStream}!isConsole@{isConsole}}
+\index{isConsole@{isConsole}!Catch::IStream@{Catch::IStream}}
+\doxysubsubsection{\texorpdfstring{isConsole()}{isConsole()}}
+{\footnotesize\ttfamily virtual bool Catch\+::\+IStream\+::is\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Best guess on whether the instance is writing to a console (e.\+g. via stdout/stderr)
+
+This is useful for e.\+g. Win32 colour support, because the Win32 API manipulates console directly, unlike POSIX escape codes, that can be written anywhere.
+
+Due to variety of ways to change where the stdout/stderr is {\itshape actually} being written, users should always assume that the answer might be wrong. 
+
+Definition at line \mbox{\hyperlink{catch__istream_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{catch__istream_8hpp_source}{catch\+\_\+istream.\+hpp}}.
+
+\Hypertarget{classCatch_1_1IStream_a328ca443583218350028f6d5bef9fb5a}\label{classCatch_1_1IStream_a328ca443583218350028f6d5bef9fb5a} 
+\index{Catch::IStream@{Catch::IStream}!stream@{stream}}
+\index{stream@{stream}!Catch::IStream@{Catch::IStream}}
+\doxysubsubsection{\texorpdfstring{stream()}{stream()}}
+{\footnotesize\ttfamily virtual std\+::ostream \& Catch\+::\+IStream\+::stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/internal/\mbox{\hyperlink{catch__istream_8hpp}{catch\+\_\+istream.\+hpp}}\item 
+src/catch2/internal/\mbox{\hyperlink{catch__istream_8cpp}{catch\+\_\+istream.\+cpp}}\end{DoxyCompactItemize}

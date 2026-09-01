@@ -1,0 +1,131 @@
+\doxysection{Catch\+::Scoped\+Message Class Reference}
+\hypertarget{classCatch_1_1ScopedMessage}{}\label{classCatch_1_1ScopedMessage}\index{Catch::ScopedMessage@{Catch::ScopedMessage}}
+
+
+{\ttfamily \#include $<$catch\+\_\+message.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCatch_1_1ScopedMessage_a8eab57b16f308eeb19bbb2b01a43e212}{Scoped\+Message}} (\mbox{\hyperlink{structCatch_1_1MessageBuilder}{Message\+Builder}} \&\&builder)
+\item 
+\mbox{\hyperlink{classCatch_1_1ScopedMessage_a5fe2e79afdfd737818c15edfc49f378e}{Scoped\+Message}} (\mbox{\hyperlink{classCatch_1_1ScopedMessage}{Scoped\+Message}} \&duplicate)=delete
+\item 
+\mbox{\hyperlink{classCatch_1_1ScopedMessage_afa9659f7d578e08f3cc8d971af773339}{Scoped\+Message}} (\mbox{\hyperlink{classCatch_1_1ScopedMessage}{Scoped\+Message}} \&\&old) noexcept
+\item 
+\mbox{\hyperlink{classCatch_1_1ScopedMessage_a43190843f9eeb84a0b42b0bc95fdf93a}{\texorpdfstring{$\sim$}{\string~}\+Scoped\+Message}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classCatch_1_1ScopedMessage_aeff36b57087765da2ba23f40257f2f3a}{m\+\_\+message\+Id}}
+\item 
+bool \mbox{\hyperlink{classCatch_1_1ScopedMessage_a4fe5607c1f7407240a0da8405b1c12e7}{m\+\_\+moved}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00065}{65}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCatch_1_1ScopedMessage_a8eab57b16f308eeb19bbb2b01a43e212}\label{classCatch_1_1ScopedMessage_a8eab57b16f308eeb19bbb2b01a43e212} 
+\index{Catch::ScopedMessage@{Catch::ScopedMessage}!ScopedMessage@{ScopedMessage}}
+\index{ScopedMessage@{ScopedMessage}!Catch::ScopedMessage@{Catch::ScopedMessage}}
+\doxysubsubsection{\texorpdfstring{ScopedMessage()}{ScopedMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Catch\+::\+Scoped\+Message\+::\+Scoped\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCatch_1_1MessageBuilder}{Message\+Builder}} \&\&}]{builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{catch__message_8cpp_source}{catch\+\_\+message.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__move__and__forward_8hpp_source_l00014}{CATCH\+\_\+\+MOVE}}, \mbox{\hyperlink{catch__message__info_8hpp_source_l00026}{Catch\+::\+Message\+Info\+::message}}, and \mbox{\hyperlink{catch__run__context_8cpp_source_l00315}{Catch\+::\+Detail\+::push\+Scoped\+Message()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1ScopedMessage_a8eab57b16f308eeb19bbb2b01a43e212_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classCatch_1_1ScopedMessage_a5fe2e79afdfd737818c15edfc49f378e}\label{classCatch_1_1ScopedMessage_a5fe2e79afdfd737818c15edfc49f378e} 
+\index{Catch::ScopedMessage@{Catch::ScopedMessage}!ScopedMessage@{ScopedMessage}}
+\index{ScopedMessage@{ScopedMessage}!Catch::ScopedMessage@{Catch::ScopedMessage}}
+\doxysubsubsection{\texorpdfstring{ScopedMessage()}{ScopedMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Catch\+::\+Scoped\+Message\+::\+Scoped\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1ScopedMessage}{Scoped\+Message}} \&}]{duplicate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classCatch_1_1ScopedMessage_afa9659f7d578e08f3cc8d971af773339}\label{classCatch_1_1ScopedMessage_afa9659f7d578e08f3cc8d971af773339} 
+\index{Catch::ScopedMessage@{Catch::ScopedMessage}!ScopedMessage@{ScopedMessage}}
+\index{ScopedMessage@{ScopedMessage}!Catch::ScopedMessage@{Catch::ScopedMessage}}
+\doxysubsubsection{\texorpdfstring{ScopedMessage()}{ScopedMessage()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Catch\+::\+Scoped\+Message\+::\+Scoped\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCatch_1_1ScopedMessage}{Scoped\+Message}} \&\&}]{old }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{catch__message_8cpp_source}{catch\+\_\+message.\+cpp}}.
+
+\Hypertarget{classCatch_1_1ScopedMessage_a43190843f9eeb84a0b42b0bc95fdf93a}\label{classCatch_1_1ScopedMessage_a43190843f9eeb84a0b42b0bc95fdf93a} 
+\index{Catch::ScopedMessage@{Catch::ScopedMessage}!````~ScopedMessage@{\texorpdfstring{$\sim$}{\string~}ScopedMessage}}
+\index{````~ScopedMessage@{\texorpdfstring{$\sim$}{\string~}ScopedMessage}!Catch::ScopedMessage@{Catch::ScopedMessage}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ScopedMessage()}{\string~ScopedMessage()}}
+{\footnotesize\ttfamily Catch\+::\+Scoped\+Message\+::\texorpdfstring{$\sim$}{\string~}\+Scoped\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{catch__message_8cpp_source}{catch\+\_\+message.\+cpp}}.
+
+
+
+References \mbox{\hyperlink{catch__message_8hpp_source_l00072}{m\+\_\+message\+Id}}, \mbox{\hyperlink{catch__message_8hpp_source_l00073}{m\+\_\+moved}}, and \mbox{\hyperlink{catch__run__context_8cpp_source_l00319}{Catch\+::\+Detail\+::pop\+Scoped\+Message()}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classCatch_1_1ScopedMessage_a43190843f9eeb84a0b42b0bc95fdf93a_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCatch_1_1ScopedMessage_aeff36b57087765da2ba23f40257f2f3a}\label{classCatch_1_1ScopedMessage_aeff36b57087765da2ba23f40257f2f3a} 
+\index{Catch::ScopedMessage@{Catch::ScopedMessage}!m\_messageId@{m\_messageId}}
+\index{m\_messageId@{m\_messageId}!Catch::ScopedMessage@{Catch::ScopedMessage}}
+\doxysubsubsection{\texorpdfstring{m\_messageId}{m\_messageId}}
+{\footnotesize\ttfamily unsigned int Catch\+::\+Scoped\+Message\+::m\+\_\+message\+Id}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00072}{72}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__message_8cpp_source_l00033}{\texorpdfstring{$\sim$}{\string~}\+Scoped\+Message()}}.
+
+\Hypertarget{classCatch_1_1ScopedMessage_a4fe5607c1f7407240a0da8405b1c12e7}\label{classCatch_1_1ScopedMessage_a4fe5607c1f7407240a0da8405b1c12e7} 
+\index{Catch::ScopedMessage@{Catch::ScopedMessage}!m\_moved@{m\_moved}}
+\index{m\_moved@{m\_moved}!Catch::ScopedMessage@{Catch::ScopedMessage}}
+\doxysubsubsection{\texorpdfstring{m\_moved}{m\_moved}}
+{\footnotesize\ttfamily bool Catch\+::\+Scoped\+Message\+::m\+\_\+moved = false}
+
+
+
+Definition at line \mbox{\hyperlink{catch__message_8hpp_source_l00073}{73}} of file \mbox{\hyperlink{catch__message_8hpp_source}{catch\+\_\+message.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{catch__message_8cpp_source_l00033}{\texorpdfstring{$\sim$}{\string~}\+Scoped\+Message()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/catch2/\mbox{\hyperlink{catch__message_8hpp}{catch\+\_\+message.\+hpp}}\item 
+src/catch2/\mbox{\hyperlink{catch__message_8cpp}{catch\+\_\+message.\+cpp}}\end{DoxyCompactItemize}

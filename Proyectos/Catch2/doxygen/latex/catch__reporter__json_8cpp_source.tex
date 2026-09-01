@@ -1,0 +1,384 @@
+\doxysection{catch\+\_\+reporter\+\_\+json.\+cpp}
+\hypertarget{catch__reporter__json_8cpp_source}{}\label{catch__reporter__json_8cpp_source}\index{src/catch2/reporters/catch\_reporter\_json.cpp@{src/catch2/reporters/catch\_reporter\_json.cpp}}
+\mbox{\hyperlink{catch__reporter__json_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00008}00008\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__case__info_8hpp}{catch2/catch\_test\_case\_info.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__test__spec_8hpp}{catch2/catch\_test\_spec.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__version_8hpp}{catch2/catch\_version.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__interfaces__config_8hpp}{catch2/interfaces/catch\_interfaces\_config.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__list_8hpp}{catch2/internal/catch\_list.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__string__manip_8hpp}{catch2/internal/catch\_string\_manip.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__reporter__json_8hpp}{catch2/reporters/catch\_reporter\_json.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00017}00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{namespace\ }\{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ kJsonOutputVersion\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeSourceInfo(\ JsonObjectWriter\&\ writer,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SourceLineInfo\ \textcolor{keyword}{const}\&\ sourceInfo\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ source\_location\_writer\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ writer.write(\ \textcolor{stringliteral}{"{}source-\/location"{}}\_sr\ ).writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ source\_location\_writer.write(\ \textcolor{stringliteral}{"{}filename"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .write(\ sourceInfo.file\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ source\_location\_writer.write(\ \textcolor{stringliteral}{"{}line"{}}\_sr\ ).write(\ sourceInfo.line\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeTags(\ JsonArrayWriter\ writer,\ std::vector<Tag>\ \textcolor{keyword}{const}\&\ tags\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ tag\ :\ tags\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ writer.write(\ tag.original\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeProperties(\ JsonArrayWriter\ writer,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TestCaseInfo\ \textcolor{keyword}{const}\&\ info\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ info.isHidden()\ )\ \{\ writer.write(\ \textcolor{stringliteral}{"{}is-\/hidden"{}}\_sr\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ info.okToFail()\ )\ \{\ writer.write(\ \textcolor{stringliteral}{"{}ok-\/to-\/fail"{}}\_sr\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ info.expectedToFail()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ writer.write(\ \textcolor{stringliteral}{"{}expected-\/to-\/fail"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ info.throws()\ )\ \{\ writer.write(\ \textcolor{stringliteral}{"{}throws"{}}\_sr\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00046}00046\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00048}\mbox{\hyperlink{classCatch_1_1JsonReporter_a1b8f15445a8917da923ca6978ec04b1b}{00048}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonReporter_a1b8f15445a8917da923ca6978ec04b1b}{JsonReporter::JsonReporter}}(\ \mbox{\hyperlink{structCatch_1_1ReporterConfig}{ReporterConfig}}\&\&\ config\ ):}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StreamingReporterBase}{StreamingReporterBase}}\{\ \mbox{\hyperlink{catch__move__and__forward_8hpp_a62516a9b52be8207f277f4adc2999207}{CATCH\_MOVE}}(\ config\ )\ \}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\_preferences}}.\mbox{\hyperlink{structCatch_1_1ReporterPreferences_a434511c4080edbbc12e0d1c31ea14769}{shouldRedirectStdOut}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TBD:\ Do\ we\ want\ to\ report\ all\ assertions?\ XML\ reporter\ does}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ not,\ but\ for\ machine-\/parseable\ reporters\ I\ think\ the\ answer}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ should\ be\ yes.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\_preferences}}.\mbox{\hyperlink{structCatch_1_1ReporterPreferences_a10e13e10dfdc9a97dde0a72c573d7419}{shouldReportAllAssertions}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ only\ handle\ assertions\ when\ they\ end}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1IEventListener_ae0571282fa76ecc35b061c9f1c718c72}{m\_preferences}}.\mbox{\hyperlink{structCatch_1_1ReporterPreferences_a5b166c77ffa2af709ecd7ae0142990f0}{shouldReportAllAssertionStarts}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ m\_objectWriters.emplace(\ \mbox{\hyperlink{classCatch_1_1ReporterBase_a7d6ee62fccc86662adaea744c501eef8}{m\_stream}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ m\_writers.emplace(\ Writer::Object\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ writer\ =\ m\_objectWriters.top();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ writer.write(\ \textcolor{stringliteral}{"{}version"{}}\_sr\ ).write(\ kJsonOutputVersion\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ metadata\_writer\ =\ writer.write(\ \textcolor{stringliteral}{"{}metadata"{}}\_sr\ ).writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ metadata\_writer.write(\ \textcolor{stringliteral}{"{}name"{}}\_sr\ ).write(\ \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_ad67bb593486213c6918732f73177b7a5}{name}}()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ metadata\_writer.write(\ \textcolor{stringliteral}{"{}rng-\/seed"{}}\_sr\ ).write(\ \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a71994ea53eb66e353e5e195088f9bad7}{rngSeed}}()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ metadata\_writer.write(\ \textcolor{stringliteral}{"{}catch2-\/version"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .write(\ \mbox{\hyperlink{namespaceCatch_a35e54475ed669ef7f7ac00b858e91b2a}{libraryVersion}}()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a6c021a1bf5cae58cb6c4b754af6cd4b5}{testSpec}}().\mbox{\hyperlink{classCatch_1_1TestSpec_ac6d69b4a19677d95e46af0467fc72ecd}{hasFilters}}()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ metadata\_writer.write(\ \textcolor{stringliteral}{"{}filters"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .write(\ \mbox{\hyperlink{classCatch_1_1IEventListener_a268a5ebd18e4c345f0a1acaa83c5768f}{m\_config}}-\/>\mbox{\hyperlink{classCatch_1_1IConfig_a6c021a1bf5cae58cb6c4b754af6cd4b5}{testSpec}}()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00078}\mbox{\hyperlink{classCatch_1_1JsonReporter_aa38014f990904c7d47c6ad48bcf9df5a}{00078}}\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonReporter_aa38014f990904c7d47c6ad48bcf9df5a}{JsonReporter::\string~JsonReporter}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ endListing();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Ensure\ this\ closes\ the\ top\ level\ object,\ add\ asserts}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ assert(\ m\_writers.size()\ ==\ 1\ \&\&\ \textcolor{stringliteral}{"{}Only\ the\ top\ level\ object\ should\ be\ open"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ assert(\ m\_writers.top()\ ==\ Writer::Object\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ endObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1ReporterBase_a7d6ee62fccc86662adaea744c501eef8}{m\_stream}}\ <<\ \textcolor{charliteral}{'\(\backslash\)n'}\ <<\ std::flush;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ assert(\ m\_writers.empty()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{classCatch_1_1JsonArrayWriter}{JsonArrayWriter}}\&\ JsonReporter::startArray()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ m\_arrayWriters.emplace(\ m\_arrayWriters.top().writeArray()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ m\_writers.emplace(\ Writer::Array\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_arrayWriters.top();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00093}00093\ \ \ \ \ JsonArrayWriter\&\ JsonReporter::startArray(\ StringRef\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_ab44666b6e91e2bbae6bcf104d48726d6}{key}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ m\_arrayWriters.emplace(}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top().write(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_ab44666b6e91e2bbae6bcf104d48726d6}{key}}\ ).writeArray()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ m\_writers.emplace(\ Writer::Array\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_arrayWriters.top();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00100}00100\ \ \ \ \ JsonObjectWriter\&\ JsonReporter::startObject()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ m\_objectWriters.emplace(\ m\_arrayWriters.top().writeObject()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ m\_writers.emplace(\ Writer::Object\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_objectWriters.top();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00104}00104\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00105}00105\ \ \ \ \ JsonObjectWriter\&\ JsonReporter::startObject(\ StringRef\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_ab44666b6e91e2bbae6bcf104d48726d6}{key}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ m\_objectWriters.emplace(}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top().write(\ \mbox{\hyperlink{catch__reporter__spec__parser_8cpp_ab44666b6e91e2bbae6bcf104d48726d6}{key}}\ ).writeObject()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ m\_writers.emplace(\ Writer::Object\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_objectWriters.top();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordtype}{void}\ JsonReporter::endObject()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ assert(\ isInside(\ Writer::Object\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ m\_objectWriters.pop();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ m\_writers.pop();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00117}00117\ \ \ \ \ \textcolor{keywordtype}{void}\ JsonReporter::endArray()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ assert(\ isInside(\ Writer::Array\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ m\_arrayWriters.pop();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ m\_writers.pop();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00121}00121\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordtype}{bool}\ JsonReporter::isInside(\ Writer\ writer\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !m\_writers.empty()\ \&\&\ m\_writers.top()\ ==\ writer;}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00125}00125\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{keywordtype}{void}\ JsonReporter::startListing()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !m\_startedListing\ )\ \{\ startObject(\ \textcolor{stringliteral}{"{}listings"{}}\_sr\ );\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ m\_startedListing\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00130}00130\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{void}\ JsonReporter::endListing()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ m\_startedListing\ )\ \{\ endObject();\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ m\_startedListing\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00134}00134\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00136}\mbox{\hyperlink{classCatch_1_1JsonReporter_a89b490cfb77edbf1a82de9c5fca6f003}{00136}}\ \ \ \ \ std::string\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a89b490cfb77edbf1a82de9c5fca6f003}{JsonReporter::getDescription}}()\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Outputs\ listings\ as\ JSON.\ Test\ listing\ is\ Work-\/in-\/Progress!"{}};}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00138}00138\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00140}\mbox{\hyperlink{classCatch_1_1JsonReporter_a3f80d7738e259540e247be6b93bf563c}{00140}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a3f80d7738e259540e247be6b93bf563c}{JsonReporter::testRunStarting}}(\ \mbox{\hyperlink{structCatch_1_1TestRunInfo}{TestRunInfo}}\ \textcolor{keyword}{const}\&\ runInfo\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a5ce94d2e8b64c49e4ace01c64f249716}{StreamingReporterBase::testRunStarting}}(\ runInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ endListing();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ assert(\ isInside(\ Writer::Object\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ startObject(\ \textcolor{stringliteral}{"{}test-\/run"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ startArray(\ \textcolor{stringliteral}{"{}test-\/cases"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00147}00147\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00149}00149\ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ writeCounts(\ \mbox{\hyperlink{classCatch_1_1JsonObjectWriter}{JsonObjectWriter}}\&\&\ writer,\ \mbox{\hyperlink{structCatch_1_1Counts}{Counts}}\ \textcolor{keyword}{const}\&\ counts\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ writer.write(\ \textcolor{stringliteral}{"{}passed"{}}\_sr\ ).write(\ counts.\mbox{\hyperlink{structCatch_1_1Counts_ad12eff20b90d230188b2b41a7c4562a1}{passed}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ writer.write(\ \textcolor{stringliteral}{"{}failed"{}}\_sr\ ).write(\ counts.\mbox{\hyperlink{structCatch_1_1Counts_ab0bda88e125a1ba60b47c262fc2c529c}{failed}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ writer.write(\ \textcolor{stringliteral}{"{}fail-\/but-\/ok"{}}\_sr\ ).write(\ counts.\mbox{\hyperlink{structCatch_1_1Counts_ad42a25fd6c31ca6c6320f4cf5e857028}{failedButOk}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ writer.write(\ \textcolor{stringliteral}{"{}skipped"{}}\_sr\ ).write(\ counts.\mbox{\hyperlink{structCatch_1_1Counts_a4bc5425fed9628cb30e9c4702ee75ea5}{skipped}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00156}\mbox{\hyperlink{classCatch_1_1JsonReporter_ab3b96ce416670424aef786eb6ec2b6d4}{00156}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_ab3b96ce416670424aef786eb6ec2b6d4}{JsonReporter::testRunEnded}}(\mbox{\hyperlink{structCatch_1_1TestRunStats}{TestRunStats}}\ \textcolor{keyword}{const}\&\ runStats)\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ assert(\ isInside(\ Writer::Array\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ End\ "{}test-\/cases"{}}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ endArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ totals\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top().write(\ \textcolor{stringliteral}{"{}totals"{}}\_sr\ ).writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ writeCounts(\ totals.write(\ \textcolor{stringliteral}{"{}assertions"{}}\_sr\ ).writeObject(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ runStats.\mbox{\hyperlink{structCatch_1_1TestRunStats_a4b5828873ebb7ea7c324503e2be1f985}{totals}}.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ writeCounts(\ totals.write(\ \textcolor{stringliteral}{"{}test-\/cases"{}}\_sr\ ).writeObject(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ runStats.\mbox{\hyperlink{structCatch_1_1TestRunStats_a4b5828873ebb7ea7c324503e2be1f985}{totals}}.\mbox{\hyperlink{structCatch_1_1Totals_adb195fe477aedee2ecea88c888f16506}{testCases}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ End\ the\ "{}test-\/run"{}\ object}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ endObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00174}\mbox{\hyperlink{classCatch_1_1JsonReporter_a3154fcb449ee804a6ff6b792c0ba229f}{00174}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a3154fcb449ee804a6ff6b792c0ba229f}{JsonReporter::testCaseStarting}}(\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo}{TestCaseInfo}}\ \textcolor{keyword}{const}\&\ tcInfo\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a40e91b413710721143981bfd4c78a37b}{StreamingReporterBase::testCaseStarting}}(\ tcInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ assert(\ isInside(\ Writer::Array\ )\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}We\ should\ be\ in\ the\ 'test-\/cases'\ array"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ startObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}test-\/info"{}\ prelude}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ testInfo\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top().write(\ \textcolor{stringliteral}{"{}test-\/info"{}}\_sr\ ).writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ handle\ testName\ vs\ className!!}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ testInfo.write(\ \textcolor{stringliteral}{"{}name"{}}\_sr\ ).write(\ tcInfo.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a463794e2f5cfead307c93efd134ade36}{name}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ writeSourceInfo(testInfo,\ tcInfo.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_aa9407b7f442655b51a2aad24b3fa2fd3}{lineInfo}});}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ writeTags(\ testInfo.write(\ \textcolor{stringliteral}{"{}tags"{}}\_sr\ ).writeArray(),\ tcInfo.\mbox{\hyperlink{structCatch_1_1TestCaseInfo_a193ce3dadc4fcd55effb3dce9c93358f}{tags}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ writeProperties(\ testInfo.write(\ \textcolor{stringliteral}{"{}properties"{}}\_sr\ ).writeArray(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tcInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Start\ the\ array\ for\ individual\ test\ runs\ (testCasePartial\ pairs)}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ startArray(\ \textcolor{stringliteral}{"{}runs"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00195}00195\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00197}\mbox{\hyperlink{classCatch_1_1JsonReporter_a8f530cf144fca44b72f4d27f20e2a3ee}{00197}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a8f530cf144fca44b72f4d27f20e2a3ee}{JsonReporter::testCaseEnded}}(\ \mbox{\hyperlink{structCatch_1_1TestCaseStats}{TestCaseStats}}\ \textcolor{keyword}{const}\&\ tcStats\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCatch_1_1StreamingReporterBase_a6aaf2ea1da223091c4d29ef1883ac5ca}{StreamingReporterBase::testCaseEnded}}(\ tcStats\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ need\ to\ close\ the\ 'runs'\ array\ before\ finishing\ the\ test\ case}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ assert(\ isInside(\ Writer::Array\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ endArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ totals\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top().write(\ \textcolor{stringliteral}{"{}totals"{}}\_sr\ ).writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ writeCounts(\ totals.write(\ \textcolor{stringliteral}{"{}assertions"{}}\_sr\ ).writeObject(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tcStats.\mbox{\hyperlink{structCatch_1_1TestCaseStats_afc3947e6c6ca93cad0bdc6742c65c4a8}{totals}}.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ do\ not\ write\ the\ test\ case\ totals,\ because\ there\ will\ always\ be\ just\ one\ test\ case\ here.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ overall\ "{}result"{}\ -\/>\ success,\ skip,\ fail\ here?\ Or\ in\ partial\ result?}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ do\ not\ write\ out\ stderr/stdout,\ because\ we\ instead\ wrote\ those\ out\ in\ partial\ runs}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ aborting?}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ And\ we\ also\ close\ this\ test\ case's\ object}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ assert(\ isInside(\ Writer::Object\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ endObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00219}00219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00221}\mbox{\hyperlink{classCatch_1_1JsonReporter_a552d2b19ad221b9465b8d63c45fdcddc}{00221}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a552d2b19ad221b9465b8d63c45fdcddc}{JsonReporter::testCasePartialStarting}}(\ \mbox{\hyperlink{structCatch_1_1TestCaseInfo}{TestCaseInfo}}\ \textcolor{keyword}{const}\&\ \textcolor{comment}{/*tcInfo*/},}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ index\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ startObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ m\_objectWriters.top().write(\ \textcolor{stringliteral}{"{}run-\/idx"{}}\_sr\ ).write(\ index\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ startArray(\ \textcolor{stringliteral}{"{}path"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ we\ want\ to\ delay\ most\ of\ the\ printing\ to\ the\ 'root'\ section}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ childSection\ key\ name?}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00228}00228\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00230}\mbox{\hyperlink{classCatch_1_1JsonReporter_a70fde7350187d84ee1936371f84571fa}{00230}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a70fde7350187d84ee1936371f84571fa}{JsonReporter::testCasePartialEnded}}(\ \mbox{\hyperlink{structCatch_1_1TestCaseStats}{TestCaseStats}}\ \textcolor{keyword}{const}\&\ tcStats,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ \textcolor{comment}{/*index*/}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fixme:\ the\ top\ level\ section\ handles\ this.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ endArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !tcStats.\mbox{\hyperlink{structCatch_1_1TestCaseStats_acab436aeefce581c52d0e195872484f7}{stdOut}}.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top()}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .write(\ \textcolor{stringliteral}{"{}captured-\/stdout"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .write(\ tcStats.\mbox{\hyperlink{structCatch_1_1TestCaseStats_acab436aeefce581c52d0e195872484f7}{stdOut}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ !tcStats.\mbox{\hyperlink{structCatch_1_1TestCaseStats_a84851abaa94a6b09664517a4919fa8ac}{stdErr}}.empty()\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top()}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .write(\ \textcolor{stringliteral}{"{}captured-\/stderr"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .write(\ tcStats.\mbox{\hyperlink{structCatch_1_1TestCaseStats_a84851abaa94a6b09664517a4919fa8ac}{stdErr}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ totals\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top().write(\ \textcolor{stringliteral}{"{}totals"{}}\_sr\ ).writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ writeCounts(\ totals.write(\ \textcolor{stringliteral}{"{}assertions"{}}\_sr\ ).writeObject(),}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tcStats.\mbox{\hyperlink{structCatch_1_1TestCaseStats_afc3947e6c6ca93cad0bdc6742c65c4a8}{totals}}.\mbox{\hyperlink{structCatch_1_1Totals_a885ded66df752147b30c3d45aa602ec9}{assertions}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ do\ not\ write\ the\ test\ case\ totals,\ because\ there\ will}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ always\ be\ just\ one\ test\ case\ here.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ overall\ "{}result"{}\ -\/>\ success,\ skip,\ fail\ here?\ Or\ in}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ partial\ result?}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ aborting?}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ run\ object}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ endObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00258}00258\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00260}\mbox{\hyperlink{classCatch_1_1JsonReporter_adb490c196548430f8537f54859f43ecd}{00260}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_adb490c196548430f8537f54859f43ecd}{JsonReporter::sectionStarting}}(\ \mbox{\hyperlink{structCatch_1_1SectionInfo}{SectionInfo}}\ \textcolor{keyword}{const}\&\ sectionInfo\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ assert(\ isInside(\ Writer::Array\ )\ \&\&}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Section\ should\ always\ start\ inside\ an\ object"{}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ want\ to\ nest\ top\ level\ sections,\ even\ though\ it\ shares\ name}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ source\ loc\ with\ the\ TEST\_CASE}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ sectionObject\ =\ startObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ sectionObject.write(\ \textcolor{stringliteral}{"{}kind"{}}\_sr\ ).write(\ \textcolor{stringliteral}{"{}section"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ sectionObject.write(\ \textcolor{stringliteral}{"{}name"{}}\_sr\ ).write(\ sectionInfo.\mbox{\hyperlink{structCatch_1_1SectionInfo_a704c8fc662d309137e0d4f199cb7df58}{name}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ writeSourceInfo(\ m\_objectWriters.top(),\ sectionInfo.\mbox{\hyperlink{structCatch_1_1SectionInfo_adbc83b8a3507c4acc8ee249e93465711}{lineInfo}}\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TBD:\ Do\ we\ want\ to\ create\ this\ event\ lazily?\ It\ would\ become}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ rather\ complex,\ but\ we\ could\ do\ it,\ and\ it\ would\ look}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ better\ for\ empty\ sections.\ OTOH,\ empty\ sections\ should}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ be\ rare.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ startArray(\ \textcolor{stringliteral}{"{}path"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00276}00276\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00277}\mbox{\hyperlink{classCatch_1_1JsonReporter_ac94e5ec308974fa1c7276e3dabbf4a0d}{00277}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_ac94e5ec308974fa1c7276e3dabbf4a0d}{JsonReporter::sectionEnded}}(\ \mbox{\hyperlink{structCatch_1_1SectionStats}{SectionStats}}\ \textcolor{keyword}{const}\&\ \textcolor{comment}{/*sectionStats\ */})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ End\ the\ subpath\ array}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ endArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ metadata}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ what\ info\ do\ we\ have\ here?}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ End\ the\ section\ object}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ endObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00285}00285\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00287}\mbox{\hyperlink{classCatch_1_1JsonReporter_a679ca2848fcb072ebf4a1e7eade9df25}{00287}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a679ca2848fcb072ebf4a1e7eade9df25}{JsonReporter::assertionEnded}}(\ \mbox{\hyperlink{structCatch_1_1AssertionStats}{AssertionStats}}\ \textcolor{keyword}{const}\&\ assertionStats\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ There\ is\ lot\ of\ different\ things\ to\ handle\ here,\ but}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ we\ can\ fill\ it\ in\ later,\ after\ we\ show\ that\ the\ basic}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ outline\ and\ streaming\ reporter\ impl\ works\ well\ enough.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ (\ !m\_config-\/>includeSuccessfulResults()}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \&\&\ assertionStats.assertionResult.isOk()\ )\ \{}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ return;}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ assert(\ isInside(\ Writer::Array\ )\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ assertionObject\ =\ m\_arrayWriters.top().writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ assertionObject.write(\ \textcolor{stringliteral}{"{}kind"{}}\_sr\ ).write(\ \textcolor{stringliteral}{"{}assertion"{}}\_sr\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ writeSourceInfo(\ assertionObject,}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assertionStats.\mbox{\hyperlink{structCatch_1_1AssertionStats_a9f983a85332251f464efb4efba021b89}{assertionResult}}.\mbox{\hyperlink{classCatch_1_1AssertionResult_aa4d3fdbfe276a69a035762dbb790800f}{getSourceInfo}}()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ assertionObject.write(\ \textcolor{stringliteral}{"{}status"{}}\_sr\ )}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ .write(\ assertionStats.\mbox{\hyperlink{structCatch_1_1AssertionStats_a9f983a85332251f464efb4efba021b89}{assertionResult}}.\mbox{\hyperlink{classCatch_1_1AssertionResult_ae39658b71c4afc3c8a859043b0e97027}{isOk}}()\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ handling\ of\ result.}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ messages}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ totals?}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00306}00306\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00309}\mbox{\hyperlink{classCatch_1_1JsonReporter_ad65773568b228fc3ad548b092ad5f42e}{00309}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_ad65773568b228fc3ad548b092ad5f42e}{JsonReporter::benchmarkPreparing}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ name\ )\ \{\ (void)name;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00310}\mbox{\hyperlink{classCatch_1_1JsonReporter_ac583e4e4029c88119d76d3cdd22e7ec0}{00310}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_ac583e4e4029c88119d76d3cdd22e7ec0}{JsonReporter::benchmarkStarting}}(\ \mbox{\hyperlink{structCatch_1_1BenchmarkInfo}{BenchmarkInfo}}\ \textcolor{keyword}{const}\&\ )\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00311}\mbox{\hyperlink{classCatch_1_1JsonReporter_ac7f6d186d28b78609c54520aa2e7092d}{00311}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_ac7f6d186d28b78609c54520aa2e7092d}{JsonReporter::benchmarkEnded}}(\ \mbox{\hyperlink{structCatch_1_1BenchmarkStats}{BenchmarkStats<>}}\ \textcolor{keyword}{const}\&\ )\ \{\}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00312}\mbox{\hyperlink{classCatch_1_1JsonReporter_a61b6a4393a44f2334f2d378b8f4adcf7}{00312}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a61b6a4393a44f2334f2d378b8f4adcf7}{JsonReporter::benchmarkFailed}}(\ \mbox{\hyperlink{classCatch_1_1StringRef}{StringRef}}\ error\ )\ \{\ (void)error;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00314}\mbox{\hyperlink{classCatch_1_1JsonReporter_a34d8fa620de13e7dea2e96b801f51a6b}{00314}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a34d8fa620de13e7dea2e96b801f51a6b}{JsonReporter::listReporters}}(}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ std::vector<ReporterDescription>\ \textcolor{keyword}{const}\&\ descriptions\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ startListing();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ writer\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top().write(\ \textcolor{stringliteral}{"{}reporters"{}}\_sr\ ).writeArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ desc\ :\ descriptions\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ desc\_writer\ =\ writer.writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ desc\_writer.write(\ \textcolor{stringliteral}{"{}name"{}}\_sr\ ).write(\ desc.name\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ desc\_writer.write(\ \textcolor{stringliteral}{"{}description"{}}\_sr\ ).write(\ desc.description\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00325}00325\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00326}\mbox{\hyperlink{classCatch_1_1JsonReporter_ae482943b40efb2496238d263bed45dcf}{00326}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_ae482943b40efb2496238d263bed45dcf}{JsonReporter::listListeners}}(}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ std::vector<ListenerDescription>\ \textcolor{keyword}{const}\&\ descriptions\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ startListing();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ writer\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ m\_objectWriters.top().write(\ \textcolor{stringliteral}{"{}listeners"{}}\_sr\ ).writeArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ desc\ :\ descriptions\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ desc\_writer\ =\ writer.writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ desc\_writer.write(\ \textcolor{stringliteral}{"{}name"{}}\_sr\ ).write(\ desc.name\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ desc\_writer.write(\ \textcolor{stringliteral}{"{}description"{}}\_sr\ ).write(\ desc.description\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00338}00338\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00339}\mbox{\hyperlink{classCatch_1_1JsonReporter_a9fd3c6befd2583b8ee480301606baf62}{00339}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_a9fd3c6befd2583b8ee480301606baf62}{JsonReporter::listTests}}(\ std::vector<TestCaseHandle>\ \textcolor{keyword}{const}\&\ tests\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ startListing();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ writer\ =\ m\_objectWriters.top().write(\ \textcolor{stringliteral}{"{}tests"{}}\_sr\ ).writeArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ test\ :\ tests\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ desc\_writer\ =\ writer.writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ info\ =\ test.getTestCaseInfo();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ desc\_writer.write(\ \textcolor{stringliteral}{"{}name"{}}\_sr\ ).write(\ info.name\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!info.className.empty())\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ desc\_writer.write(\ \textcolor{stringliteral}{"{}class-\/name"{}}\_sr\ ).write(\ info.className\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classCatch_1_1ReporterBase_a7bec858f36372e3fdc1caf8bb11d9b76}{m\_verbosity}}\ >=\ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a960b44c579bc2f6818d2daaf9e4c16f0}{Verbosity::Normal}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tag\_writer\ =\ desc\_writer.write(\ \textcolor{stringliteral}{"{}tags"{}}\_sr\ ).writeArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ tag\ :\ info.tags\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tag\_writer.write(\ tag.original\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classCatch_1_1ReporterBase_a7bec858f36372e3fdc1caf8bb11d9b76}{m\_verbosity}}\ >=\ \mbox{\hyperlink{namespaceCatch_af85c0d46dfe687d923a157362fd07737a655d20c1ca69519ca647684edbb2db35}{Verbosity::High}})\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ writeSourceInfo(\ desc\_writer,\ info.lineInfo\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00362}00362\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00363}\mbox{\hyperlink{classCatch_1_1JsonReporter_ada793ec228f7f5eb52688b3776b73f3d}{00363}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCatch_1_1JsonReporter_ada793ec228f7f5eb52688b3776b73f3d}{JsonReporter::listTags}}(\ std::vector<TagInfo>\ \textcolor{keyword}{const}\&\ tags\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ startListing();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ writer\ =\ m\_objectWriters.top().write(\ \textcolor{stringliteral}{"{}tags"{}}\_sr\ ).writeArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ \textcolor{keyword}{const}\&\ tag\ :\ tags\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ tag\_writer\ =\ writer.writeObject();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ aliases\_writer\ =}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tag\_writer.write(\ \textcolor{stringliteral}{"{}aliases"{}}\_sr\ ).writeArray();}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ \textcolor{keyword}{auto}\ alias\ :\ tag.spellings\ )\ \{}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aliases\_writer.write(\ alias\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ tag\_writer.write(\ \textcolor{stringliteral}{"{}count"{}}\_sr\ ).write(\ tag.count\ );}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00378}00378\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{catch__reporter__json_8cpp_source_l00379}00379\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+
+\end{DoxyCode}

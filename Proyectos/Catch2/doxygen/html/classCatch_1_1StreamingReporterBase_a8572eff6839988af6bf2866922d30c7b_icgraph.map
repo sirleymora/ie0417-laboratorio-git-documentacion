@@ -1,0 +1,7 @@
+<map id="Catch::StreamingReporterBase::sectionEnded" name="Catch::StreamingReporterBase::sectionEnded">
+<area shape="rect" id="Node000001" title="Called after a SECTION has finished running." alt="" coords="228,37,419,77"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1ConsoleReporter.html#a7ba7b75fa4a7e88d71782a1800523d78" title="Called after a SECTION has finished running." alt="" coords="5,5,180,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,45,180,40,181,35,215,40"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlReporter.html#a73c809f067d58a7a6748cb13643448e5" title="Called after a SECTION has finished running." alt="" coords="18,69,167,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,75,168,82,167,76,214,70"/>
+</map>

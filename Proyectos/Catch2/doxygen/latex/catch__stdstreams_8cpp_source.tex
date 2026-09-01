@@ -1,0 +1,30 @@
+\doxysection{catch\+\_\+stdstreams.\+cpp}
+\hypertarget{catch__stdstreams_8cpp_source}{}\label{catch__stdstreams_8cpp_source}\index{src/catch2/internal/catch\_stdstreams.cpp@{src/catch2/internal/catch\_stdstreams.cpp}}
+\mbox{\hyperlink{catch__stdstreams_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__stdstreams_8hpp}{catch2/internal/catch\_stdstreams.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <catch2/catch\_user\_config.hpp>}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00015}00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00017}00017\ \textcolor{comment}{//\ If\ you\ \#define\ this\ you\ must\ implement\ these\ functions}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#if\ !defined(\ CATCH\_CONFIG\_NOSTDOUT\ )}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00019}\mbox{\hyperlink{namespaceCatch_a0179d453617ba2296f2baa99a49e7264}{00019}}\ \ \ \ \ std::ostream\&\ \mbox{\hyperlink{namespaceCatch_a0179d453617ba2296f2baa99a49e7264}{cout}}()\ \{\ \textcolor{keywordflow}{return}\ std::cout;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00020}\mbox{\hyperlink{namespaceCatch_a54c1ce08041448d684ae8edc14162cd2}{00020}}\ \ \ \ \ std::ostream\&\ \mbox{\hyperlink{namespaceCatch_a54c1ce08041448d684ae8edc14162cd2}{cerr}}()\ \{\ \textcolor{keywordflow}{return}\ std::cerr;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00021}\mbox{\hyperlink{namespaceCatch_a1b2213f54e4d31a659db49827e81856b}{00021}}\ \ \ \ \ std::ostream\&\ \mbox{\hyperlink{namespaceCatch_a1b2213f54e4d31a659db49827e81856b}{clog}}()\ \{\ \textcolor{keywordflow}{return}\ std::clog;\ \}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{catch__stdstreams_8cpp_source_l00024}00024\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+
+\end{DoxyCode}

@@ -1,0 +1,42 @@
+\doxysection{catch\+\_\+interfaces\+\_\+exception.\+hpp}
+\hypertarget{catch__interfaces__exception_8hpp_source}{}\label{catch__interfaces__exception_8hpp_source}\index{src/catch2/interfaces/catch\_interfaces\_exception.hpp@{src/catch2/interfaces/catch\_interfaces\_exception.hpp}}
+\mbox{\hyperlink{catch__interfaces__exception_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ Catch2\ Authors}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00003}00003\ \textcolor{comment}{//\ Distributed\ under\ the\ Boost\ Software\ License,\ Version\ 1.0.}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ (See\ accompanying\ file\ LICENSE.txt\ or\ copy\ at}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ \ \ \ \ \ \ https://www.boost.org/LICENSE\_1\_0.txt)}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00007}00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ BSL-\/1.0}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ CATCH\_INTERFACES\_EXCEPTION\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#define\ CATCH\_INTERFACES\_EXCEPTION\_HPP\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{catch__unique__ptr_8hpp}{catch2/internal/catch\_unique\_ptr.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceCatch}{Catch}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00017}\mbox{\hyperlink{namespaceCatch_ae8d8673884dc36b98875106322a2a37b}{00017}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceCatch_ae8d8673884dc36b98875106322a2a37b}{exceptionTranslateFunction}}\ =\ std::string(*)();}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1IExceptionTranslator}{IExceptionTranslator}};}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00020}\mbox{\hyperlink{namespaceCatch_a365161749bb4e2c1d461fe27d750a190}{00020}}\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceCatch_a365161749bb4e2c1d461fe27d750a190}{ExceptionTranslators}}\ =\ std::vector<Detail::unique\_ptr<IExceptionTranslator\ const>>;}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00022}\mbox{\hyperlink{classCatch_1_1IExceptionTranslator}{00022}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1IExceptionTranslator}{IExceptionTranslator}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00024}\mbox{\hyperlink{classCatch_1_1IExceptionTranslator_afd9be9d858f9be158d0d30baadd4fd7c}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCatch_1_1IExceptionTranslator_afd9be9d858f9be158d0d30baadd4fd7c}{\string~IExceptionTranslator}}();\ \textcolor{comment}{//\ =\ default}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00025}\mbox{\hyperlink{classCatch_1_1IExceptionTranslator_a2a554b96ed5ed411e7c796b6b42837a5}{00025}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCatch_1_1IExceptionTranslator_a2a554b96ed5ed411e7c796b6b42837a5}{translate}}(\ ExceptionTranslators::const\_iterator\ it,\ ExceptionTranslators::const\_iterator\ itEnd\ )\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00026}00026\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00028}\mbox{\hyperlink{classCatch_1_1IExceptionTranslatorRegistry}{00028}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCatch_1_1IExceptionTranslatorRegistry}{IExceptionTranslatorRegistry}}\ \{}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00030}\mbox{\hyperlink{classCatch_1_1IExceptionTranslatorRegistry_a5943b77f962a069348669fd5f0317084}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCatch_1_1IExceptionTranslatorRegistry_a5943b77f962a069348669fd5f0317084}{\string~IExceptionTranslatorRegistry}}();\ \textcolor{comment}{//\ =\ default}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00031}\mbox{\hyperlink{classCatch_1_1IExceptionTranslatorRegistry_af76ae8c331a17f2a94c9720bc0d686bb}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classCatch_1_1IExceptionTranslatorRegistry_af76ae8c331a17f2a94c9720bc0d686bb}{translateActiveException}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00032}00032\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00034}00034\ \}\ \textcolor{comment}{//\ namespace\ Catch}}
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{catch__interfaces__exception_8hpp_source_l00036}00036\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CATCH\_INTERFACES\_EXCEPTION\_HPP\_INCLUDED}}
+
+\end{DoxyCode}

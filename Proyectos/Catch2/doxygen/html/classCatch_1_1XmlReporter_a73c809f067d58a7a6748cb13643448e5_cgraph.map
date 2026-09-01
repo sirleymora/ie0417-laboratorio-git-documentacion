@@ -1,0 +1,17 @@
+<map id="Catch::XmlReporter::sectionEnded" name="Catch::XmlReporter::sectionEnded">
+<area shape="rect" id="Node000001" title="Called after a SECTION has finished running." alt="" coords="5,119,155,159"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlWriter.html#a548009dad62cd446371e0b76775ce657" title=" " alt="" coords="203,5,421,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,117,144,78,172,58,202,41,223,32,225,37,204,46,174,63,147,82,103,121"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlWriter.html#ad2fbf17f0dc39443b2db8ab614f4c625" title=" " alt="" coords="219,55,405,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,117,225,96,227,102,154,122"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1StreamingReporterBase.html#a8572eff6839988af6bf2866922d30c7b" title="Called after a SECTION has finished running." alt="" coords="217,119,407,159"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="155,137,203,137,203,142,155,142"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1IConfig.html#a5a9e2fbbb8150bd197d8abd9af18da14" title=" " alt="" coords="203,184,421,209"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="156,157,203,169,242,178,241,183,202,174,154,162"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1XmlWriter_1_1ScopedElement.html#a757b12b7a24819fb8b73871665c706df" title=" " alt="" coords="218,234,406,274"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="108,157,152,188,204,218,223,227,221,232,201,223,149,193,105,162"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlWriter.html#a5e5190bcb1f47a76ddca863591a6cc00" title=" " alt="" coords="469,63,695,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="405,73,456,73,456,78,405,78"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1XmlWriter.html#aba98703d9852416e237de82aed4a9c4f" title=" " alt="" coords="743,55,928,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="695,73,729,73,729,78,695,78"/>
+</map>

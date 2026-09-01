@@ -1,0 +1,11 @@
+<map id="Catch::Detail::unique_ptr::get" name="Catch::Detail::unique_ptr::get">
+<area shape="rect" id="Node000001" title=" " alt="" coords="453,69,612,109"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1TestInvokerFixture.html#a04b87ab951d6974a6db5e591d71ae394" title=" " alt="" coords="211,5,398,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="447,68,376,48,377,43,449,63"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1TestRegistry.html#ae34807279278ee041194f9bb22c318b8" title=" " alt="" coords="231,69,378,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="439,92,378,92,378,87,439,87"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1TestCaseTracking_1_1TrackerContext.html#adb2be6ac725c76b23f37c7a1ff35e9c1" title=" " alt="" coords="204,133,405,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="449,116,377,136,376,131,447,110"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1RunContext.html#a94fd3fbbba00c7ef9ac79b529a7b76c8" title=" " alt="" coords="5,133,156,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="190,156,157,156,157,151,190,151"/>
+</map>
