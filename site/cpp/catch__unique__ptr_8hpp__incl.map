@@ -1,0 +1,10 @@
+<map id="src/catch2/internal/catch_unique_ptr.hpp" name="src/catch2/internal/catch_unique_ptr.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="30,5,194,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,101,75,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,47,61,91,57,88,94,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="130,181,222,207"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="117,45,126,86,141,132,162,168,157,171,136,134,121,87,112,46"/>
+<area shape="rect" id="Node000004" href="$catch__move__and__forward_8hpp.html" title=" " alt="" coords="150,93,333,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="142,43,203,83,200,88,139,48"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="228,135,196,172,192,169,223,132"/>
+</map>

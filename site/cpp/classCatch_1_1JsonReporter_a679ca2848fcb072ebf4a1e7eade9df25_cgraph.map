@@ -1,0 +1,11 @@
+<map id="Catch::JsonReporter::assertionEnded" name="Catch::JsonReporter::assertionEnded">
+<area shape="rect" id="Node000001" title="Called after assertion was fully evaluated." alt="" coords="5,37,156,77"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1AssertionResult.html#aa4d3fdbfe276a69a035762dbb790800f" title=" " alt="" coords="204,5,373,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,43,190,38,191,43,157,48"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1AssertionResult.html#ae39658b71c4afc3c8a859043b0e97027" title=" " alt="" coords="204,69,373,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,66,191,72,190,77,156,72"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#a4f62175677952a64dfbc90887726180d" title=" " alt="" coords="479,51,575,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="374,78,465,68,466,73,374,83"/>
+<area shape="rect" id="Node000005" href="$namespaceCatch.html#a63cf8932647769fc52be1175210ed89f" title=" " alt="" coords="421,101,633,126"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="374,95,408,99,407,104,374,101"/>
+</map>

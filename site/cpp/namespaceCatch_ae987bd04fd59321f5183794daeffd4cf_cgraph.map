@@ -1,0 +1,18 @@
+<map id="Catch::parseReporterSpec" name="Catch::parseReporterSpec">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,107,196,132"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1StringRef.html#a0b4841c28cbb14ba07296964a0187023" title=" " alt="" coords="277,5,453,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,104,177,76,243,48,293,32,295,37,245,52,179,81,126,109"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1StringRef.html#acb22719801de2b64361b4c283080d4e5" title=" " alt="" coords="542,57,702,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,104,244,93,394,79,528,71,529,76,394,84,244,98,169,109"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch_1_1Detail.html#a874fd7848ec5a0ef02d88c6ec37c9a03" title="Splits the reporter spec into reporter name and kv&#45;pair options." alt="" coords="251,107,480,132"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="196,117,237,117,237,122,196,122"/>
+<area shape="rect" id="Node000007" href="$namespaceCatch_1_1Detail.html#a64ba838a0c2e6767d095a7a01fc07b48" title=" " alt="" coords="244,156,487,181"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="170,129,284,151,283,156,169,135"/>
+<area shape="rect" id="Node000008" href="$namespaceCatch_1_1Detail.html#a4fb3f00424c8e23f92f48787aff0e5e2" title=" " alt="" coords="252,205,479,231"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="123,130,177,161,245,192,271,199,270,205,243,196,175,166,121,134"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="432,104,541,83,542,88,433,109"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1StringRef.html#aabf71767dfce1066e721456d54972bc5" title=" " alt="" coords="535,107,709,132"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="480,117,521,117,521,122,480,122"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1StringRef.html#a611907867225695d38198c058758c92d" title=" " alt="" coords="757,107,952,132"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="710,117,744,117,744,122,710,122"/>
+</map>

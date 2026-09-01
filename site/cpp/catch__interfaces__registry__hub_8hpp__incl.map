@@ -1,0 +1,14 @@
+<map id="src/catch2/interfaces/catch_interfaces_registry_hub.hpp" name="src/catch2/interfaces/catch_interfaces_registry_hub.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="83,5,274,60"/>
+<area shape="rect" id="Node000002" href="$catch__unique__ptr_8hpp.html" title=" " alt="" coords="33,108,191,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,62,136,98,131,95,158,59"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="216,115,275,141"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="200,59,231,102,227,106,195,62"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,203,75,229"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="98,150,61,194,57,191,94,147"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="130,284,222,309"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="117,147,126,188,141,235,162,271,157,274,136,237,121,190,112,149"/>
+<area shape="rect" id="Node000005" href="$catch__move__and__forward_8hpp.html" title=" " alt="" coords="150,196,333,236"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="142,146,203,186,200,190,139,150"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="228,238,196,275,192,272,223,235"/>
+</map>

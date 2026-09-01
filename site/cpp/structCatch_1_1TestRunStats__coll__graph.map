@@ -1,0 +1,11 @@
+<map id="Catch::TestRunStats" name="Catch::TestRunStats">
+<area shape="rect" id="Node000001" title=" " alt="" coords="75,196,225,221"/>
+<area shape="rect" id="Node000002" href="$structCatch_1_1TestRunInfo.html" title=" " alt="" coords="5,108,148,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,142,142,194,138,197,93,146"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1StringRef.html" title=" " alt="" coords="13,5,140,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="79,45,79,108,74,108,74,45"/>
+<area shape="rect" id="Node000004" href="$structCatch_1_1Totals.html" title=" " alt="" coords="172,108,277,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,146,162,197,158,194,204,142"/>
+<area shape="rect" id="Node000005" href="$structCatch_1_1Counts.html" title=" " alt="" coords="169,5,281,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="227,45,227,108,222,108,222,45"/>
+</map>

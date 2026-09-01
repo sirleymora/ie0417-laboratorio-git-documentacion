@@ -1,0 +1,12 @@
+<map id="src/catch2/internal/catch_unique_name.hpp" name="src/catch2/internal/catch_unique_name.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="111,5,295,45"/>
+<area shape="rect" id="Node000002" href="$catch__compiler__capabilities_8hpp.html" title=" " alt="" coords="5,93,201,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,48,137,86,134,82,179,44"/>
+<area shape="rect" id="Node000005" href="$catch__config__counter_8hpp.html" title=" " alt="" coords="225,93,384,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="228,44,274,82,270,86,224,48"/>
+<area shape="rect" id="Node000003" href="$catch__platform_8hpp.html" title=" " alt="" coords="15,181,173,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,134,100,168,95,168,99,133"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="198,189,411,214"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="149,131,266,181,264,186,146,136"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="307,134,307,175,302,175,302,134"/>
+</map>

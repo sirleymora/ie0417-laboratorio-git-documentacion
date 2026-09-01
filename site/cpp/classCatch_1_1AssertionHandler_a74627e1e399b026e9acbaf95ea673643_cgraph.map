@@ -1,0 +1,9 @@
+<map id="Catch::AssertionHandler::AssertionHandler" name="Catch::AssertionHandler::AssertionHandler">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,184,75"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1RunContext.html#a6f98f1074edad222f8536b225f487fea" title=" " alt="" coords="232,35,399,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,52,219,52,219,57,184,57"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1IEventListener.html#a739285f21094b48e665fe32610d12b4d" title="Called before assertion success/failure is evaluated." alt="" coords="459,5,619,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,41,445,35,445,40,399,46"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#a604293e8cd25e37091594d6f30c5f54e" title=" " alt="" coords="447,70,631,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="399,62,433,67,433,72,398,68"/>
+</map>

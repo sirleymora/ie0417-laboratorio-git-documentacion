@@ -1,0 +1,13 @@
+<map id="Catch::XmlReporter::benchmarkEnded" name="Catch::XmlReporter::benchmarkEnded">
+<area shape="rect" id="Node000001" title="Called with the benchmark results if benchmark successfully finishes." alt="" coords="5,55,155,95"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlWriter.html#a548009dad62cd446371e0b76775ce657" title=" " alt="" coords="203,5,421,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,53,202,41,241,31,242,36,203,46,156,58"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlWriter.html#ad2fbf17f0dc39443b2db8ab614f4c625" title=" " alt="" coords="219,55,405,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,73,205,73,205,78,155,78"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1XmlWriter_1_1ScopedElement.html#a757b12b7a24819fb8b73871665c706df" title=" " alt="" coords="218,119,406,159"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="154,93,227,113,225,118,153,98"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlWriter.html#a5e5190bcb1f47a76ddca863591a6cc00" title=" " alt="" coords="469,63,695,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="405,73,456,73,456,78,405,78"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1XmlWriter.html#aba98703d9852416e237de82aed4a9c4f" title=" " alt="" coords="743,55,928,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="695,73,729,73,729,78,695,78"/>
+</map>

@@ -1,0 +1,29 @@
+<map id="Catch::isOk" name="Catch::isOk">
+<area shape="rect" id="Node000001" title=" " alt="" coords="820,257,916,282"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1RunContext.html#a9d72a10bc41f636d5b2a80d25922db6d" title=" " alt="" coords="612,77,763,117"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="842,249,708,120,712,116,845,245"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1RunContext.html#ab11d6fc40a073cfb15b1beda806c63a2" title=" " alt="" coords="612,213,763,253"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="806,260,762,251,764,246,807,255"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1AssertionResult.html#ae39658b71c4afc3c8a859043b0e97027" title=" " alt="" coords="603,321,772,361"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="824,290,739,324,737,319,822,285"/>
+<area shape="rect" id="Node000014" href="$classCatch_1_1AssertionResult.html#ac5cc872b721d5fb65d87221d30b22fdd" title=" " alt="" coords="603,385,772,425"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="852,295,819,336,774,376,752,388,750,383,770,371,815,332,848,292"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1AssertionHandler.html#a9515fc80510d52fa6c22ea0eb4d3cc07" title=" " alt="" coords="334,5,513,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="609,76,554,60,508,48,510,43,555,55,611,71"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1AssertionHandler.html#a51e4936e3af43b74690cedae6d2e297a" title=" " alt="" coords="311,70,536,125"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="651,206,606,172,553,140,525,127,527,122,556,135,609,167,654,202"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1AssertionHandler.html#ab6caf765764a4064e90fce829eec201d" title=" " alt="" coords="292,149,555,189"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="598,215,506,192,507,187,599,209"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1AssertionHandler.html#a67a194d5518f307c4a16faa03a7f7442" title=" " alt="" coords="318,213,529,253"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="598,236,529,236,529,231,598,231"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1RunContext.html#ae7c10a068d896a8bcb35f5f387a36d0c" title=" " alt="" coords="308,278,539,333"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="601,260,525,281,523,275,600,254"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1AssertionHandler.html#a7764d0adb6ed5eeb10964f6abc02fab1" title=" " alt="" coords="5,278,244,333"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="294,308,244,308,244,303,294,303"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1CumulativeReporterBase.html#a0feaaf7d39fcb4d277146d8137af98c5" title="Called after assertion was fully evaluated." alt="" coords="324,357,523,397"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="590,357,523,366,522,361,589,352"/>
+<area shape="rect" id="Node000013" href="$classCatch_1_1JsonReporter.html#a679ca2848fcb072ebf4a1e7eade9df25" title="Called after assertion was fully evaluated." alt="" coords="348,421,499,461"/>
+<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="617,369,604,376,581,394,556,412,500,431,498,426,553,407,577,390,601,371,614,365"/>
+<area shape="rect" id="Node000012" href="$classCatch_1_1JunitReporter.html#a8d063eed4b88fe55d13e022605a07944" title="Called after assertion was fully evaluated." alt="" coords="49,357,201,397"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="310,380,201,380,201,375,310,375"/>
+</map>

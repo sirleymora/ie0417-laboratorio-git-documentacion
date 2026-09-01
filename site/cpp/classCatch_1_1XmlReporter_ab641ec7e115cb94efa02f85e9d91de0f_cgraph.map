@@ -1,0 +1,29 @@
+<map id="Catch::XmlReporter::testCaseEnded" name="Catch::XmlReporter::testCaseEnded">
+<area shape="rect" id="Node000001" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="5,226,155,266"/>
+<area shape="rect" id="Node000002" href="$structCatch_1_1Counts.html#a33bd996e016030155b99fe1c51c08991" title=" " alt="" coords="235,5,389,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,225,99,185,123,135,157,83,178,60,201,40,221,29,223,34,204,44,181,64,161,86,128,137,104,187,90,226"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlWriter.html#a548009dad62cd446371e0b76775ce657" title=" " alt="" coords="203,55,421,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="89,224,132,158,163,121,201,90,215,83,218,87,204,95,167,125,136,161,94,227"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1Timer.html#a065e37e3c9eb16bd4dcf41971d8deedc" title=" " alt="" coords="219,105,405,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="102,224,146,189,201,154,217,147,219,152,204,159,149,193,105,228"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1XmlWriter.html#ad2fbf17f0dc39443b2db8ab614f4c625" title=" " alt="" coords="219,169,405,209"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="155,225,217,209,218,215,156,230"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1IConfig.html#a5a9e2fbbb8150bd197d8abd9af18da14" title=" " alt="" coords="203,233,421,259"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="155,243,190,243,190,249,155,249"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1StreamingReporterBase.html#a6aaf2ea1da223091c4d29ef1883ac5ca" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="217,283,407,323"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="156,262,218,277,217,283,155,267"/>
+<area shape="rect" id="Node000012" href="$namespaceCatch.html#aea28035c2fa625ced568c1765e82a3bc" title="Returns a new string without whitespace at the start/end." alt="" coords="265,348,359,373"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="105,264,148,300,204,333,252,349,251,354,202,338,145,304,101,268"/>
+<area shape="rect" id="Node000013" href="$classCatch_1_1XmlWriter_1_1ScopedElement.html#a757b12b7a24819fb8b73871665c706df" title=" " alt="" coords="218,398,406,438"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="96,265,139,324,169,356,204,384,215,390,212,394,201,388,166,360,135,327,91,268"/>
+<area shape="rect" id="Node000014" href="$classCatch_1_1XmlWriter_1_1ScopedElement.html#ab84a69b37b367574549802f3c7972b6e" title=" " alt="" coords="218,462,406,502"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="90,265,105,304,129,354,162,405,182,428,204,448,212,453,209,457,201,452,178,431,158,408,124,356,100,306,85,267"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1Timer.html#a545de17a61a6fee1dbe3de5b0723e5fa" title=" " alt="" coords="489,105,675,145"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="405,122,476,122,476,127,405,127"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1Timer.html#a57be5d17ca868a2d6fb1eea84de665cf" title=" " alt="" coords="743,105,928,145"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="675,122,729,122,729,127,675,127"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1XmlWriter.html#a5e5190bcb1f47a76ddca863591a6cc00" title=" " alt="" coords="469,176,695,201"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="405,186,456,186,456,191,405,191"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1XmlWriter.html#aba98703d9852416e237de82aed4a9c4f" title=" " alt="" coords="743,169,928,209"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="695,186,729,186,729,191,695,191"/>
+</map>

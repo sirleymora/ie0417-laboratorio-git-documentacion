@@ -1,0 +1,19 @@
+<map id="Catch::XmlReporter::sectionStarting" name="Catch::XmlReporter::sectionStarting">
+<area shape="rect" id="Node000001" title="Called when a SECTION is being entered. Not called for skipped sections." alt="" coords="5,122,155,162"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlWriter.html#aba98703d9852416e237de82aed4a9c4f" title=" " alt="" coords="499,39,684,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,120,136,70,167,44,202,25,243,12,285,5,328,3,371,4,452,16,521,33,520,38,451,21,371,10,328,8,286,10,244,17,204,30,170,48,140,73,97,124"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1StreamingReporterBase.html#a2138331de72f8dbae4e46cdd741f9656" title="Called when a SECTION is being entered. Not called for skipped sections." alt="" coords="220,39,411,79"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,120,202,89,226,81,227,86,204,94,127,124"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlWriter.html#a5e5190bcb1f47a76ddca863591a6cc00" title=" " alt="" coords="203,104,428,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="155,131,189,128,190,133,155,137"/>
+<area shape="rect" id="Node000005" href="$namespaceCatch.html#aea28035c2fa625ced568c1765e82a3bc" title="Returns a new string without whitespace at the start/end." alt="" coords="268,153,363,179"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="155,147,255,157,254,163,155,152"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1XmlWriter.html#aa792619a7f86dbacd35da5730a4b7b3e" title="The attribute content is XML&#45;encoded." alt="" coords="476,232,707,257"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="126,160,203,187,336,215,463,232,462,237,335,220,202,193,124,165"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1XmlReporter.html#a190d2ae83de78e06273fa476d3729771" title=" " alt="" coords="241,254,390,294"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="105,160,149,197,204,233,233,247,231,251,201,238,146,201,101,164"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="377,101,485,79,486,84,378,107"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1StringRef.html#a0b4841c28cbb14ba07296964a0187023" title=" " alt="" coords="755,232,931,257"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="707,242,741,242,741,247,707,247"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="390,263,462,256,463,261,391,269"/>
+</map>

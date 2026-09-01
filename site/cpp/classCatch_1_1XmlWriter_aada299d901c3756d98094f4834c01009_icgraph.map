@@ -1,0 +1,7 @@
+<map id="Catch::XmlWriter::writeComment" name="Catch::XmlWriter::writeComment">
+<area shape="rect" id="Node000001" title="Writes XML comment as &quot;&lt;!&#45;&#45; text &#45;&#45;&gt;&quot;." alt="" coords="248,45,487,70"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlReporter.html#aedcd354a33e40ba80fdce75b19f0c393" title="Called after probe but before the user&#45;code is being benchmarked." alt="" coords="25,5,180,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,46,180,37,181,32,249,40"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1SonarQubeReporter.html#a58ed9dede9b58d4857567e5b9daf5837" title=" " alt="" coords="5,69,200,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="249,74,200,80,200,75,248,69"/>
+</map>

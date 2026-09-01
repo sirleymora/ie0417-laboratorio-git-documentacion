@@ -1,0 +1,9 @@
+<map id="Catch::RunContext::RunContext" name="Catch::RunContext::RunContext">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,156,109"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#aeb5fab7ca94d3e959fd7db6167caf5ee" title=" " alt="" coords="204,5,393,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,67,216,47,218,52,150,72"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Context.html#a43810eeee01821fe7b0f9f7f5bd9fb4c" title=" " alt="" coords="205,69,392,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,87,192,87,192,92,156,92"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1IEventListener.html#a3b7a9118f5b47011216aa31424ec4982" title=" " alt="" coords="219,133,379,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="150,107,218,127,216,132,149,112"/>
+</map>

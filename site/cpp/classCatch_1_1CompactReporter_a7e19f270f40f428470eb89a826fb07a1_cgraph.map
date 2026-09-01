@@ -1,0 +1,11 @@
+<map id="Catch::CompactReporter::sectionEnded" name="Catch::CompactReporter::sectionEnded">
+<area shape="rect" id="Node000001" title="Called after a SECTION has finished running." alt="" coords="5,23,187,63"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#af65507889895c5c4b04fb831eeab2972" title=" " alt="" coords="235,5,445,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,31,221,28,221,33,187,37"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch.html#af4e1ece5befeb3ff910c3a54ff44abb0" title="Should the reporter show duration of test given current configuration?" alt="" coords="239,55,441,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,50,226,53,225,59,187,55"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1IConfig.html#a160c6f6e19ed6ae946f7a9e737099189" title=" " alt="" coords="501,29,703,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="441,55,487,50,488,56,441,60"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1IConfig.html#a5a9e2fbbb8150bd197d8abd9af18da14" title=" " alt="" coords="493,79,711,104"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="441,74,480,77,479,83,441,79"/>
+</map>

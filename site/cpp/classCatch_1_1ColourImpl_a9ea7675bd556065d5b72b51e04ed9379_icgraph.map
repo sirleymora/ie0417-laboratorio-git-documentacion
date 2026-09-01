@@ -1,0 +1,13 @@
+<map id="Catch::ColourImpl::guardColour" name="Catch::ColourImpl::guardColour">
+<area shape="rect" id="Node000001" title=" " alt="" coords="469,45,616,85"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#a6dce9f6d9a416fe7a06e6394d557606a" title=" " alt="" coords="243,21,413,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="455,55,412,49,413,43,456,50"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#aecf85e8927841af21b8fcd3bab31df2b" title=" " alt="" coords="235,77,421,102"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="456,78,422,82,421,76,455,72"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1ReporterBase.html#a15ed28e8f838691c3c374027547d914b" title=" " alt="" coords="19,5,173,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="230,33,173,31,174,25,230,27"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1CompactReporter.html#abf31540bf74013cb7736f28291712d53" title=" " alt="" coords="5,69,187,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="220,92,187,92,187,87,220,87"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1ConsoleReporter.html#a665c8005050d0f1745935e0dde76e280" title=" " alt="" coords="9,133,183,173"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="269,108,170,136,169,131,267,103"/>
+</map>

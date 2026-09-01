@@ -1,0 +1,14 @@
+<map id="Catch::Clara::Parser::writeToStream" name="Catch::Clara::Parser::writeToStream">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,133,155,173"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Clara_1_1Parser.html#a3e3d0ff8d93168ada66f1c10788f0223" title=" " alt="" coords="219,5,369,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,131,145,93,201,55,214,48,217,53,204,60,148,97,104,135"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1TextFlow_1_1Column.html#a862b2b99ea409d5e5284f88b3718667d" title=" " alt="" coords="203,69,385,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,131,213,111,214,116,148,136"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1Clara_1_1ExeName.html#a8b0b26297f48352129a9c149ff242975" title=" " alt="" coords="209,133,379,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="155,151,195,151,195,156,155,156"/>
+<area shape="rect" id="Node000005" href="$namespaceCatch_1_1TextFlow.html#a24f631f4606e5664e764e6a6b9df5c04" title="Creates a column that serves as an empty space of specific width." alt="" coords="206,198,382,223"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="156,171,233,192,232,197,155,176"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1TextFlow_1_1Column.html#acaa9f98359764522ef37cf86749012bf" title=" " alt="" coords="433,216,616,256"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="105,172,148,205,175,221,203,232,258,244,314,250,369,251,420,248,420,253,369,256,313,255,257,250,202,237,173,225,145,209,101,176"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="382,218,420,222,419,227,382,223"/>
+</map>

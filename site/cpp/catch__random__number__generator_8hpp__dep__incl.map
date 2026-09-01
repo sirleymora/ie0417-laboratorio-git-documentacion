@@ -1,0 +1,20 @@
+<map id="src/catch2/internal/catch_random_number_generator.hpp" name="src/catch2/internal/catch_random_number_generator.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="375,5,550,60"/>
+<area shape="rect" id="Node000002" href="$catch__stats_8cpp.html" title=" " alt="" coords="5,115,173,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="363,63,160,118,159,113,361,58"/>
+<area shape="rect" id="Node000003" href="$catch__all_8hpp.html" title=" " alt="" coords="187,299,365,324"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="362,43,327,52,293,65,263,84,238,110,220,144,218,176,226,209,238,250,251,276,267,297,263,300,247,279,234,252,220,211,212,176,215,143,234,106,260,80,291,60,326,47,361,38"/>
+<area shape="rect" id="Node000004" href="$catch__generators__random_8hpp.html" title=" " alt="" coords="247,115,470,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="427,72,380,117,377,113,423,68"/>
+<area shape="rect" id="Node000007" href="$catch__context_8cpp.html" title=" " alt="" coords="495,115,639,155"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="502,68,549,113,545,117,498,72"/>
+<area shape="rect" id="Node000008" href="$catch__random__number__generator_8cpp.html" title=" " alt="" coords="663,108,838,163"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="551,62,676,105,675,110,549,67"/>
+<area shape="rect" id="Node000009" href="$catch__run__context_8cpp.html" title=" " alt="" coords="862,115,1034,155"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="564,49,701,74,851,105,881,113,880,118,850,111,700,79,563,54"/>
+<area shape="rect" id="Node000005" href="$catch__generators__all_8hpp.html" title=" " alt="" coords="248,211,437,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="356,169,349,211,343,210,351,168"/>
+<area shape="rect" id="Node000006" href="$catch__generators__random_8cpp.html" title=" " alt="" coords="462,211,685,251"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="415,158,531,208,529,213,413,163"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="320,263,288,300,284,297,316,259"/>
+</map>

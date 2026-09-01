@@ -1,0 +1,9 @@
+<map id="Catch::AutomakeReporter::testCaseEnded" name="Catch::AutomakeReporter::testCaseEnded">
+<area shape="rect" id="Node000001" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="5,47,195,87"/>
+<area shape="rect" id="Node000002" href="$structCatch_1_1Counts.html#a33bd996e016030155b99fe1c51c08991" title=" " alt="" coords="261,5,415,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,45,262,31,263,36,195,50"/>
+<area shape="rect" id="Node000003" href="$structCatch_1_1Counts.html#a84999490e0ecaa3de5e121bf48eda1b3" title=" " alt="" coords="247,55,429,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,65,234,65,234,70,195,70"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1StreamingReporterBase.html#a6aaf2ea1da223091c4d29ef1883ac5ca" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="243,105,433,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,85,242,99,241,104,183,90"/>
+</map>

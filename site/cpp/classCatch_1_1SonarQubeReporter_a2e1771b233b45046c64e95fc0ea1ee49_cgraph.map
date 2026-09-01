@@ -1,0 +1,20 @@
+<map id="Catch::SonarQubeReporter::writeAssertion" name="Catch::SonarQubeReporter::writeAssertion">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,112,200,152"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlWriter.html#ad2fbf17f0dc39443b2db8ab614f4c625" title=" " alt="" coords="273,5,460,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,109,188,82,247,55,269,47,271,52,249,60,190,87,139,114"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1ReusableStringStream.html#a3d93d9f26cddd6c5c48b6ef63c694119" title="Returns the serialized state." alt="" coords="248,94,485,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="200,120,234,117,234,122,200,125"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1XmlWriter.html#aa792619a7f86dbacd35da5730a4b7b3e" title="The attribute content is XML&#45;encoded." alt="" coords="251,143,482,169"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="200,138,238,142,237,147,200,143"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1XmlWriter.html#a0468b6efbc87fc9c262892a1dcd217db" title="Writes escaped text in a element." alt="" coords="266,193,467,218"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="160,149,249,177,288,187,287,192,247,183,158,155"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlWriter.html#a5e5190bcb1f47a76ddca863591a6cc00" title=" " alt="" coords="533,53,759,78"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="461,36,544,48,543,53,460,41"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlWriter.html#aba98703d9852416e237de82aed4a9c4f" title=" " alt="" coords="807,136,992,176"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="684,76,830,129,829,134,682,81"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="324,96,315,86,320,76,337,69,367,67,405,71,415,76,418,82,414,85,411,80,403,77,367,73,338,75,323,80,320,85,328,92"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1StringRef.html#a0b4841c28cbb14ba07296964a0187023" title=" " alt="" coords="558,142,734,167"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="482,153,544,152,544,158,482,158"/>
+<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="467,198,605,190,758,176,793,172,793,177,759,181,606,195,468,204"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="437,190,562,167,563,172,438,195"/>
+</map>

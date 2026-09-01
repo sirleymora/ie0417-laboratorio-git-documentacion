@@ -1,0 +1,23 @@
+<map id="Catch::Benchmark::Detail::bootstrap" name="Catch::Benchmark::Detail::bootstrap">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,99,193,139"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#a18fef8312d01399bbf5722432f099216" title=" " alt="" coords="241,5,452,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,97,240,48,284,32,286,37,242,52,139,102"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#ac5f830d662344dd75387c26aa83e6ac3" title=" " alt="" coords="500,42,688,82"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,104,241,98,486,70,486,76,242,103,194,109"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#adb6f098507d08daee7e92c9ab12dab09" title=" " alt="" coords="736,157,924,197"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="194,116,419,120,554,128,688,142,739,151,738,156,688,147,554,133,419,125,194,121"/>
+<area shape="rect" id="Node000006" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#abc5e70b0f758f550b2fdff85512efdb5" title=" " alt="" coords="500,157,688,197"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="194,129,242,135,486,163,486,168,241,141,193,135"/>
+<area shape="rect" id="Node000007" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#af3527090cdeb0456b1aacbdc29050841" title=" " alt="" coords="253,214,441,254"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="139,137,242,189,282,206,280,211,240,194,137,142"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="647,80,689,98,783,148,781,152,687,103,645,85"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="786,157,784,147,791,138,806,132,830,130,857,133,872,140,870,145,856,138,830,135,807,137,794,142,789,148,791,156"/>
+<area shape="rect" id="Node000005" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#af41e4c8ef30c33051b7330895f8effd1" title=" " alt="" coords="972,157,1160,197"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="924,183,958,183,958,188,924,188"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="972,171,938,170,938,165,972,165"/>
+<area shape="poly" id="edge9_Node000006_Node000004" title=" " alt="" coords="688,174,722,174,722,179,688,179"/>
+<area shape="poly" id="edge13_Node000007_Node000004" title=" " alt="" coords="441,228,559,221,688,206,736,197,737,202,688,211,559,226,441,233"/>
+<area shape="rect" id="Node000008" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#a62d6c634e2c8901d02ffe8718817f1b4" title=" " alt="" coords="500,271,688,311"/>
+<area shape="poly" id="edge11_Node000007_Node000008" title=" " alt="" coords="434,251,495,266,494,271,433,257"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="645,269,687,250,781,201,783,206,689,255,647,274"/>
+</map>

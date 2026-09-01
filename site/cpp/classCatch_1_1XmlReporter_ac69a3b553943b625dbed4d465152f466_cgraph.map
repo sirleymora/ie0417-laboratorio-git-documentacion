@@ -1,0 +1,11 @@
+<map id="Catch::XmlReporter::benchmarkPreparing" name="Catch::XmlReporter::benchmarkPreparing">
+<area shape="rect" id="Node000001" title="Called when user&#45;code is being probed before the actual benchmark runs." alt="" coords="5,35,171,75"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlWriter.html#a5e5190bcb1f47a76ddca863591a6cc00" title=" " alt="" coords="221,15,447,41"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,43,207,39,208,44,171,48"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlWriter.html#aa792619a7f86dbacd35da5730a4b7b3e" title="The attribute content is XML&#45;encoded." alt="" coords="219,66,449,91"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="171,60,205,63,205,69,170,65"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlWriter.html#aba98703d9852416e237de82aed4a9c4f" title=" " alt="" coords="497,5,683,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="447,24,484,24,484,29,447,29"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1StringRef.html#a0b4841c28cbb14ba07296964a0187023" title=" " alt="" coords="502,70,678,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="449,78,488,78,488,84,449,83"/>
+</map>

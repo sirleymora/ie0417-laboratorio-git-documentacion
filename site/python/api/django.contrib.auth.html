@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="spanish" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>django.contrib.auth package &#8212; documentación de Django - </title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=21c104a5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="django.contrib.auth.handlers package" href="django.contrib.auth.handlers.html" />
+    <link rel="prev" title="django.contrib.admindocs package" href="django.contrib.admindocs.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="django-contrib-auth-package">
+<h1>django.contrib.auth package<a class="headerlink" href="#django-contrib-auth-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="django.contrib.auth.handlers.html">django.contrib.auth.handlers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.handlers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.handlers.html#django-contrib-auth-handlers-modwsgi-module">django.contrib.auth.handlers.modwsgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.handlers.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django.contrib.auth.management.html">django.contrib.auth.management package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.management.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="django.contrib.auth.management.commands.html">django.contrib.auth.management.commands package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.contrib.auth.management.commands.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.contrib.auth.management.commands.html#django-contrib-auth-management-commands-changepassword-module">django.contrib.auth.management.commands.changepassword module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.contrib.auth.management.commands.html#django-contrib-auth-management-commands-createsuperuser-module">django.contrib.auth.management.commands.createsuperuser module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.contrib.auth.management.commands.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.management.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django.contrib.auth.migrations.html">django.contrib.auth.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0001-initial-module">django.contrib.auth.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0002-alter-permission-name-max-length-module">django.contrib.auth.migrations.0002_alter_permission_name_max_length module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0003-alter-user-email-max-length-module">django.contrib.auth.migrations.0003_alter_user_email_max_length module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0004-alter-user-username-opts-module">django.contrib.auth.migrations.0004_alter_user_username_opts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0005-alter-user-last-login-null-module">django.contrib.auth.migrations.0005_alter_user_last_login_null module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0006-require-contenttypes-0002-module">django.contrib.auth.migrations.0006_require_contenttypes_0002 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0007-alter-validators-add-error-messages-module">django.contrib.auth.migrations.0007_alter_validators_add_error_messages module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0008-alter-user-username-max-length-module">django.contrib.auth.migrations.0008_alter_user_username_max_length module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0009-alter-user-last-name-max-length-module">django.contrib.auth.migrations.0009_alter_user_last_name_max_length module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0010-alter-group-name-max-length-module">django.contrib.auth.migrations.0010_alter_group_name_max_length module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0011-update-proxy-permissions-module">django.contrib.auth.migrations.0011_update_proxy_permissions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#django-contrib-auth-migrations-0012-alter-user-first-name-max-length-module">django.contrib.auth.migrations.0012_alter_user_first_name_max_length module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.migrations.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django.contrib.auth.templatetags.html">django.contrib.auth.templatetags package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.templatetags.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.templatetags.html#django-contrib-auth-templatetags-auth-module">django.contrib.auth.templatetags.auth module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.contrib.auth.templatetags.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-admin-module">
+<h2>django.contrib.auth.admin module<a class="headerlink" href="#django-contrib-auth-admin-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-apps-module">
+<h2>django.contrib.auth.apps module<a class="headerlink" href="#django-contrib-auth-apps-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-backends-module">
+<h2>django.contrib.auth.backends module<a class="headerlink" href="#django-contrib-auth-backends-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-base-user-module">
+<h2>django.contrib.auth.base_user module<a class="headerlink" href="#django-contrib-auth-base-user-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-checks-module">
+<h2>django.contrib.auth.checks module<a class="headerlink" href="#django-contrib-auth-checks-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-context-processors-module">
+<h2>django.contrib.auth.context_processors module<a class="headerlink" href="#django-contrib-auth-context-processors-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-decorators-module">
+<h2>django.contrib.auth.decorators module<a class="headerlink" href="#django-contrib-auth-decorators-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-forms-module">
+<h2>django.contrib.auth.forms module<a class="headerlink" href="#django-contrib-auth-forms-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-hashers-module">
+<h2>django.contrib.auth.hashers module<a class="headerlink" href="#django-contrib-auth-hashers-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-middleware-module">
+<h2>django.contrib.auth.middleware module<a class="headerlink" href="#django-contrib-auth-middleware-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-mixins-module">
+<h2>django.contrib.auth.mixins module<a class="headerlink" href="#django-contrib-auth-mixins-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-models-module">
+<h2>django.contrib.auth.models module<a class="headerlink" href="#django-contrib-auth-models-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-password-validation-module">
+<h2>django.contrib.auth.password_validation module<a class="headerlink" href="#django-contrib-auth-password-validation-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-signals-module">
+<h2>django.contrib.auth.signals module<a class="headerlink" href="#django-contrib-auth-signals-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-tokens-module">
+<h2>django.contrib.auth.tokens module<a class="headerlink" href="#django-contrib-auth-tokens-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-urls-module">
+<h2>django.contrib.auth.urls module<a class="headerlink" href="#django-contrib-auth-urls-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-validators-module">
+<h2>django.contrib.auth.validators module<a class="headerlink" href="#django-contrib-auth-validators-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-contrib-auth-views-module">
+<h2>django.contrib.auth.views module<a class="headerlink" href="#django-contrib-auth-views-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Django</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción al proyecto Django</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">django</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="django.html">django package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">django</a><ul>
+  <li><a href="django.html">django package</a><ul>
+  <li><a href="django.contrib.html">django.contrib package</a><ul>
+      <li>Previous: <a href="django.contrib.admindocs.html" title="capítulo anterior">django.contrib.admindocs package</a></li>
+      <li>Next: <a href="django.contrib.auth.handlers.html" title="próximo capítulo">django.contrib.auth.handlers package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Sirley Mora.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/api/django.contrib.auth.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<map id="Catch::MultiReporter::testCasePartialEnded" name="Catch::MultiReporter::testCasePartialEnded">
+<area shape="rect" id="Node000001" title="Called every time a TEST_CASE is entered, including repeats (due to sections)" alt="" coords="5,23,173,63"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#a54c1ce08041448d684ae8edc14162cd2" title=" " alt="" coords="223,5,315,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,29,209,24,210,29,174,34"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch.html#a0179d453617ba2296f2baa99a49e7264" title=" " alt="" coords="221,55,316,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,52,208,57,207,62,173,57"/>
+</map>

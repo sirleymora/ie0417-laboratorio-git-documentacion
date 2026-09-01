@@ -1,0 +1,10 @@
+<map id="src/catch2/internal/catch_is_permutation.hpp" name="src/catch2/internal/catch_is_permutation.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,200,45"/>
+<area shape="rect" id="Node000002" href="$catch__all_8hpp.html" title=" " alt="" coords="16,284,195,309"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,58,71,94,62,133,58,165,61,196,71,235,82,261,97,282,93,285,78,264,65,237,56,197,53,165,57,133,65,93,81,56"/>
+<area shape="rect" id="Node000003" href="$catch__matchers__range__equals_8hpp.html" title=" " alt="" coords="80,93,253,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,55,151,92,146,95,121,58"/>
+<area shape="rect" id="Node000004" href="$catch__matchers__all_8hpp.html" title=" " alt="" coords="79,196,259,236"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,162,171,196,166,196,165,162"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="147,248,117,285,113,282,143,245"/>
+</map>

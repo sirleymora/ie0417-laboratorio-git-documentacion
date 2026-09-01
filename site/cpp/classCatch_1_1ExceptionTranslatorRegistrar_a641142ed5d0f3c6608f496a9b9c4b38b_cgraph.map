@@ -1,0 +1,13 @@
+<map id="Catch::ExceptionTranslatorRegistrar::ExceptionTranslatorRegistrar" name="Catch::ExceptionTranslatorRegistrar::ExceptionTranslatorRegistrar">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,27,223,82"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#a3175310a581a4d3b7bd12cf543dfa0d9" title=" " alt="" coords="324,5,475,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,41,310,32,311,37,223,46"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Detail.html#a60f033a91680546a152f5dfa4427104c" title=" " alt="" coords="271,70,528,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,63,257,66,257,71,223,68"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#a585459763f2c7610e57de2dd22dd1ad8" title=" " alt="" coords="576,41,797,66"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="524,67,562,63,563,69,524,73"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1IMutableRegistryHub.html#aed579e45f9d9082d8e45f93fa028d11e" title=" " alt="" coords="585,91,789,131"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="528,93,571,97,571,102,528,98"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1Singleton.html#a8c18286fe40405813c5bab05e20ce4f0" title=" " alt="" coords="845,41,1056,66"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="798,51,831,51,831,56,798,56"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="Catch::TestCaseTracking::ITracker::nameAndLocation" name="Catch::TestCaseTracking::ITracker::nameAndLocation">
+<area shape="rect" id="Node000001" title=" " alt="" coords="659,37,864,77"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1TestCaseTracking_1_1SectionTracker.html#a5c79ef577f0569578a095e566ef08fd3" title=" " alt="" coords="204,37,384,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="645,57,611,56,432,56,384,57,384,52,432,51,611,51,645,51"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1TestCaseTracking_1_1ITracker.html#a0f0007af515b9d23882ad2e794958d44" title=" " alt="" coords="432,65,611,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="646,74,611,78,611,72,645,68"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1RunContext.html#a94fd3fbbba00c7ef9ac79b529a7b76c8" title=" " alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="190,44,156,39,157,34,191,39"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1RunContext.html#a19971d796dcd37a7e2410ccbeef4fdf2" title=" " alt="" coords="5,69,156,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="191,75,157,81,156,75,190,70"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="418,75,384,71,385,66,419,70"/>
+</map>

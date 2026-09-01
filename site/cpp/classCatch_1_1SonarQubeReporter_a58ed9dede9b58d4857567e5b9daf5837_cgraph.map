@@ -1,0 +1,16 @@
+<map id="Catch::SonarQubeReporter::testRunStarting" name="Catch::SonarQubeReporter::testRunStarting">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,85,200,125"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlWriter.html#a5e5190bcb1f47a76ddca863591a6cc00" title=" " alt="" coords="255,5,480,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,82,193,61,247,41,282,31,284,36,249,46,195,66,146,87"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1CumulativeReporterBase.html#a662e58abd84046ac036417d9c533e42e" title=" " alt="" coords="268,55,467,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="200,91,254,85,254,91,200,97"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1XmlWriter.html#aa792619a7f86dbacd35da5730a4b7b3e" title="The attribute content is XML&#45;encoded." alt="" coords="252,169,483,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="154,122,249,155,282,164,281,169,247,161,152,127"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1XmlWriter.html#aada299d901c3756d98094f4834c01009" title="Writes XML comment as &quot;&lt;!&#45;&#45; text &#45;&#45;&gt;&quot;." alt="" coords="248,120,487,145"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="200,112,234,116,234,121,200,118"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlWriter.html#aba98703d9852416e237de82aed4a9c4f" title=" " alt="" coords="535,51,720,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="431,28,522,47,521,52,430,33"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1StringRef.html#a0b4841c28cbb14ba07296964a0187023" title=" " alt="" coords="539,169,715,195"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="483,179,525,179,525,185,483,185"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="429,117,486,105,537,92,538,97,487,110,431,123"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="Catch::TestCaseTracking::SectionTracker" name="Catch::TestCaseTracking::SectionTracker">
+<area shape="rect" id="Node000001" title=" " alt="" coords="225,197,404,237"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1TestCaseTracking_1_1TrackerBase.html" title=" " alt="" coords="225,108,404,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="317,162,317,197,312,197,312,162"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1TestCaseTracking_1_1ITracker.html" title=" " alt="" coords="5,5,184,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="150,49,275,106,272,110,147,54"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="200,17,211,25,203,33,185,37,184,31,200,28,205,25,197,21"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1TestCaseTracking_1_1TrackerContext.html" title=" " alt="" coords="299,5,477,45"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="368,58,331,110,326,106,364,55"/>
+</map>

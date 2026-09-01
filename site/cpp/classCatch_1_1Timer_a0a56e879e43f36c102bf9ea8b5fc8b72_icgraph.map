@@ -1,0 +1,11 @@
+<map id="Catch::Timer::start" name="Catch::Timer::start">
+<area shape="rect" id="Node000001" title=" " alt="" coords="237,95,380,120"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Section.html#a8a721885bdf057651c2745e67dad5946" title=" " alt="" coords="12,5,183,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="274,90,234,67,188,46,151,33,153,28,190,41,236,62,277,85"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1TeamCityReporter.html#a512e183512859522d4605fee3ad8e52b" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="5,55,189,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,97,189,92,190,87,224,92"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlReporter.html#a1395b2efb62faaa947a42638a03be32c" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="23,119,172,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="224,123,173,131,172,125,223,118"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1JunitReporter.html#a416da4586bd135749eea5adc8aa41280" title=" " alt="" coords="21,183,173,223"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="275,130,190,174,161,186,159,181,188,169,273,125"/>
+</map>

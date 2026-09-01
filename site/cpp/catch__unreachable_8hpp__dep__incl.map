@@ -1,0 +1,16 @@
+<map id="src/catch2/internal/catch_unreachable.hpp" name="src/catch2/internal/catch_unreachable.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="200,5,376,45"/>
+<area shape="rect" id="Node000002" href="$catch__all_8hpp.html" title=" " alt="" coords="5,269,184,295"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,53,172,71,141,95,125,115,113,138,99,188,95,235,96,269,91,269,90,235,94,187,108,136,120,112,137,91,169,66,206,48"/>
+<area shape="rect" id="Node000003" href="$catch__test__macros_8hpp.html" title=" " alt="" coords="150,93,309,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="270,58,245,95,240,92,265,55"/>
+<area shape="rect" id="Node000005" href="$catch__run__context_8cpp.html" title=" " alt="" coords="350,181,522,221"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="313,55,375,132,419,179,416,183,371,135,309,58"/>
+<area shape="rect" id="Node000006" href="$catch__jsonwriter_8cpp.html" title=" " alt="" coords="385,93,543,133"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="340,49,427,91,424,96,338,54"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="173,142,146,160,123,183,111,205,104,228,98,269,92,269,99,227,106,203,119,180,143,156,170,138"/>
+<area shape="rect" id="Node000004" href="$catch__template__test__macros_8hpp.html" title=" " alt="" coords="133,181,326,221"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="232,147,232,181,227,181,227,147"/>
+<area shape="poly" id="edge6_Node000003_Node000005" title=" " alt="" coords="288,136,392,179,390,184,286,141"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="186,231,116,271,113,267,184,226"/>
+</map>

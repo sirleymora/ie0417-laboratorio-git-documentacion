@@ -1,0 +1,17 @@
+<map id="Catch::Matchers::EqualsMatcher::describe" name="Catch::Matchers::EqualsMatcher::describe">
+<area shape="rect" id="Node000001" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="5,63,236,103"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#af0ad48344ffd3f92f3568465248a9880" title=" " alt="" coords="284,70,451,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,80,270,80,270,85,236,85"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Detail.html#adbff06c361ab5a8bb89f5258996da0ff" title=" " alt="" coords="499,63,713,103"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,80,485,80,485,85,451,85"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#adafff91485eeeeb9e9333f317cc0e3b1" title=" " alt="" coords="761,70,992,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="714,80,748,80,748,85,714,85"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1IRegistryHub.html#aa97defa756fe28dd6249b19c12bbbec1" title=" " alt="" coords="1047,5,1280,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="941,67,1049,45,1050,51,942,73"/>
+<area shape="rect" id="Node000006" href="$namespaceCatch.html#a5d328566cb8da87b48f1fac3f319ac7a" title=" " alt="" coords="1079,70,1247,95"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="992,80,1065,80,1065,85,992,85"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1IExceptionTranslatorRegistry.html#af76ae8c331a17f2a94c9720bc0d686bb" title=" " alt="" coords="1040,120,1287,160"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="942,93,1050,115,1049,120,941,98"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1Singleton.html#aa1b2bb002acd8838489a225dbbaf2865" title=" " alt="" coords="1335,70,1492,95"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1247,80,1321,80,1321,85,1247,85"/>
+</map>

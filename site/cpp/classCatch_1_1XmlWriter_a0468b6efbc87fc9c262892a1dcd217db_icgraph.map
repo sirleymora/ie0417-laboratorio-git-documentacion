@@ -1,0 +1,28 @@
+<map id="Catch::XmlWriter::writeText" name="Catch::XmlWriter::writeText">
+<area shape="rect" id="Node000001" title="Writes escaped text in a element." alt="" coords="1704,173,1905,198"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlReporter.html#abb27955d33a41ddb8d425f66664dd10e" title="Called after assertion was fully evaluated." alt="" coords="1484,5,1633,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1781,164,1726,112,1692,84,1655,60,1630,48,1632,43,1657,55,1695,80,1730,108,1784,161"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlReporter.html#a4afe4f0a8a85f5d1c7ab0204d4586c72" title=" " alt="" coords="1484,69,1633,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1763,169,1655,124,1622,112,1624,107,1657,119,1765,165"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlReporter.html#af227f44ca796d664b6a7b44b8954c8b4" title=" " alt="" coords="1484,133,1633,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1693,174,1633,166,1634,160,1694,168"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1XmlReporter.html#a25a83bb25a7b3b5c9d831da9d290a145" title=" " alt="" coords="1484,197,1633,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1694,202,1634,210,1633,205,1693,197"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1XmlReporter.html#a35ef5f6751d53704f95398bd6cfe18aa" title=" " alt="" coords="1484,261,1633,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1765,206,1657,252,1624,264,1622,259,1655,247,1763,201"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1SonarQubeReporter.html#a2e1771b233b45046c64e95fc0ea1ee49" title=" " alt="" coords="1461,325,1656,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1784,210,1730,263,1695,291,1657,316,1632,328,1630,323,1655,311,1692,287,1726,259,1781,206"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1SonarQubeReporter.html#ad7d49dcd6e1e753355b1a824b4805d98" title=" " alt="" coords="1219,325,1413,365"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1447,348,1414,348,1414,343,1447,343"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1SonarQubeReporter.html#a6c3bf02bc36f29c9f58ac8261d903f53" title=" " alt="" coords="976,325,1171,365"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1205,348,1171,348,1171,343,1205,343"/>
+<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="1115,314,1100,307,1073,304,1050,306,1036,311,1031,317,1033,324,1028,326,1025,316,1033,306,1049,301,1073,299,1102,302,1117,309"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1SonarQubeReporter.html#a28756eaa7e0bb22a8fdb6a66bf655f7a" title=" " alt="" coords="733,325,928,365"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="962,348,928,348,928,343,962,343"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1SonarQubeReporter.html#af036e53a767f62bb717be5f44cf71d29" title=" " alt="" coords="491,325,685,365"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="719,348,686,348,686,343,719,343"/>
+<area shape="rect" id="Node000012" href="$classCatch_1_1SonarQubeReporter.html#a327ca03fcdfa7afec48861cd54241cdd" title=" " alt="" coords="248,325,443,365"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="477,348,443,348,443,343,477,343"/>
+<area shape="rect" id="Node000013" href="$classCatch_1_1SonarQubeReporter.html#a770aaa74035d32ca5b7cebeb64012516" title="Customization point: called after last test finishes (testRunEnded has been handled)" alt="" coords="5,325,200,365"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="234,348,200,348,200,343,234,343"/>
+</map>

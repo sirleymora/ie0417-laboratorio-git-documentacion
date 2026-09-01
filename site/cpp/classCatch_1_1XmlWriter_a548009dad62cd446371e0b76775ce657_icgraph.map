@@ -1,0 +1,31 @@
+<map id="Catch::XmlWriter::endElement" name="Catch::XmlWriter::endElement">
+<area shape="rect" id="Node000001" title=" " alt="" coords="249,429,468,454"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1XmlReporter.html#abb27955d33a41ddb8d425f66664dd10e" title="Called after assertion was fully evaluated." alt="" coords="29,5,178,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="352,416,339,345,312,249,292,198,267,148,237,101,200,59,177,44,180,40,203,55,241,97,272,145,297,196,317,248,344,344,357,415"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1XmlReporter.html#a025db47f21efafb00017e962622ff330" title="Called with the benchmark results if benchmark successfully finishes." alt="" coords="29,69,178,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="349,416,333,356,304,277,284,236,260,195,232,157,200,123,177,109,180,104,203,119,236,153,265,192,289,233,309,275,338,354,354,414"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1XmlReporter.html#adcc4fccfe8d5935e839b5506404d648f" title="Called if running the benchmarks fails for any reason." alt="" coords="29,133,178,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="346,417,327,368,296,307,253,242,228,213,200,187,177,174,180,169,203,183,232,209,257,239,300,304,331,366,351,415"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1XmlReporter.html#a4afe4f0a8a85f5d1c7ab0204d4586c72" title=" " alt="" coords="29,197,178,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="342,418,319,381,286,337,246,291,200,252,177,239,179,234,203,247,250,287,291,333,323,378,346,415"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1XmlReporter.html#af227f44ca796d664b6a7b44b8954c8b4" title=" " alt="" coords="29,261,178,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="334,421,276,369,239,340,200,316,175,304,177,299,203,311,242,336,279,364,337,417"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1XmlReporter.html#a25a83bb25a7b3b5c9d831da9d290a145" title=" " alt="" coords="29,325,178,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="314,426,200,380,166,368,168,363,202,375,316,421"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1XmlReporter.html#a35ef5f6751d53704f95398bd6cfe18aa" title=" " alt="" coords="29,389,178,429"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="243,430,178,421,179,416,244,424"/>
+<area shape="rect" id="Node000009" href="$classCatch_1_1XmlReporter.html#a73c809f067d58a7a6748cb13643448e5" title="Called after a SECTION has finished running." alt="" coords="29,453,178,493"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="244,458,179,467,178,461,243,453"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1XmlReporter.html#ab641ec7e115cb94efa02f85e9d91de0f" title="Called once for each TEST_CASE, no matter how many times it is entered." alt="" coords="29,517,178,557"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="316,462,202,508,168,520,166,515,200,503,314,457"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1XmlReporter.html#a2458c9f342a446f0b3a7480b53c93705" title=" " alt="" coords="29,581,178,621"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="337,466,279,518,242,547,203,572,177,584,175,579,200,567,239,542,276,514,334,462"/>
+<area shape="rect" id="Node000012" href="$classCatch_1_1JunitReporter.html#a529ba203e91db27821519f8c41ac7905" title="Customization point: called after last test finishes (testRunEnded has been handled)" alt="" coords="6,645,201,685"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="346,467,323,504,291,549,250,596,203,636,181,647,179,643,200,631,246,592,286,546,319,501,342,464"/>
+<area shape="rect" id="Node000013" href="$classCatch_1_1SonarQubeReporter.html#a770aaa74035d32ca5b7cebeb64012516" title="Customization point: called after last test finishes (testRunEnded has been handled)" alt="" coords="6,709,201,749"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="351,468,331,517,300,579,257,643,232,673,203,699,184,712,181,707,200,695,228,669,253,640,296,576,327,514,346,466"/>
+<area shape="rect" id="Node000014" href="$classCatch_1_1XmlWriter_1_1ScopedElement.html#a2b5d2b7ba641383c79675d1867789d8b" title=" " alt="" coords="5,773,201,813"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="354,468,338,528,309,608,289,650,265,691,236,729,203,763,186,775,183,771,200,759,232,726,260,688,284,647,304,605,333,527,349,467"/>
+<area shape="rect" id="Node000015" href="$classCatch_1_1XmlWriter.html#ac8ad78245b9f7b2d34574a6903d15fc5" title=" " alt="" coords="33,837,174,877"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="357,468,344,539,317,635,297,687,272,738,241,785,203,827,176,845,173,840,200,823,237,782,267,735,292,685,312,633,339,538,352,467"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Catch::IEventListener::sectionStarting" name="Catch::IEventListener::sectionStarting">
+<area shape="rect" id="Node000001" title="Called when a SECTION is being entered. Not called for skipped sections." alt="" coords="204,5,364,45"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1RunContext.html#a19971d796dcd37a7e2410ccbeef4fdf2" title=" " alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,28,157,28,157,23,190,23"/>
+</map>

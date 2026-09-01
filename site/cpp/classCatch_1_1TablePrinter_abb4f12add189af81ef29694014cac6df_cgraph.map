@@ -1,0 +1,8 @@
+<map id="Catch::TablePrinter::open" name="Catch::TablePrinter::open">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,149,63"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1TextFlow.html#a24f631f4606e5664e764e6a6b9df5c04" title="Creates a column that serves as an empty space of specific width." alt="" coords="197,5,373,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,32,184,28,184,33,150,37"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1TextFlow_1_1Column.html#acaa9f98359764522ef37cf86749012bf" title=" " alt="" coords="421,23,604,63"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="150,41,408,41,408,46,150,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,25,408,29,407,34,373,30"/>
+</map>

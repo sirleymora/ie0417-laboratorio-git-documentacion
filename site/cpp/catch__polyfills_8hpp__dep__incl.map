@@ -1,0 +1,34 @@
+<map id="src/catch2/internal/catch_polyfills.hpp" name="src/catch2/internal/catch_polyfills.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="403,5,550,45"/>
+<area shape="rect" id="Node000002" href="$catch__all_8hpp.html" title=" " alt="" coords="652,475,831,500"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="389,31,293,36,188,47,96,66,61,80,37,95,16,123,9,151,12,222,12,320,17,342,31,362,54,381,84,397,162,425,258,446,363,461,470,472,652,482,652,487,469,477,363,467,257,451,161,430,81,402,51,385,27,366,12,344,7,320,7,222,4,151,11,121,33,91,58,75,94,61,187,42,292,31,389,26"/>
+<area shape="rect" id="Node000003" href="$catch__tostring_8cpp.html" title=" " alt="" coords="47,108,258,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="398,52,193,110,191,105,397,47"/>
+<area shape="rect" id="Node000004" href="$catch__floating__point__helpers_8hpp.html" title=" " alt="" coords="282,93,439,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="444,56,395,95,391,91,440,52"/>
+<area shape="rect" id="Node000007" href="$catch__matchers__floating__point_8cpp.html" title=" " alt="" coords="502,196,688,251"/>
+<area shape="poly" id="edge18_Node000001_Node000007" title=" " alt="" coords="480,58,486,102,493,125,504,147,525,173,551,194,548,198,522,176,499,149,488,127,481,104,474,59"/>
+<area shape="rect" id="Node000008" href="$catch__jsonwriter_8cpp.html" title=" " alt="" coords="514,101,673,141"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="512,52,571,99,568,103,509,56"/>
+<area shape="rect" id="Node000009" href="$catch__polyfills_8cpp.html" title=" " alt="" coords="698,101,844,141"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="550,47,712,98,711,103,548,52"/>
+<area shape="rect" id="Node000010" href="$catch__random__floating__point__helpers_8hpp.html" title=" " alt="" coords="869,93,1044,148"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="564,37,702,60,857,91,869,94,868,99,856,96,701,66,563,43"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="269,151,118,198,111,211,108,223,111,236,118,249,143,280,170,309,233,358,303,396,378,426,453,448,526,464,652,480,652,485,525,469,452,453,376,431,301,401,230,362,167,313,139,284,114,252,106,237,103,223,106,209,115,194,268,146"/>
+<area shape="rect" id="Node000005" href="$catch__stats_8cpp.html" title=" " alt="" coords="128,203,296,243"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="312,158,242,205,239,201,309,153"/>
+<area shape="rect" id="Node000006" href="$catch__floating__point__helpers_8cpp.html" title=" " alt="" coords="320,196,478,251"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="378,160,391,195,386,197,373,162"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="435,151,535,193,533,198,433,156"/>
+<area shape="poly" id="edge11_Node000010_Node000002" title=" " alt="" coords="898,158,873,176,850,198,824,233,802,272,771,353,753,426,745,475,740,474,748,425,766,352,798,270,820,230,846,194,869,172,894,153"/>
+<area shape="rect" id="Node000011" href="$catch__uniform__floating__point__distribution_8hpp.html" title=" " alt="" coords="861,196,1036,251"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="956,162,953,196,948,196,950,162"/>
+<area shape="poly" id="edge13_Node000011_Node000002" title=" " alt="" coords="877,260,850,278,826,300,806,334,783,384,748,475,743,473,778,382,801,332,822,297,847,274,874,256"/>
+<area shape="rect" id="Node000012" href="$catch__generators__random_8hpp.html" title=" " alt="" coords="837,299,1060,339"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="951,264,951,299,946,299,946,264"/>
+<area shape="rect" id="Node000013" href="$catch__generators__all_8hpp.html" title=" " alt="" coords="830,387,1019,427"/>
+<area shape="poly" id="edge15_Node000012_Node000013" title=" " alt="" coords="942,353,932,387,927,386,937,351"/>
+<area shape="rect" id="Node000014" href="$catch__generators__random_8cpp.html" title=" " alt="" coords="1044,387,1266,427"/>
+<area shape="poly" id="edge17_Node000012_Node000014" title=" " alt="" coords="1007,341,1111,384,1109,389,1005,346"/>
+<area shape="poly" id="edge16_Node000013_Node000002" title=" " alt="" coords="869,434,770,477,767,472,867,429"/>
+</map>

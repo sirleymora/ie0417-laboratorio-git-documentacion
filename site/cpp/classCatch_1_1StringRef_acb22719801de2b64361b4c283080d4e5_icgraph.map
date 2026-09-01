@@ -1,0 +1,63 @@
+<map id="Catch::StringRef::size" name="Catch::StringRef::size">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1099,414,1259,439"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Capturer.html#a59eb6dfc8b6813cb9162807314ce3728" title=" " alt="" coords="843,57,1029,82"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1173,401,1164,338,1144,255,1128,212,1107,169,1081,130,1049,97,1028,84,1031,79,1052,93,1085,127,1112,167,1133,210,1149,254,1169,337,1178,400"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Matchers_1_1StringMatcherBase.html#adc9bbbbaae54e40f3ef7712cf348e764" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="823,107,1049,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1170,401,1157,350,1134,285,1098,218,1076,187,1049,161,1031,149,1034,144,1052,157,1080,184,1103,215,1139,283,1162,349,1175,400"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch_1_1Matchers_1_1Detail.html#a228a8fff5aa311bd0e3592b8cb711392" title=" " alt="" coords="843,171,1029,211"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1160,403,1115,336,1083,297,1049,262,1013,235,977,213,979,208,1016,230,1052,258,1087,294,1119,333,1165,400"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1XmlEncode.html#a030fe9de7193fcdbdc06ade38f0113ce" title=" " alt="" coords="831,273,1041,298"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1157,405,1111,357,1082,332,1049,312,1022,301,1024,296,1052,307,1085,328,1115,353,1161,401"/>
+<area shape="rect" id="Node000009" href="$namespaceCatch.html#ada025504f627feaf9ac68ca391515dff" title=" " alt="" coords="872,322,1000,347"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1143,409,1099,387,1050,365,999,350,1001,345,1052,360,1101,382,1145,405"/>
+<area shape="rect" id="Node000014" href="$classCatch_1_1AssertionResult.html#a26a777f3959353c729544cb2ace0d279" title=" " alt="" coords="851,375,1021,415"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="1084,417,1021,408,1021,403,1085,412"/>
+<area shape="rect" id="Node000019" href="$classCatch_1_1AssertionResult.html#aac35a0ca42d33bff6467c76573730f5e" title=" " alt="" coords="849,439,1023,479"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="1085,442,1024,450,1023,445,1084,436"/>
+<area shape="rect" id="Node000020" href="$namespaceCatch.html#ae987bd04fd59321f5183794daeffd4cf" title=" " alt="" coords="567,555,757,581"/>
+<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="1146,448,1102,472,1052,493,992,509,911,527,740,558,739,553,909,522,991,504,1050,488,1100,467,1144,444"/>
+<area shape="rect" id="Node000024" href="$namespaceCatch_1_1Detail.html#a874fd7848ec5a0ef02d88c6ec37c9a03" title="Splits the reporter spec into reporter name and kv&#45;pair options." alt="" coords="821,554,1051,579"/>
+<area shape="poly" id="edge24_Node000001_Node000024" title=" " alt="" coords="1158,451,1112,495,1083,518,1052,537,1002,556,1000,551,1049,532,1080,513,1109,491,1155,448"/>
+<area shape="rect" id="Node000025" href="$namespaceCatch.html#a678e3c779388970bb3ec5802245f93d7" title=" " alt="" coords="859,603,1013,629"/>
+<area shape="poly" id="edge26_Node000001_Node000025" title=" " alt="" coords="1168,453,1149,485,1123,523,1091,561,1052,593,1014,609,1012,604,1049,588,1087,557,1119,520,1145,483,1163,450"/>
+<area shape="rect" id="Node000029" href="$structCatch_1_1TestCaseInfo.html#a16f6e78e73631fe7dd4630e45ffe31b1" title=" " alt="" coords="861,653,1011,693"/>
+<area shape="poly" id="edge30_Node000001_Node000029" title=" " alt="" coords="1172,453,1156,495,1131,546,1097,599,1076,623,1052,643,1033,655,1012,664,1010,659,1031,650,1049,639,1072,619,1092,595,1126,544,1151,493,1167,452"/>
+<area shape="rect" id="Node000030" href="$namespaceCatch.html#a925a6f9707b30d784e254e63e8722569" title="Returns a substring of the original ref without whitespace. Beware lifetimes!" alt="" coords="889,718,983,743"/>
+<area shape="poly" id="edge31_Node000001_Node000030" title=" " alt="" coords="1176,454,1164,507,1141,576,1125,612,1105,647,1081,680,1052,707,1019,725,984,732,983,727,1017,720,1049,703,1077,676,1101,644,1120,610,1136,574,1159,506,1171,452"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric.html#a8775faf4120f86cc58ff16566462e7d6" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="555,5,769,45"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="828,167,820,161,808,148,801,135,795,109,789,83,783,71,772,59,754,48,757,43,775,55,787,68,794,81,800,107,806,133,812,145,823,157,832,163"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric.html#a24d9949317e7f420fc83b0c72a371437" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="551,69,773,109"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="836,168,820,161,796,142,772,124,744,112,746,107,775,119,799,138,823,156,838,163"/>
+<area shape="rect" id="Node000007" href="$namespaceCatch_1_1Matchers_1_1Detail.html#ac0a97ecaa606e48558e8d6f63fe9d0b1" title=" " alt="" coords="569,133,755,173"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="829,179,755,169,756,163,830,174"/>
+<area shape="rect" id="Node000010" href="$classCatch_1_1TagAliasRegistry.html#a37ae1fda30de783f563492c3c60ab414" title=" " alt="" coords="559,198,765,223"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="857,329,820,312,803,293,795,274,788,255,772,238,748,226,750,221,775,234,792,252,800,272,807,290,823,307,860,324"/>
+<area shape="rect" id="Node000011" href="$classCatch_1_1Matchers_1_1EndsWithMatcher.html#a3b08cd20a568276562631ce2928263da" title=" " alt="" coords="564,248,760,288"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="862,322,821,312,737,291,738,285,822,307,863,316"/>
+<area shape="rect" id="Node000012" href="$classCatch_1_1WildcardPattern.html#ae88acde37f50f7cbec8605acf434fe85" title=" " alt="" coords="577,312,747,352"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="858,337,747,335,748,330,858,331"/>
+<area shape="rect" id="Node000013" href="$classCatch_1_1WildcardPattern.html#aeb90dae9b701d90cbed1e43904c86af2" title=" " alt="" coords="577,376,747,416"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="866,353,748,379,747,374,865,348"/>
+<area shape="rect" id="Node000015" href="$classCatch_1_1AssertionResult.html#aaa46070791a6c07caaed86229b8d9d75" title=" " alt="" coords="569,440,755,480"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="839,420,747,443,746,437,838,415"/>
+<area shape="rect" id="Node000018" href="$classCatch_1_1AssertionResult.html#a78c43506c2b3d8cc1fb141a97d09ec94" title=" " alt="" coords="290,477,478,517"/>
+<area shape="poly" id="edge18_Node000014_Node000018" title=" " alt="" coords="840,419,823,429,808,445,801,462,792,479,775,494,738,510,699,521,619,531,541,529,472,520,473,515,541,523,619,525,698,516,736,505,772,490,788,476,796,460,804,442,820,425,837,414"/>
+<area shape="rect" id="Node000016" href="$classCatch_1_1CumulativeReporterBase.html#a0feaaf7d39fcb4d277146d8137af98c5" title="Called after assertion was fully evaluated." alt="" coords="285,413,483,453"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="555,452,483,445,484,440,555,447"/>
+<area shape="poly" id="edge17_Node000015_Node000018" title=" " alt="" coords="555,477,479,487,478,482,555,472"/>
+<area shape="rect" id="Node000017" href="$classCatch_1_1JunitReporter.html#a8d063eed4b88fe55d13e022605a07944" title="Called after assertion was fully evaluated." alt="" coords="35,413,187,453"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="271,436,188,436,188,431,271,431"/>
+<area shape="rect" id="Node000021" href="$classCatch_1_1Config.html#a25ad0360a8386e7bc068c9c1ac5320bf" title=" " alt="" coords="305,542,463,567"/>
+<area shape="poly" id="edge21_Node000020_Node000021" title=" " alt="" coords="553,565,463,561,463,556,553,560"/>
+<area shape="rect" id="Node000022" href="$namespaceCatch.html#a96d773398ae9697da7845bbf5027e35e" title=" " alt="" coords="265,591,503,617"/>
+<area shape="poly" id="edge22_Node000020_Node000022" title=" " alt="" coords="553,585,483,594,482,589,552,579"/>
+<area shape="rect" id="Node000023" href="$classCatch_1_1Session.html#a4564992e2b028770e38a1dcc6fff8b34" title=" " alt="" coords="24,591,199,617"/>
+<area shape="poly" id="edge23_Node000022_Node000023" title=" " alt="" coords="251,607,199,607,199,601,251,601"/>
+<area shape="poly" id="edge25_Node000024_Node000020" title=" " alt="" coords="808,570,757,570,757,565,808,565"/>
+<area shape="rect" id="Node000026" href="$namespaceCatch_1_1Detail.html#a4e0e09e87f561af2d3a881b209a9a481" title=" " alt="" coords="565,617,759,642"/>
+<area shape="poly" id="edge27_Node000025_Node000026" title=" " alt="" coords="845,623,760,627,759,622,845,618"/>
+<area shape="rect" id="Node000027" href="$namespaceCatch_1_1Detail.html#ae5ac331a37580e0ee0706d2637724287" title=" " alt="" coords="278,641,490,666"/>
+<area shape="poly" id="edge28_Node000026_Node000027" title=" " alt="" coords="551,642,490,647,490,642,550,636"/>
+<area shape="rect" id="Node000028" href="$namespaceCatch_1_1Detail.html#a3416d3ff00924aa2aba8ecc567e97dc7" title=" " alt="" coords="5,641,217,666"/>
+<area shape="poly" id="edge29_Node000027_Node000028" title=" " alt="" coords="264,656,217,656,217,651,264,651"/>
+</map>

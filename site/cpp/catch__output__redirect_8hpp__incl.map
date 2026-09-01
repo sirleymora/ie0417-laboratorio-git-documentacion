@@ -1,0 +1,15 @@
+<map id="src/catch2/internal/catch_output_redirect.hpp" name="src/catch2/internal/catch_output_redirect.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="37,5,232,45"/>
+<area shape="rect" id="Node000002" href="$catch__unique__ptr_8hpp.html" title=" " alt="" coords="55,93,214,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,46,137,79,132,79,132,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,189,75,214"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="95,48,67,68,45,95,38,114,35,135,37,175,32,175,30,135,33,113,40,92,63,64,92,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="239,101,297,126"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="166,43,240,91,237,95,163,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,136,65,181,62,177,112,132"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="141,269,233,295"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="138,133,141,174,152,220,172,257,167,259,147,222,136,175,132,134"/>
+<area shape="rect" id="Node000005" href="$catch__move__and__forward_8hpp.html" title=" " alt="" coords="161,181,343,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="162,131,217,171,213,175,159,136"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="238,223,207,260,203,257,234,220"/>
+</map>

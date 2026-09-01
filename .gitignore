@@ -1,0 +1,29 @@
+# Entornos virtuales de Pyhton
+.venv/
+venv/
+env
+
+# Caches de Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverge
+htmlcov/
+ 
+# Archivos temporales de editores 
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs temporales
+*.log
+
+# Variables de entorno y credenciales
+.env
+.env.*
+!.env.example

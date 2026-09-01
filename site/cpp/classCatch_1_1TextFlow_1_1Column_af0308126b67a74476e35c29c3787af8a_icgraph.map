@@ -1,0 +1,15 @@
+<map id="Catch::TextFlow::Column::initialIndent" name="Catch::TextFlow::Column::initialIndent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="455,69,637,109"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#ad4043ebe446bced10d36c36c7ab9bb70" title=" " alt="" coords="210,21,405,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="446,69,362,49,363,43,448,64"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#a7fc9276bf852d1625d986c0cbc3eabce" title=" " alt="" coords="208,77,407,102"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="441,92,407,92,407,87,441,87"/>
+<area shape="rect" id="Node000006" href="$namespaceCatch.html#a9534411fa7935dfb64da3a912f396b0d" title=" " alt="" coords="225,133,390,158"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="448,115,363,135,362,130,446,110"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1ReporterBase.html#a80fc94e76ca6273bde21892472cfb590" title=" " alt="" coords="5,5,160,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,32,160,31,160,25,197,27"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1ReporterBase.html#a6b49fcddf9430c782bf33cc7ab3b8f6a" title=" " alt="" coords="5,69,160,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="194,92,160,92,160,87,194,87"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1ReporterBase.html#a327d4a5ee9b271e19ac19951ae3cd0e1" title=" " alt="" coords="5,133,160,173"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="211,151,160,153,160,148,211,146"/>
+</map>

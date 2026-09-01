@@ -1,0 +1,12 @@
+<map id="Catch::Benchmark::Detail::runPlanDispatch" name="Catch::Benchmark::Detail::runPlanDispatch">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,193,69"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#adb6f098507d08daee7e92c9ab12dab09" title=" " alt="" coords="477,29,665,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,44,241,43,429,43,464,43,464,49,429,48,241,48,193,49"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#a900062dbfe7f0be2369ae2181ba40eef" title=" " alt="" coords="241,57,429,97"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="194,58,228,62,227,67,193,63"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="528,30,525,20,532,10,548,5,571,3,599,6,614,13,611,18,597,11,571,8,549,10,535,15,530,21,533,28"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Benchmark_1_1Detail.html#af41e4c8ef30c33051b7330895f8effd1" title=" " alt="" coords="713,29,901,69"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="666,55,699,56,699,61,666,61"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="713,43,679,43,679,38,713,38"/>
+<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="429,64,463,59,464,65,430,69"/>
+</map>

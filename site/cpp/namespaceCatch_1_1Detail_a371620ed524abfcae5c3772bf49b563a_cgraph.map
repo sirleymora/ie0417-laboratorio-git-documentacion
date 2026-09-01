@@ -1,0 +1,10 @@
+<map id="Catch::Detail::rawMemoryToString" name="Catch::Detail::rawMemoryToString">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,197,75"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#ac5d6c510e565ee5bddcc2236194ce29e" title=" " alt="" coords="245,35,437,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,53,232,53,232,58,197,58"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch_1_1Detail.html#a55994724b37be409ad8185ee738a0781" title=" " alt="" coords="534,5,674,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="437,39,520,27,521,32,438,44"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1ReusableStringStream.html#a3d93d9f26cddd6c5c48b6ef63c694119" title="Returns the serialized state." alt="" coords="485,79,723,104"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="438,66,498,74,497,79,437,71"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="562,80,553,70,557,60,575,54,604,52,641,56,652,61,655,67,651,70,648,65,640,61,604,57,576,59,561,64,558,70,566,77"/>
+</map>

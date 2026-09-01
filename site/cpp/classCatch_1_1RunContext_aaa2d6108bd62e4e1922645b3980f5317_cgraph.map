@@ -1,0 +1,7 @@
+<map id="Catch::RunContext::sectionEnded" name="Catch::RunContext::sectionEnded">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,27,156,67"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#a604293e8cd25e37091594d6f30c5f54e" title=" " alt="" coords="204,5,388,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,34,190,30,191,35,157,40"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1IEventListener.html#a077b6305d49853779d715777e90138bd" title="Called after a SECTION has finished running." alt="" coords="216,55,376,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,54,203,61,202,66,156,60"/>
+</map>

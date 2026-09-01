@@ -1,0 +1,9 @@
+<map id="Catch::Matchers::Detail::describe_multi_matcher" name="Catch::Matchers::Detail::describe_multi_matcher">
+<area shape="rect" id="Node000001" title=" " alt="" coords="276,69,463,109"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchAllOfGeneric.html#a8775faf4120f86cc58ff16566462e7d6" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="9,5,224,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,68,195,48,197,43,277,63"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Matchers_1_1Detail_1_1MatchAnyOfGeneric.html#a24d9949317e7f420fc83b0c72a371437" title="Should be overridden, but we provide default &quot;undescribed&quot; impl." alt="" coords="5,69,228,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="262,92,228,92,228,87,262,87"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch_1_1Matchers_1_1Detail.html#ac0a97ecaa606e48558e8d6f63fe9d0b1" title=" " alt="" coords="23,133,210,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="277,115,197,136,195,131,276,110"/>
+</map>

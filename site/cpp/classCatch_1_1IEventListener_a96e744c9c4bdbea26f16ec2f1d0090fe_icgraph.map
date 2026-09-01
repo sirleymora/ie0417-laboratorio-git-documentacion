@@ -1,0 +1,5 @@
+<map id="Catch::IEventListener::benchmarkStarting" name="Catch::IEventListener::benchmarkStarting">
+<area shape="rect" id="Node000001" title="Called after probe but before the user&#45;code is being benchmarked." alt="" coords="204,5,364,45"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1RunContext.html#a1d660c5f0374f0561f816d6b5263724a" title=" " alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,28,157,28,157,23,190,23"/>
+</map>

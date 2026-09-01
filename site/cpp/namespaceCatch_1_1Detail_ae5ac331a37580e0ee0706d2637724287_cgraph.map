@@ -1,0 +1,15 @@
+<map id="Catch::Detail::makeEnumInfo" name="Catch::Detail::makeEnumInfo">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,217,80"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch_1_1Detail.html#a4e0e09e87f561af2d3a881b209a9a481" title=" " alt="" coords="265,55,460,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,65,251,65,251,70,217,70"/>
+<area shape="rect" id="Node000003" href="$namespaceCatch.html#a678e3c779388970bb3ec5802245f93d7" title=" " alt="" coords="508,29,663,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="460,54,494,50,494,55,461,59"/>
+<area shape="rect" id="Node000007" href="$namespaceCatch.html#aea28035c2fa625ced568c1765e82a3bc" title="Returns a new string without whitespace at the start/end." alt="" coords="538,79,633,104"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="461,75,524,82,524,87,460,81"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1StringRef.html#acb22719801de2b64361b4c283080d4e5" title=" " alt="" coords="718,5,878,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="663,31,704,26,705,31,663,36"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1StringRef.html#aabf71767dfce1066e721456d54972bc5" title=" " alt="" coords="711,55,885,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="663,49,697,53,697,58,663,54"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1StringRef.html#a611907867225695d38198c058758c92d" title=" " alt="" coords="933,55,1128,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="886,65,920,65,920,70,886,70"/>
+</map>

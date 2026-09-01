@@ -1,0 +1,17 @@
+<map id="Catch::ConsoleReporter::testRunStarting" name="Catch::ConsoleReporter::testRunStarting">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,126,180,166"/>
+<area shape="rect" id="Node000002" href="$namespaceCatch.html#aba921d5844aa120874480fe71d1c1ae3" title="Returns Catch2&#39;s current RNG seed." alt="" coords="265,55,385,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,123,227,90,257,81,259,86,229,95,142,128"/>
+<area shape="rect" id="Node000006" href="$classCatch_1_1TestSpec.html#ac6d69b4a19677d95e46af0467fc72ecd" title=" " alt="" coords="228,104,423,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="180,132,214,128,215,133,181,138"/>
+<area shape="rect" id="Node000007" href="$classCatch_1_1StreamingReporterBase.html#a5ce94d2e8b64c49e4ace01c64f249716" title=" " alt="" coords="230,154,421,194"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="181,154,217,158,216,164,180,159"/>
+<area shape="rect" id="Node000008" href="$classCatch_1_1IConfig.html#a6c021a1bf5cae58cb6c4b754af6cd4b5" title=" " alt="" coords="237,219,413,244"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="135,164,229,203,257,213,256,218,227,209,133,169"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Context.html#a9b9038b5e6bd8495cbb247ff8a39fc41" title=" " alt="" coords="471,5,659,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="385,52,489,31,490,36,386,58"/>
+<area shape="rect" id="Node000004" href="$namespaceCatch.html#a8b23533de8c7d123687ac2c8d36b653a" title=" " alt="" coords="471,55,658,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="386,65,457,65,457,70,386,70"/>
+<area shape="rect" id="Node000005" href="$classCatch_1_1IConfig.html#a71994ea53eb66e353e5e195088f9bad7" title=" " alt="" coords="478,104,651,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="386,77,490,99,489,104,385,82"/>
+</map>

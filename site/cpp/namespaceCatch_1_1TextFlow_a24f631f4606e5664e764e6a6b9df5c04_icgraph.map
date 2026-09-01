@@ -1,0 +1,7 @@
+<map id="Catch::TextFlow::Spacer" name="Catch::TextFlow::Spacer">
+<area shape="rect" id="Node000001" title="Creates a column that serves as an empty space of specific width." alt="" coords="203,45,379,70"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1TablePrinter.html#abb4f12add189af81ef29694014cac6df" title=" " alt="" coords="8,5,152,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,45,152,39,153,34,193,40"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1Clara_1_1Parser.html#aab7332e4d55845c62a0f7c282d3244cc" title=" " alt="" coords="5,69,155,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,75,156,81,155,75,193,69"/>
+</map>

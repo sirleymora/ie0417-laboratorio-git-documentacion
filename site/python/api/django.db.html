@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="spanish" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>django.db package &#8212; documentación de Django - </title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=21c104a5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="django.db.backends package" href="django.db.backends.html" />
+    <link rel="prev" title="django.core.servers package" href="django.core.servers.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="django-db-package">
+<h1>django.db package<a class="headerlink" href="#django-db-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="django.db.backends.html">django.db.backends package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django.db.backends.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="django.db.backends.base.html">django.db.backends.base package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#django-db-backends-base-base-module">django.db.backends.base.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#django-db-backends-base-client-module">django.db.backends.base.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#django-db-backends-base-creation-module">django.db.backends.base.creation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#django-db-backends-base-features-module">django.db.backends.base.features module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#django-db-backends-base-introspection-module">django.db.backends.base.introspection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#django-db-backends-base-operations-module">django.db.backends.base.operations module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#django-db-backends-base-schema-module">django.db.backends.base.schema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#django-db-backends-base-validation-module">django.db.backends.base.validation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.base.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="django.db.backends.dummy.html">django.db.backends.dummy package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.dummy.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.dummy.html#django-db-backends-dummy-base-module">django.db.backends.dummy.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.dummy.html#django-db-backends-dummy-features-module">django.db.backends.dummy.features module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.dummy.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="django.db.backends.mysql.html">django.db.backends.mysql package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#django-db-backends-mysql-base-module">django.db.backends.mysql.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#django-db-backends-mysql-client-module">django.db.backends.mysql.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#django-db-backends-mysql-compiler-module">django.db.backends.mysql.compiler module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#django-db-backends-mysql-creation-module">django.db.backends.mysql.creation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#django-db-backends-mysql-features-module">django.db.backends.mysql.features module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#django-db-backends-mysql-introspection-module">django.db.backends.mysql.introspection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#django-db-backends-mysql-operations-module">django.db.backends.mysql.operations module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#django-db-backends-mysql-schema-module">django.db.backends.mysql.schema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#django-db-backends-mysql-validation-module">django.db.backends.mysql.validation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.mysql.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="django.db.backends.oracle.html">django.db.backends.oracle package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-base-module">django.db.backends.oracle.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-client-module">django.db.backends.oracle.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-creation-module">django.db.backends.oracle.creation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-features-module">django.db.backends.oracle.features module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-functions-module">django.db.backends.oracle.functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-introspection-module">django.db.backends.oracle.introspection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-operations-module">django.db.backends.oracle.operations module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-schema-module">django.db.backends.oracle.schema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-utils-module">django.db.backends.oracle.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#django-db-backends-oracle-validation-module">django.db.backends.oracle.validation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.oracle.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="django.db.backends.postgresql.html">django.db.backends.postgresql package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#django-db-backends-postgresql-base-module">django.db.backends.postgresql.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#django-db-backends-postgresql-client-module">django.db.backends.postgresql.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#django-db-backends-postgresql-compiler-module">django.db.backends.postgresql.compiler module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#django-db-backends-postgresql-creation-module">django.db.backends.postgresql.creation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#django-db-backends-postgresql-features-module">django.db.backends.postgresql.features module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#django-db-backends-postgresql-introspection-module">django.db.backends.postgresql.introspection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#django-db-backends-postgresql-operations-module">django.db.backends.postgresql.operations module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#django-db-backends-postgresql-psycopg-any-module">django.db.backends.postgresql.psycopg_any module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#django-db-backends-postgresql-schema-module">django.db.backends.postgresql.schema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.postgresql.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="django.db.backends.sqlite3.html">django.db.backends.sqlite3 package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.sqlite3.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.sqlite3.html#django-db-backends-sqlite3-base-module">django.db.backends.sqlite3.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.sqlite3.html#django-db-backends-sqlite3-client-module">django.db.backends.sqlite3.client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.sqlite3.html#django-db-backends-sqlite3-creation-module">django.db.backends.sqlite3.creation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.sqlite3.html#django-db-backends-sqlite3-features-module">django.db.backends.sqlite3.features module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.sqlite3.html#django-db-backends-sqlite3-introspection-module">django.db.backends.sqlite3.introspection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.sqlite3.html#django-db-backends-sqlite3-operations-module">django.db.backends.sqlite3.operations module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.sqlite3.html#django-db-backends-sqlite3-schema-module">django.db.backends.sqlite3.schema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.backends.sqlite3.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.backends.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.backends.html#django-db-backends-ddl-references-module">django.db.backends.ddl_references module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.backends.html#django-db-backends-signals-module">django.db.backends.signals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.backends.html#django-db-backends-utils-module">django.db.backends.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.backends.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django.db.migrations.html">django.db.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="django.db.migrations.operations.html">django.db.migrations.operations package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.migrations.operations.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.migrations.operations.html#django-db-migrations-operations-base-module">django.db.migrations.operations.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.migrations.operations.html#django-db-migrations-operations-fields-module">django.db.migrations.operations.fields module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.migrations.operations.html#django-db-migrations-operations-models-module">django.db.migrations.operations.models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.migrations.operations.html#django-db-migrations-operations-special-module">django.db.migrations.operations.special module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.migrations.operations.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-autodetector-module">django.db.migrations.autodetector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-exceptions-module">django.db.migrations.exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-executor-module">django.db.migrations.executor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-graph-module">django.db.migrations.graph module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-loader-module">django.db.migrations.loader module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-migration-module">django.db.migrations.migration module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-optimizer-module">django.db.migrations.optimizer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-questioner-module">django.db.migrations.questioner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-recorder-module">django.db.migrations.recorder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-serializer-module">django.db.migrations.serializer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-state-module">django.db.migrations.state module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-utils-module">django.db.migrations.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#django-db-migrations-writer-module">django.db.migrations.writer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.migrations.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="django.db.models.html">django.db.models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="django.db.models.fields.html">django.db.models.fields package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-composite-module">django.db.models.fields.composite module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-files-module">django.db.models.fields.files module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-generated-module">django.db.models.fields.generated module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-json-module">django.db.models.fields.json module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-mixins-module">django.db.models.fields.mixins module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-proxy-module">django.db.models.fields.proxy module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-related-module">django.db.models.fields.related module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-related-descriptors-module">django.db.models.fields.related_descriptors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-related-lookups-module">django.db.models.fields.related_lookups module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-reverse-related-module">django.db.models.fields.reverse_related module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#django-db-models-fields-tuple-lookups-module">django.db.models.fields.tuple_lookups module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.fields.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="django.db.models.functions.html">django.db.models.functions package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#django-db-models-functions-comparison-module">django.db.models.functions.comparison module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#django-db-models-functions-datetime-module">django.db.models.functions.datetime module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#django-db-models-functions-json-module">django.db.models.functions.json module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#django-db-models-functions-math-module">django.db.models.functions.math module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#django-db-models-functions-mixins-module">django.db.models.functions.mixins module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#django-db-models-functions-text-module">django.db.models.functions.text module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#django-db-models-functions-uuid-module">django.db.models.functions.uuid module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#django-db-models-functions-window-module">django.db.models.functions.window module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.functions.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="django.db.models.sql.html">django.db.models.sql package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.sql.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.sql.html#django-db-models-sql-compiler-module">django.db.models.sql.compiler module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.sql.html#django-db-models-sql-constants-module">django.db.models.sql.constants module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.sql.html#django-db-models-sql-datastructures-module">django.db.models.sql.datastructures module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.sql.html#django-db-models-sql-query-module">django.db.models.sql.query module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.sql.html#django-db-models-sql-subqueries-module">django.db.models.sql.subqueries module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.sql.html#django-db-models-sql-where-module">django.db.models.sql.where module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="django.db.models.sql.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-aggregates-module">django.db.models.aggregates module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-base-module">django.db.models.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-constants-module">django.db.models.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-constraints-module">django.db.models.constraints module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-deletion-module">django.db.models.deletion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-enums-module">django.db.models.enums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-expressions-module">django.db.models.expressions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-fetch-modes-module">django.db.models.fetch_modes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-indexes-module">django.db.models.indexes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-lookups-module">django.db.models.lookups module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-manager-module">django.db.models.manager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-options-module">django.db.models.options module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-query-module">django.db.models.query module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-query-utils-module">django.db.models.query_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-signals-module">django.db.models.signals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#django-db-models-utils-module">django.db.models.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django.db.models.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-db-transaction-module">
+<h2>django.db.transaction module<a class="headerlink" href="#django-db-transaction-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="django-db-utils-module">
+<h2>django.db.utils module<a class="headerlink" href="#django-db-utils-module" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Django</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción al proyecto Django</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">django</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="django.html">django package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">django</a><ul>
+  <li><a href="django.html">django package</a><ul>
+      <li>Previous: <a href="django.core.servers.html" title="capítulo anterior">django.core.servers package</a></li>
+      <li>Next: <a href="django.db.backends.html" title="próximo capítulo">django.db.backends package</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Sirley Mora.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/api/django.db.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

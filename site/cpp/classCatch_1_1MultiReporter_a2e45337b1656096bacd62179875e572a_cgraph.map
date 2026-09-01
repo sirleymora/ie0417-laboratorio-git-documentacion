@@ -1,0 +1,7 @@
+<map id="Catch::MultiReporter::assertionEnded" name="Catch::MultiReporter::assertionEnded">
+<area shape="rect" id="Node000001" title="Called after assertion was fully evaluated." alt="" coords="5,37,161,77"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1AssertionResult.html#ac810750194e1722489d2fd16e8c6a4a8" title=" " alt="" coords="243,5,412,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,44,229,36,229,41,162,50"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1IConfig.html#a2f1b0391019b9ce69921527a684eab23" title=" " alt="" coords="209,69,445,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,65,196,69,196,75,161,70"/>
+</map>

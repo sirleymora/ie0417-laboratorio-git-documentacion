@@ -1,0 +1,7 @@
+<map id="Catch::shouldShowDuration" name="Catch::shouldShowDuration">
+<area shape="rect" id="Node000001" title="Should the reporter show duration of test given current configuration?" alt="" coords="235,45,436,70"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1CompactReporter.html#a7e19f270f40f428470eb89a826fb07a1" title="Called after a SECTION has finished running." alt="" coords="5,5,187,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,45,186,40,187,35,227,40"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1ConsoleReporter.html#a7ba7b75fa4a7e88d71782a1800523d78" title="Called after a SECTION has finished running." alt="" coords="9,69,183,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,74,184,80,183,75,226,69"/>
+</map>

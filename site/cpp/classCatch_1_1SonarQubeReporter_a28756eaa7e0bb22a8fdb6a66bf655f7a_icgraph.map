@@ -1,0 +1,9 @@
+<map id="Catch::SonarQubeReporter::writeTestCase" name="Catch::SonarQubeReporter::writeTestCase">
+<area shape="rect" id="Node000001" title=" " alt="" coords="733,5,928,45"/>
+<area shape="rect" id="Node000002" href="$classCatch_1_1SonarQubeReporter.html#af036e53a767f62bb717be5f44cf71d29" title=" " alt="" coords="491,5,685,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="719,28,686,28,686,23,719,23"/>
+<area shape="rect" id="Node000003" href="$classCatch_1_1SonarQubeReporter.html#a327ca03fcdfa7afec48861cd54241cdd" title=" " alt="" coords="248,5,443,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="477,28,443,28,443,23,477,23"/>
+<area shape="rect" id="Node000004" href="$classCatch_1_1SonarQubeReporter.html#a770aaa74035d32ca5b7cebeb64012516" title="Customization point: called after last test finishes (testRunEnded has been handled)" alt="" coords="5,5,200,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="234,28,200,28,200,23,234,23"/>
+</map>
