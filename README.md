@@ -49,8 +49,8 @@ sphinx-build -b html sphinx/source sphinx/build/html
 
 ### Herramientas utilizadas
 
-**Git:** `PENDIENTE`
-**Doxygen:** `PENDIENTE`
-**Graphviz:** `PENDIENTE`
-**Python:** `PENDIENTE`
+**Git:** 2.43.0  
+**Doxygen:** 1.9.8  
+**Graphviz:** 2.43.0  
+**Python:** 3.12.3  
 **Sphinx:** `PENDIENTE`
