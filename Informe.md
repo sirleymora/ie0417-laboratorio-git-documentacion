@@ -225,7 +225,7 @@ La presencia de estos archivos demuestra que la documentación no se limitó a g
 
 La página principal de la documentación identifica el proyecto Catch2 y el commit específico analizado. Además, presenta la barra de navegación que permite acceder a los espacios de nombres, clases y archivos documentados. La interfaz también incorpora el buscador proporcionado por Doxygen.
 
-![Referencia del namespace Catch](Evidencias/Evidencia1.png)
+![Referencia del namespace Catch](Evidencias/Evidencia1.jpg)
 
 ### Evidencia 2 — Organización del namespace `Catch`
 
