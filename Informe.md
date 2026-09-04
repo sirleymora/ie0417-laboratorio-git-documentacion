@@ -225,7 +225,7 @@ La presencia de estos archivos demuestra que la documentación no se limitó a g
 
 La página principal de la documentación identifica el proyecto Catch2 y el commit específico analizado. Además, presenta la barra de navegación que permite acceder a los espacios de nombres, clases y archivos documentados. La interfaz también incorpora el buscador proporcionado por Doxygen.
 
-![Página principal de la documentación Doxygen](Evidencia 1.png)
+![Página principal de la documentación Doxygen](Evidencias/Evidencia 1.png)
 
 ### Evidencia 2 — Organización del namespace `Catch`
 
@@ -239,7 +239,7 @@ La página también proporciona navegación hacia otras categorías de entidades
 
 Esta evidencia permite observar que Doxygen no solamente genera páginas individuales para las clases, sino que también construye una estructura de navegación que representa la organización lógica del código fuente.
 
-![Referencia del namespace Catch](Evidencia 2.png)
+![Referencia del namespace Catch](Evidencias/Evidencia 2.png)
 
 
 ### Evidencia 3 — Documentación de la clase `AssertionResult`
@@ -254,7 +254,7 @@ Además, la página conserva la navegación general proporcionada por Doxygen, p
 
 La documentación generada permite distinguir entre la información estructural obtenida directamente del código, como la existencia de la clase y sus miembros, y las descripciones adicionales provenientes de los comentarios estructurados presentes en el código fuente.
 
-![Documentación de la clase AssertionResult] (Evidencia 1.png)
+![Documentación de la clase AssertionResult] (Evidencias/Evidencia 3.png)
 
 
 ### 8.4 Análisis de la documentación Sphinx
