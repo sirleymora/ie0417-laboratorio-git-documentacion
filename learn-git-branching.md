@@ -23,7 +23,7 @@ a dicha rama.
 Se crearon dos nuevos commits consecutivos. La rama actual apunta al
 segundo commit creado y `HEAD` continúa apuntando a la rama actual.
 
-![Nivel completado](evidencias/M1-1.png)
+![Nivel completado](Evidencias/M1-1.png)
 
 **Aprendizaje:**  
 
