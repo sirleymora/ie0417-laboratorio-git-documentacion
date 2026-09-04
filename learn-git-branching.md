@@ -692,7 +692,8 @@ específicos al copiarlos sobre una rama. También aprendí que
 un commit determinado, lo que resulta útil para actualizar ramas de
 forma precisa.
 
-### Main completo ![Nivel completado](Evidencias/Main completo.png)
+### Main completo 
+![Nivel completado](Evidencias/MainCompleto.png)
 
 # Remote
 
@@ -1199,7 +1200,8 @@ Los commits especificados desde el repositorio remoto `origin` son descargados h
 
 Aprendí que `git pull` es un atajo para ejecutar un `git fetch` seguido de un `git merge`. También aprendí que puede utilizar la sintaxis `<origen>:<destino>` para indicar específicamente de dónde descargar los commits y en qué rama local almacenarlos antes de realizar la fusión con la rama actual.
 
-### Remote completo ![Nivel completado](Evidencias/Remote completo.png)
+### Remote completo 
+![Nivel completado](Evidencias/RemoteCompleto.png)
 
 ## Tabla resumen de niveles
 
