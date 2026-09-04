@@ -55,7 +55,7 @@ Se creó la rama `bugfix` y `HEAD` quedó apuntando a ella. La rama
 `main` permanece en su posición original, mientras que `bugfix` puede
 avanzar independientemente.
 
-![Nivel completado](evidencias/M1-2.png)
+![Nivel completado](Evidencias/M1-2.png)
 
 **Aprendizaje:**  
 
@@ -92,7 +92,7 @@ La rama `main` contiene tanto el trabajo realizado directamente en
 el merge tiene dos padres, por lo que el historial refleja que las dos
 líneas de desarrollo fueron unificadas.
 
-![Nivel completado](evidencias/M1-3.png)
+![Nivel completado](Evidencias/M1-3.png)
 
 **Aprendizaje:**  
 
@@ -127,7 +127,7 @@ La rama `bugFix` queda ubicada después del último commit de `main`.
 El commit original de `bugFix` es reemplazado en la nueva línea de
 historial por una copia con un nuevo identificador.
 
-![Nivel completado](evidencias/M1-4.png)
+![Nivel completado](Evidencias/M1-4.png)
 
 **Aprendizaje:**  
 
@@ -158,7 +158,7 @@ commit objetivo del ejercicio.
 seleccionado en lugar de seguir a la rama `bugFix`. La rama `bugFix`
 permanece apuntando al mismo commit.
 
-![Nivel completado](evidencias/M2-1.png)
+![Nivel completado](Evidencias/M2-1.png)
 
 **Aprendizaje:**  
 
@@ -187,7 +187,7 @@ a dicha rama.
 `HEAD` queda ubicado en el commit padre de `bugFix`, mientras que la
 rama `bugFix` permanece apuntando a su commit original.
 
-![Nivel completado](evidencias/M2-2.png)
+![Nivel completado](Evidencias/M2-2.png)
 
 **Aprendizaje:**  
 
@@ -219,7 +219,7 @@ La rama `bugFix` apunta a `C0` y la rama `main` apunta a `C6`. `HEAD`
 queda ubicado en `C1`, cumpliendo las posiciones requeridas por el
 ejercicio.
 
-![Nivel completado](evidencias/M2-3.png)
+![Nivel completado](Evidencias/M2-3.png)
 
 **Aprendizaje:**  
 
@@ -253,7 +253,7 @@ La rama `local` queda ubicada en el commit anterior mediante `git reset`,
 mientras que la rama `pushed` conserva su historial y contiene un nuevo
 commit que revierte los cambios del commit anterior mediante `git revert`.
 
-![Nivel completado](evidencias/M2-4.png)
+![Nivel completado](Evidencias/M2-4.png)
 
 **Aprendizaje:**  
 
@@ -285,7 +285,7 @@ es copiar los commits `C3`, `C4` y `C7` hacia la rama `main`.
 La rama `main` contiene los cambios de los commits `C3`, `C4` y `C7`
 como nuevos commits sobre su historial.
 
-![Nivel completado](evidencias/M3-1.png)
+![Nivel completado](Evidencias/M3-1.png)
 
 **Aprendizaje:**  
 
@@ -316,7 +316,7 @@ modificar su orden según la visualización objetivo del ejercicio.
 La rama `main` queda con los últimos cuatro commits reorganizados de
 acuerdo con el orden indicado en la visualización objetivo del ejercicio.
 
-![Nivel completado](evidencias/M3-2.png)
+![Nivel completado](Evidencias/M3-2.png)
 
 **Aprendizaje:**  
 
@@ -353,7 +353,7 @@ Los cambios de `app.js` y `styles.css` quedan registrados en dos
 commits independientes, manteniendo cada commit enfocado en un solo
 archivo.
 
-![Nivel completado](evidencias/M3-3.png)
+![Nivel completado](Evidencias/M3-3.png)
 
 **Aprendizaje:**  
 
@@ -389,7 +389,7 @@ Se crea un commit limpio que contiene únicamente los cambios de
 utilizado posteriormente y los cambios de `experiment.js` son
 descartados.
 
-![Nivel completado](evidencias/M3-4.png)
+![Nivel completado](Evidencias/M3-4.png)
 
 **Aprendizaje:**  
 
@@ -425,7 +425,7 @@ La rama `main` recibe únicamente el commit referenciado por `bugFix`,
 sin incorporar los demás commits de depuración. De esta forma, el
 historial de `main` conserva solamente el cambio necesario.
 
-![Nivel completado](evidencias/M4-1.png)
+![Nivel completado](Evidencias/M4-1.png)
 
 **Aprendizaje:**  
 
@@ -462,7 +462,7 @@ La rama `main` queda apuntando al nuevo historial con los commits en su
 orden original. El commit modificado posee un apóstrofe adicional debido
 al proceso de reordenamiento y modificación.
 
-![Nivel completado](evidencias/M4-2.png)
+![Nivel completado](Evidencias/M4-2.png)
 
 **Aprendizaje:**  
 
@@ -499,7 +499,7 @@ La rama `main` contiene el commit `C2` modificado seguido por `C3`.
 De esta manera se obtiene el resultado requerido sin utilizar
 `git rebase -i`.
 
-![Nivel completado](evidencias/M4-3.png)
+![Nivel completado](Evidencias/M4-3.png)
 
 **Aprendizaje:**  
 
@@ -535,7 +535,7 @@ respectivamente. `HEAD` queda ubicado sobre el tag `v1` en estado
 *detached*, ya que los tags son referencias fijas que no avanzan con
 nuevos commits.
 
-![Nivel completado](evidencias/M4-4.png)
+![Nivel completado](Evidencias/M4-4.png)
 
 **Aprendizaje:**  
 
@@ -570,7 +570,7 @@ completando el nivel. Durante el ejercicio se utilizó `git describe`
 para comprender cómo Git identifica un commit en relación con el tag
 más cercano.
 
-![Nivel completado](evidencias/M4-5.png)
+![Nivel completado](Evidencias/M4-5.png)
 
 **Aprendizaje:**  
 
@@ -608,7 +608,7 @@ commits se encuentran en un historial lineal y secuencial, con `C7`
 ubicado al final, seguido de `C6` y los demás commits en el orden
 requerido por el ejercicio.
 
-![Nivel completado](evidencias/M5-1.png)
+![Nivel completado](Evidencias/M5-1.png)
 
 **Aprendizaje:**  
 
@@ -642,7 +642,7 @@ La rama `bugWork` queda ubicada en el commit indicado por el ejercicio,
 siguiendo correctamente el segundo padre del commit de merge y los
 ancestros correspondientes mediante las referencias relativas.
 
-![Nivel completado](evidencias/M5-2.png)
+![Nivel completado](Evidencias/M5-2.png)
 
 **Aprendizaje:**  
 
@@ -682,7 +682,7 @@ requisitos del ejercicio. `one` contiene los commits reorganizados sin
 `C5`, `two` contiene los commits en el orden requerido y `three` queda
 ubicada directamente en `C2`.
 
-![Nivel completado](evidencias/M5-3.png)
+![Nivel completado](Evidencias/M5-3.png)
 
 **Aprendizaje:**  
 
@@ -718,7 +718,7 @@ Se crea un repositorio remoto asociado al proyecto. El repositorio local
 mantiene su historial y queda preparado para comenzar a trabajar con
 operaciones de Git remoto en los siguientes niveles.
 
-![Nivel completado](evidencias/R1-1.png)
+![Nivel completado](Evidencias/R1-1.png)
 
 **Aprendizaje:**  
 
@@ -756,7 +756,7 @@ La rama local `main` contiene el primer commit realizado, mientras que
 checkout de `o/main`, `HEAD` queda en estado *detached* y el segundo
 commit no mueve la referencia de la rama remota.
 
-![Nivel completado](evidencias/R1-2.png)
+![Nivel completado](Evidencias/R1-2.png)
 
 **Aprendizaje:**  
 
@@ -792,7 +792,7 @@ repositorio local y la rama remota `o/main` se actualiza para reflejar
 el estado actual del repositorio remoto. La rama local `main` y los
 archivos del directorio de trabajo no se modifican.
 
-![Nivel completado](evidencias/R1-3.png)
+![Nivel completado](Evidencias/R1-3.png)
 
 **Aprendizaje:**  
 
@@ -825,7 +825,7 @@ repositorio remoto. `git pull` realiza de forma conjunta las operaciones
 de `git fetch` y `git merge`, evitando tener que ejecutar ambos comandos
 por separado.
 
-![Nivel completado](evidencias/R1-4.png)
+![Nivel completado](Evidencias/R1-4.png)
 
 **Aprendizaje:**  
 
@@ -861,7 +861,7 @@ El repositorio local contiene tanto el trabajo realizado localmente como
 el cambio simulado del colaborador. Los cambios del repositorio remoto
 fueron descargados e integrados mediante `git pull`.
 
-![Nivel completado](evidencias/R1-5.png)
+![Nivel completado](Evidencias/R1-5.png)
 
 **Aprendizaje:**  
 
@@ -896,7 +896,7 @@ Los dos nuevos commits realizados localmente son enviados al repositorio
 remoto. La rama local y la rama remota quedan sincronizadas en el último
 commit publicado.
 
-![Nivel completado](evidencias/R1-6.png)
+![Nivel completado](Evidencias/R1-6.png)
 
 **Aprendizaje:**  
 
@@ -935,7 +935,7 @@ mediante un commit de merge. Posteriormente, `git push` publica el
 historial actualizado en el repositorio remoto, dejando ambas versiones
 sincronizadas.
 
-![Nivel completado](evidencias/R1-7.png)
+![Nivel completado](Evidencias/R1-7.png)
 
 **Aprendizaje:**  
 
@@ -975,7 +975,7 @@ que el trabajo que se había realizado sobre `main` queda conservado en
 la nueva rama `feature`. Esta rama es publicada en el repositorio remoto
 y puede utilizarse posteriormente para crear un Pull Request.
 
-![Nivel completado](evidencias/R1-8.png)
+![Nivel completado](Evidencias/R1-8.png)
 
 **Aprendizaje:**  
 
@@ -1009,7 +1009,7 @@ El repositorio contiene tres ramas de trabajo: `side1`, `side2` y `side3`. Adem�
 
 La rama `main` contiene los cambios provenientes de `side1`, `side2` y `side3`, además de los cambios que estaban previamente en el repositorio remoto. El historial queda organizado de forma lineal y los cambios son publicados mediante `git push`.
 
-![Nivel completado](evidencias/R2-1.png)
+![Nivel completado](Evidencias/R2-1.png)
 
 ****Aprendizaje:****
 
@@ -1039,7 +1039,7 @@ El repositorio contiene tres ramas de trabajo: `side1`, `side2` y `side3`. Adem�
 
 La rama `main` contiene los cambios del repositorio remoto y el trabajo realizado en `side1`, `side2` y `side3`. A diferencia del nivel anterior, los cambios se integran mediante `merge`, conservando la historia de las diferentes ramas y evitando reescribir los commits existentes.
 
-![Nivel completado](evidencias/R2-2.png)
+![Nivel completado](Evidencias/R2-2.png)
 
 ****Aprendizaje:****
 
@@ -1066,7 +1066,7 @@ El repositorio contiene una rama remota `o/main` y una rama local `main`. El obj
 
 La rama local `side` queda configurada para trackear `o/main`. Después de realizar el commit y sincronizar los cambios mediante `git pull --rebase`, el trabajo se publica en el repositorio remoto utilizando `git push`, sin necesidad de cambiar a la rama local `main`.
 
-![Nivel completado](evidencias/R2-3.png)
+![Nivel completado](Evidencias/R2-3.png)
 
 ****Aprendizaje:****
 
@@ -1091,7 +1091,7 @@ El repositorio contiene las ramas locales `main` y `foo`, además de un reposito
 
 Las ramas `main` y `foo` del repositorio remoto `origin` quedan actualizadas con los commits correspondientes de las ramas locales.
 
-![Nivel completado](evidencias/R2-4.png)
+![Nivel completado](Evidencias/R2-4.png)
 
 ****Aprendizaje:****
 
@@ -1116,7 +1116,7 @@ El repositorio contiene las ramas locales `main` y `foo`, además de un reposito
 
 La rama `foo` del repositorio remoto queda actualizada con la referencia indicada desde `main`, y posteriormente la rama `main` del repositorio remoto queda actualizada con los commits de la rama local `foo`.
 
-![Nivel completado](evidencias/R2-5.png)
+![Nivel completado](Evidencias/R2-5.png)
 
 ****Aprendizaje:****
 
@@ -1141,7 +1141,7 @@ El repositorio contiene ramas locales y ramas remotas asociadas al repositorio `
 
 Los commits especificados desde el repositorio remoto `origin` quedan descargados en las ramas locales correspondientes: `c3` se lleva a `foo` y `c6` se lleva a `main`.
 
-![Nivel completado](evidencias/R2-6.png)
+![Nivel completado](Evidencias/R2-6.png)
 
 ****Aprendizaje:****
 
@@ -1166,7 +1166,7 @@ El repositorio contiene ramas locales y remotas que serán modificadas mediante 
 
 La rama remota `foo` es eliminada del repositorio `origin` y se crea la rama local `bar` mediante `git fetch` utilizando un origen vacío.
 
-![Nivel completado](evidencias/R2-7.png)
+![Nivel completado](Evidencias/R2-7.png)
 
 ****Aprendizaje:****
 
@@ -1191,7 +1191,7 @@ El repositorio contiene ramas locales y remotas que serán utilizadas para desca
 
 Los commits especificados desde el repositorio remoto `origin` son descargados hacia las ramas locales `foo` y `side`, y posteriormente cada una de estas ramas se fusiona con la rama actual mediante el comportamiento combinado de `git fetch` y `git merge`.
 
-![Nivel completado](evidencias/R2-8.png)
+![Nivel completado](Evidencias/R2-8.png)
 
 ****Aprendizaje:****
 
