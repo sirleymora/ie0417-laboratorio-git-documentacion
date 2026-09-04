@@ -1097,6 +1097,105 @@ Las ramas `main` y `foo` del repositorio remoto `origin` quedan actualizadas con
 
 Aprendí que `git push` puede recibir un repositorio remoto y una rama como parámetros. La estructura `git push <remoto> <lugar>` permite especificar explícitamente de dónde tomar los commits y hacia qué rama del repositorio remoto enviarlos, sin depender de la rama en la que se encuentre `HEAD`.
 
+### R2.5 - Refspec con dos puntos
+
+****Objetivo:****
+
+Aprender a utilizar la sintaxis `<origen>:<destino>` en `git push` para especificar de manera independiente la rama o referencia local de la cual se tomarán los commits y la rama remota a la cual serán enviados.
+
+****Estado inicial:****
+
+El repositorio contiene las ramas locales `main` y `foo`, además de un repositorio remoto llamado `origin`. En este nivel se debe utilizar la sintaxis de refspec con dos puntos para enviar commits desde una rama o referencia local hacia una rama específica del repositorio remoto.
+
+| Paso | Comando                     | Efecto sobre el repositorio                                                                                                              |
+| ---: | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+|    1 | `git push origin main^:foo` | Toma la referencia `main^`, que corresponde al commit anterior de `main`, y la publica en la rama `foo` del repositorio remoto `origin`. |
+|    2 | `git push origin foo:main`  | Toma los commits de la rama local `foo` y los publica en la rama `main` del repositorio remoto `origin`.                                 |
+
+****Estado final:****
+
+La rama `foo` del repositorio remoto queda actualizada con la referencia indicada desde `main`, y posteriormente la rama `main` del repositorio remoto queda actualizada con los commits de la rama local `foo`.
+
+![Nivel completado](evidencias/R2-5.png)
+
+****Aprendizaje:****
+
+Aprendí que `git push` permite especificar de forma independiente el origen y el destino mediante la sintaxis `<origen>:<destino>`. Esto permite enviar los commits de una rama o referencia local hacia una rama diferente en el repositorio remoto. También aprendí que el origen no tiene que ser necesariamente una rama, ya que Git puede utilizar otras referencias, como `main^`, para seleccionar un commit específico.
+
+### R2.6 - Parámetros de `git fetch`
+
+****Objetivo:****
+
+Aprender a utilizar los parámetros de `git fetch` para especificar explícitamente qué commits del repositorio remoto se desean descargar y hacia qué rama o referencia local deben dirigirse. También comprender la diferencia en la sintaxis `<origen>:<destino>` con respecto a `git push`.
+
+****Estado inicial:****
+
+El repositorio contiene ramas locales y ramas remotas asociadas al repositorio `origin`. En este nivel se debe utilizar una refspec con dos puntos para indicar tanto el origen remoto de los commits como el destino local donde serán almacenados.
+
+| Paso | Comando                    | Efecto sobre el repositorio                                                                                        |
+| ---: | -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+|    1 | `git fetch origin c3:foo`  | Descarga desde `origin` los commits correspondientes a la referencia `c3` y los incorpora en la rama local `foo`.  |
+|    2 | `git fetch origin c6:main` | Descarga desde `origin` los commits correspondientes a la referencia `c6` y los incorpora en la rama local `main`. |
+
+****Estado final:****
+
+Los commits especificados desde el repositorio remoto `origin` quedan descargados en las ramas locales correspondientes: `c3` se lleva a `foo` y `c6` se lleva a `main`.
+
+![Nivel completado](evidencias/r2-6.png)
+
+****Aprendizaje:****
+
+Aprendí que `git fetch` también permite utilizar una refspec con la estructura `<origen>:<destino>`, pero en dirección opuesta a `git push`. En este caso, el origen corresponde a una referencia del repositorio remoto y el destino corresponde a una rama o referencia local. Esto permite controlar específicamente qué commits se descargan y dónde se almacenan localmente.
+
+### R2.7 - Rarezas de `<origen>`
+
+****Objetivo:****
+
+Aprender los comportamientos especiales que se producen al utilizar un origen vacío en los comandos `git push` y `git fetch`, y comprender cómo Git utiliza esta sintaxis para eliminar ramas remotas o crear nuevas ramas locales.
+
+****Estado inicial:****
+
+El repositorio contiene ramas locales y remotas que serán modificadas mediante un origen vacío. En este nivel se debe utilizar la sintaxis `:<destino>` para realizar las operaciones solicitadas.
+
+| Paso | Comando                | Efecto sobre el repositorio                                                                                                |
+| ---: | ---------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+|    1 | `git push origin:foo`  | Realiza un push sin especificar un origen, lo que provoca que la rama remota `foo` sea eliminada del repositorio `origin`. |
+|    2 | `git fetch origin:bar` | Realiza un fetch sin especificar un origen, creando la rama local `bar`.                                                   |
+
+****Estado final:****
+
+La rama remota `foo` es eliminada del repositorio `origin` y se crea la rama local `bar` mediante `git fetch` utilizando un origen vacío.
+
+![Nivel completado](evidencias/r2-7.png)
+
+****Aprendizaje:****
+
+Aprendí que Git permite utilizar un origen vacío en los comandos `git push` y `git fetch`. En `git push`, enviar "nada" hacia una rama remota provoca que dicha rama sea eliminada. En cambio, en `git fetch`, utilizar un origen vacío permite crear una nueva rama local en el destino especificado.
+
+### R2.8 - Parámetros de `git pull`
+
+****Objetivo:****
+
+Aprender a utilizar los parámetros de `git pull` y comprender que este comando es un atajo para realizar un `git fetch` seguido de un `git merge`. También aprender a utilizar la sintaxis `<origen>:<destino>` para especificar dónde descargar los commits y posteriormente fusionarlos con la rama actual.
+
+****Estado inicial:****
+
+El repositorio contiene ramas locales y remotas que serán utilizadas para descargar commits y realizar las fusiones correspondientes. En este nivel se deben utilizar parámetros de origen y destino para alcanzar el estado objetivo.
+
+| Paso | Comando                   | Efecto sobre el repositorio                                                                                                                              |
+| ---: | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    1 | `git pull origin c3:foo`  | Descarga desde `origin` la referencia `c3` y la incorpora en una nueva rama local `foo`. Posteriormente, realiza un merge de `foo` sobre la rama actual. |
+|    2 | `git pull origin c2:side` | Descarga desde `origin` la referencia `c2` y la incorpora en la rama local `side`. Posteriormente, realiza un merge de `side` sobre la rama actual.      |
+
+****Estado final:****
+
+Los commits especificados desde el repositorio remoto `origin` son descargados hacia las ramas locales `foo` y `side`, y posteriormente cada una de estas ramas se fusiona con la rama actual mediante el comportamiento combinado de `git fetch` y `git merge`.
+
+![Nivel completado](evidencias/r2-8.png)
+
+****Aprendizaje:****
+
+Aprendí que `git pull` es un atajo para ejecutar un `git fetch` seguido de un `git merge`. También aprendí que puede utilizar la sintaxis `<origen>:<destino>` para indicar específicamente de dónde descargar los commits y en qué rama local almacenarlos antes de realizar la fusión con la rama actual.
 
 
 ## Tabla resumen de niveles
